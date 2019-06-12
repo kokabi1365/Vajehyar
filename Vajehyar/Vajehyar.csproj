@@ -85,6 +85,9 @@
     <Reference Include="System.Xaml">
       <RequiredTargetFramework>4.0</RequiredTargetFramework>
     </Reference>
+    <Reference Include="Toast, Version=1.0.0.1, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\AndroidToast.1.0.0.2\lib\Toast.dll</HintPath>
+    </Reference>
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
@@ -110,12 +113,14 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Database.cs" />
+    <Compile Include="MeaningGroup.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="Utility\GithubHelper.cs" />
+    <Compile Include="Utility\Utils.cs" />
     <Compile Include="Windows\AboutWindow.xaml.cs">
       <DependentUpon>AboutWindow.xaml</DependentUpon>
     </Compile>
@@ -126,6 +131,7 @@
     <Compile Include="Windows\SettingWindow.xaml.cs">
       <DependentUpon>SettingWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Word.cs" />
     <Page Include="Windows\AboutWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -201,9 +207,6 @@
     <Resource Include="Resources\Icons\Vajehyar.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Dicts\Motaradef-Motazad.txt" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\Dicts\Teyfi.txt" />
   </ItemGroup>
   <ItemGroup>
@@ -244,6 +247,9 @@
     <Resource Include="Resources\Icons\Email-16.png" />
     <Resource Include="Resources\Icons\Github-16.png" />
     <Resource Include="Resources\Icons\Virgool-16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Dicts\Motaradef_Motazad.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Fody.5.0.0\build\Fody.targets" Condition="Exists('..\packages\Fody.5.0.0\build\Fody.targets')" />

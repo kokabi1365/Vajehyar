@@ -162,6 +162,40 @@
             </Setter>
         </Style>
 
+        <Style x:Key="WordStyle" TargetType="Button">
+            <Setter Property="Margin" Value="3,5,3,5"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+
+                        <Border
+                            x:Name="border"
+                            Background="{TemplateBinding Background}"
+                            CornerRadius="2"
+                            RenderTransformOrigin="0.5,0.5">
+                            <ContentPresenter
+                                Margin="5,0,5,0"
+                                
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center" />
+                        </Border>
+
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter TargetName="border" Property="RenderTransform">
+                                    <Setter.Value>
+                                        <ScaleTransform ScaleX="0.9" ScaleY="0.9" />
+                                    </Setter.Value>
+                                </Setter>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+
+
         <Style x:Key="ImageStyle" TargetType="Image">
             <Style.Triggers>
                 <Trigger Property="IsMouseOver" Value="True">

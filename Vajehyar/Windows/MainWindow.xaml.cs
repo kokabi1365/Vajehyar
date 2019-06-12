@@ -1,17 +1,21 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Globalization;
 using System.Text.RegularExpressions;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Input;
 using System.Windows.Markup;
 using System.Windows.Media;
+using System.Windows.Threading;
 using Vajehyar.Properties;
 using Vajehyar.Utility;
 using KeyEventArgs = System.Windows.Input.KeyEventArgs;
 using MessageBox = System.Windows.Forms.MessageBox;
+
 
 namespace Vajehyar.Windows
 {
@@ -20,18 +24,22 @@ namespace Vajehyar.Windows
     /// </summary>
     public partial class MainWindow : INotifyPropertyChanged
     {
-        private Database database;
-
-        /*private static FontFamily DefaultFont = new FontFamily(
-            new Uri("pack://application:,,,/Resources/Fonts/"),
-            "./#IRANSans"
-        );*/
-
-        private ICollectionView _lines;
-        public ICollectionView Lines
+        private bool _typedNonPersian;
+        public bool TypedNonPersian
         {
-            get => _lines;
-            set { _lines = value; NotifyPropertyChanged("Lines"); }
+            get => _typedNonPersian;
+            set
+            {
+                _typedNonPersian = value;
+                NotifyPropertyChanged("TypedNonPersian");
+            }
+        }
+
+        private ICollectionView _words;
+        public ICollectionView Words
+        {
+            get => _words;
+            set { _words = value; NotifyPropertyChanged("Words"); }
         }
 
         private string _hint;
@@ -44,9 +52,9 @@ namespace Vajehyar.Windows
         
         public MainWindow(Database database)
         {
-            InitializeComponent();
-            Lines = CollectionViewSource.GetDefaultView(database.Lines);
-            Lines.Filter = FilterResult;
+            InitializeComponent(); 
+            Words = CollectionViewSource.GetDefaultView(database.Words);
+            Words.Filter = FilterResult;
             Hint = $"جستجوی فارسی بین {database.GetCount().Round().Format()} واژه";
 
 #if (!DEBUG)
@@ -75,13 +83,13 @@ namespace Vajehyar.Windows
 
         private void FilterCollection()
         {
-            _lines?.Refresh();
+            _words?.Refresh();
         }
 
        
         public bool FilterResult(object obj)
         {
-            if (string.IsNullOrEmpty(_filterString))
+            /*if (string.IsNullOrEmpty(_filterString))
                 return false;
 
             string str = obj as string;
@@ -92,7 +100,8 @@ namespace Vajehyar.Windows
                 pattern = @"\b" + _filterString + @"\b";
             }
             
-            return Regex.IsMatch(str, pattern);
+            return Regex.IsMatch(str, pattern);*/
+            return true;
         }
 
         #region Events
@@ -169,7 +178,35 @@ namespace Vajehyar.Windows
 
             WindowState = WindowState.Minimized;
         }
+       
+
+        private async Task ShowMessage(string message)
+        {
+            AutoClosemessage.Text = message;
+            AutoCloseMessageContainer.Visibility = Visibility.Visible;
+            await Task.Delay(2000);
+           AutoCloseMessageContainer.Visibility = Visibility.Collapsed;
+           
+        }
+
+        private async void UIElement_OnMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            string word = (((Border) sender).Child as TextBlock).Text;
+            Clipboard.SetText(word);
+            string message = $"واژۀ «{word}» کپی شد.";
+            await ShowMessage(message);
+        }
+
+        private async void Word_OnClick(object sender, RoutedEventArgs e)
+        {
+            string word = (sender as Button).Content.ToString();
+            Clipboard.SetText(word);
+            string message = $"واژۀ «{word}» کپی شد.";
+            await ShowMessage(message);
+        }
     }
+
+
 
     public class DefaultFontConverter : MarkupExtension, IValueConverter
     {

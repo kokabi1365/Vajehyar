@@ -5,6 +5,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:local="clr-namespace:Vajehyar.Windows"
+    xmlns:toast="clr-namespace:Toast;assembly=Toast"
     Title="واژه‌یار"
     Width="650"
     ShowInTaskbar="{Binding Source={x:Static properties:Settings.Default}, Path=ShowInTaskbar, Mode=OneWay}"
@@ -33,7 +34,7 @@
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="SearchBorder">
                 <EasingDoubleKeyFrame KeyTime="0" Value="0.6"/>
             </DoubleAnimationUsingKeyFrames>
-        </Storyboard>        
+        </Storyboard>
     </Window.Resources>
     <Window.Triggers>
         <EventTrigger RoutedEvent="UIElement.GotKeyboardFocus" SourceName="txtSearch">
@@ -41,7 +42,7 @@
         </EventTrigger>
         <EventTrigger RoutedEvent="UIElement.LostKeyboardFocus" SourceName="txtSearch">
             <BeginStoryboard x:Name="Storyboard2_BeginStoryboard" Storyboard="{StaticResource Storyboard2}"/>
-        </EventTrigger>        
+        </EventTrigger>
     </Window.Triggers>
 
     <Border CornerRadius="10" BorderThickness="2" Background="AliceBlue" Padding="10" Margin="25">
@@ -55,6 +56,7 @@
                 <RowDefinition/>
                 <RowDefinition/>
                 <RowDefinition Height="Auto"/>
+                <RowDefinition />
             </Grid.RowDefinitions>
 
 
@@ -86,10 +88,11 @@
                                                 FontSize="{Binding Source={x:Static properties:Settings.Default}, Path=FontSize, Mode=OneWay}"
                                                 FontWeight="Light"  Foreground="DimGray"/>
                             </DataTemplate>
-                            
+
                         </wpfTool:WatermarkTextBox.WatermarkTemplate>
                     </wpfTool:WatermarkTextBox>
                 </Border>
+                <Label Content="لطفاً فارسی تایپ کنید" HorizontalAlignment="Center" Margin="0,0,15,0" Visibility="{Binding TypedNonPersian, Converter={StaticResource BoolToVis}}" VerticalAlignment="Center" Foreground="OrangeRed"></Label>
                 <Label
                         Margin="10,0,0,0"
                         IsTabStop="False"
@@ -105,13 +108,14 @@
 
 
 
-<Separator x:Name="Seperator" IsTabStop="False" Grid.Row="2" Height="15" Visibility="{Binding ElementName=Datagrid, Path=Visibility}"/>
+            <Separator x:Name="Seperator" IsTabStop="False" Grid.Row="2" Height="15" Visibility="{Binding ElementName=Datagrid, Path=Visibility}"/>
 
-           
-                <DataGrid
+
+            <DataGrid
                         x:Name="Datagrid"
                         IsTabStop="False"
                         MaxHeight="200"
+                        GridLinesVisibility="Vertical"
                         MaxColumnWidth="{Binding ElementName=window, Path=Width}"
                         Grid.Row="3"
                         VerticalContentAlignment="Center"
@@ -119,59 +123,120 @@
                         AutoGenerateColumns="False"
                         HorizontalAlignment="Right"
                         BorderBrush="{x:Null}"
+                        
                         FontFamily="{Binding Source={x:Static properties:Settings.Default}, Path=Font, TargetNullValue={StaticResource IranSans}, Converter={StaticResource DefaultFontConverter}, Mode=OneWay}"
                         FontSize="{Binding Source={x:Static properties:Settings.Default}, Path=FontSize, Mode=OneWay}"
                         CanUserAddRows="False"
                         CanUserResizeRows="False"
                         EnableColumnVirtualization="True"
                         EnableRowVirtualization="True"
-                        FlowDirection="LeftToRight"
-                        HeadersVisibility="None"
+                        FlowDirection="RightToLeft"
+                        HeadersVisibility="Column"
                         HorizontalGridLinesBrush="White"
                         HorizontalScrollBarVisibility="Hidden"
-                        ItemsSource="{Binding Lines}"
+                        ItemsSource="{Binding Words}"
                         RowBackground="#FFCAEDFF"
                         SelectionMode="Single"
                         SelectionUnit="Cell"
                         VerticalGridLinesBrush="White">
 
-                    <DataGrid.Style>
-                        <Style TargetType="DataGrid">
-                            <Style.Triggers>
-                                <DataTrigger Binding="{Binding  Items.Count, RelativeSource={RelativeSource Self}}" Value="0">
-                                    <Setter Property="Visibility" Value="Collapsed"/>
-                                </DataTrigger>
-                            </Style.Triggers>
-                        </Style>
+                <DataGrid.CellStyle>
+                    <Style TargetType="DataGridCell">
+                        <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+                        <Style.Triggers>
+                            <Trigger Property="IsSelected" Value="True">
+                                <Setter Property="Background" Value="Transparent"/>
+                                <Setter Property="BorderBrush" Value="Transparent"/>
+                                <Setter Property="Foreground" Value="Black"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </DataGrid.CellStyle>
 
-                    </DataGrid.Style>
+                <DataGrid.Style>
+                    <Style TargetType="DataGrid">
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding  Items.Count, RelativeSource={RelativeSource Self}}" Value="0">
+                                <Setter Property="Visibility" Value="Collapsed"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
 
-                    <DataGrid.Columns>
-                        <DataGridTextColumn Binding="{Binding Mode=OneTime}" 
+                </DataGrid.Style>
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="عنوان" Binding="{Binding Name, Mode=OneTime}" 
                                         CanUserReorder="False"
-                                        CanUserSort="False"
+                                        IsReadOnly="True"
                                         
+                                        CanUserSort="False"
                                         CanUserResize="False"
-                                        Width="*">
-                            <DataGridTextColumn.ElementStyle>
-                                <Style>
-                                    <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
-                                    <Setter Property="TextBlock.VerticalAlignment" Value="Center" />
-                                    <Setter Property="TextBlock.FlowDirection" Value="RightToLeft" />
-                                    <Setter Property="TextBlock.Padding" Value="7" />
+                                        Width="Auto">
+                        <DataGridTextColumn.ElementStyle>
+                            <Style>
+                                <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
+                                <Setter Property="TextBlock.VerticalAlignment" Value="Center" />
+                                <Setter Property="TextBlock.FlowDirection" Value="RightToLeft" />
+                                <Setter Property="TextBlock.Padding" Value="7" />
+                            </Style>
+                        </DataGridTextColumn.ElementStyle>
+                    </DataGridTextColumn>
+                    <DataGridTemplateColumn Header="گروه معنایی" Width="*" IsReadOnly="True">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <WrapPanel>
+                                    <ItemsControl ItemsSource="{Binding SynAcros}">
+                                        <ItemsControl.ItemTemplate>
+                                            <DataTemplate>
+                                                <WrapPanel Orientation="Horizontal">
+                                                    <ItemsControl ItemsSource="{Binding Syns}">
+                                                        <ItemsControl.ItemsPanel>
+                                                            <ItemsPanelTemplate>
+                                                                <WrapPanel/>
+                                                            </ItemsPanelTemplate>
+                                                        </ItemsControl.ItemsPanel>
+                                                        <ItemsControl.ItemTemplate>
+                                                            <DataTemplate>
+                                                                <Button Style="{StaticResource WordStyle}" Background="AntiqueWhite" Content="{Binding}" Click="Word_OnClick"/>
+                                                            </DataTemplate>
+                                                        </ItemsControl.ItemTemplate>
+                                                    </ItemsControl>
+                                                    <ItemsControl ItemsSource="{Binding Acros}" VerticalContentAlignment="Center">
+                                                        <ItemsControl.ItemsPanel>
+                                                            <ItemsPanelTemplate>
+                                                                <WrapPanel/>
+                                                            </ItemsPanelTemplate>
+                                                        </ItemsControl.ItemsPanel>
+                                                        <ItemsControl.ItemTemplate>
+                                                            <DataTemplate>
 
-                                </Style>
-                            </DataGridTextColumn.ElementStyle>
-                        </DataGridTextColumn>
-                    </DataGrid.Columns>
+                                                                <Button Style="{StaticResource WordStyle}" Background="OrangeRed" Content="{Binding}" Click="Word_OnClick"/>
 
-                    <DataGrid.Background>
-                        <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
-                            <GradientStop Offset="0" Color="#FFEDF9FF" />
-                            <GradientStop Offset="1" Color="White" />
-                        </LinearGradientBrush>
-                    </DataGrid.Background>
-                </DataGrid>
+                                                            </DataTemplate>
+                                                        </ItemsControl.ItemTemplate>
+                                                    </ItemsControl>
+                                                </WrapPanel>
+                                            </DataTemplate>
+                                        </ItemsControl.ItemTemplate>
+                                    </ItemsControl>
+                                </WrapPanel>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+
+                <DataGrid.Background>
+                    <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                        <GradientStop Offset="0" Color="#FFEDF9FF" />
+                        <GradientStop Offset="1" Color="White" />
+                    </LinearGradientBrush>
+                </DataGrid.Background>
+            </DataGrid>
+
+            <Border Name="AutoCloseMessageContainer" Grid.Row="5" Visibility="Collapsed" CornerRadius="15" HorizontalAlignment="Center" Background="LightGoldenrodYellow" Margin="0,10,0,0" Padding="15,3,15,3" VerticalAlignment="Center" >
+                <TextBlock Name="AutoClosemessage" Text=".واژه «خواندن» کپی شد" TextAlignment="Center" FontWeight="Bold"/>
+            </Border>
+
+
         </Grid>
     </Border>
 

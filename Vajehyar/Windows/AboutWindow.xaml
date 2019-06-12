@@ -7,7 +7,7 @@
     xmlns:properties="clr-namespace:Vajehyar.Properties"
     Title="About"
     Width="446.445"
-    Height="523.412"
+    Height="542.412"
     DataContext="{Binding RelativeSource={RelativeSource Self}}"
     FontFamily="{StaticResource IranSans}"
     Left="{Binding Source={x:Static properties:Settings.Default}, Path=AboutLeftPos, Mode=TwoWay}"
