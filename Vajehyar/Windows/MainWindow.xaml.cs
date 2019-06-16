@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Globalization;
+using System.Linq;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
@@ -89,19 +90,29 @@ namespace Vajehyar.Windows
        
         public bool FilterResult(object obj)
         {
-            /*if (string.IsNullOrEmpty(_filterString))
+            if (string.IsNullOrEmpty(_filterString))
                 return false;
-
-            string str = obj as string;
+            
             string pattern = _filterString;
 
             if (WholeWord.IsChecked==true)
             {
                 pattern = @"\b" + _filterString + @"\b";
             }
-            
-            return Regex.IsMatch(str, pattern);*/
-            return true;
+
+            return Regex.IsMatch(JoinWords(obj as Word), pattern);
+        }
+
+        private string JoinWords(Word word)
+        {
+            string result;
+            IEnumerable<string> list=new List<string>();
+            foreach (var groups in word.SynAcros)
+            {
+                list = groups.Syns.Concat(groups.Acros);
+            }
+
+            return string.Join(",", list.ToArray());
         }
 
         #region Events
@@ -187,14 +198,6 @@ namespace Vajehyar.Windows
             await Task.Delay(2000);
            AutoCloseMessageContainer.Visibility = Visibility.Collapsed;
            
-        }
-
-        private async void UIElement_OnMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
-        {
-            string word = (((Border) sender).Child as TextBlock).Text;
-            Clipboard.SetText(word);
-            string message = $"واژۀ «{word}» کپی شد.";
-            await ShowMessage(message);
         }
 
         private async void Word_OnClick(object sender, RoutedEventArgs e)
