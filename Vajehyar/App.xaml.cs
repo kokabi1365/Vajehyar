@@ -183,7 +183,7 @@ namespace Vajehyar
             _contextMenu.IsOpen = false;
             _mainWindow.WindowState = WindowState.Normal;
             _mainWindow.Show();
-            _mainWindow.Datagrid.UnselectAllCells();
+            _mainWindow.Datagrid_Motaradef.UnselectAllCells();
             _mainWindow.txtSearch.SelectAll();
             _mainWindow.txtSearch.Focus();
         }

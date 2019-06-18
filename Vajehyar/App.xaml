@@ -14,13 +14,13 @@
         <FontFamily x:Key="IranSans">pack://application:,,,/Resources/Fonts/#IRANSans</FontFamily>
         <FontFamily x:Key="IranSansNum">pack://application:,,,/Resources/Fonts/#IRANSans(FaNum)</FontFamily>
 
-        <Style TargetType="{x:Type TabControl}">
+        <Style x:Key="TabControlStyle" TargetType="{x:Type TabControl}">
             <Setter Property="Padding" Value="10,5,10,5" />
             <Setter Property="Margin" Value="3.5" />
             <Setter Property="Background" Value="AliceBlue" />
         </Style>
         <!-- Tab item styling -->
-        <Style TargetType="{x:Type TabItem}">
+        <Style x:Key="TabItemStyle" TargetType="{x:Type TabItem}">
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type TabItem}">

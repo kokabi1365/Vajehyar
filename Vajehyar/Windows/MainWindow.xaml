@@ -93,15 +93,6 @@
                     </wpfTool:WatermarkTextBox>
                 </Border>
                 <Label Content="لطفاً فارسی تایپ کنید" HorizontalAlignment="Center" Margin="0,0,15,0" Visibility="{Binding TypedNonPersian, Converter={StaticResource BoolToVis}}" VerticalAlignment="Center" Foreground="OrangeRed"></Label>
-                <Label
-                        Margin="10,0,0,0"
-                        IsTabStop="False"
-                        HorizontalAlignment="Left"
-                        VerticalAlignment="Center"
-                        Content="{Binding ElementName=Datagrid, Path=Items.Count}"
-                        ContentStringFormat="{}{0:N0}"
-                        FontFamily="{StaticResource IranSansNum}"
-                        Opacity=".5" />
             </Grid>
 
             <StackPanel Grid.Row="1" Orientation="Horizontal" FlowDirection="RightToLeft" Margin="0,5,15,0">
@@ -114,26 +105,46 @@
 
             <TabControl x:Name="TabControl" Grid.Row="3" FlowDirection="RightToLeft" Margin="0,15,0,0">
                 <TabControl.Style>
-                    <Style TargetType="TabControl">
+                    <Style TargetType="TabControl" BasedOn="{StaticResource TabControlStyle}">
                         <Style.Triggers>
-                            <DataTrigger Binding="{Binding ElementName=Datagrid, Path=Items.Count}" Value="0">
-                                <Setter Property="Visibility" Value="Collapsed"/>
-                            </DataTrigger>
+                            <MultiDataTrigger>
+                                <MultiDataTrigger.Conditions>
+                                    <Condition Binding="{Binding ElementName=Datagrid_Motaradef, Path=Items.Count}" Value="0"/>
+                                    <Condition Binding="{Binding ElementName=Datagrid_Teyfi, Path=Items.Count}" Value="0">
+                                    </Condition>
+                                </MultiDataTrigger.Conditions>
+                                <MultiDataTrigger.Setters>
+                                    <Setter Property="Visibility" Value="Collapsed"/>
+                                </MultiDataTrigger.Setters>
+                
+                            </MultiDataTrigger>
+                            
+                           
                         </Style.Triggers>
                     </Style>
                 </TabControl.Style>
                 <TabItem>
+                    <TabItem.Style>
+                        <Style TargetType="TabItem" BasedOn="{StaticResource TabItemStyle}">
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding ElementName=Datagrid_Motaradef, Path=Items.Count}" Value="0">
+                                    <Setter Property="Visibility" Value="Collapsed"/>
+                                </DataTrigger>
+
+                            </Style.Triggers>
+                        </Style>
+                    </TabItem.Style>
 
                     <TabItem.Header>
                         <StackPanel Orientation="Horizontal" FlowDirection="RightToLeft">
                             <Label Content="مترادف متضاد"/>
                             <Border CornerRadius="15" Width="20" Background="White" Height="20">
-                                <TextBlock TextAlignment="Center" Text="12" FontWeight="Bold" Margin="0,2,0,0" FontSize="12" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                <TextBlock TextAlignment="Center" Text="{Binding ElementName=Datagrid_Motaradef, Path=Items.Count}" FontWeight="Bold" Margin="0,2,0,0" FontSize="12" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                             </Border>
                         </StackPanel>
                     </TabItem.Header>
                     <DataGrid
-                        x:Name="Datagrid"
+                        x:Name="Datagrid_Motaradef"
                         IsTabStop="False"
                         MaxHeight="200"
                         GridLinesVisibility="Vertical"
@@ -184,7 +195,7 @@
                                 <DataGridTextColumn.ElementStyle>
                                     <Style>
                                         <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
-                                        <Setter Property="TextBlock.VerticalAlignment" Value="Center" />
+                                        <Setter Property="TextBlock.VerticalAlignment" Value="Top" />
                                         <Setter Property="TextBlock.FlowDirection" Value="RightToLeft" />
                                         <Setter Property="TextBlock.Padding" Value="7" />
                                     </Style>
@@ -242,7 +253,25 @@
                         </DataGrid.Background>
                     </DataGrid>
                 </TabItem>
-                <TabItem Header="طیفی">
+                <TabItem>
+                    <TabItem.Style>
+                        <Style TargetType="TabItem" BasedOn="{StaticResource TabItemStyle}">
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding ElementName=Datagrid_Teyfi, Path=Items.Count}" Value="0">
+                                    <Setter Property="Visibility" Value="Collapsed"/>
+                                </DataTrigger>
+
+                            </Style.Triggers>
+                        </Style>
+                    </TabItem.Style>
+                    <TabItem.Header>
+                        <StackPanel Orientation="Horizontal" FlowDirection="RightToLeft">
+                            <Label Content="طیفی"/>
+                            <Border CornerRadius="15" Width="20" Background="White" Height="20">
+                                <TextBlock TextAlignment="Center" Text="{Binding ElementName=Datagrid_Teyfi, Path=Items.Count}" FontWeight="Bold" Margin="0,2,0,0" FontSize="12" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </Border>
+                        </StackPanel>
+                    </TabItem.Header>
                     <DataGrid
                         x:Name="Datagrid_Teyfi"
                         IsTabStop="False"
@@ -295,7 +324,7 @@
                                 <DataGridTextColumn.ElementStyle>
                                     <Style>
                                         <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
-                                        <Setter Property="TextBlock.VerticalAlignment" Value="Center" />
+                                        <Setter Property="TextBlock.VerticalAlignment" Value="top" />
                                         <Setter Property="TextBlock.FlowDirection" Value="RightToLeft" />
                                         <Setter Property="TextBlock.Padding" Value="7" />
                                     </Style>
