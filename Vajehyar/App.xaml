@@ -14,6 +14,58 @@
         <FontFamily x:Key="IranSans">pack://application:,,,/Resources/Fonts/#IRANSans</FontFamily>
         <FontFamily x:Key="IranSansNum">pack://application:,,,/Resources/Fonts/#IRANSans(FaNum)</FontFamily>
 
+        <Style TargetType="{x:Type TabControl}">
+            <Setter Property="Padding" Value="10,5,10,5" />
+            <Setter Property="Margin" Value="3.5" />
+            <Setter Property="Background" Value="AliceBlue" />
+        </Style>
+        <!-- Tab item styling -->
+        <Style TargetType="{x:Type TabItem}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type TabItem}">
+                        <Grid>
+                            <Border 
+                                 Name="Border"
+                                 Background="AliceBlue"
+                                 BorderBrush="DodgerBlue" 
+                                 BorderThickness="1,1,1,0" 
+                                 CornerRadius="5,5,0,0"
+                                 Margin="5,0,0,0"
+                                 MinWidth="120">
+                                <ContentPresenter x:Name="ContentSite"
+                                        VerticalAlignment="Center"
+                                        HorizontalAlignment="Center"
+                                        Content="{TemplateBinding Header}"
+                                        Margin="10,2,10,2"/>
+                            </Border>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True" >
+                                <Setter Property="Background" TargetName="Border" Value="LightBlue" />
+                                <Setter Property="HeaderTemplate">
+                                    <Setter.Value>
+                                        <DataTemplate>
+                                            <TextBlock FontWeight="Bold" Text="{Binding}"/>
+                                        </DataTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                            </Trigger>
+                            <Trigger Property="IsSelected" Value="True" >
+                                <Setter Property="Background" TargetName="Border" Value="LightSkyBlue" />
+                                <Setter Property="HeaderTemplate">
+                                    <Setter.Value>
+                                        <DataTemplate>
+                                            <TextBlock FontWeight="Bold" Text="{Binding}"/>
+                                        </DataTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
 
 
         <!--#region Styles-->

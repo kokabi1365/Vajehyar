@@ -84,6 +84,14 @@ namespace Vajehyar
                     count += group.Syns.Count + group.Acros.Count;
                 }
             }
+
+            foreach (var word in TeyfiList)
+            {
+                foreach (var group in word.SynAcros)
+                {
+                    count += group.Syns.Count + group.Acros.Count;
+                }
+            }
             return count;
         }
     }

@@ -103,14 +103,18 @@ namespace Vajehyar.Windows
             if (string.IsNullOrEmpty(_filterString))
                 return false;
             
-            string pattern = _filterString;
+            string pattern = @"\b" + _filterString + @"\b";
 
-            if (WholeWord.IsChecked==true)
+            if (SomePart.IsChecked==true)
             {
-                pattern = @"\b" + _filterString + @"\b";
+                pattern = _filterString;
             }
 
-            return Regex.IsMatch(JoinWords(obj as Word), pattern);
+            if (FullText.IsChecked==true)
+            {
+                return Regex.IsMatch(JoinWords(obj as Word), pattern) || Regex.IsMatch((obj as Word).Name, pattern);
+            }
+            return Regex.IsMatch((obj as Word).Name, pattern);
         }
 
         private string JoinWords(Word word)
