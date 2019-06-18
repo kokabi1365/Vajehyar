@@ -207,9 +207,6 @@
     <Resource Include="Resources\Icons\Vajehyar.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Dicts\Teyfi.txt" />
-  </ItemGroup>
-  <ItemGroup>
     <PublishFile Include="Vajehyar.exe.config">
       <Visible>False</Visible>
       <Group>
@@ -249,7 +246,10 @@
     <Resource Include="Resources\Icons\Virgool-16.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Dicts\Motaradef_Motazad.txt" />
+    <Resource Include="Resources\Dicts\Motaradef_Motazad.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Dicts\Teyfi.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Fody.5.0.0\build\Fody.targets" Condition="Exists('..\packages\Fody.5.0.0\build\Fody.targets')" />

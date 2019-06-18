@@ -36,11 +36,18 @@ namespace Vajehyar.Windows
             }
         }
 
-        private ICollectionView _words;
-        public ICollectionView Words
+        private ICollectionView _motaradefMotazadList;
+        public ICollectionView MotaradefMotazadList
         {
-            get => _words;
-            set { _words = value; NotifyPropertyChanged("Words"); }
+            get => _motaradefMotazadList;
+            set { _motaradefMotazadList = value; NotifyPropertyChanged("MotaradefMotazadList"); }
+        }
+
+        private ICollectionView _TeyfiList;
+        public ICollectionView TeyfiList
+        {
+            get => _TeyfiList;
+            set { _TeyfiList = value; NotifyPropertyChanged("TeyfiList"); }
         }
 
         private string _hint;
@@ -54,8 +61,10 @@ namespace Vajehyar.Windows
         public MainWindow(Database database)
         {
             InitializeComponent(); 
-            Words = CollectionViewSource.GetDefaultView(database.Words);
-            Words.Filter = FilterResult;
+            MotaradefMotazadList = CollectionViewSource.GetDefaultView(database.MotaradefMotazadList);
+            MotaradefMotazadList.Filter = FilterResult;
+            TeyfiList = CollectionViewSource.GetDefaultView(database.TeyfiList);
+            TeyfiList.Filter = FilterResult;
             Hint = $"جستجوی فارسی بین {database.GetCount().Round().Format()} واژه";
 
 #if (!DEBUG)
@@ -84,7 +93,8 @@ namespace Vajehyar.Windows
 
         private void FilterCollection()
         {
-            _words?.Refresh();
+            _motaradefMotazadList?.Refresh();
+            _TeyfiList?.Refresh();
         }
 
        

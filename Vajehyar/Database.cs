@@ -9,19 +9,23 @@ namespace Vajehyar
     {
         public static Database Instance { get; } = new Database();
 
-        private string[] _lines;
-        public List<Word> Words { get; }
+        public List<Word> MotaradefMotazadList { get; }
+        public List<Word> TeyfiList { get; }
 
         private Database()
         {
             string dict_motaradef_Motazad = Properties.Resources.Motaradef_Motazad;
-            //string dict2 = Properties.Resources.Teyfi;
-            //string data = dict1 + Environment.NewLine + dict2;
+            string dict_Teyfi = Properties.Resources.Teyfi;
+            string data = dict_motaradef_Motazad + Environment.NewLine + dict_Teyfi;
 
-            _lines = dict_motaradef_Motazad.Split(new[] { Environment.NewLine },
+            string[]_lines1 = dict_motaradef_Motazad.Split(new[] { Environment.NewLine },
                 StringSplitOptions.RemoveEmptyEntries);
 
-            Words = GetWords(_lines);
+            string[] _lines2 = dict_Teyfi.Split(new[] { Environment.NewLine },
+                StringSplitOptions.RemoveEmptyEntries);
+
+            MotaradefMotazadList = GetWords(_lines1);
+            TeyfiList = GetWords(_lines2);
         }
 
         private List<Word> GetWords(string[] lines)
@@ -73,7 +77,7 @@ namespace Vajehyar
         public int GetCount()
         {
             int count = 0;
-            foreach (var word in Words)
+            foreach (var word in MotaradefMotazadList)
             {
                 foreach (var group in word.SynAcros)
                 {
