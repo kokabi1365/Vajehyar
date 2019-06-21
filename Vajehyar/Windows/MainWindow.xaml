@@ -5,13 +5,16 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:local="clr-namespace:Vajehyar.Windows"
-    xmlns:toast="clr-namespace:Toast;assembly=Toast"
+    xmlns:utils="clr-namespace:Vajehyar.Utility"
+    FocusManager.FocusedElement="{Binding ElementName=txtSearch}"
+    utils:KeyboardFocus.On="{Binding ElementName=txtSearch}"
     Title="واژه‌یار"
     Width="650"
+    
     ShowInTaskbar="{Binding Source={x:Static properties:Settings.Default}, Path=ShowInTaskbar, Mode=OneWay}"
     DataContext="{Binding RelativeSource={RelativeSource Self}}"    
     FontFamily="{StaticResource IranSans}"
-    FocusManager.FocusedElement="{Binding ElementName=txtSearch}"
+    
     IsTabStop="False"
     ResizeMode="CanMinimize"
     Deactivated="MainWindow_OnDeactivated"
@@ -92,7 +95,6 @@
                         </wpfTool:WatermarkTextBox.WatermarkTemplate>
                     </wpfTool:WatermarkTextBox>
                 </Border>
-                <Label Content="لطفاً فارسی تایپ کنید" HorizontalAlignment="Center" Margin="0,0,15,0" Visibility="{Binding TypedNonPersian, Converter={StaticResource BoolToVis}}" VerticalAlignment="Center" Foreground="OrangeRed"></Label>
             </Grid>
 
             <StackPanel Grid.Row="1" Orientation="Horizontal" FlowDirection="RightToLeft" Margin="0,5,15,0">
@@ -174,6 +176,7 @@
                         <DataGrid.CellStyle>
                             <Style TargetType="DataGridCell">
                                 <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+                                <Setter Property="BorderThickness" Value="0"/>
                                 <Style.Triggers>
                                     <Trigger Property="IsSelected" Value="True">
                                         <Setter Property="Background" Value="Transparent"/>
@@ -303,6 +306,7 @@
                         <DataGrid.CellStyle>
                             <Style TargetType="DataGridCell">
                                 <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+                                <Setter Property="BorderThickness" Value="0"/>
                                 <Style.Triggers>
                                     <Trigger Property="IsSelected" Value="True">
                                         <Setter Property="Background" Value="Transparent"/>

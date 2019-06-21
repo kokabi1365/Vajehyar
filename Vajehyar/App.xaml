@@ -382,15 +382,11 @@
                     <ControlTemplate TargetType="{x:Type Thumb}">
                         <Grid x:Name="Grid">
                             <Rectangle
-                                Width="Auto"
-                                Height="Auto"
                                 HorizontalAlignment="Stretch"
                                 VerticalAlignment="Stretch"
                                 Fill="Transparent" />
                             <Border
                                 x:Name="Rectangle1"
-                                Width="Auto"
-                                Height="Auto"
                                 HorizontalAlignment="Stretch"
                                 VerticalAlignment="Stretch"
                                 Background="#FF00B2FF"
@@ -408,23 +404,27 @@
         </Style>
 
         <Style x:Key="{x:Type ScrollBar}" TargetType="{x:Type ScrollBar}">
-            <Setter Property="Stylus.IsFlicksEnabled" Value="false" />
             <Setter Property="Foreground" Value="#8C8C8C" />
             <Setter Property="Background" Value="Transparent" />
-            <Setter Property="Width" Value="7" />
+            <Setter Property="Width" Value="10" />
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type ScrollBar}">
                         <Grid
                             x:Name="GridRoot"
-                            Width="7"
+                            Width="10"
                             Background="{TemplateBinding Background}">
                             <Grid.RowDefinitions>
+                                <RowDefinition Height="7" />
                                 <RowDefinition Height="0.00001*" />
                             </Grid.RowDefinitions>
+                            <RepeatButton Command="ScrollBar.PageUpCommand"
+                                          Grid.Row="0"
+                                          Focusable="false"
+                                          Opacity="1"/>
                             <Track
                                 x:Name="PART_Track"
-                                Grid.Row="0"
+                                Grid.Row="1"
                                 Focusable="false"
                                 IsDirectionReversed="true">
                                 <Track.Thumb>
