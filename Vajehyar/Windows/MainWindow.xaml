@@ -187,7 +187,6 @@
                                     <DataGridTextColumn Header="عنوان" Binding="{Binding Name, Mode=OneTime}" 
                                         CanUserReorder="False"
                                         IsReadOnly="True"
-                                        
                                         CanUserSort="False"
                                         CanUserResize="False"
                                         Width="Auto">
@@ -206,7 +205,7 @@
                                                 <ItemsControl ItemsSource="{Binding MeaningGroups}">
                                                     <ItemsControl.ItemTemplate>
                                                         <DataTemplate>
-                                                            <Border Background="Beige" CornerRadius="5" Margin="5">
+                                                            <Border Background="#FF5AACFF" FlowDirection="RightToLeft" CornerRadius="5" Margin="5" HorizontalAlignment="Left" Padding="3,0">
                                                                     <WrapPanel>
                                                                         <ItemsControl ItemsSource="{Binding Syns}">
                                                                             <ItemsControl.ItemsPanel>
@@ -216,7 +215,7 @@
                                                                             </ItemsControl.ItemsPanel>
                                                                             <ItemsControl.ItemTemplate>
                                                                                 <DataTemplate>
-                                                                                    <Button  Style="{StaticResource WordStyle}" Background="Azure" Content="{Binding}" Click="Word_OnClick"/>
+                                                                                    <Button  Style="{StaticResource WordStyle}" Background="#FFFEFFE8" Content="{Binding}" Click="Word_OnClick"/>
                                                                                 </DataTemplate>
                                                                             </ItemsControl.ItemTemplate>
                                                                         </ItemsControl>
