@@ -145,7 +145,8 @@
                             </Border>
                         </StackPanel>
                     </TabItem.Header>
-                    <DataGrid
+                    <ScrollViewer PreviewMouseWheel="UIElement_OnPreviewMouseWheel" FlowDirection="LeftToRight">
+                        <DataGrid 
                         x:Name="Datagrid_Motaradef"
                         IsTabStop="False"
                         MaxHeight="200"
@@ -155,8 +156,9 @@
                         AlternatingRowBackground="#FFFBFBFB"
                         AutoGenerateColumns="False"
                         HorizontalAlignment="Right"
+                        VirtualizingPanel.ScrollUnit="Pixel"
+                        VerticalScrollBarVisibility="Hidden"
                         BorderBrush="{x:Null}"
-                        
                         FontFamily="{Binding Source={x:Static properties:Settings.Default}, Path=Font, TargetNullValue={StaticResource IranSans}, Converter={StaticResource DefaultFontConverter}, Mode=OneWay}"
                         FontSize="{Binding Source={x:Static properties:Settings.Default}, Path=FontSize, Mode=OneWay}"
                         CanUserAddRows="False"
@@ -172,89 +174,88 @@
                         SelectionMode="Single"
                         SelectionUnit="Cell"
                         VerticalGridLinesBrush="White">
+                            <DataGrid.CellStyle>
+                                <Style TargetType="DataGridCell">
+                                    <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+                                    <Setter Property="BorderThickness" Value="0"/>
+                                    <Style.Triggers>
+                                        <Trigger Property="IsSelected" Value="True">
+                                            <Setter Property="Background" Value="Transparent"/>
+                                            <Setter Property="BorderBrush" Value="Transparent"/>
+                                            <Setter Property="Foreground" Value="Black"/>
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </DataGrid.CellStyle>
 
-                        <DataGrid.CellStyle>
-                            <Style TargetType="DataGridCell">
-                                <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
-                                <Setter Property="BorderThickness" Value="0"/>
-                                <Style.Triggers>
-                                    <Trigger Property="IsSelected" Value="True">
-                                        <Setter Property="Background" Value="Transparent"/>
-                                        <Setter Property="BorderBrush" Value="Transparent"/>
-                                        <Setter Property="Foreground" Value="Black"/>
-                                    </Trigger>
-                                </Style.Triggers>
-                            </Style>
-                        </DataGrid.CellStyle>
-                       
-                        <DataGrid.Columns>
-                            <DataGridTextColumn Header="عنوان" Binding="{Binding Name, Mode=OneTime}" 
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="عنوان" Binding="{Binding Name, Mode=OneTime}" 
                                         CanUserReorder="False"
                                         IsReadOnly="True"
                                         
                                         CanUserSort="False"
                                         CanUserResize="False"
                                         Width="Auto">
-                                <DataGridTextColumn.ElementStyle>
-                                    <Style>
-                                        <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
-                                        <Setter Property="TextBlock.VerticalAlignment" Value="Top" />
-                                        <Setter Property="TextBlock.FlowDirection" Value="RightToLeft" />
-                                        <Setter Property="TextBlock.Padding" Value="7" />
-                                    </Style>
-                                </DataGridTextColumn.ElementStyle>
-                            </DataGridTextColumn>
-                            <DataGridTemplateColumn Header="گروه معنایی" Width="*" IsReadOnly="True">
-                                <DataGridTemplateColumn.CellTemplate>
-                                    <DataTemplate>
-                                        <WrapPanel>
-                                            <ItemsControl ItemsSource="{Binding SynAcros}">
-                                                <ItemsControl.ItemTemplate>
-                                                    <DataTemplate>
-                                                        <WrapPanel Orientation="Horizontal">
-                                                            <ItemsControl ItemsSource="{Binding Syns}">
-                                                                <ItemsControl.ItemsPanel>
-                                                                    <ItemsPanelTemplate>
-                                                                        <WrapPanel/>
-                                                                    </ItemsPanelTemplate>
-                                                                </ItemsControl.ItemsPanel>
-                                                                <ItemsControl.ItemTemplate>
-                                                                    <DataTemplate>
-                                                                        <Button Style="{StaticResource WordStyle}" Background="AntiqueWhite" Content="{Binding}" Click="Word_OnClick"/>
-                                                                    </DataTemplate>
-                                                                </ItemsControl.ItemTemplate>
-                                                            </ItemsControl>
-                                                            <ItemsControl ItemsSource="{Binding Acros}" VerticalContentAlignment="Center">
-                                                                <ItemsControl.ItemsPanel>
-                                                                    <ItemsPanelTemplate>
-                                                                        <WrapPanel/>
-                                                                    </ItemsPanelTemplate>
-                                                                </ItemsControl.ItemsPanel>
-                                                                <ItemsControl.ItemTemplate>
-                                                                    <DataTemplate>
+                                    <DataGridTextColumn.ElementStyle>
+                                        <Style>
+                                            <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
+                                            <Setter Property="TextBlock.VerticalAlignment" Value="Top" />
+                                            <Setter Property="TextBlock.FlowDirection" Value="RightToLeft" />
+                                            <Setter Property="TextBlock.Padding" Value="7" />
+                                        </Style>
+                                    </DataGridTextColumn.ElementStyle>
+                                </DataGridTextColumn>
+                                <DataGridTemplateColumn Header="گروه معنایی" Width="*" IsReadOnly="True">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                                <ItemsControl ItemsSource="{Binding MeaningGroups}">
+                                                    <ItemsControl.ItemTemplate>
+                                                        <DataTemplate>
+                                                            <WrapPanel Orientation="Horizontal">
+                                                                <ItemsControl ItemsSource="{Binding Syns}">
+                                                                    <ItemsControl.ItemsPanel>
+                                                                        <ItemsPanelTemplate>
+                                                                            <WrapPanel/>
+                                                                        </ItemsPanelTemplate>
+                                                                    </ItemsControl.ItemsPanel>
+                                                                    <ItemsControl.ItemTemplate>
+                                                                        <DataTemplate>
+                                                                            <Button  Style="{StaticResource WordStyle}" Background="AntiqueWhite" Content="{Binding}" Click="Word_OnClick"/>
+                                                                        </DataTemplate>
+                                                                    </ItemsControl.ItemTemplate>
+                                                                </ItemsControl>
+                                                                <ItemsControl ItemsSource="{Binding Acros}" VerticalContentAlignment="Center">
+                                                                    <ItemsControl.ItemsPanel>
+                                                                        <ItemsPanelTemplate>
+                                                                            <WrapPanel/>
+                                                                        </ItemsPanelTemplate>
+                                                                    </ItemsControl.ItemsPanel>
+                                                                    <ItemsControl.ItemTemplate>
+                                                                        <DataTemplate>
 
-                                                                        <Button Style="{StaticResource WordStyle}" Background="OrangeRed" Content="{Binding}" Click="Word_OnClick"/>
+                                                                            <Button Style="{StaticResource WordStyle}" Background="OrangeRed" Content="{Binding}" Click="Word_OnClick"/>
 
-                                                                    </DataTemplate>
-                                                                </ItemsControl.ItemTemplate>
-                                                            </ItemsControl>
-                                                        </WrapPanel>
-                                                    </DataTemplate>
-                                                </ItemsControl.ItemTemplate>
-                                            </ItemsControl>
-                                        </WrapPanel>
-                                    </DataTemplate>
-                                </DataGridTemplateColumn.CellTemplate>
-                            </DataGridTemplateColumn>
-                        </DataGrid.Columns>
+                                                                        </DataTemplate>
+                                                                    </ItemsControl.ItemTemplate>
+                                                                </ItemsControl>
+                                                            </WrapPanel>
+                                                        </DataTemplate>
+                                                    </ItemsControl.ItemTemplate>
+                                                </ItemsControl>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                            </DataGrid.Columns>
 
-                        <DataGrid.Background>
-                            <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
-                                <GradientStop Offset="0" Color="#FFEDF9FF" />
-                                <GradientStop Offset="1" Color="White" />
-                            </LinearGradientBrush>
-                        </DataGrid.Background>
-                    </DataGrid>
+                            <DataGrid.Background>
+                                <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                                    <GradientStop Offset="0" Color="#FFEDF9FF" />
+                                    <GradientStop Offset="1" Color="White" />
+                                </LinearGradientBrush>
+                            </DataGrid.Background>
+                        </DataGrid>
+                    </ScrollViewer>
+                    
                 </TabItem>
                 <TabItem>
                     <TabItem.Style>
@@ -338,7 +339,7 @@
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
                                         <WrapPanel>
-                                            <ItemsControl ItemsSource="{Binding SynAcros}">
+                                            <ItemsControl ItemsSource="{Binding MeaningGroups}">
                                                 <ItemsControl.ItemTemplate>
                                                     <DataTemplate>
                                                         <WrapPanel Orientation="Horizontal">

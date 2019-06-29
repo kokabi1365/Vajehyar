@@ -121,7 +121,7 @@ namespace Vajehyar.Windows
         {
             string result;
             IEnumerable<string> list=new List<string>();
-            foreach (var groups in word.SynAcros)
+            foreach (var groups in word.MeaningGroups)
             {
                 list = groups.Syns.Concat(groups.Acros);
             }
@@ -220,6 +220,13 @@ namespace Vajehyar.Windows
             Clipboard.SetText(word);
             string message = $"واژۀ «{word}» کپی شد.";
             await ShowMessage(message);
+        }
+
+        private void UIElement_OnPreviewMouseWheel(object sender, MouseWheelEventArgs e)
+        {
+            ScrollViewer scv = (ScrollViewer)sender;
+            scv.ScrollToVerticalOffset(scv.VerticalOffset - e.Delta);
+            e.Handled = true;
         }
     }
 

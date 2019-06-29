@@ -415,16 +415,11 @@
                             Width="10"
                             Background="{TemplateBinding Background}">
                             <Grid.RowDefinitions>
-                                <RowDefinition Height="7" />
                                 <RowDefinition Height="0.00001*" />
                             </Grid.RowDefinitions>
-                            <RepeatButton Command="ScrollBar.PageUpCommand"
-                                          Grid.Row="0"
-                                          Focusable="false"
-                                          Opacity="1"/>
                             <Track
                                 x:Name="PART_Track"
-                                Grid.Row="1"
+                                Grid.Row="0"
                                 Focusable="false"
                                 IsDirectionReversed="true">
                                 <Track.Thumb>

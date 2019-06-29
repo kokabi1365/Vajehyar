@@ -40,7 +40,7 @@ namespace Vajehyar
                 if (!line.Contains('؛'))
                 {
                     word.Name = line;
-                    word.SynAcros = new List<MeaningGroup>();
+                    word.MeaningGroups = new List<MeaningGroup>();
                     continue;
                 }
 
@@ -64,7 +64,7 @@ namespace Vajehyar
                         group.Acros = part.Split('≠')[1].Split('،').ToList();
                     }
 
-                    word.SynAcros.Add(group);
+                    word.MeaningGroups.Add(group);
                 }
 
                 words.Add(word);
@@ -79,7 +79,7 @@ namespace Vajehyar
             int count = 0;
             foreach (var word in MotaradefMotazadList)
             {
-                foreach (var group in word.SynAcros)
+                foreach (var group in word.MeaningGroups)
                 {
                     count += group.Syns.Count + group.Acros.Count;
                 }
@@ -87,7 +87,7 @@ namespace Vajehyar
 
             foreach (var word in TeyfiList)
             {
-                foreach (var group in word.SynAcros)
+                foreach (var group in word.MeaningGroups)
                 {
                     count += group.Syns.Count + group.Acros.Count;
                 }
