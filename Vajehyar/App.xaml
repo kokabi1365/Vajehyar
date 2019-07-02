@@ -215,7 +215,8 @@
         </Style>
 
         <Style x:Key="WordStyle" TargetType="Button">
-            <Setter Property="Margin" Value="3,5,3,5"/>
+            <Setter Property="Margin" Value="2,5,2,5"/>
+            <Setter Property="Foreground" Value="Black"/>
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">
@@ -223,7 +224,7 @@
                         <Border
                             x:Name="border"
                             Background="{TemplateBinding Background}"
-                            CornerRadius="2"
+                            CornerRadius="5"
                             RenderTransformOrigin="0.5,0.5">
                             <ContentPresenter
                                 Margin="5,0,5,0"

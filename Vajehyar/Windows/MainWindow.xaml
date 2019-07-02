@@ -6,11 +6,11 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:local="clr-namespace:Vajehyar.Windows"
     xmlns:utils="clr-namespace:Vajehyar.Utility"
+    xmlns:behaviors="clr-namespace:WPFTextBoxAutoComplete;assembly=WPFTextBoxAutoComplete"
     FocusManager.FocusedElement="{Binding ElementName=txtSearch}"
     utils:KeyboardFocus.On="{Binding ElementName=txtSearch}"
     Title="واژه‌یار"
     Width="650"
-    
     ShowInTaskbar="{Binding Source={x:Static properties:Settings.Default}, Path=ShowInTaskbar, Mode=OneWay}"
     DataContext="{Binding RelativeSource={RelativeSource Self}}"    
     FontFamily="{StaticResource IranSans}"
@@ -68,6 +68,8 @@
                         IsTabStop="True"
                         TabIndex="0"
                         Height="30"
+                        behaviors:AutoCompleteBehavior.AutoCompleteItemsSource="{Binding ElementName=MotaradefMotazadList, Path=Name}"
+                        behaviors:AutoCompleteBehavior.AutoCompleteIndicator="@"
                         KeyUp="TxtSearch_OnKeyUp"
                         Watermark="{Binding Hint}"
                         VerticalContentAlignment="Center"
@@ -93,14 +95,14 @@
                         </wpfTool:WatermarkTextBox.WatermarkTemplate>
                     </wpfTool:WatermarkTextBox>
                 </Border>
-            </Grid>
+            </Grid> 
 
             <StackPanel Grid.Row="1" Orientation="Horizontal" FlowDirection="RightToLeft" Margin="0,5,15,0">
                 <CheckBox IsTabStop="False" FontFamily="{StaticResource IranSans}" HorizontalAlignment="Right" VerticalContentAlignment="Center" Style="{StaticResource SliderCheckBox}" x:Name="SomePart" Content="جستجوی بخشی از کلمه" VerticalAlignment="Center" Checked="RadioButton_OnChecked" Unchecked="RadioButton_OnChecked"/>
-                <CheckBox IsTabStop="False" FontFamily="{StaticResource IranSans}" HorizontalAlignment="Right" Margin="15,0,0,0" VerticalContentAlignment="Center" Style="{StaticResource SliderCheckBox}" x:Name="FullText" Content="جستجوی تمام متن" VerticalAlignment="Center" Checked="RadioButton_OnChecked" Unchecked="RadioButton_OnChecked"/>
+                <CheckBox IsTabStop="False" FontFamily="{StaticResource IranSans}" HorizontalAlignment="Right" Margin="15,0,0,0" VerticalContentAlignment="Center" Style="{StaticResource SliderCheckBox}" x:Name="FullText" Content="جستجو در هر دو ستون" VerticalAlignment="Center" Checked="RadioButton_OnChecked" Unchecked="RadioButton_OnChecked"/>
             </StackPanel>
 
-            <Grid Grid.Row="2" FlowDirection="RightToLeft" MaxHeight="200">
+            <Grid Grid.Row="2" FlowDirection="RightToLeft">
                 <TabControl x:Name="TabControl">
                     <TabControl.Style>
                         <Style TargetType="TabControl" BasedOn="{StaticResource TabControlStyle}">
@@ -145,10 +147,10 @@
                             <DataGrid 
                         x:Name="Datagrid_Motaradef"
                         IsTabStop="False"
-                        GridLinesVisibility="Vertical"
+                        RowBackground="AliceBlue"
                         MaxColumnWidth="{Binding ElementName=window, Path=Width}"
                         VerticalContentAlignment="Center"
-                        AlternatingRowBackground="#FFFBFBFB"
+                        
                         AutoGenerateColumns="False"
                         HorizontalAlignment="Right"
                         VirtualizingPanel.ScrollUnit="Pixel"
@@ -162,12 +164,13 @@
                         EnableRowVirtualization="True"
                         FlowDirection="RightToLeft"
                         HeadersVisibility="Column"
-                        HorizontalGridLinesBrush="White"
+                        HorizontalGridLinesBrush="Gray"
                         HorizontalScrollBarVisibility="Hidden"
                         ItemsSource="{Binding MotaradefMotazadList}"
-                        RowBackground="#FFCAEDFF"
+                        
                         SelectionMode="Single"
                         SelectionUnit="Cell"
+                        
                         VerticalGridLinesBrush="White">
                                 <DataGrid.CellStyle>
                                     <Style TargetType="DataGridCell">
@@ -205,24 +208,24 @@
                                                 <ItemsControl ItemsSource="{Binding MeaningGroups}">
                                                     <ItemsControl.ItemTemplate>
                                                         <DataTemplate>
-                                                            <Border Background="#FF5AACFF" FlowDirection="RightToLeft" CornerRadius="5" Margin="5" HorizontalAlignment="Left" Padding="3,0">
+                                                            <Border Background="White" FlowDirection="RightToLeft" CornerRadius="5" Margin="2,5" HorizontalAlignment="Left" Padding="1,0">
                                                                     <WrapPanel>
                                                                         <ItemsControl ItemsSource="{Binding Syns}">
                                                                             <ItemsControl.ItemsPanel>
                                                                                 <ItemsPanelTemplate>
-                                                                                    <WrapPanel />
+                                                                                    <WrapPanel Orientation="Horizontal"/>
                                                                                 </ItemsPanelTemplate>
                                                                             </ItemsControl.ItemsPanel>
                                                                             <ItemsControl.ItemTemplate>
                                                                                 <DataTemplate>
-                                                                                    <Button  Style="{StaticResource WordStyle}" Background="#FFFEFFE8" Content="{Binding}" Click="Word_OnClick"/>
+                                                                                    <Button Style="{StaticResource WordStyle}" Background="#FFE8E89F" Content="{Binding}" Click="Word_OnClick"/>
                                                                                 </DataTemplate>
                                                                             </ItemsControl.ItemTemplate>
                                                                         </ItemsControl>
                                                                         <ItemsControl ItemsSource="{Binding Acros}" VerticalContentAlignment="Center">
                                                                             <ItemsControl.ItemsPanel>
                                                                                 <ItemsPanelTemplate>
-                                                                                    <WrapPanel/>
+                                                                                    <WrapPanel Orientation="Horizontal"/>
                                                                                 </ItemsPanelTemplate>
                                                                             </ItemsControl.ItemsPanel>
                                                                             <ItemsControl.ItemTemplate>
@@ -273,18 +276,18 @@
                                 </Border>
                             </StackPanel>
                         </TabItem.Header>
-                        <DataGrid
+                        <DataGrid 
                         x:Name="Datagrid_Teyfi"
                         IsTabStop="False"
-                        MaxHeight="200"
-                        GridLinesVisibility="Vertical"
+                        RowBackground="AliceBlue"
                         MaxColumnWidth="{Binding ElementName=window, Path=Width}"
                         VerticalContentAlignment="Center"
-                        AlternatingRowBackground="#FFFBFBFB"
+                        
                         AutoGenerateColumns="False"
                         HorizontalAlignment="Right"
+                        VirtualizingPanel.ScrollUnit="Pixel"
+                        VerticalScrollBarVisibility="Hidden"
                         BorderBrush="{x:Null}"
-                        
                         FontFamily="{Binding Source={x:Static properties:Settings.Default}, Path=Font, TargetNullValue={StaticResource IranSans}, Converter={StaticResource DefaultFontConverter}, Mode=OneWay}"
                         FontSize="{Binding Source={x:Static properties:Settings.Default}, Path=FontSize, Mode=OneWay}"
                         CanUserAddRows="False"
@@ -293,14 +296,14 @@
                         EnableRowVirtualization="True"
                         FlowDirection="RightToLeft"
                         HeadersVisibility="Column"
-                        HorizontalGridLinesBrush="White"
+                        HorizontalGridLinesBrush="Gray"
                         HorizontalScrollBarVisibility="Hidden"
                         ItemsSource="{Binding TeyfiList}"
-                        RowBackground="#FFCAEDFF"
+                        
                         SelectionMode="Single"
                         SelectionUnit="Cell"
+                        
                         VerticalGridLinesBrush="White">
-
                             <DataGrid.CellStyle>
                                 <Style TargetType="DataGridCell">
                                     <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
@@ -319,14 +322,13 @@
                                 <DataGridTextColumn Header="عنوان" Binding="{Binding Name, Mode=OneTime}" 
                                         CanUserReorder="False"
                                         IsReadOnly="True"
-                                        
                                         CanUserSort="False"
                                         CanUserResize="False"
                                         Width="Auto">
                                     <DataGridTextColumn.ElementStyle>
                                         <Style>
                                             <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
-                                            <Setter Property="TextBlock.VerticalAlignment" Value="top" />
+                                            <Setter Property="TextBlock.VerticalAlignment" Value="Top" />
                                             <Setter Property="TextBlock.FlowDirection" Value="RightToLeft" />
                                             <Setter Property="TextBlock.Padding" Value="7" />
                                         </Style>
@@ -335,42 +337,43 @@
                                 <DataGridTemplateColumn Header="گروه معنایی" Width="*" IsReadOnly="True">
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
-                                            <WrapPanel>
-                                                <ItemsControl ItemsSource="{Binding MeaningGroups}">
-                                                    <ItemsControl.ItemTemplate>
-                                                        <DataTemplate>
-                                                            <WrapPanel Orientation="Horizontal">
+                                            <ItemsControl ItemsSource="{Binding MeaningGroups}">
+                                                <ItemsControl.ItemTemplate>
+                                                    <DataTemplate>
+                                                        <Border Background="White" FlowDirection="RightToLeft" CornerRadius="5" Margin="2,5" HorizontalAlignment="Left" Padding="1,0">
+                                                            <WrapPanel>
                                                                 <ItemsControl ItemsSource="{Binding Syns}">
                                                                     <ItemsControl.ItemsPanel>
                                                                         <ItemsPanelTemplate>
-                                                                            <WrapPanel/>
+                                                                            <WrapPanel Orientation="Horizontal"/>
                                                                         </ItemsPanelTemplate>
                                                                     </ItemsControl.ItemsPanel>
                                                                     <ItemsControl.ItemTemplate>
                                                                         <DataTemplate>
-                                                                            <Button Style="{StaticResource WordStyle}" Background="AntiqueWhite" Content="{Binding}" Click="Word_OnClick"/>
+                                                                            <Button Style="{StaticResource WordStyle}" Background="#FFE8E89F" Content="{Binding}" Click="Word_OnClick"/>
                                                                         </DataTemplate>
                                                                     </ItemsControl.ItemTemplate>
                                                                 </ItemsControl>
                                                                 <ItemsControl ItemsSource="{Binding Acros}" VerticalContentAlignment="Center">
                                                                     <ItemsControl.ItemsPanel>
                                                                         <ItemsPanelTemplate>
-                                                                            <WrapPanel/>
+                                                                            <WrapPanel Orientation="Horizontal"/>
                                                                         </ItemsPanelTemplate>
                                                                     </ItemsControl.ItemsPanel>
                                                                     <ItemsControl.ItemTemplate>
                                                                         <DataTemplate>
 
-                                                                            <Button Style="{StaticResource WordStyle}" Background="OrangeRed" Content="{Binding}" Click="Word_OnClick"/>
+                                                                            <Button Style="{StaticResource WordStyle}" Background="#FFF16666" Content="{Binding}" Click="Word_OnClick"/>
 
                                                                         </DataTemplate>
                                                                     </ItemsControl.ItemTemplate>
                                                                 </ItemsControl>
                                                             </WrapPanel>
-                                                        </DataTemplate>
-                                                    </ItemsControl.ItemTemplate>
-                                                </ItemsControl>
-                                            </WrapPanel>
+                                                        </Border>
+
+                                                    </DataTemplate>
+                                                </ItemsControl.ItemTemplate>
+                                            </ItemsControl>
                                         </DataTemplate>
                                     </DataGridTemplateColumn.CellTemplate>
                                 </DataGridTemplateColumn>

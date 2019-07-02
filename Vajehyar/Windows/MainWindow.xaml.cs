@@ -65,7 +65,7 @@ namespace Vajehyar.Windows
             MotaradefMotazadList.Filter = FilterResult;
             TeyfiList = CollectionViewSource.GetDefaultView(database.TeyfiList);
             TeyfiList.Filter = FilterResult;
-            Hint = $"جستجوی فارسی بین {database.GetCount().Round().Format()} واژه";
+            Hint = $"جستجوی بین {database.GetCount().Round().Format()} واژۀ فارسی";
 
 #if (!DEBUG)
             CheckUpdate();
