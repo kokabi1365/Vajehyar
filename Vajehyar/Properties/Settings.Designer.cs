@@ -253,5 +253,14 @@ namespace Vajehyar.Properties {
                 this["MinimizeWhenClickOutside"] = value;
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("https://twitter.com/kokabi65")]
+        public string TwitterID {
+            get {
+                return ((string)(this["TwitterID"]));
+            }
+        }
     }
 }

@@ -254,6 +254,9 @@
   <ItemGroup>
     <Resource Include="Resources\Dicts\Teyfi.txt" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\Twitter-16.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Fody.5.0.0\build\Fody.targets" Condition="Exists('..\packages\Fody.5.0.0\build\Fody.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

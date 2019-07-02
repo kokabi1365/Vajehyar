@@ -113,10 +113,19 @@
                     Style="{StaticResource ImageStyle}" />
                 <Image
                     x:Name="GithubIcon"
-                    Margin="10,0,10,0"
+                    Margin="10,0,5,0"
                     VerticalAlignment="Center"
                     MouseLeftButtonDown="GithubIcon_OnMouseLeftButtonDown"
                     Source="../Resources/Icons/Github-16.png"
+                    Style="{StaticResource ImageStyle}" />
+                <Image
+                    x:Name="TwitterIcon"
+                    Height="16"
+                    Width="16"
+                    Margin="5,0,10,0"
+                    VerticalAlignment="Center"
+                    MouseLeftButtonDown="TwitterIcon_OnMouseLeftButtonDownIcon_OnMouseLeftButtonDown"
+                    Source="../Resources/Icons/Twitter-16.png"
                     Style="{StaticResource ImageStyle}" />
                 <Image
                     x:Name="EmailIcon"

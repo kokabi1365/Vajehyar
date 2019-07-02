@@ -82,7 +82,7 @@
 
             <StackPanel Orientation="Horizontal" FlowDirection="RightToLeft" Margin="0,10,19,0">
                 <TextBlock Text="میزان تأخیر قبل از جستجو (به میلی‌ثانیه) :"/>
-                <wpfTool:IntegerUpDown  HorizontalAlignment="Center" Value="{Binding Source={x:Static properties:Settings.Default}, Path=SearchDelay, Mode=TwoWay}" AllowSpin="True" ShowButtonSpinner="True" DefaultValue="200" Increment="50" ClipValueToMinMax="True" TextAlignment="Center" Maximum="1000" Minimum="100" Margin="5,0,0,0" Width="60" Height="20"/>
+                <wpfTool:IntegerUpDown  HorizontalAlignment="Center" Value="{Binding Source={x:Static properties:Settings.Default}, Path=SearchDelay, Mode=TwoWay}" AllowSpin="True" ShowButtonSpinner="True" DefaultValue="200" Increment="50" ClipValueToMinMax="True" TextAlignment="Center" Maximum="1000" Minimum="0" Margin="5,0,0,0" Width="60" Height="20"/>
             </StackPanel>
 
             <GroupBox Margin="0,20,0,0" Width="350" Padding="10" FlowDirection="RightToLeft">

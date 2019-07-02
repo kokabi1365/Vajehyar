@@ -218,7 +218,7 @@
                                                                             </ItemsControl.ItemsPanel>
                                                                             <ItemsControl.ItemTemplate>
                                                                                 <DataTemplate>
-                                                                                    <Button Style="{StaticResource WordStyle}" Background="#FFE8E89F" Content="{Binding}" Click="Word_OnClick"/>
+                                                                                <Button Style="{StaticResource WordStyle}" Background="#FFE3EC91" Content="{Binding}" Click="Word_OnClick"/>
                                                                                 </DataTemplate>
                                                                             </ItemsControl.ItemTemplate>
                                                                         </ItemsControl>
@@ -231,7 +231,7 @@
                                                                             <ItemsControl.ItemTemplate>
                                                                                 <DataTemplate>
 
-                                                                                    <Button Style="{StaticResource WordStyle}" Background="#FFF16666" Content="{Binding}" Click="Word_OnClick"/>
+                                                                                    <Button Style="{StaticResource WordStyle}" Background="#FFEAA0A0" Content="{Binding}" Click="Word_OnClick"/>
 
                                                                                 </DataTemplate>
                                                                             </ItemsControl.ItemTemplate>
@@ -350,7 +350,7 @@
                                                                     </ItemsControl.ItemsPanel>
                                                                     <ItemsControl.ItemTemplate>
                                                                         <DataTemplate>
-                                                                            <Button Style="{StaticResource WordStyle}" Background="#FFE8E89F" Content="{Binding}" Click="Word_OnClick"/>
+                                                                            <Button Style="{StaticResource WordStyle}" Background="#FFE3EC91" Content="{Binding}" Click="Word_OnClick"/>
                                                                         </DataTemplate>
                                                                     </ItemsControl.ItemTemplate>
                                                                 </ItemsControl>
@@ -363,7 +363,7 @@
                                                                     <ItemsControl.ItemTemplate>
                                                                         <DataTemplate>
 
-                                                                            <Button Style="{StaticResource WordStyle}" Background="#FFF16666" Content="{Binding}" Click="Word_OnClick"/>
+                                                                            <Button Style="{StaticResource WordStyle}" Background="#FFEAA0A0" Content="{Binding}" Click="Word_OnClick"/>
 
                                                                         </DataTemplate>
                                                                     </ItemsControl.ItemTemplate>

@@ -101,5 +101,11 @@ namespace Vajehyar.Windows
             Process.Start(Settings.Default.VirgoolUrl);
             e.Handled = true;
         }
+
+        private void TwitterIcon_OnMouseLeftButtonDownIcon_OnMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            Process.Start(Settings.Default.TwitterID);
+            e.Handled = true;
+        }
     }
 }
