@@ -36,6 +36,13 @@ namespace Vajehyar.Windows
             }
         }
 
+        private List<string> _list1;
+        public List<string> AutoCompleteList
+        {
+            get => _list1;
+            set { _list1 = value; NotifyPropertyChanged("AutoCompleteList"); }
+        }
+
         private ICollectionView _motaradefMotazadList;
         public ICollectionView MotaradefMotazadList
         {
@@ -60,7 +67,9 @@ namespace Vajehyar.Windows
         
         public MainWindow(Database database)
         {
-            InitializeComponent(); 
+            InitializeComponent();
+            AutoCompleteList = database.TeyfiList.Concat(database.MotaradefMotazadList).ToList().Select(x => x.Name)
+                .ToList();
             MotaradefMotazadList = CollectionViewSource.GetDefaultView(database.MotaradefMotazadList);
             MotaradefMotazadList.Filter = FilterResult;
             TeyfiList = CollectionViewSource.GetDefaultView(database.TeyfiList);
@@ -79,6 +88,7 @@ namespace Vajehyar.Windows
         }
 
         private string _filterString;
+        private List<string> _list;
 
         public string FilterString
         {
