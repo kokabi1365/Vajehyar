@@ -276,6 +276,7 @@
                                 </Border>
                             </StackPanel>
                         </TabItem.Header>
+                        <ScrollViewer PreviewMouseWheel="UIElement_OnPreviewMouseWheel" FlowDirection="LeftToRight">
                         <DataGrid 
                         x:Name="Datagrid_Teyfi"
                         IsTabStop="False"
@@ -386,6 +387,7 @@
                                 </LinearGradientBrush>
                             </DataGrid.Background>
                         </DataGrid>
+                        </ScrollViewer>
                     </TabItem>
                 </TabControl>
             </Grid>
