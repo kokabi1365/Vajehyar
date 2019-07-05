@@ -83,12 +83,10 @@ namespace Vajehyar.Windows
 
         private async void CheckUpdate()
         {
-            if (Settings.Default.CheckUpdate)
-                await GithubHelper.CheckUpdate();
+            await GithubHelper.CheckUpdate();
         }
 
         private string _filterString;
-        private List<string> _list;
 
         public string FilterString
         {
@@ -129,7 +127,6 @@ namespace Vajehyar.Windows
 
         private string JoinWords(Word word)
         {
-            string result;
             IEnumerable<string> list=new List<string>();
             foreach (var groups in word.MeaningGroups)
             {

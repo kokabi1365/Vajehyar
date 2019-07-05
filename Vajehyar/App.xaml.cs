@@ -47,7 +47,7 @@ namespace Vajehyar
             var hasStartByWindowsArg = e.Args.Any(s => s.Contains(Settings.Default.StartupArgument));
 
             //Start minimized if specified
-            if (hasStartByWindowsArg || Settings.Default.StartMinimized)
+            if (hasStartByWindowsArg)
                 HideMainWindow();
             else
                 ShowMainWindow();

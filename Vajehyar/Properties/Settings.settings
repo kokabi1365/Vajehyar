@@ -8,9 +8,6 @@
     <Setting Name="ShortcutKey" Type="System.String" Scope="User">
       <Value Profile="(Default)">Alt + Shift + V</Value>
     </Setting>
-    <Setting Name="StartMinimized" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">False</Value>
-    </Setting>
     <Setting Name="StartByWindows" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
@@ -46,9 +43,6 @@
     </Setting>
     <Setting Name="VirgoolUrl" Type="System.String" Scope="Application">
       <Value Profile="(Default)">https://virgool.io/@kokabi</Value>
-    </Setting>
-    <Setting Name="CheckUpdate" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">True</Value>
     </Setting>
     <Setting Name="Font" Type="System.String" Scope="User">
       <Value Profile="(Default)" />

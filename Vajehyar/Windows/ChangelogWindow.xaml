@@ -8,7 +8,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     Title="ChangelogWindow"
     Width="363.938"
-    Height="465"
+    Height="455"
     DataContext="{Binding RelativeSource={RelativeSource Self}}"
     FlowDirection="RightToLeft"
     FontFamily="{StaticResource IranSans}"
@@ -47,16 +47,6 @@
                     Click="GoToDownloadPage_OnClick"
                     Content="رفتن به صفحۀ دانلود"
                     FontSize="12"
-                    Style="{StaticResource ButtonStyle2}" />
-                <Button
-                    x:Name="DontShowButton"
-                    Width="80"
-                    Height="20"
-                    Margin="0,5,0,0"
-                    Background="#FFEEEEEE"
-                    Click="DontShowButton_OnClick"
-                    Content="دیگر نشان نده"
-                    FontSize="11"
                     Style="{StaticResource ButtonStyle2}" />
             </StackPanel>
         </StackPanel>

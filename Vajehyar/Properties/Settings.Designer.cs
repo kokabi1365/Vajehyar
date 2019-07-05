@@ -47,18 +47,6 @@ namespace Vajehyar.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool StartMinimized {
-            get {
-                return ((bool)(this["StartMinimized"]));
-            }
-            set {
-                this["StartMinimized"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("False")]
         public bool StartByWindows {
             get {
                 return ((bool)(this["StartByWindows"]));
@@ -179,18 +167,6 @@ namespace Vajehyar.Properties {
         public string VirgoolUrl {
             get {
                 return ((string)(this["VirgoolUrl"]));
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("True")]
-        public bool CheckUpdate {
-            get {
-                return ((bool)(this["CheckUpdate"]));
-            }
-            set {
-                this["CheckUpdate"] = value;
             }
         }
         

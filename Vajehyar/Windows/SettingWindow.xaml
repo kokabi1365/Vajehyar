@@ -43,25 +43,9 @@
             <CheckBox
                 Name="StartupCheckBox"
                 Margin="0,25,15,0"
-                Content="اجرای خودکار برنامه هنگام بالا آمدن ویندوز"
+                Content="اجرای خودکار برنامه در شروع ویندوز"
                 FlowDirection="RightToLeft"
                 IsChecked="{Binding Source={x:Static properties:Settings.Default}, Path=StartByWindows, Mode=TwoWay}"
-                Style="{StaticResource SliderCheckBox}" />
-
-            <CheckBox
-                Name="DisplayCheckBox"
-                Margin="0,5,15,0"
-                Content="شروع برنامه به صورت کمینه"
-                FlowDirection="RightToLeft"
-                IsChecked="{Binding Source={x:Static properties:Settings.Default}, Path=StartMinimized, Mode=TwoWay}"
-                Style="{StaticResource SliderCheckBox}" />
-
-            <CheckBox
-                Name="CheckUpdate"
-                Margin="0,5,15,0"
-                Content="چک کردن بروزرسانی هنگام شروع برنامه"
-                FlowDirection="RightToLeft"
-                IsChecked="{Binding Source={x:Static properties:Settings.Default}, Path=CheckUpdate, Mode=TwoWay}"
                 Style="{StaticResource SliderCheckBox}" />
 
             <CheckBox
@@ -75,7 +59,7 @@
             <CheckBox
                 Name="MinimizeWhenClickOutside"
                 Margin="0,5,15,0"
-                Content="‌مخفی شدن برنامه هنگام کلیک کردن خارج از پنجرۀ جستجو"
+                Content="‌مخفی شدن برنامه هنگام کلیک خارج از پنجرۀ جستجو"
                 FlowDirection="RightToLeft"
                 IsChecked="{Binding Source={x:Static properties:Settings.Default}, Path=MinimizeWhenClickOutside, Mode=TwoWay}"
                 Style="{StaticResource SliderCheckBox}" />

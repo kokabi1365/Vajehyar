@@ -10,22 +10,6 @@ using System.Windows.Threading;
 
 namespace Vajehyar.Utility
 {
-    class Utils
-    {
-        public static async void ShowToast(string message)
-        {
-            /*await Task.Factory.StartNew(() =>
-            {
-                MessageBox.Show(message);
-                Task.Delay(2000);
-            }).ContinueWith(
-                t => 
-            );*/
-        }
-
-
-    }
-
     public static class KeyboardFocus
     {
         public static readonly DependencyProperty OnProperty;

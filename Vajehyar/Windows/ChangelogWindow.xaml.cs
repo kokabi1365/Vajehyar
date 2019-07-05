@@ -52,12 +52,6 @@ namespace Vajehyar.Windows
             }
         }
 
-        private void DontShowButton_OnClick(object sender, RoutedEventArgs e)
-        {
-            Settings.Default.CheckUpdate = false;
-            Close();
-        }
-
         private void GoToDownloadPage_OnClick(object sender, RoutedEventArgs e)
         {
             Close();
