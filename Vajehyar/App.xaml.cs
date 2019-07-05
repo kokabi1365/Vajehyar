@@ -63,11 +63,11 @@ namespace Vajehyar
             _notifyIcon.Icon = new Icon(ico);
             _notifyIcon.Visible = true;
 
-            if (Settings.Default.FirstRun)
+            /*if (Settings.Default.FirstRun)
             {
                 _notifyIcon.ShowBalloonTip(30000, "واژه‌یار", "باز کردن برنامه: Alt + Shift + V\nبستن برنامه: Esc\nتنظیمات را می‌توانید تغییر دهید.", ToolTipIcon.Info);
                 Settings.Default.FirstRun = false;
-            }
+            }*/
 
             _notifyIcon.MouseDown += NotifyIcon_MouseDown;
         }

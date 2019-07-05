@@ -51,7 +51,7 @@
       <Value Profile="(Default)">13</Value>
     </Setting>
     <Setting Name="SearchDelay" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">120</Value>
+      <Value Profile="(Default)">10</Value>
     </Setting>
     <Setting Name="ShowInTaskbar" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>

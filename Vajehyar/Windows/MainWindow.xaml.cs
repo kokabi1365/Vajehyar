@@ -225,7 +225,7 @@ namespace Vajehyar.Windows
         {
             string word = (sender as Button).Content.ToString();
             Clipboard.SetText(word);
-            string message = $"واژۀ «{word}» کپی شد.";
+            string message = $".واژۀ «{word}» کپی شد";
             await ShowMessage(message);
         }
 
