@@ -146,9 +146,9 @@ namespace Vajehyar.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("https://idpay.ir/kokabi")]
-        public string IDPay {
+        public string Donate {
             get {
-                return ((string)(this["IDPay"]));
+                return ((string)(this["Donate"]));
             }
         }
         

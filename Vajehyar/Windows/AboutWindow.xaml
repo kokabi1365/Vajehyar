@@ -92,12 +92,12 @@
                         Text="واژه‌یار " /><Run Text="کتابخانه‌ای از " /><Run Text="واژگان" /><Run Text=" فارسی است که به راحتی می‌توانید مترادف هر کلمه را در آن بیابید" /><Run Text=". استفاده از این برنامه به مرور باعث " /><Run Text="آراستگیِ " /><Run Text="نگارش و افزایش دایرۀ لغات خواهد شد." /><LineBreak /><Run /><LineBreak /><Run Text="دادگان برنامه از " /><Run Text="دو فرهنگ غنیِ فارسی " /><Run Text="گرفته شده" /><Run Text=": اولی فرهنگ جامع واژگان مترادف و متضاد فارسی" /><Run Text=" نوشتۀ آقای" /><Run Text=" فرج‌الله خداپرستی" /><Run Text=" با" /><Run Text=" بیش از " /><Run Text="135000 " /><Run Text="لغت " /><Run Text="و دیگری فرهنگ طیفی زبان فارسی تألیف جمشید فراروی " /><Run Text="که چیزی حدودِ" /><Run Text=" 45000 " /><Run Text="واژه" /><Run Text=" در آن وجود دارد." /><Run Text=" " /><LineBreak /><Run /><LineBreak /><Run FontWeight="Bold" Text="این برنامه " /><Run FontWeight="Bold" Text="دو مزیت عمده دارد: " /><LineBreak /><Run Text="نخست جستجوی " /><Run Text="آنیِ کلمات" /><Run Text=" است" /><Run Text=" که همزمان " /><Run Text="با نوشتن هرآنچه بیابد نشان می‌دهد و دیگری جستجوی تمام متن که به خاطر محدود نبودن به مدخل‌ها، تعداد کلمات بیشتری خواهد یافت. امید که این برنامه اهالی قلم را فایده " /><Run Text="رساند " /><Run Text="و در صیانتِ " /><Run Text="از " /><Run Text="زبان فارسی " /><Run Text="قدم " /><Run Text="کوچکی" /><Run Text=" بردارد" /><Run Text="." /><LineBreak /><Run /><LineBreak /><Run FontWeight="Bold" Text="طراحی و توسعه: سید ایوب کوکبی" /></TextBlock>
             </StackPanel>
             <Button
-                Width="200"
+                Width="210"
                 Height="25"
                 Margin="0,25,0,0"
                 Background="LightGreen"
                 Click="ButtonBase_OnClick"
-                Content="در صورت تمایل از من حمایت کنید"
+                Content="برای حمایت از من مبلغی پرداخت کنید"
                 FontSize="11.5"
                 Style="{StaticResource ButtonStyle2}" />
             <StackPanel

@@ -73,7 +73,7 @@ namespace Vajehyar.Windows
         private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
         {
             MinimizeWindow();
-            Process.Start(Settings.Default.IDPay);
+            Process.Start(Settings.Default.Donate);
             e.Handled = true;
         }
 

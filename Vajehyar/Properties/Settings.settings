@@ -35,7 +35,7 @@
     <Setting Name="UpdateUrl" Type="System.String" Scope="Application">
       <Value Profile="(Default)">https://github.com/kokabi1365/Vajehyar/releases</Value>
     </Setting>
-    <Setting Name="IDPay" Type="System.String" Scope="Application">
+    <Setting Name="Donate" Type="System.String" Scope="Application">
       <Value Profile="(Default)">https://idpay.ir/kokabi</Value>
     </Setting>
     <Setting Name="GithubUrl" Type="System.String" Scope="Application">
