@@ -136,7 +136,7 @@
                         </TabItem.Style>
 
                         <TabItem.Header>
-                            <StackPanel Orientation="Horizontal" FlowDirection="RightToLeft">
+                            <StackPanel Orientation="Horizontal" FlowDirection="RightToLeft" ToolTip="فرهنگ مترادف متضاد">
                                 <Label Content="مترادف متضاد"/>
                                 <Border CornerRadius="15" Width="20" Background="White" Height="20">
                                     <TextBlock TextAlignment="Center" Text="{Binding ElementName=Datagrid_Motaradef, Path=Items.Count}" FontWeight="Bold" Margin="0,2,0,0" FontSize="12" HorizontalAlignment="Center" VerticalAlignment="Center"/>
@@ -269,7 +269,7 @@
                             </Style>
                         </TabItem.Style>
                         <TabItem.Header>
-                            <StackPanel Orientation="Horizontal" FlowDirection="RightToLeft">
+                            <StackPanel ToolTipService.ShowDuration="120000" Orientation="Horizontal" FlowDirection="RightToLeft" ToolTip="فرض کنید دنبال واژۀ «مدیتیشن»، «پلاژ» یا «پاتوق» هستید ولی فقط ماهیت آن یعنی استراحت را به خاطر می‌آورید. کافی است در فرهنگ طیفی همین واژۀ «استراحت» را جستجو کنید تا کلمات ذکر شده را بیابید. به بیان دیگر، فرهنگ طیفی کمک می‌کند تا واژه‌ای که نوک زبانتان است ولی به خاطر نمی‌آورید را به یاد آورید." >
                                 <Label Content="طیفی"/>
                                 <Border CornerRadius="15" Width="20" Background="White" Height="20">
                                     <TextBlock TextAlignment="Center" Text="{Binding ElementName=Datagrid_Teyfi, Path=Items.Count}" FontWeight="Bold" Margin="0,2,0,0" FontSize="12" HorizontalAlignment="Center" VerticalAlignment="Center"/>
