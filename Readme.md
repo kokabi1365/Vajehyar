@@ -33,6 +33,7 @@ I welcome anyone to contribute to this project for fixing bugs or add new featur
 **You can support me by [donating via IDPay](https://idpay.ir/kokabi)**
 
 [توضیحات فارسی در ویرگول](https://virgool.io/@kokabi/vajehyar-bgyys49ibopb)
+
 [توضیحات نسخۀ 2](https://virgool.io/@kokabi/%D9%88%D8%A7%DA%98%D9%87%DB%8C%D8%A7%D8%B1-2-%D9%85%D9%86%D8%AA%D8%B4%D8%B1-%D8%B4%D8%AF-brjj960aqixz)
 
 
