@@ -31,7 +31,6 @@ namespace Vajehyar.Windows
             get => _list1;
             set { _list1 = value; NotifyPropertyChanged("AutoCompleteList"); }
         }
-
         private ICollectionView _motaradefMotazadList;
         public ICollectionView MotaradefMotazadList
         {
@@ -46,6 +45,13 @@ namespace Vajehyar.Windows
             set { _TeyfiList = value; NotifyPropertyChanged("TeyfiList"); }
         }
 
+        private ICollectionView _EmlaeiList;
+        public ICollectionView EmlaeiList
+        {
+            get => _EmlaeiList;
+            set { _EmlaeiList = value; NotifyPropertyChanged("EmlaeiList"); }
+        }
+
         private string _hint;
 
         public string Hint
@@ -57,12 +63,17 @@ namespace Vajehyar.Windows
         public MainWindow(Database database)
         {
             InitializeComponent();
-            AutoCompleteList = database.TeyfiList.Concat(database.MotaradefMotazadList).ToList().Select(x => x.Name)
+            AutoCompleteList = database.TeyfiList.Concat(database.MotaradefMotazadList).Concat(database.EmlaeiList).ToList().Select(x => x.Name)
                 .ToList();
             MotaradefMotazadList = CollectionViewSource.GetDefaultView(database.MotaradefMotazadList);
             MotaradefMotazadList.Filter = FilterResult;
+
             TeyfiList = CollectionViewSource.GetDefaultView(database.TeyfiList);
             TeyfiList.Filter = FilterResult;
+
+            EmlaeiList = CollectionViewSource.GetDefaultView(database.EmlaeiList);
+            EmlaeiList.Filter = FilterResult;
+
             Hint = $"جستجوی بین {database.GetCount().Round().Format()} واژۀ فارسی";
 
 #if (!DEBUG)
@@ -92,6 +103,7 @@ namespace Vajehyar.Windows
         {
             _motaradefMotazadList?.Refresh();
             _TeyfiList?.Refresh();
+            _EmlaeiList?.Refresh();
         }
      
         public bool FilterResult(object obj)
@@ -102,8 +114,9 @@ namespace Vajehyar.Windows
             Word word = obj as Word;
             int meaningsCount = word.Meanings.Count;
 
-            if (word.Name==_filterString)
-                return word.Name == _filterString;
+            if (word.Name.Contains(_filterString))
+                return true;
+            
 
             for (int i = 0; i < meaningsCount; i++)
             {

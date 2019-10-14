@@ -251,5 +251,8 @@
   <ItemGroup>
     <Resource Include="Resources\Icons\Twitter-16.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Dicts\Emlaei.txt" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
