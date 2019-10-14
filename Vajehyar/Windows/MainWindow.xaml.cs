@@ -196,14 +196,6 @@ namespace Vajehyar.Windows
 
         }
 
-        private async void Word_OnClick(object sender, RoutedEventArgs e)
-        {
-            string word = (sender as Button).Content.ToString();
-            Clipboard.SetText(word);
-            string message = $".واژۀ «{word}» کپی شد";
-            await ShowMessage(message);
-        }
-
         private void UIElement_OnPreviewMouseWheel(object sender, MouseWheelEventArgs e)
         {
             ScrollViewer scv = (ScrollViewer)sender;
@@ -217,6 +209,19 @@ namespace Vajehyar.Windows
             {
                 FilterString = txtSearch.Text;
             }
+        }
+
+        private async void Word_OnMouseRightButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            string word = (sender as Button).Content.ToString();
+            Clipboard.SetText(word);
+            string message = $".واژۀ «{word}» کپی شد";
+            await ShowMessage(message);
+        }
+
+        private void Word_OnClick(object sender, RoutedEventArgs e)
+        {
+            txtSearch.Text =FilterString= (sender as Button).Content.ToString();
         }
     }
 
