@@ -1,0 +1,13 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:Vajehyar.Resources.Styles"
+    xmlns:wpfTool="clr-namespace:Xceed.Wpf.Toolkit;assembly=Xceed.Wpf.Toolkit">
+
+    <Style x:Key="SearchTextBoxStyle" TargetType="wpfTool:WatermarkTextBox">
+        <Setter Property="Name" Value="txtSearch" />
+        <Setter Property="Background" Value="White" />
+        <Setter Property="Height" Value="30" />
+    </Style>
+
+</ResourceDictionary>

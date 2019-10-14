@@ -25,17 +25,6 @@ namespace Vajehyar.Windows
     /// </summary>
     public partial class MainWindow : INotifyPropertyChanged
     {
-        private bool _typedNonPersian;
-        public bool TypedNonPersian
-        {
-            get => _typedNonPersian;
-            set
-            {
-                _typedNonPersian = value;
-                NotifyPropertyChanged("TypedNonPersian");
-            }
-        }
-
         private List<string> _list1;
         public List<string> AutoCompleteList
         {
@@ -64,7 +53,7 @@ namespace Vajehyar.Windows
             get => _hint;
             set { _hint = value; NotifyPropertyChanged("Hint"); }
         }
-        
+
         public MainWindow(Database database)
         {
             InitializeComponent();
@@ -104,36 +93,16 @@ namespace Vajehyar.Windows
             _motaradefMotazadList?.Refresh();
             _TeyfiList?.Refresh();
         }
-
-       
+        
         public bool FilterResult(object obj)
         {
             if (string.IsNullOrEmpty(_filterString))
                 return false;
-            
-            string pattern = @"\b" + _filterString + @"\b";
 
-            if (SomePart.IsChecked==true)
-            {
-                pattern = _filterString;
-            }
+            Word word = obj as Word;
 
-            if (FullText.IsChecked==true)
-            {
-                return Regex.IsMatch(JoinWords(obj as Word), pattern) || Regex.IsMatch((obj as Word).Name, pattern);
-            }
-            return Regex.IsMatch((obj as Word).Name, pattern);
-        }
-
-        private string JoinWords(Word word)
-        {
-            IEnumerable<string> list=new List<string>();
-            foreach (var groups in word.MeaningGroups)
-            {
-                list = groups.Syns.Concat(groups.Acros);
-            }
-
-            return string.Join(",", list.ToArray());
+            return Regex.IsMatch(string.Join("،", word.Meanings.ToArray()), _filterString) || 
+                   Regex.IsMatch(word.Name, _filterString);
         }
 
         #region Events
@@ -145,7 +114,7 @@ namespace Vajehyar.Windows
                 DragMove();
             }
         }
-       
+
 
         private void Window_StateChanged(object sender, EventArgs e)
         {
@@ -210,15 +179,15 @@ namespace Vajehyar.Windows
 
             WindowState = WindowState.Minimized;
         }
-       
+
 
         private async Task ShowMessage(string message)
         {
             AutoClosemessage.Text = message;
             AutoCloseMessageContainer.Visibility = Visibility.Visible;
             await Task.Delay(2000);
-           AutoCloseMessageContainer.Visibility = Visibility.Collapsed;
-           
+            AutoCloseMessageContainer.Visibility = Visibility.Collapsed;
+
         }
 
         private async void Word_OnClick(object sender, RoutedEventArgs e)
