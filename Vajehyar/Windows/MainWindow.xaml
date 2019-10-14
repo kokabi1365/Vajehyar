@@ -63,44 +63,62 @@
             <Grid Grid.Row="0">
                 <Border
                     x:Name="SearchBorder"
-                    Padding="15,2,15,2"
+                    Grid.Column="0"
+                    Padding="1"
                     VerticalAlignment="Center"
                     Background="White"
-                    BorderBrush="#FF0088FF"
-                    BorderThickness="1"
-                    CornerRadius="4">
-                    <wpfTool:WatermarkTextBox
-                        x:Name="txtSearch"
-                        Height="30"
-                        VerticalContentAlignment="Center"
-                        Background="White"
-                        BorderBrush="Transparent"
-                        BorderThickness="0"
-                        FlowDirection="RightToLeft"
-                        FontFamily="{Binding Source={x:Static properties:Settings.Default}, Path=Font, TargetNullValue={StaticResource IranSans}, Converter={StaticResource DefaultFontConverter}, Mode=OneWay}"
-                        FontSize="{Binding Source={x:Static properties:Settings.Default}, Path=FontSize, Mode=OneWay}"
-                        FontWeight="Bold"
-                        Foreground="Black"
-                        IsTabStop="True"
-                        KeepWatermarkOnGotFocus="True"
-                        KeyUp="TxtSearch_OnKeyUp"
-                        PreviewKeyDown="TxtSearch_OnPreviewKeyDown"
-                        PreviewTextInput="TxtSearch_OnPreviewTextInput"
-                        TabIndex="0"
-                        Watermark="{Binding Hint}">
-                        <wpfTool:WatermarkTextBox.WatermarkTemplate>
-                            <DataTemplate>
-                                <ContentControl
-                                    Content="{Binding}"
-                                    FontFamily="{Binding Source={x:Static properties:Settings.Default}, Path=Font, TargetNullValue={StaticResource IranSans}, Converter={StaticResource DefaultFontConverter}, Mode=OneWay}"
-                                    FontSize="{Binding Source={x:Static properties:Settings.Default}, Path=FontSize, Mode=OneWay}"
-                                    FontWeight="Light"
-                                    Foreground="DimGray" />
-                            </DataTemplate>
+                    BorderBrush="LightSkyBlue"
+                    BorderThickness="2"
+                    CornerRadius="5">
+                    <Grid FlowDirection="RightToLeft">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
 
-                        </wpfTool:WatermarkTextBox.WatermarkTemplate>
-                    </wpfTool:WatermarkTextBox>
+                        <wpfTool:WatermarkTextBox
+                            x:Name="txtSearch"
+                            Grid.Column="0"
+                            VerticalContentAlignment="Center"
+                            Background="White"
+                            BorderBrush="Transparent"
+                            BorderThickness="0"
+                            FontFamily="{Binding Source={x:Static properties:Settings.Default}, Path=Font, TargetNullValue={StaticResource IranSans}, Converter={StaticResource DefaultFontConverter}, Mode=OneWay}"
+                            FontSize="{Binding Source={x:Static properties:Settings.Default}, Path=FontSize, Mode=OneWay}"
+                            FontWeight="Bold"
+                            Foreground="Black"
+                            IsTabStop="True"
+                            KeepWatermarkOnGotFocus="True"
+                            KeyUp="TxtSearch_OnKeyUp"
+                            PreviewKeyDown="TxtSearch_OnPreviewKeyDown"
+                            PreviewTextInput="TxtSearch_OnPreviewTextInput"
+                            TabIndex="0"
+                            Watermark="{Binding Hint}">
+                            <wpfTool:WatermarkTextBox.WatermarkTemplate>
+                                <DataTemplate>
+                                    <ContentControl
+                                        Content="{Binding}"
+                                        FontFamily="{Binding Source={x:Static properties:Settings.Default}, Path=Font, TargetNullValue={StaticResource IranSans}, Converter={StaticResource DefaultFontConverter}, Mode=OneWay}"
+                                        FontSize="{Binding Source={x:Static properties:Settings.Default}, Path=FontSize, Mode=OneWay}"
+                                        FontWeight="Light"
+                                        Foreground="DimGray" />
+                                </DataTemplate>
+
+                            </wpfTool:WatermarkTextBox.WatermarkTemplate>
+                        </wpfTool:WatermarkTextBox>
+
+                        <TextBlock
+                            Grid.Column="1"
+                            Margin="0,0,5,0"
+                            VerticalAlignment="Center"
+                            FlowDirection="RightToLeft"
+                            Foreground="DarkGray"
+                            Text="برای جستجو Enter بزنید"
+                            TextAlignment="Center" />
+                    </Grid>
+
                 </Border>
+
             </Grid>
 
 
