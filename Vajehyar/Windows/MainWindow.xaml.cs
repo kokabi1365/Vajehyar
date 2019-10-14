@@ -93,16 +93,27 @@ namespace Vajehyar.Windows
             _motaradefMotazadList?.Refresh();
             _TeyfiList?.Refresh();
         }
-        
+     
         public bool FilterResult(object obj)
         {
             if (string.IsNullOrEmpty(_filterString))
                 return false;
 
             Word word = obj as Word;
+            int meaningsCount = word.Meanings.Count;
 
-            return Regex.IsMatch(string.Join("،", word.Meanings.ToArray()), _filterString) || 
-                   Regex.IsMatch(word.Name, _filterString);
+            if (word.Name==_filterString)
+                return word.Name == _filterString;
+
+            for (int i = 0; i < meaningsCount; i++)
+            {
+                if (word.Meanings[i]==_filterString)
+                {
+                    return true;
+                }
+            }
+
+            return false;
         }
 
         #region Events
