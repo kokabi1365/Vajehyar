@@ -89,9 +89,9 @@
                             Foreground="Black"
                             IsTabStop="True"
                             KeepWatermarkOnGotFocus="True"
-                            KeyUp="TxtSearch_OnKeyUp"
                             PreviewKeyDown="TxtSearch_OnPreviewKeyDown"
                             PreviewTextInput="TxtSearch_OnPreviewTextInput"
+                            KeyDown="TxtSearch_OnKeyDown"
                             TabIndex="0"
                             Watermark="{Binding Hint}">
                             <wpfTool:WatermarkTextBox.WatermarkTemplate>

@@ -167,19 +167,6 @@ namespace Vajehyar.Windows
             }
         }
 
-        private async void TxtSearch_OnKeyUp(object sender, KeyEventArgs e)
-        {
-            if (await txtSearch.GetIdle(Settings.Default.SearchDelay))
-            {
-                FilterString = txtSearch.Text;
-            }
-        }
-
-        private void RadioButton_OnChecked(object sender, RoutedEventArgs e)
-        {
-            FilterString = txtSearch.Text;
-        }
-
         private void TxtSearch_OnPreviewTextInput(object sender, TextCompositionEventArgs e)
         {
             if (!Regex.IsMatch(e.Text, @"^[\u0600-\u06FF\uFB8A\u067E\u0686\u06AF\u200C\u200F]+$"))
@@ -222,6 +209,14 @@ namespace Vajehyar.Windows
             ScrollViewer scv = (ScrollViewer)sender;
             scv.ScrollToVerticalOffset(scv.VerticalOffset - e.Delta);
             e.Handled = true;
+        }
+
+        private void TxtSearch_OnKeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key==Key.Enter)
+            {
+                FilterString = txtSearch.Text;
+            }
         }
     }
 
