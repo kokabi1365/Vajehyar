@@ -49,18 +49,9 @@
     </Window.Triggers>
 
     <Border
-        Margin="25"
-        Padding="10"
+        Padding="8"
         Background="AliceBlue"
-        BorderThickness="2"
-        CornerRadius="10">
-        <Border.Effect>
-            <DropShadowEffect
-                BlurRadius="20"
-                Opacity="0.9"
-                RenderingBias="Quality"
-                Color="#FF9DD6FD" />
-        </Border.Effect>
+        BorderThickness="2">
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition />
@@ -78,7 +69,7 @@
                     Background="White"
                     BorderBrush="#FF0088FF"
                     BorderThickness="1"
-                    CornerRadius="20">
+                    CornerRadius="4">
                     <wpfTool:WatermarkTextBox
                         x:Name="txtSearch"
                         Height="30"
@@ -174,6 +165,7 @@
                         <ScrollViewer FlowDirection="LeftToRight" PreviewMouseWheel="UIElement_OnPreviewMouseWheel">
                             <DataGrid
                                 x:Name="Datagrid_Motaradef"
+                                
                                 HorizontalAlignment="Right"
                                 VerticalContentAlignment="Center"
                                 AutoGenerateColumns="False"
@@ -185,7 +177,7 @@
                                 FlowDirection="RightToLeft"
                                 FontFamily="{Binding Source={x:Static properties:Settings.Default}, Path=Font, TargetNullValue={StaticResource IranSans}, Converter={StaticResource DefaultFontConverter}, Mode=OneWay}"
                                 FontSize="{Binding Source={x:Static properties:Settings.Default}, Path=FontSize, Mode=OneWay}"
-                                HeadersVisibility="Column"
+                                HeadersVisibility="None"
                                 HorizontalGridLinesBrush="Gray"
                                 HorizontalScrollBarVisibility="Hidden"
                                 IsTabStop="False"
