@@ -91,8 +91,8 @@
                             KeepWatermarkOnGotFocus="True"
                             KeyDown="TxtSearch_OnKeyDown"
                             PreviewKeyDown="TxtSearch_OnPreviewKeyDown"
-                            PreviewTextInput="TxtSearch_OnPreviewTextInput"
                             PreviewMouseLeftButtonUp="TxtSearch_OnPreviewMouseLeftButtonUp"
+                            PreviewTextInput="TxtSearch_OnPreviewTextInput"
                             TabIndex="0"
                             Watermark="{Binding Hint}">
                             <wpfTool:WatermarkTextBox.WatermarkTemplate>
@@ -219,28 +219,12 @@
                                 </DataGrid.CellStyle>
 
                                 <DataGrid.Columns>
-                                    <DataGridTextColumn
-                                        Width="Auto"
-                                        Binding="{Binding Name, Mode=OneTime}"
-                                        CanUserReorder="False"
-                                        CanUserResize="False"
-                                        CanUserSort="False"
-                                        IsReadOnly="True">
-                                        <DataGridTextColumn.ElementStyle>
-                                            <Style>
-                                                <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
-                                                <Setter Property="TextBlock.VerticalAlignment" Value="Top" />
-                                                <Setter Property="TextBlock.FlowDirection" Value="RightToLeft" />
-                                                <Setter Property="TextBlock.Padding" Value="7" />
-                                            </Style>
-                                        </DataGridTextColumn.ElementStyle>
-                                    </DataGridTextColumn>
                                     <DataGridTemplateColumn Width="*" IsReadOnly="True">
                                         <DataGridTemplateColumn.CellTemplate>
                                             <DataTemplate>
 
                                                 <WrapPanel>
-                                                    <ItemsControl ItemsSource="{Binding Meanings, IsAsync=True}">
+                                                    <ItemsControl ItemsSource="{Binding}">
                                                         <ItemsControl.ItemsPanel>
                                                             <ItemsPanelTemplate>
                                                                 <WrapPanel Orientation="Horizontal" />
@@ -349,29 +333,12 @@
                                 </DataGrid.CellStyle>
 
                                 <DataGrid.Columns>
-                                    <DataGridTextColumn
-                                        Width="Auto"
-                                        Binding="{Binding Name, Mode=OneTime}"
-                                        CanUserReorder="False"
-                                        CanUserResize="False"
-                                        CanUserSort="False"
-                                        Header="عنوان"
-                                        IsReadOnly="True">
-                                        <DataGridTextColumn.ElementStyle>
-                                            <Style>
-                                                <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
-                                                <Setter Property="TextBlock.VerticalAlignment" Value="Top" />
-                                                <Setter Property="TextBlock.FlowDirection" Value="RightToLeft" />
-                                                <Setter Property="TextBlock.Padding" Value="7" />
-                                            </Style>
-                                        </DataGridTextColumn.ElementStyle>
-                                    </DataGridTextColumn>
                                     <DataGridTemplateColumn Width="*" IsReadOnly="True">
                                         <DataGridTemplateColumn.CellTemplate>
                                             <DataTemplate>
 
                                                 <WrapPanel>
-                                                    <ItemsControl ItemsSource="{Binding Meanings, IsAsync=True}">
+                                                    <ItemsControl ItemsSource="{Binding}">
                                                         <ItemsControl.ItemsPanel>
                                                             <ItemsPanelTemplate>
                                                                 <WrapPanel Orientation="Horizontal" />
@@ -456,7 +423,7 @@
                                 HorizontalGridLinesBrush="Gray"
                                 HorizontalScrollBarVisibility="Hidden"
                                 IsTabStop="False"
-                                ItemsSource="{Binding EmlaeiList, IsAsync=True}"
+                                ItemsSource="{Binding EmlaeiList}"
                                 MaxColumnWidth="{Binding ElementName=window, Path=Width}"
                                 RowBackground="AliceBlue"
                                 SelectionMode="Single"
@@ -480,8 +447,8 @@
 
                                 <DataGrid.Columns>
                                     <DataGridTextColumn
-                                        Width="Auto"
-                                        Binding="{Binding Name, Mode=OneTime}"
+                                        Width="*"
+                                        Binding="{Binding [0]}"
                                         CanUserReorder="False"
                                         CanUserResize="False"
                                         CanUserSort="False"

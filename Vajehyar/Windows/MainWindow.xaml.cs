@@ -60,13 +60,13 @@ namespace Vajehyar.Windows
         {
             InitializeComponent();
             
-            MotaradefMotazadList = CollectionViewSource.GetDefaultView(database.MotaradefMotazadList);
+            MotaradefMotazadList = CollectionViewSource.GetDefaultView(database.words_motaradef);
             MotaradefMotazadList.Filter = FilterResult;
 
-            TeyfiList = CollectionViewSource.GetDefaultView(database.TeyfiList);
+            TeyfiList = CollectionViewSource.GetDefaultView(database.words_teyfi);
             TeyfiList.Filter = FilterResult;
 
-            EmlaeiList = CollectionViewSource.GetDefaultView(database.EmlaeiList);
+            EmlaeiList = CollectionViewSource.GetDefaultView(database.words_emlaei);
             EmlaeiList.Filter = FilterResult;
 
             Hint = $"جستجوی بین {database.GetCount().Round().Format()} واژۀ فارسی";
@@ -106,16 +106,13 @@ namespace Vajehyar.Windows
             if (string.IsNullOrEmpty(_filterString))
                 return false;
 
-            Word word = obj as Word;
-            int meaningsCount = word.Meanings.Count;
-
-            if (word.Name.Contains(_filterString))
-                return true;
+            
+            var words = obj as List<string>;
             
 
-            for (int i = 0; i < meaningsCount; i++)
+            for (int i = 0; i < words.Count; i++)
             {
-                if (word.Meanings[i]==_filterString)
+                if (words[i].Contains(_filterString))
                 {
                     return true;
                 }

@@ -5,7 +5,7 @@
     xmlns:local="clr-namespace:Vajehyar"
     Exit="App_OnExit"
     Startup="App_Startup"
-    DispatcherUnhandledException="App_OnDispatcherUnhandledException">
+    >
 
     <Application.Resources>
 
