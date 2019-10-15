@@ -223,6 +223,14 @@ namespace Vajehyar.Windows
         {
             txtSearch.Text =FilterString= (sender as Button).Content.ToString();
         }
+
+        private void TxtSearch_OnPreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            if (txtSearch.SelectedText.Length == 0)
+            {
+                txtSearch.SelectAll();
+            }
+        }
     }
 
 

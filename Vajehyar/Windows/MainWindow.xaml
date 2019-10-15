@@ -92,6 +92,7 @@
                             KeyDown="TxtSearch_OnKeyDown"
                             PreviewKeyDown="TxtSearch_OnPreviewKeyDown"
                             PreviewTextInput="TxtSearch_OnPreviewTextInput"
+                            PreviewMouseLeftButtonUp="TxtSearch_OnPreviewMouseLeftButtonUp"
                             TabIndex="0"
                             Watermark="{Binding Hint}">
                             <wpfTool:WatermarkTextBox.WatermarkTemplate>
