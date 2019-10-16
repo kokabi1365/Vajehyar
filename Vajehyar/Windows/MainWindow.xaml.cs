@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Globalization;
@@ -62,6 +63,8 @@ namespace Vajehyar.Windows
             
             MotaradefMotazadList = CollectionViewSource.GetDefaultView(database.words_motaradef);
             MotaradefMotazadList.Filter = FilterResult;
+            var motaradefCollectionView = MotaradefMotazadList as ListCollectionView;
+            motaradefCollectionView.CustomSort = new CustomSorter(this);
 
             TeyfiList = CollectionViewSource.GetDefaultView(database.words_teyfi);
             TeyfiList.Filter = FilterResult;
@@ -230,7 +233,28 @@ namespace Vajehyar.Windows
         }
     }
 
+    internal class CustomSorter : IComparer
+    {
+        private MainWindow mainWindow;
 
+        public CustomSorter(MainWindow mainWindow)
+        {
+            this.mainWindow = mainWindow;
+        }
+
+        public int Compare(object x, object y)
+        {
+            string x_first = ((IList) x)[0].ToString();
+            string y_first = ((IList) y)[0].ToString();
+
+            
+
+            int a = x_first?.IndexOf(mainWindow.FilterString) ?? -1;
+            int b= y_first?.IndexOf(mainWindow.FilterString) ?? -1;
+            return b.CompareTo(a);
+            //return y_first.CompareTo(x_first);
+        }
+    }
 
     public class DefaultFontConverter : MarkupExtension, IValueConverter
     {
