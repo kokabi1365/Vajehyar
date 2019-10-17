@@ -4,9 +4,9 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:wpfTool="clr-namespace:Xceed.Wpf.Toolkit;assembly=Xceed.Wpf.Toolkit"
     xmlns:properties="clr-namespace:Vajehyar.Properties"
     xmlns:scm="clr-namespace:System.ComponentModel;assembly=WindowsBase"
+    xmlns:wpfTool="clr-namespace:Xceed.Wpf.Toolkit;assembly=Xceed.Wpf.Toolkit"
     Title="SettingsWindow"
     Width="491"
     Height="515"
@@ -18,7 +18,7 @@
     mc:Ignorable="d">
 
     <Window.Resources>
-        <CollectionViewSource x:Key="SortedFontsCollection" Source="{Binding Source={x:Static Fonts.SystemFontFamilies}}" >
+        <CollectionViewSource x:Key="SortedFontsCollection" Source="{Binding Source={x:Static Fonts.SystemFontFamilies}}">
             <CollectionViewSource.SortDescriptions>
                 <scm:SortDescription PropertyName="Source" />
             </CollectionViewSource.SortDescriptions>
@@ -64,23 +64,35 @@
                 IsChecked="{Binding Source={x:Static properties:Settings.Default}, Path=MinimizeWhenClickOutside, Mode=TwoWay}"
                 Style="{StaticResource SliderCheckBox}" />
 
-            <StackPanel Orientation="Horizontal" FlowDirection="RightToLeft" Margin="0,10,19,0">
-                <TextBlock Text="میزان تأخیر قبل از جستجو (به میلی‌ثانیه) :"/>
-                <wpfTool:IntegerUpDown  HorizontalAlignment="Center" Value="{Binding Source={x:Static properties:Settings.Default}, Path=SearchDelay, Mode=TwoWay}" AllowSpin="True" ShowButtonSpinner="True" DefaultValue="200" Increment="50" ClipValueToMinMax="True" TextAlignment="Center" Maximum="1000" Minimum="0" Margin="5,0,0,0" Width="60" Height="20"/>
-            </StackPanel>
+            <CheckBox
+                Name="TopMostWindow"
+                Margin="0,5,15,0"
+                Content="‌نمایش بالای پنجره‌های دیگر"
+                FlowDirection="RightToLeft"
+                IsChecked="{Binding Source={x:Static properties:Settings.Default}, Path=TopMostWindow, Mode=TwoWay}"
+                Style="{StaticResource SliderCheckBox}" />
 
-            <GroupBox Margin="0,20,0,0" Width="350" Padding="10" FlowDirection="RightToLeft">
+            <StackPanel
+                Margin="0,10,19,0"
+                FlowDirection="RightToLeft"
+                Orientation="Horizontal" />
+
+            <GroupBox
+                Width="350"
+                Margin="0,20,0,0"
+                Padding="10"
+                FlowDirection="RightToLeft">
                 <GroupBox.Header>
-                    <TextBlock Text="تنظیم کلید میانبر " FontWeight="Bold"/> 
+                    <TextBlock FontWeight="Bold" Text="تنظیم کلید میانبر " />
                 </GroupBox.Header>
                 <GroupItem>
                     <StackPanel>
                         <TextBlock
                             Margin="0,0,0,5"
-                            TextWrapping="Wrap"
                             HorizontalAlignment="Center"
                             FlowDirection="RightToLeft"
-                            Text="در کادر پایین کلید میانبر دلخواهتان را فشار دهید:" />
+                            Text="در کادر پایین کلید میانبر دلخواهتان را فشار دهید:"
+                            TextWrapping="Wrap" />
 
                         <TextBox
                             Name="textBox"
@@ -95,72 +107,80 @@
                             FontWeight="Light"
                             Foreground="DimGray"
                             KeyDown="TextBox_OnKeyDown"
-                            Text="{Binding Source={x:Static properties:Settings.Default}, Path=ShortcutKey, Mode=TwoWay}">
-                        </TextBox>
+                            Text="{Binding Source={x:Static properties:Settings.Default}, Path=ShortcutKey, Mode=TwoWay}" />
                     </StackPanel>
                 </GroupItem>
             </GroupBox>
 
-            <StackPanel
-                Margin="0,20,0,0"
-                HorizontalAlignment="Center"
-                >
+            <StackPanel Margin="0,20,0,0" HorizontalAlignment="Center">
 
-                <GroupBox Width="350" Padding="10" FlowDirection="RightToLeft">
+                <GroupBox
+                    Width="350"
+                    Padding="10"
+                    FlowDirection="RightToLeft">
                     <GroupBox.Header>
-                        <TextBlock Text="انتخاب فونت " FontWeight="Bold"/>
+                        <TextBlock FontWeight="Bold" Text="انتخاب فونت " />
                     </GroupBox.Header>
                     <GroupItem>
                         <StackPanel Orientation="Horizontal">
                             <ComboBox
                                 x:Name="Fonts"
                                 Width="150"
-                                Margin="0,12,0,0"
                                 Height="23"
-                                IsTextSearchEnabled="True"
-                                IsTextSearchCaseSensitive="False"
+                                Margin="0,12,0,0"
                                 Padding="10,0"
                                 FlowDirection="LeftToRight"
                                 FontFamily="calibri thin"
                                 FontSize="12"
-                                Foreground="DimGray"
                                 FontWeight="Thin"
-                                Style="{StaticResource ComboBoxFlatStyle}"
+                                Foreground="DimGray"
                                 IsSynchronizedWithCurrentItem="True"
-                                Text="{Binding Source={x:Static properties:Settings.Default}, Path=Font, Mode=OneWay}"
-                                SelectedItem="{Binding Source={x:Static properties:Settings.Default}, Path=Font, Mode=TwoWay}">
+                                IsTextSearchCaseSensitive="False"
+                                IsTextSearchEnabled="True"
+                                SelectedItem="{Binding Source={x:Static properties:Settings.Default}, Path=Font, Mode=TwoWay}"
+                                Style="{StaticResource ComboBoxFlatStyle}"
+                                Text="{Binding Source={x:Static properties:Settings.Default}, Path=Font, Mode=OneWay}">
                                 <ComboBox.ItemsSource>
                                     <CompositeCollection>
-                                        <ComboBoxItem Content="فونت پیش‌فرض" FontFamily="{StaticResource IranSans}" FlowDirection="RightToLeft" Foreground="Black" FontWeight="Bold" FontSize="11"/>
-                                        <CollectionContainer Collection="{Binding Source={StaticResource SortedFontsCollection}}"/>
+                                        <ComboBoxItem
+                                            Content="فونت پیش‌فرض"
+                                            FlowDirection="RightToLeft"
+                                            FontFamily="{StaticResource IranSans}"
+                                            FontSize="11"
+                                            FontWeight="Bold"
+                                            Foreground="Black" />
+                                        <CollectionContainer Collection="{Binding Source={StaticResource SortedFontsCollection}}" />
                                     </CompositeCollection>
                                 </ComboBox.ItemsSource>
                             </ComboBox>
                             <StackPanel>
-                                <TextBlock Text="{Binding ElementName=FontSize, Path=Value}" Margin="15,0,0,-8" TextAlignment="Center" FontFamily="{StaticResource IranSansNum}"/>
+                                <TextBlock
+                                    Margin="15,0,0,-8"
+                                    FontFamily="{StaticResource IranSansNum}"
+                                    Text="{Binding ElementName=FontSize, Path=Value}"
+                                    TextAlignment="Center" />
                                 <Slider
                                     x:Name="FontSize"
-                                    FlowDirection="LeftToRight"
                                     Width="165"
                                     Height="23"
                                     Margin="10,0,0,0"
-                                    Minimum="10"
-                                    Maximum="24" 
-                                    Style="{StaticResource Horizontal_Slider}"
-                                    Value="{Binding Source={x:Static properties:Settings.Default}, Path=FontSize, Mode=TwoWay}"
+                                    FlowDirection="LeftToRight"
                                     FontFamily="{StaticResource IranSansNum}"
                                     FontSize="12"
-                                    Foreground="DimGray">
-                                </Slider>
-                                
+                                    Foreground="DimGray"
+                                    Maximum="24"
+                                    Minimum="10"
+                                    Style="{StaticResource Horizontal_Slider}"
+                                    Value="{Binding Source={x:Static properties:Settings.Default}, Path=FontSize, Mode=TwoWay}" />
+
                             </StackPanel>
-                            
+
                         </StackPanel>
                     </GroupItem>
                 </GroupBox>
-                
-                
-              
+
+
+
 
 
             </StackPanel>

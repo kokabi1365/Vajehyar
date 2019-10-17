@@ -11,6 +11,7 @@
     x:Name="window"
     Title="واژه‌یار"
     Width="650"
+    
     utils:KeyboardFocus.On="{Binding ElementName=txtSearch}"
     DataContext="{Binding RelativeSource={RelativeSource Self}}"
     Deactivated="MainWindow_OnDeactivated"

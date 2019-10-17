@@ -238,5 +238,17 @@ namespace Vajehyar.Properties {
                 return ((string)(this["TwitterID"]));
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool TopMostWindow {
+            get {
+                return ((bool)(this["TopMostWindow"]));
+            }
+            set {
+                this["TopMostWindow"] = value;
+            }
+        }
     }
 }
