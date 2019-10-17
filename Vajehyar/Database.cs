@@ -19,6 +19,7 @@ namespace Vajehyar
         private Database()
         {
             string dictMotaradef = Properties.Resources.Motaradef_Motazad;
+            //string dictMotaradef = Properties.Resources.Sample;
             string dictTeyfi = Properties.Resources.Teyfi;
             string dictEmlaei = Properties.Resources.Emlaei;
 
@@ -45,7 +46,6 @@ namespace Vajehyar
             {
                 words_emlaei.Add(new List<string>(){line});
             }
-
         }
 
         public int GetCount()

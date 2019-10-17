@@ -254,5 +254,8 @@
   <ItemGroup>
     <Resource Include="Resources\Dicts\Emlaei.txt" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Dicts\Sample.txt" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -68,9 +68,13 @@ namespace Vajehyar.Windows
 
             TeyfiList = CollectionViewSource.GetDefaultView(database.words_teyfi);
             TeyfiList.Filter = FilterResult;
+            var teyfiCollectionView = TeyfiList as ListCollectionView;
+            teyfiCollectionView.CustomSort = new CustomSorter(this);
 
             EmlaeiList = CollectionViewSource.GetDefaultView(database.words_emlaei);
             EmlaeiList.Filter = FilterResult;
+            var emlaeiCollectionView = EmlaeiList as ListCollectionView;
+            emlaeiCollectionView.CustomSort = new CustomSorter(this);
 
             Hint = $"جستجوی بین {database.GetCount().Round().Format()} واژۀ فارسی";
 
@@ -244,16 +248,16 @@ namespace Vajehyar.Windows
 
         public int Compare(object x, object y)
         {
-            string x_first = ((IList) x)[0].ToString();
-            string y_first = ((IList) y)[0].ToString();
+            string item1 = string.Join("", (x as List<string>)?.ToArray());
+            string item2 = string.Join("", (y as List<string>)?.ToArray());
+            string filter = mainWindow.FilterString;
 
-            
+            int a = item1?.IndexOf(filter) ?? -1;
+            int b= item2?.IndexOf(filter) ?? -1;
 
-            int a = x_first?.IndexOf(mainWindow.FilterString) ?? -1;
-            int b= y_first?.IndexOf(mainWindow.FilterString) ?? -1;
-            return b.CompareTo(a);
-            //return y_first.CompareTo(x_first);
+            return a.CompareTo(b);
         }
+        
     }
 
     public class DefaultFontConverter : MarkupExtension, IValueConverter
