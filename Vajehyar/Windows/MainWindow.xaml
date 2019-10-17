@@ -133,6 +133,7 @@
                                     <MultiDataTrigger.Conditions>
                                         <Condition Binding="{Binding ElementName=Datagrid_Motaradef, Path=Items.Count}" Value="0" />
                                         <Condition Binding="{Binding ElementName=Datagrid_Teyfi, Path=Items.Count}" Value="0" />
+                                        <Condition Binding="{Binding ElementName=Datagrid_Emlaei, Path=Items.Count}" Value="0" />
                                     </MultiDataTrigger.Conditions>
                                     <MultiDataTrigger.Setters>
                                         <Setter Property="Visibility" Value="Collapsed" />
@@ -163,10 +164,12 @@
                                 ToolTip="فرهنگ مترادف متضاد">
                                 <Label Content="فرهنگ مترادف متضاد" />
                                 <Border
-                                    Width="20"
+                                    Width="40"
                                     Height="20"
-                                    Background="White"
-                                    CornerRadius="15">
+                                    CornerRadius="10"
+                                    BorderThickness="1"
+                                    BorderBrush="DeepSkyBlue"
+                                    Background="White">
                                     <TextBlock
                                         Margin="0,2,0,0"
                                         HorizontalAlignment="Center"
@@ -277,10 +280,12 @@
                                 ToolTipService.ShowDuration="120000">
                                 <Label Content="طیفی" />
                                 <Border
-                                    Width="20"
+                                    Width="40"
                                     Height="20"
-                                    Background="White"
-                                    CornerRadius="15">
+                                    CornerRadius="10"
+                                    BorderThickness="1"
+                                    BorderBrush="DeepSkyBlue"
+                                    Background="White">
                                     <TextBlock
                                         Margin="0,2,0,0"
                                         HorizontalAlignment="Center"
@@ -375,7 +380,7 @@
                         <TabItem.Style>
                             <Style BasedOn="{StaticResource TabItemStyle}" TargetType="TabItem">
                                 <Style.Triggers>
-                                    <DataTrigger Binding="{Binding ElementName=Datagrid, Path=Items.Count}" Value="0">
+                                    <DataTrigger Binding="{Binding ElementName=Datagrid_Emlaei, Path=Items.Count}" Value="0">
                                         <Setter Property="Visibility" Value="Collapsed" />
                                     </DataTrigger>
 
@@ -390,24 +395,26 @@
                                 ToolTipService.ShowDuration="120000">
                                 <Label Content="فرهنگ املایی" />
                                 <Border
-                                    Width="20"
+                                    Width="40"
                                     Height="20"
-                                    Background="White"
-                                    CornerRadius="15">
+                                    CornerRadius="10"
+                                    BorderThickness="1"
+                                    BorderBrush="DeepSkyBlue"
+                                    Background="White">
                                     <TextBlock
                                         Margin="0,2,0,0"
                                         HorizontalAlignment="Center"
                                         VerticalAlignment="Center"
                                         FontSize="12"
                                         FontWeight="Bold"
-                                        Text="{Binding ElementName=Datagrid, Path=Items.Count}"
+                                        Text="{Binding ElementName=Datagrid_Emlaei, Path=Items.Count}"
                                         TextAlignment="Center" />
                                 </Border>
                             </StackPanel>
                         </TabItem.Header>
                         <ScrollViewer FlowDirection="LeftToRight" PreviewMouseWheel="UIElement_OnPreviewMouseWheel">
                             <DataGrid
-                                x:Name="Datagrid"
+                                x:Name="Datagrid_Emlaei"
                                 HorizontalAlignment="Right"
                                 VerticalContentAlignment="Center"
                                 AutoGenerateColumns="False"
