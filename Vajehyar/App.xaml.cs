@@ -62,6 +62,7 @@ namespace Vajehyar
             var ico = GetResourceStream(new Uri("pack://application:,,,/Resources/Icons/Vajehyar.ico"))?.Stream;
             _notifyIcon.Icon = new Icon(ico);
             _notifyIcon.Visible = true;
+            _notifyIcon.Text = "واژه‌یار";
 
             /*if (Settings.Default.FirstRun)
             {
