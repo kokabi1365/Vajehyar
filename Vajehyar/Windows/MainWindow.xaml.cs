@@ -64,7 +64,7 @@ namespace Vajehyar.Windows
             InitializeComponent();
 
             //History=new CircularStack<string>();
-            
+
             MotaradefMotazadList = CollectionViewSource.GetDefaultView(database.words_motaradef);
             MotaradefMotazadList.Filter = FilterResult;
             var motaradefCollectionView = MotaradefMotazadList as ListCollectionView;
@@ -112,21 +112,36 @@ namespace Vajehyar.Windows
             _EmlaeiList?.Refresh();
             txtSearch.SelectAll();
         }
-     
+
         public bool FilterResult(object obj)
         {
             if (string.IsNullOrEmpty(_filterString))
                 return false;
 
             var words = obj as List<string>;
-            
 
-            for (int i = 0; i < words.Count; i++)
+            switch (PartSearch.IsChecked)
             {
-                if (words[i].Contains(_filterString))
-                {
-                    return true;
-                }
+                case false:
+                    for (int i = 0; i < words.Count; i++)
+                    {
+                        if (words[i] == _filterString)
+                        {
+                            return true;
+                        }
+                    }
+
+                    break;
+
+                case true:
+                    for (int i = 0; i < words.Count; i++)
+                    {
+                        if (words[i].Contains(_filterString))
+                        {
+                            return true;
+                        }
+                    }
+                    break;
             }
 
             return false;
@@ -213,7 +228,7 @@ namespace Vajehyar.Windows
 
         private void TxtSearch_OnKeyDown(object sender, KeyEventArgs e)
         {
-            if (e.Key==Key.Enter)
+            if (e.Key == Key.Enter)
             {
                 FilterString = txtSearch.Text;
             }
@@ -229,7 +244,7 @@ namespace Vajehyar.Windows
 
         private void Word_OnClick(object sender, RoutedEventArgs e)
         {
-            txtSearch.Text =FilterString= (sender as Button).Content.ToString();
+            txtSearch.Text = FilterString = (sender as Button).Content.ToString();
         }
 
         private void TxtSearch_OnPreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
@@ -251,6 +266,11 @@ namespace Vajehyar.Windows
             txtSearch.Redo();
             FilterString = txtSearch.Text;
         }
+
+        private void PartSearch_OnChecked(object sender, RoutedEventArgs e)
+        {
+            FilterCollection();
+        }
     }
 
     internal class CustomSorter : IComparer
@@ -269,11 +289,11 @@ namespace Vajehyar.Windows
             string filter = mainWindow.FilterString;
 
             int a = item1?.IndexOf(filter) ?? -1;
-            int b= item2?.IndexOf(filter) ?? -1;
+            int b = item2?.IndexOf(filter) ?? -1;
 
             return a.CompareTo(b);
         }
-        
+
     }
 
     public class DefaultFontConverter : MarkupExtension, IValueConverter
@@ -296,6 +316,6 @@ namespace Vajehyar.Windows
         }
     }
 
-  
+
 
 }

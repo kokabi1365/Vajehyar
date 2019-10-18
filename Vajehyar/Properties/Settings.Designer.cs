@@ -250,5 +250,17 @@ namespace Vajehyar.Properties {
                 this["TopMostWindow"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool PartSearch {
+            get {
+                return ((bool)(this["PartSearch"]));
+            }
+            set {
+                this["PartSearch"] = value;
+            }
+        }
     }
 }
