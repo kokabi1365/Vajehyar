@@ -36,7 +36,10 @@ namespace Vajehyar.Windows
 
         private void TextBox_OnKeyDown(object sender, KeyEventArgs e)
         {
-
+            if (e.Key==Key.Escape)
+            {
+                return;
+            }
             // The text box grabs all input.
             e.Handled = true;
 
