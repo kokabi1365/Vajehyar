@@ -27,7 +27,9 @@ namespace Vajehyar.Windows
     public partial class MainWindow : INotifyPropertyChanged
     {
         private List<string> _list1;
-        
+
+        //public CircularStack<string> History { get; set; }
+
         private ICollectionView _motaradefMotazadList;
         public ICollectionView MotaradefMotazadList
         {
@@ -60,6 +62,8 @@ namespace Vajehyar.Windows
         public MainWindow(Database database)
         {
             InitializeComponent();
+
+            //History=new CircularStack<string>();
             
             MotaradefMotazadList = CollectionViewSource.GetDefaultView(database.words_motaradef);
             MotaradefMotazadList.Filter = FilterResult;
@@ -106,6 +110,7 @@ namespace Vajehyar.Windows
             _motaradefMotazadList?.Refresh();
             _TeyfiList?.Refresh();
             _EmlaeiList?.Refresh();
+            txtSearch.SelectAll();
         }
      
         public bool FilterResult(object obj)
@@ -113,7 +118,6 @@ namespace Vajehyar.Windows
             if (string.IsNullOrEmpty(_filterString))
                 return false;
 
-            
             var words = obj as List<string>;
             
 
@@ -235,6 +239,18 @@ namespace Vajehyar.Windows
                 txtSearch.SelectAll();
             }
         }
+
+        private void BackButton_OnClick(object sender, RoutedEventArgs e)
+        {
+            txtSearch.Undo();
+            FilterString = txtSearch.Text;
+        }
+
+        private void ForwardButton_OnClick(object sender, RoutedEventArgs e)
+        {
+            txtSearch.Redo();
+            FilterString = txtSearch.Text;
+        }
     }
 
     internal class CustomSorter : IComparer
@@ -279,5 +295,7 @@ namespace Vajehyar.Windows
             return this;
         }
     }
+
+  
 
 }

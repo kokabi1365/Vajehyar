@@ -11,7 +11,6 @@
     x:Name="window"
     Title="واژه‌یار"
     Width="650"
-    
     utils:KeyboardFocus.On="{Binding ElementName=txtSearch}"
     DataContext="{Binding RelativeSource={RelativeSource Self}}"
     Deactivated="MainWindow_OnDeactivated"
@@ -73,13 +72,49 @@
                     CornerRadius="5">
                     <Grid FlowDirection="RightToLeft">
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
                             <ColumnDefinition Width="Auto" />
                         </Grid.ColumnDefinitions>
 
+                        <Border
+                            Grid.Column="0"
+                            Height="22"
+                            Margin="5,5,2,5"
+                            BorderBrush="CornflowerBlue"
+                            BorderThickness="2"
+                            CornerRadius="5">
+                            <StackPanel Height="20" Orientation="Horizontal">
+                                <Button
+                                    Name="BackButton"
+                                    Width="20"
+                                    Margin="0,-1,0,0"
+                                    VerticalAlignment="Center"
+                                    BorderBrush="CornflowerBlue"
+                                    BorderThickness="0,0,1,0"
+                                    Click="BackButton_OnClick"
+                                    Content="&lt;"
+                                    FontSize="14"
+                                    Style="{StaticResource StylelessButtonStyle}"
+                                    ToolTip="کلمۀ قبل" />
+                                <Button
+                                    Name="ForwardButton"
+                                    Width="20"
+                                    Margin="0,-1,0,0"
+                                    VerticalAlignment="Center"
+                                    BorderBrush="CornflowerBlue"
+                                    BorderThickness="1,0,0,0"
+                                    Click="ForwardButton_OnClick"
+                                    Content="&gt;"
+                                    FontSize="14"
+                                    Style="{StaticResource StylelessButtonStyle}"
+                                    ToolTip="کلمۀ بعد" />
+                            </StackPanel>
+                        </Border>
+
                         <wpfTool:WatermarkTextBox
                             x:Name="txtSearch"
-                            Grid.Column="0"
+                            Grid.Column="1"
                             VerticalContentAlignment="Center"
                             Background="White"
                             BorderBrush="Transparent"
@@ -110,8 +145,8 @@
                         </wpfTool:WatermarkTextBox>
 
                         <TextBlock
-                            Grid.Column="1"
-                            Margin="0,0,10,0"
+                            Grid.Column="2"
+                            Margin="0,0,8,0"
                             VerticalAlignment="Center"
                             FlowDirection="RightToLeft"
                             Foreground="DarkGray"
@@ -167,10 +202,10 @@
                                 <Border
                                     Width="40"
                                     Height="20"
-                                    CornerRadius="10"
-                                    BorderThickness="1"
+                                    Background="White"
                                     BorderBrush="DeepSkyBlue"
-                                    Background="White">
+                                    BorderThickness="1"
+                                    CornerRadius="10">
                                     <TextBlock
                                         Margin="0,2,0,0"
                                         HorizontalAlignment="Center"
@@ -283,10 +318,10 @@
                                 <Border
                                     Width="40"
                                     Height="20"
-                                    CornerRadius="10"
-                                    BorderThickness="1"
+                                    Background="White"
                                     BorderBrush="DeepSkyBlue"
-                                    Background="White">
+                                    BorderThickness="1"
+                                    CornerRadius="10">
                                     <TextBlock
                                         Margin="0,2,0,0"
                                         HorizontalAlignment="Center"
@@ -398,10 +433,10 @@
                                 <Border
                                     Width="40"
                                     Height="20"
-                                    CornerRadius="10"
-                                    BorderThickness="1"
+                                    Background="White"
                                     BorderBrush="DeepSkyBlue"
-                                    Background="White">
+                                    BorderThickness="1"
+                                    CornerRadius="10">
                                     <TextBlock
                                         Margin="0,2,0,0"
                                         HorizontalAlignment="Center"
