@@ -206,8 +206,8 @@
                             <StackPanel
                                 FlowDirection="RightToLeft"
                                 Orientation="Horizontal"
-                                ToolTip="فرهنگ مترادف متضاد">
-                                <Label Content="فرهنگ مترادف متضاد" />
+                                ToolTip="فرهنگ کلمات مترادف و متضاد زبان فارسی">
+                                <Label Content="فرهنگ مترادف و متضاد" />
                                 <Border
                                     Width="40"
                                     Height="20"
@@ -321,7 +321,7 @@
                             <StackPanel
                                 FlowDirection="RightToLeft"
                                 Orientation="Horizontal"
-                                ToolTip="فرض کنید دنبال واژۀ «مدیتیشن»، «پلاژ» یا «پاتوق» هستید ولی فقط ماهیت آن یعنی استراحت را به خاطر می‌آورید. کافی است در فرهنگ طیفی همین واژۀ «استراحت» را جستجو کنید تا کلمات ذکر شده را بیابید. به بیان دیگر، فرهنگ طیفی کمک می‌کند تا واژه‌ای که نوک زبانتان است ولی به خاطر نمی‌آورید را به یاد آورید."
+                                ToolTip="فرض کنید دنبال واژۀ «کنفرانس» هستید ولی فقط ارتباط معنایی دوری مثل «گفتگو» یا «صحبت» را به خاطر می‌آورید. با جستجوی هر یک از این دو کلمه می‌توانید واژۀ یاد شده را پیدا کنید."
                                 ToolTipService.ShowDuration="120000">
                                 <Label Content="طیفی" />
                                 <Border
@@ -436,7 +436,7 @@
                             <StackPanel
                                 FlowDirection="RightToLeft"
                                 Orientation="Horizontal"
-                                ToolTip="فرهنگ املایی زبان فارسی"
+                                ToolTip="فرهنگ املایی زبان فارسی، راهنمای جدانویسی یا پیوسته‌نویسی واژگان مرکب و مشتق"
                                 ToolTipService.ShowDuration="120000">
                                 <Label Content="فرهنگ املایی" />
                                 <Border
