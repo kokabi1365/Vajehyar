@@ -75,7 +75,7 @@
                             Margin="0,2,0,0"
                             FontFamily="{StaticResource IranSans}"
                             FontSize="12"
-                            Text="راهنمای واژه‌گزینی برای اهالی قلم" />
+                            Text="راهنمای واژه‌گزینی کلمات فارسی " />
 
                     </StackPanel>
                 </StackPanel>
