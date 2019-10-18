@@ -81,7 +81,7 @@
                             Grid.Column="0"
                             Height="22"
                             Margin="5,5,2,5"
-                            BorderBrush="CornflowerBlue"
+                            BorderBrush="DeepSkyBlue"
                             BorderThickness="2"
                             CornerRadius="5">
                             <StackPanel Height="20" Orientation="Horizontal">
@@ -90,7 +90,7 @@
                                     Width="20"
                                     Margin="0,-1,0,0"
                                     VerticalAlignment="Center"
-                                    BorderBrush="CornflowerBlue"
+                                    BorderBrush="DeepSkyBlue"
                                     BorderThickness="0,0,1,0"
                                     Click="BackButton_OnClick"
                                     Content="&lt;"
@@ -102,7 +102,7 @@
                                     Width="20"
                                     Margin="0,-1,0,0"
                                     VerticalAlignment="Center"
-                                    BorderBrush="CornflowerBlue"
+                                    BorderBrush="DeepSkyBlue"
                                     BorderThickness="1,0,0,0"
                                     Click="ForwardButton_OnClick"
                                     Content="&gt;"
