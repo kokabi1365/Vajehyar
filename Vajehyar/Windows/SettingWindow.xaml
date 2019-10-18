@@ -43,7 +43,7 @@
             <CheckBox
                 Name="StartupCheckBox"
                 Margin="0,25,15,0"
-                Content="اجرای خودکار برنامه در شروع ویندوز"
+                Content="اجرای برنامه در شروع ویندوز"
                 FlowDirection="RightToLeft"
                 IsChecked="{Binding Source={x:Static properties:Settings.Default}, Path=StartByWindows, Mode=TwoWay}"
                 Style="{StaticResource SliderCheckBox}" />
@@ -51,7 +51,7 @@
             <CheckBox
                 Name="MinimizeType"
                 Margin="0,5,15,0"
-                Content="قرار گرفتن برنامه در نوار وظیفه "
+                Content="نمایش آیکون برنامه در نوار وظیفه "
                 FlowDirection="RightToLeft"
                 IsChecked="{Binding Source={x:Static properties:Settings.Default}, Path=ShowInTaskbar, Mode=TwoWay}"
                 Style="{StaticResource SliderCheckBox}" />
@@ -59,7 +59,7 @@
             <CheckBox
                 Name="MinimizeWhenClickOutside"
                 Margin="0,5,15,0"
-                Content="‌مخفی شدن برنامه هنگام کلیک خارج از پنجرۀ جستجو"
+                Content="‌پنهان کردن برنامه هنگام کلیک خارج از پنجرۀ جستجو"
                 FlowDirection="RightToLeft"
                 IsChecked="{Binding Source={x:Static properties:Settings.Default}, Path=MinimizeWhenClickOutside, Mode=TwoWay}"
                 Style="{StaticResource SliderCheckBox}" />
@@ -67,7 +67,7 @@
             <CheckBox
                 Name="TopMostWindow"
                 Margin="0,5,15,0"
-                Content="‌نمایش بالای پنجره‌های دیگر"
+                Content="‌نمایش بالای همۀ پنجره‌ها"
                 FlowDirection="RightToLeft"
                 IsChecked="{Binding Source={x:Static properties:Settings.Default}, Path=TopMostWindow, Mode=TwoWay}"
                 Style="{StaticResource SliderCheckBox}" />
@@ -91,7 +91,7 @@
                             Margin="0,0,0,5"
                             HorizontalAlignment="Center"
                             FlowDirection="RightToLeft"
-                            Text="در کادر پایین کلید میانبر دلخواهتان را فشار دهید:"
+                            Text="در کادر پایین کلید میانبر مورد نظر را فشار دهید:"
                             TextWrapping="Wrap" />
 
                         <TextBox
@@ -119,7 +119,7 @@
                     Padding="10"
                     FlowDirection="RightToLeft">
                     <GroupBox.Header>
-                        <TextBlock FontWeight="Bold" Text="انتخاب فونت " />
+                        <TextBlock FontWeight="Bold" Text="فونت " />
                     </GroupBox.Header>
                     <GroupItem>
                         <StackPanel Orientation="Horizontal">
@@ -168,7 +168,7 @@
                                     FontFamily="{StaticResource IranSansNum}"
                                     FontSize="12"
                                     Foreground="DimGray"
-                                    Maximum="24"
+                                    Maximum="20"
                                     Minimum="10"
                                     Style="{StaticResource Horizontal_Slider}"
                                     Value="{Binding Source={x:Static properties:Settings.Default}, Path=FontSize, Mode=TwoWay}" />
