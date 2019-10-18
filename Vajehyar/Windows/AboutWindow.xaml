@@ -7,7 +7,7 @@
     xmlns:properties="clr-namespace:Vajehyar.Properties"
     Title="About"
     Width="446.445"
-    Height="542.412"
+    Height="509.412"
     DataContext="{Binding RelativeSource={RelativeSource Self}}"
     FontFamily="{StaticResource IranSans}"
     Left="{Binding Source={x:Static properties:Settings.Default}, Path=AboutLeftPos, Mode=TwoWay}"
@@ -89,7 +89,7 @@
                     TextWrapping="Wrap"><Run
                         FontSize="14"
                         FontWeight="Bold"
-                        Text="واژه‌یار " /><Run Text="کتابخانه‌ای از " /><Run Text="واژگان" /><Run Text=" فارسی است که به راحتی می‌توانید مترادف هر کلمه را در آن بیابید" /><Run Text=". استفاده از این برنامه به مرور باعث " /><Run Text="آراستگیِ " /><Run Text="نگارش و افزایش دایرۀ لغات خواهد شد." /><LineBreak /><Run /><LineBreak /><Run Text="دادگان برنامه از " /><Run Text="دو فرهنگ غنیِ فارسی " /><Run Text="گرفته شده" /><Run Text=": اولی فرهنگ جامع واژگان مترادف و متضاد فارسی" /><Run Text=" نوشتۀ آقای" /><Run Text=" فرج‌الله خداپرستی" /><Run Text=" با" /><Run Text=" بیش از " /><Run Text="135000 " /><Run Text="لغت " /><Run Text="و دیگری فرهنگ طیفی زبان فارسی تألیف جمشید فراروی " /><Run Text="که چیزی حدودِ" /><Run Text=" 45000 " /><Run Text="واژه" /><Run Text=" در آن وجود دارد." /><Run Text=" " /><LineBreak /><Run /><LineBreak /><Run FontWeight="Bold" Text="این برنامه " /><Run FontWeight="Bold" Text="دو مزیت عمده دارد: " /><LineBreak /><Run Text="نخست جستجوی " /><Run Text="آنیِ کلمات" /><Run Text=" است" /><Run Text=" که همزمان " /><Run Text="با نوشتن هرآنچه بیابد نشان می‌دهد و دیگری جستجوی تمام متن که به خاطر محدود نبودن به مدخل‌ها، تعداد کلمات بیشتری خواهد یافت. امید که این برنامه اهالی قلم را فایده " /><Run Text="رساند " /><Run Text="و در صیانتِ " /><Run Text="از " /><Run Text="زبان فارسی " /><Run Text="قدم " /><Run Text="کوچکی" /><Run Text=" بردارد" /><Run Text="." /><LineBreak /><Run /><LineBreak /><Run FontWeight="Bold" Text="طراحی و توسعه: سید ایوب کوکبی" /></TextBlock>
+                        Text="واژه‌یار " /><Run FontSize="14" Text="کمک می‌کند تا مترادف و متضاد کلمات فارسی و واژه‌هایی که از یاد برده‌اید را بیابید و با شیوۀ جدانویسی و پیوسته‌نویسی کلمات آشنا شوید." /><LineBreak /><Run FontSize="14" FontWeight="Bold" /><LineBreak /><Run FontWeight="Bold" Text="منابع:" /><LineBreak /><Run Text="1- فرهنگ جامع واژگان مترادف و متضاد فارسی، فرج‌الله خداپرستی " /><LineBreak /><Run Text="2- فرهنگ طیفی زبان فارسی، جمشید فراروی" /><LineBreak /><Run Text="3- فرهنگ املایی خط فارسی، علی‌اشرف صادقی و زهرا زندی مقدم" /><LineBreak /><Run /><LineBreak /><Run Text="این برنامه به صورت " /><Run FontWeight="Bold" Text="رایگان " /><Run Text="و " /><Run FontWeight="Bold" Text="متن‌باز " /><Run Text="ساخته شده و حمایت شما می‌تواند جبرانِ زحمات صرف شده روی آن باشد." /></TextBlock>
             </StackPanel>
             <Button
                 Width="210"
@@ -97,11 +97,11 @@
                 Margin="0,25,0,0"
                 Background="LightGreen"
                 Click="ButtonBase_OnClick"
-                Content="برای حمایت از من مبلغی پرداخت کنید"
+                Content="در صورت تمایل حمایت کنید"
                 FontSize="11.5"
                 Style="{StaticResource ButtonStyle2}" />
             <StackPanel
-                Margin="0,10,0,0"
+                Margin="0,15,0,0"
                 HorizontalAlignment="Center"
                 Orientation="Horizontal">
                 <Image
@@ -120,8 +120,8 @@
                     Style="{StaticResource ImageStyle}" />
                 <Image
                     x:Name="TwitterIcon"
-                    Height="16"
                     Width="16"
+                    Height="16"
                     Margin="5,0,10,0"
                     VerticalAlignment="Center"
                     MouseLeftButtonDown="TwitterIcon_OnMouseLeftButtonDownIcon_OnMouseLeftButtonDown"
@@ -134,6 +134,8 @@
                     Source="../Resources/Icons/Email-16.png"
                     Style="{StaticResource ImageStyle}" />
             </StackPanel>
+
+            <TextBlock Margin="0,8,0,0" TextAlignment="Center"><Run FontWeight="Bold" Text="سید ایوب کوکبی" /></TextBlock>
         </StackPanel>
 
     </Border>
