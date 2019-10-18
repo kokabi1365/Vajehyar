@@ -5,6 +5,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Input;
+using System.Windows.Media;
 using System.Windows.Navigation;
 using Vajehyar.Properties;
 
@@ -83,6 +84,17 @@ namespace Vajehyar.Windows
             }
 
         }
-       
+
+        private void ResetButton_OnClick(object sender, RoutedEventArgs e)
+        {
+            Fonts.SelectedIndex = 0;
+            Settings.Default.ShortcutKey = "Alt + Shift + V";
+            Settings.Default.FontSize = 13;
+            Settings.Default.MinimizeWhenClickOutside = true;
+            Settings.Default.StartByWindows = false;
+            Settings.Default.ShowInTaskbar = false;
+            Settings.Default.TopMostWindow = true;
+            Settings.Default.Save();
+        }
     }
 }

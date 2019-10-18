@@ -185,6 +185,15 @@
 
             </StackPanel>
 
+            <Button
+                Name="ResetButton"
+                Width="140"
+                Height="30"
+                Margin="0,18,0,0"
+                Content="تنظیمات پیش‌فرض"
+                Click="ResetButton_OnClick"
+                Style="{StaticResource ButtonStyle2}" />
+
         </StackPanel>
 
     </Border>
