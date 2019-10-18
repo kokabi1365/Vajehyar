@@ -166,6 +166,7 @@
                 FlowDirection="RightToLeft"
                 Checked="PartSearch_OnChecked"
                 Unchecked="PartSearch_OnChecked"
+                HorizontalAlignment="Right"
                 IsChecked="{Binding Source={x:Static properties:Settings.Default}, Path=PartSearch, Mode=TwoWay}"
                 Style="{StaticResource SliderCheckBox}" />
 
