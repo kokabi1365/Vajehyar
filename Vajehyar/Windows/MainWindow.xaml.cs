@@ -76,11 +76,13 @@ namespace Vajehyar.Windows
             teyfiCollectionView.CustomSort = new CustomSorter(this);
 
             EmlaeiList = CollectionViewSource.GetDefaultView(database.words_emlaei);
-            EmlaeiList.Filter = FilterResult;
+            EmlaeiList.Filter = EmlaeiFilterResult;
             var emlaeiCollectionView = EmlaeiList as ListCollectionView;
             emlaeiCollectionView.CustomSort = new CustomSorter(this);
 
             Hint = $"جستجوی بین {database.GetCount().Round().Format()} واژۀ فارسی";
+
+            
 
 #if (!DEBUG)
             CheckUpdate();
@@ -142,6 +144,24 @@ namespace Vajehyar.Windows
                         }
                     }
                     break;
+            }
+
+            return false;
+        }
+
+        private bool EmlaeiFilterResult(object obj)
+        {
+            if (string.IsNullOrEmpty(_filterString))
+                return false;
+
+            var words = obj as List<string>;
+
+            for (int i = 0; i < words.Count; i++)
+            {
+                if (words[i].Contains(_filterString))
+                {
+                    return true;
+                }
             }
 
             return false;
