@@ -223,10 +223,13 @@ namespace Vajehyar.Windows
             if (!Settings.Default.MinimizeWhenClickOutside)
                 return;
 
-            if (!Settings.Default.ShowInTaskbar)
-                Hide();
+            if (!Utility.Helper.IsWindowOpen<SettingWindow>())
+            {
+                if (!Settings.Default.ShowInTaskbar)
+                    Hide();
 
-            WindowState = WindowState.Minimized;
+                WindowState = WindowState.Minimized;
+            }
         }
 
 

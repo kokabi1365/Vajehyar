@@ -7,6 +7,7 @@
     xmlns:properties="clr-namespace:Vajehyar.Properties"
     xmlns:scm="clr-namespace:System.ComponentModel;assembly=WindowsBase"
     xmlns:wpfTool="clr-namespace:Xceed.Wpf.Toolkit;assembly=Xceed.Wpf.Toolkit"
+    Name="SettingsWindow"
     Title="SettingsWindow"
     Width="491"
     Height="515"
@@ -190,8 +191,8 @@
                 Width="140"
                 Height="30"
                 Margin="0,18,0,0"
-                Content="تنظیمات پیش‌فرض"
                 Click="ResetButton_OnClick"
+                Content="تنظیمات پیش‌فرض"
                 Style="{StaticResource ButtonStyle2}" />
 
         </StackPanel>

@@ -29,6 +29,16 @@ namespace Vajehyar
         private ContextMenu _contextMenu;
         #endregion
 
+        public App()
+        {
+
+#if (!DEBUG)
+
+            DispatcherUnhandledException += App_OnDispatcherUnhandledException;
+#endif
+        }
+
+
         #region App Startup
         private void App_Startup(object sender, StartupEventArgs e)
         {

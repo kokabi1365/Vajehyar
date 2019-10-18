@@ -40,4 +40,14 @@ namespace Vajehyar.Utility
             frameworkElement.Loaded += (s, e) => Keyboard.Focus(target);
         }
     }
+
+    public static class Helper
+    {
+        public static bool IsWindowOpen<T>(string name = "") where T : Window
+        {
+            return string.IsNullOrEmpty(name)
+                ? Application.Current.Windows.OfType<T>().Any()
+                : Application.Current.Windows.OfType<T>().Any(w => w.Name.Equals(name));
+        }
+    }
 }
