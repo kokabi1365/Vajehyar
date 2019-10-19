@@ -90,7 +90,7 @@ namespace Vajehyar.Windows
             Fonts.SelectedIndex = 0;
             Settings.Default.ShortcutKey = "Alt + Shift + V";
             Settings.Default.FontSize = 13;
-            Settings.Default.MinimizeWhenClickOutside = true;
+            Settings.Default.MinimizeWhenClickOutside = false;
             Settings.Default.StartByWindows = false;
             Settings.Default.ShowInTaskbar = false;
             Settings.Default.TopMostWindow = true;

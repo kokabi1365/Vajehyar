@@ -28,8 +28,6 @@ namespace Vajehyar.Windows
     {
         private List<string> _list1;
 
-        //public CircularStack<string> History { get; set; }
-
         private ICollectionView _motaradefMotazadList;
         public ICollectionView MotaradefMotazadList
         {

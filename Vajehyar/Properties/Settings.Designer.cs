@@ -196,18 +196,6 @@ namespace Vajehyar.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("10")]
-        public int SearchDelay {
-            get {
-                return ((int)(this["SearchDelay"]));
-            }
-            set {
-                this["SearchDelay"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("False")]
         public bool ShowInTaskbar {
             get {
@@ -220,7 +208,7 @@ namespace Vajehyar.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
         public bool MinimizeWhenClickOutside {
             get {
                 return ((bool)(this["MinimizeWhenClickOutside"]));

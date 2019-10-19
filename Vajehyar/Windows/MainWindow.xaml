@@ -168,6 +168,7 @@
                 FlowDirection="RightToLeft"
                 IsChecked="{Binding Source={x:Static properties:Settings.Default}, Path=PartSearch, Mode=TwoWay}"
                 Style="{StaticResource SliderCheckBox}"
+                ToolTip="مثلاً با جستجوی «مهم»، کلمات «مهمانی» و «مهمات» را هم در نتایج خواهید دید. [فعال بودن این گزینه سرعت جستجو را کاهش می‌دهد!]"
                 Unchecked="PartSearch_OnChecked" />
 
             <Grid Grid.Row="2" FlowDirection="RightToLeft">
