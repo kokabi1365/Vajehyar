@@ -7,7 +7,6 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:properties="clr-namespace:Vajehyar.Properties"
     xmlns:utils="clr-namespace:Vajehyar.Utility"
-    xmlns:wpfTool="clr-namespace:Xceed.Wpf.Toolkit;assembly=Xceed.Wpf.Toolkit"
     x:Name="window"
     Title="واژه‌یار"
     Width="650"
@@ -112,37 +111,42 @@
                             </StackPanel>
                         </Border>
 
-                        <wpfTool:WatermarkTextBox
-                            x:Name="txtSearch"
-                            Grid.Column="1"
-                            VerticalContentAlignment="Center"
-                            Background="White"
-                            BorderBrush="Transparent"
-                            BorderThickness="0"
-                            FontFamily="{Binding Source={x:Static properties:Settings.Default}, Path=Font, TargetNullValue={StaticResource IranSans}, Converter={StaticResource DefaultFontConverter}, Mode=OneWay}"
-                            FontSize="{Binding Source={x:Static properties:Settings.Default}, Path=FontSize, Mode=OneWay}"
-                            FontWeight="Bold"
-                            Foreground="Black"
-                            IsTabStop="True"
-                            KeepWatermarkOnGotFocus="True"
-                            KeyDown="TxtSearch_OnKeyDown"
-                            PreviewKeyDown="TxtSearch_OnPreviewKeyDown"
-                            PreviewMouseLeftButtonUp="TxtSearch_OnPreviewMouseLeftButtonUp"
-                            PreviewTextInput="TxtSearch_OnPreviewTextInput"
-                            TabIndex="0"
-                            Watermark="{Binding Hint}">
-                            <wpfTool:WatermarkTextBox.WatermarkTemplate>
-                                <DataTemplate>
-                                    <ContentControl
-                                        Content="{Binding}"
-                                        FontFamily="{Binding Source={x:Static properties:Settings.Default}, Path=Font, TargetNullValue={StaticResource IranSans}, Converter={StaticResource DefaultFontConverter}, Mode=OneWay}"
-                                        FontSize="{Binding Source={x:Static properties:Settings.Default}, Path=FontSize, Mode=OneWay}"
-                                        FontWeight="Light"
-                                        Foreground="DimGray" />
-                                </DataTemplate>
+                        <Grid Grid.Column="1">
+                            <TextBox
+                                x:Name="txtSearch"
+                                VerticalContentAlignment="Center"
+                                Background="White"
+                                BorderBrush="Transparent"
+                                BorderThickness="0"
+                                FontWeight="Bold"
+                                Foreground="Black"
+                                IsTabStop="True"
+                                KeyDown="TxtSearch_OnKeyDown"
+                                PreviewKeyDown="TxtSearch_OnPreviewKeyDown"
+                                PreviewMouseLeftButtonUp="TxtSearch_OnPreviewMouseLeftButtonUp"
+                                PreviewTextInput="TxtSearch_OnPreviewTextInput"
+                                TabIndex="0" />
+                            <TextBlock
+                                Name="hint"
+                                Margin="0,0,0,0"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Center"
+                                Foreground="DarkGray"
+                                IsHitTestVisible="False"
+                                Text="جستجو">
+                                <TextBlock.Style>
+                                    <Style TargetType="{x:Type TextBlock}">
+                                        <Setter Property="Visibility" Value="Collapsed" />
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding Text, ElementName=txtSearch}" Value="">
+                                                <Setter Property="Visibility" Value="Visible" />
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </TextBlock.Style>
+                            </TextBlock>
+                        </Grid>
 
-                            </wpfTool:WatermarkTextBox.WatermarkTemplate>
-                        </wpfTool:WatermarkTextBox>
 
                         <TextBlock
                             Grid.Column="2"
@@ -168,7 +172,7 @@
                 FlowDirection="RightToLeft"
                 IsChecked="{Binding Source={x:Static properties:Settings.Default}, Path=PartSearch, Mode=TwoWay}"
                 Style="{StaticResource SliderCheckBox}"
-                ToolTip="مثلاً با جستجوی «مهم»، کلمات «مهمانی» و «مهمات» را هم در نتایج خواهید دید. [فعال بودن این گزینه سرعت جستجو را کاهش می‌دهد!]"
+                ToolTip="مثلاً با جستجوی «مهم»، کلماتی مثل «مهمانی» و «مهمات» نیز در نتایج ظاهر خواهد شد. [فعال بودن این گزینه سرعت جستجو را کاهش می‌دهد!]"
                 Unchecked="PartSearch_OnChecked" />
 
             <Grid Grid.Row="2" FlowDirection="RightToLeft">
@@ -323,7 +327,7 @@
                             <StackPanel
                                 FlowDirection="RightToLeft"
                                 Orientation="Horizontal"
-                                ToolTip="فرض کنید دنبال واژۀ «کنفرانس» هستید ولی فقط ارتباط معنایی دوری مثل «گفتگو» یا «صحبت» را به خاطر می‌آورید. با جستجوی هر یک از این دو کلمه می‌توانید واژۀ یاد شده را پیدا کنید."
+                                ToolTip=" دنبال واژۀ «کنفرانس» هستید ولی فقط معنای دوری مثل «گفتگو» یا «صحبت» را به خاطر می‌آورید. با جستجوی هر یک از این دو کلمه می‌توانید واژۀ یاد شده را پیدا کنید."
                                 ToolTipService.ShowDuration="120000">
                                 <Label Content="طیفی" />
                                 <Border

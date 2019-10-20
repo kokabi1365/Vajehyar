@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Threading;
@@ -13,6 +14,7 @@ using Vajehyar.Properties;
 using Vajehyar.Utility;
 using Vajehyar.Windows;
 using ContextMenu = System.Windows.Controls.ContextMenu;
+using FileDialog = Microsoft.Win32.FileDialog;
 using KeyEventArgs = System.Windows.Forms.KeyEventArgs;
 using MessageBox = System.Windows.MessageBox;
 using MouseEventArgs = System.Windows.Forms.MouseEventArgs;
@@ -227,7 +229,18 @@ namespace Vajehyar
         private void App_OnDispatcherUnhandledException(object sender, DispatcherUnhandledExceptionEventArgs e)
         {
             string errorMessage = string.Format("An unhandled exception occurred: {0}", e.Exception.Message);
-            MessageBox.Show(errorMessage, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            Exception exception = e.Exception;
+            string error =
+                $"Source: {exception.Source}\n\n" +
+                $"Message: {exception.Message}\n\n" +
+                $"Target: {exception.TargetSite}\n\n" +
+                $"StackTrace: {exception.StackTrace}\n\n" +
+                $"InnerException: {exception.InnerException.Message}";
+            
+            
+            File.WriteAllText("log.txt",error);
+
+                MessageBox.Show(exception.InnerException.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             Environment.Exit(-1);
         }
     }

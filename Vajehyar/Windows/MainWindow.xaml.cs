@@ -49,14 +49,6 @@ namespace Vajehyar.Windows
             set { _EmlaeiList = value; NotifyPropertyChanged("EmlaeiList"); }
         }
 
-        private string _hint;
-
-        public string Hint
-        {
-            get => _hint;
-            set { _hint = value; NotifyPropertyChanged("Hint"); }
-        }
-
         public MainWindow(Database database)
         {
             InitializeComponent();
@@ -76,7 +68,7 @@ namespace Vajehyar.Windows
             var emlaeiCollectionView = EmlaeiList as ListCollectionView;
             emlaeiCollectionView.CustomSort = new CustomSorter(this);
 
-            Hint = $"جستجوی بین {database.GetCount().Round().Format()} واژۀ فارسی";
+            hint.Text = $"جستجوی بین {database.GetCount().Round().Format()} واژۀ فارسی";
 
             
 
