@@ -61,8 +61,6 @@ namespace Vajehyar.Windows
         {
             InitializeComponent();
 
-            //History=new CircularStack<string>();
-
             MotaradefMotazadList = CollectionViewSource.GetDefaultView(database.words_motaradef);
             MotaradefMotazadList.Filter = FilterResult;
             var motaradefCollectionView = MotaradefMotazadList as ListCollectionView;
