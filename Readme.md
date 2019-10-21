@@ -1,6 +1,6 @@
 # Vajehyar
 
-**[برنامه را از اینجا دانلود کنید](https://github.com/kokabi1365/Vajehyar/releases/latest)**
+**[دانلود آخرین نسخه](https://github.com/kokabi1365/Vajehyar/releases/latest)**
 
 ![GitHub All Releases](https://img.shields.io/github/downloads/kokabi1365/Vajehyar/total.svg)
 ![GitHub release](https://img.shields.io/github/release/kokabi1365/Vajehyar.svg)
