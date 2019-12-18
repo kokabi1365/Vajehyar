@@ -34,5 +34,6 @@ I welcome anyone to contribute to this project for fixing bugs or add new featur
 
 [توضیحات فارسی](https://virgool.io/@kokabi/vajehyar-bgyys49ibopb)
 
+**[دانلود آخرین نسخه](https://github.com/kokabi1365/Vajehyar/releases/latest)**
 
 
