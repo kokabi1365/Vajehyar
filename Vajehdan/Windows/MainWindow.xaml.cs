@@ -115,7 +115,7 @@ namespace Vajehdan.Windows
                 case false:
                     for (int i = 0; i < words.Count; i++)
                     {
-                        if (words[i] == _filterString)
+                        if (words[i].RemoveDiacritics() == _filterString)
                         {
                             return true;
                         }
@@ -126,7 +126,7 @@ namespace Vajehdan.Windows
                 case true:
                     for (int i = 0; i < words.Count; i++)
                     {
-                        if (words[i].Contains(_filterString))
+                        if (words[i].RemoveDiacritics().Contains(_filterString))
                         {
                             return true;
                         }
@@ -146,7 +146,7 @@ namespace Vajehdan.Windows
 
             for (int i = 0; i < words.Count; i++)
             {
-                if (words[i].Contains(_filterString))
+                if (words[i].RemoveDiacritics().Contains(_filterString))
                 {
                     return true;
                 }

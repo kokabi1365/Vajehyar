@@ -12,9 +12,9 @@ namespace Vajehdan
     {
         public static Database Instance { get; } = new Database();
 
-        public List<List<string>> words_motaradef { get; }=new List<List<string>>();
-        public List<List<string>> words_teyfi { get; }=new List<List<string>>();
-        public List<List<string>> words_emlaei { get; }=new List<List<string>>();
+        public List<List<string>> words_motaradef { get; } = new List<List<string>>();
+        public List<List<string>> words_teyfi { get; } = new List<List<string>>();
+        public List<List<string>> words_emlaei { get; } = new List<List<string>>();
 
         private Database()
         {
@@ -23,13 +23,13 @@ namespace Vajehdan
             string dictTeyfi = Properties.Resources.Teyfi;
             string dictEmlaei = Properties.Resources.Emlaei;
 
-            string[] lines1 = dictMotaradef.Split(new[] { Environment.NewLine },
+            string[] lines1 = dictMotaradef.Split(new[] {Environment.NewLine},
                 StringSplitOptions.RemoveEmptyEntries);
 
-            string[] lines2 = dictTeyfi.Split(new[] { Environment.NewLine },
+            string[] lines2 = dictTeyfi.Split(new[] {Environment.NewLine},
                 StringSplitOptions.RemoveEmptyEntries);
 
-            string[] lines3 = dictEmlaei.Split(new[] { Environment.NewLine },
+            string[] lines3 = dictEmlaei.Split(new[] {Environment.NewLine},
                 StringSplitOptions.RemoveEmptyEntries);
 
             foreach (string line in lines1)
@@ -44,7 +44,7 @@ namespace Vajehdan
 
             foreach (string line in lines3)
             {
-                words_emlaei.Add(new List<string>(){line});
+                words_emlaei.Add(new List<string>() {line});
             }
         }
 
@@ -56,5 +56,7 @@ namespace Vajehdan
             words_emlaei.ForEach(line => count += line.Count);
             return count;
         }
+
+        
     }
 }
