@@ -33,6 +33,7 @@ I welcome anyone to contribute to this project for fixing bugs or add new featur
 **You can support me by [donating via IDPay](https://idpay.ir/kokabi)**
 
 [توضیحات فارسی](https://virgool.io/@kokabi/Vajehdan-bgyys49ibopb)
+
 **[دانلود آخرین نسخه](https://github.com/kokabi1365/Vajehdan/releases/latest)**
 
 
