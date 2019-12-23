@@ -74,11 +74,11 @@ namespace Vajehdan
             var ico = GetResourceStream(new Uri("pack://application:,,,/Resources/Icons/Vajehdan.ico"))?.Stream;
             _notifyIcon.Icon = new Icon(ico);
             _notifyIcon.Visible = true;
-            _notifyIcon.Text = "واژه‌یار";
+            _notifyIcon.Text = "واژه‌دان";
 
             /*if (Settings.Default.FirstRun)
             {
-                _notifyIcon.ShowBalloonTip(30000, "واژه‌یار", "باز کردن برنامه: Alt + Shift + V\nبستن برنامه: Esc\nتنظیمات را می‌توانید تغییر دهید.", ToolTipIcon.Info);
+                _notifyIcon.ShowBalloonTip(30000, "واژه‌دان", "باز کردن برنامه: Alt + Shift + V\nبستن برنامه: Esc\nتنظیمات را می‌توانید تغییر دهید.", ToolTipIcon.Info);
                 Settings.Default.FirstRun = false;
             }*/
 

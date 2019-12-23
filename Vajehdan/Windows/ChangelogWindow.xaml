@@ -30,7 +30,7 @@
                     Margin="28,5,0,0"
                     VerticalAlignment="Center"
                     Style="{StaticResource WindowTitleStyle}"
-                    Text="تغییرات نسخۀ جدید واژه یاد" />
+                    Text="تغییرات نسخۀ جدید واژه‌دان" />
             </StackPanel>
 
             <ScrollViewer Height="300" Margin="15,0,10,0">

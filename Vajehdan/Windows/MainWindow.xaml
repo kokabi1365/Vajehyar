@@ -8,7 +8,7 @@
     xmlns:properties="clr-namespace:Vajehdan.Properties"
     xmlns:utils="clr-namespace:Vajehdan.Utility"
     x:Name="window"
-    Title="واژه‌یار"
+    Title="واژه‌دان"
     Width="700"
     utils:KeyboardFocus.On="{Binding ElementName=txtSearch}"
     DataContext="{Binding RelativeSource={RelativeSource Self}}"
