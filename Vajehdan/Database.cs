@@ -6,7 +6,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using Octokit;
 
-namespace Vajehyar
+namespace Vajehdan
 {
     public sealed class Database
     {

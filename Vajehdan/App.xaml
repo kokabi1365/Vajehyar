@@ -1,9 +1,9 @@
 ﻿<Application
-    x:Class="Vajehyar.App"
+    x:Class="Vajehdan.App"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="clr-namespace:Vajehyar"
-    xmlns:properties="clr-namespace:Vajehyar.Properties"
+    xmlns:local="clr-namespace:Vajehdan"
+    xmlns:properties="clr-namespace:Vajehdan.Properties"
     Exit="App_OnExit"
     Startup="App_Startup">
 

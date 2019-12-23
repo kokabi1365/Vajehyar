@@ -7,9 +7,9 @@ using System.Windows.Data;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Navigation;
-using Vajehyar.Properties;
+using Vajehdan.Properties;
 
-namespace Vajehyar.Windows
+namespace Vajehdan.Windows
 {
     /// <summary>
     /// Interaction logic for SettingWindow.xaml

@@ -5,10 +5,10 @@ using System.Reflection;
 using System.Windows;
 using System.Windows.Input;
 using System.Windows.Navigation;
-using Vajehyar.Properties;
-using Vajehyar.Utility;
+using Vajehdan.Properties;
+using Vajehdan.Utility;
 
-namespace Vajehyar.Windows
+namespace Vajehdan.Windows
 {
     /// <summary>
     /// Interaction logic for AboutWindow

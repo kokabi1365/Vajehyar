@@ -4,11 +4,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
-using Vajehyar.Properties;
-using Vajehyar.Windows;
+using Vajehdan.Properties;
+using Vajehdan.Windows;
 
 
-namespace Vajehyar.Utility
+namespace Vajehdan.Utility
 {
     public class GithubHelper
     {

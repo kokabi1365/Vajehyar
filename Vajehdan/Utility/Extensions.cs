@@ -4,7 +4,7 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Controls;
 
-namespace Vajehyar.Utility
+namespace Vajehdan.Utility
 {
     public static class Extensions
     {

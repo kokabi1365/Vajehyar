@@ -118,8 +118,8 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="Vajehyar" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Icons\Vajehyar.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Vajehdan" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Icons\Vajehdan.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Motaradef_Motazad" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Dicts\Motaradef_Motazad.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>

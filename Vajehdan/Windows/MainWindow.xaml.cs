@@ -13,13 +13,13 @@ using System.Windows.Input;
 using System.Windows.Markup;
 using System.Windows.Media;
 using System.Windows.Threading;
-using Vajehyar.Properties;
-using Vajehyar.Utility;
+using Vajehdan.Properties;
+using Vajehdan.Utility;
 using KeyEventArgs = System.Windows.Input.KeyEventArgs;
 using MessageBox = System.Windows.Forms.MessageBox;
 
 
-namespace Vajehyar.Windows
+namespace Vajehdan.Windows
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml

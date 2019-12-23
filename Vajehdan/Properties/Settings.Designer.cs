@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Vajehyar.Properties {
+namespace Vajehdan.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
@@ -127,7 +127,7 @@ namespace Vajehyar.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Vajehyar")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Vajehdan")]
         public string GithubRepo {
             get {
                 return ((string)(this["GithubRepo"]));
@@ -136,7 +136,7 @@ namespace Vajehyar.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("https://github.com/kokabi1365/Vajehyar/releases")]
+        [global::System.Configuration.DefaultSettingValueAttribute("https://github.com/kokabi1365/Vajehdan/releases")]
         public string UpdateUrl {
             get {
                 return ((string)(this["UpdateUrl"]));
@@ -154,7 +154,7 @@ namespace Vajehyar.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("https://github.com/kokabi1365/Vajehyar")]
+        [global::System.Configuration.DefaultSettingValueAttribute("https://github.com/kokabi1365/Vajehdan")]
         public string GithubUrl {
             get {
                 return ((string)(this["GithubUrl"]));

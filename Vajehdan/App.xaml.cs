@@ -10,16 +10,16 @@ using System.Windows.Forms;
 using System.Windows.Input;
 using System.Windows.Threading;
 using Microsoft.Win32;
-using Vajehyar.Properties;
-using Vajehyar.Utility;
-using Vajehyar.Windows;
+using Vajehdan.Properties;
+using Vajehdan.Utility;
+using Vajehdan.Windows;
 using ContextMenu = System.Windows.Controls.ContextMenu;
 using FileDialog = Microsoft.Win32.FileDialog;
 using KeyEventArgs = System.Windows.Forms.KeyEventArgs;
 using MessageBox = System.Windows.MessageBox;
 using MouseEventArgs = System.Windows.Forms.MouseEventArgs;
 
-namespace Vajehyar
+namespace Vajehdan
 {
     public partial class App
     {
@@ -44,7 +44,7 @@ namespace Vajehyar
         #region App Startup
         private void App_Startup(object sender, StartupEventArgs e)
         {
-            //Get application name: Vajehyar
+            //Get application name: Vajehdan
             _appName = Assembly.GetExecutingAssembly().GetName().Name;
             _contextMenu = FindResource("NotifierContextMenu") as ContextMenu;
 
@@ -71,7 +71,7 @@ namespace Vajehyar
         private void SetNotifyIcon()
         {
             _notifyIcon = new NotifyIcon();
-            var ico = GetResourceStream(new Uri("pack://application:,,,/Resources/Icons/Vajehyar.ico"))?.Stream;
+            var ico = GetResourceStream(new Uri("pack://application:,,,/Resources/Icons/Vajehdan.ico"))?.Stream;
             _notifyIcon.Icon = new Icon(ico);
             _notifyIcon.Visible = true;
             _notifyIcon.Text = "واژه‌یار";

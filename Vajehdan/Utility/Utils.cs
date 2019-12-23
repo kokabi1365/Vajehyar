@@ -8,7 +8,7 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Threading;
 
-namespace Vajehyar.Utility
+namespace Vajehdan.Utility
 {
     public static class KeyboardFocus
     {

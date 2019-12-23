@@ -1,19 +1,19 @@
-# Vajehyar
+# Vajehdan
 
-**[دانلود آخرین نسخه](https://github.com/kokabi1365/Vajehyar/releases/latest)**
+**[دانلود آخرین نسخه](https://github.com/kokabi1365/Vajehdan/releases/latest)**
 
-![GitHub All Releases](https://img.shields.io/github/downloads/kokabi1365/Vajehyar/total.svg)
-![GitHub release](https://img.shields.io/github/release/kokabi1365/Vajehyar.svg)
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/c2c5d01e88244f4db8900f976dc80fff)](https://www.codacy.com/app/kokabi1365/Vajehyar?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=kokabi1365/Vajehyar&amp;utm_campaign=Badge_Grade)
+![GitHub All Releases](https://img.shields.io/github/downloads/kokabi1365/Vajehdan/total.svg)
+![GitHub release](https://img.shields.io/github/release/kokabi1365/Vajehdan.svg)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/c2c5d01e88244f4db8900f976dc80fff)](https://www.codacy.com/app/kokabi1365/Vajehdan?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=kokabi1365/Vajehdan&amp;utm_campaign=Badge_Grade)
 
 
 ![](Usage.gif)
 
 
 
-Using paper dictionaries for day-to-day looking up of words is a nightmare. Vajehyar is a minimal, intuitive and efficient dictionary to find synonyms of Persian words in real time. **It is the first and largest Persian-language thesaurus dictionary.** All you need to do is downloading [latest release](https://github.com/kokabi1365/Vajehyar/releases) and find whatever you want among **183,000** words.
+Using paper dictionaries for day-to-day looking up of words is a nightmare. Vajehdan is a minimal, intuitive and efficient dictionary to find synonyms of Persian words in real time. **It is the first and largest Persian-language thesaurus dictionary.** All you need to do is downloading [latest release](https://github.com/kokabi1365/Vajehdan/releases) and find whatever you want among **183,000** words.
 
-Vajehyar designed to be fast and lightweight and It uses two popular dictionaries as its core database:
+Vajehdan designed to be fast and lightweight and It uses two popular dictionaries as its core database:
 
 1. **A Comprehensive Dictionary of Persian Synonyms & Antonyms****, written by farajollah khodaparasti with more than 135000 thousand words;
 2. [**The Thesaurus of Persian Words**](https://fa.wikipedia.org/wiki/%D9%81%D8%B1%D9%87%D9%86%DA%AF_%D8%B7%DB%8C%D9%81%DB%8C)**, written by Jamshyd Fararooy with around 45,000 words.
@@ -32,8 +32,8 @@ I welcome anyone to contribute to this project for fixing bugs or add new featur
 ---
 **You can support me by [donating via IDPay](https://idpay.ir/kokabi)**
 
-[توضیحات فارسی](https://virgool.io/@kokabi/vajehyar-bgyys49ibopb)
+[توضیحات فارسی](https://virgool.io/@kokabi/Vajehdan-bgyys49ibopb)
 
-**[دانلود آخرین نسخه](https://github.com/kokabi1365/Vajehyar/releases/latest)**
+**[دانلود آخرین نسخه](https://github.com/kokabi1365/Vajehdan/releases/latest)**
 
 
