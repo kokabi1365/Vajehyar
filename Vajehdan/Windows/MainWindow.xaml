@@ -9,7 +9,7 @@
     xmlns:utils="clr-namespace:Vajehdan.Utility"
     x:Name="window"
     Title="واژه‌یار"
-    Width="650"
+    Width="800"
     utils:KeyboardFocus.On="{Binding ElementName=txtSearch}"
     DataContext="{Binding RelativeSource={RelativeSource Self}}"
     Deactivated="MainWindow_OnDeactivated"
