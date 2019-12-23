@@ -7,7 +7,7 @@
     xmlns:properties="clr-namespace:Vajehdan.Properties"
     Title="About"
     Width="446.445"
-    Height="509.412"
+    Height="485.102"
     DataContext="{Binding RelativeSource={RelativeSource Self}}"
     FontFamily="{StaticResource IranSans}"
     Left="{Binding Source={x:Static properties:Settings.Default}, Path=AboutLeftPos, Mode=TwoWay}"
@@ -95,15 +95,19 @@
                         Text="رایگان " /><Run FontSize="14" Text="و " /><Run
                         FontSize="14"
                         FontWeight="Bold"
-                        Text="متن‌باز " /><Run FontSize="14" Text="است که " /><Run FontSize="14" Text="به شما کمک می‌کند " /><Run FontSize="14" Text="تا " /><Run FontSize="14" Text="مترادف و متضاد" /><Run FontSize="14" Text=" کلمات فارسی و" /><Run FontSize="14" Text=" " /><Run FontSize="14" Text="واژه‌هایی" /><Run FontSize="14" Text=" را" /><Run FontSize="14" Text=" که به نوعی با هم ارتباط معنایی دارند " /><Run FontSize="14" Text="یافته " /><Run FontSize="14" Text="و با" /><Run FontSize="14" Text=" شیوۀ جدانویسی و پیوسته‌نویسی " /><Run FontSize="14" Text="آن‌ها آشنا شوید" /><Run FontSize="14" Text="." /><LineBreak /><Run FontSize="14" FontWeight="Bold" /><LineBreak /><Run FontWeight="Bold" Text="منابع:" /><LineBreak /><Run Text="1- فرهنگ جامع واژگان مترادف و متضاد فارسی، فرج‌الله خداپرستی " /><LineBreak /><Run Text="2- فرهنگ طیفی زبان فارسی، جمشید فراروی" /><LineBreak /><Run Text="3- فرهنگ املایی خط فارسی، علی‌اشرف صادقی و زهرا زندی مقدم" /><LineBreak /><Run /><LineBreak /><Run Text="برای ساخت این برنامه " /><Run Text="زمان زیادی صرف شده. ممنون که با کلیک روی دکمۀ سبز از من حمایت می‌کنید." /><Run Text=" " /><Run Text="♥" /></TextBlock>
+                        Text="متن‌باز " /><Run FontSize="14" Text="است که " /><Run FontSize="14" Text="به شما کمک می‌کند " /><Run FontSize="14" Text="تا " /><Run FontSize="14" Text="مترادف و متضاد" /><Run FontSize="14" Text=" کلمات فارسی و" /><Run FontSize="14" Text=" " /><Run FontSize="14" Text="واژه‌هایی" /><Run FontSize="14" Text=" را" /><Run FontSize="14" Text=" که به نوعی با هم ارتباط معنایی دارند " /><Run FontSize="14" Text="یافته " /><Run FontSize="14" Text="و با" /><Run FontSize="14" Text=" شیوۀ جدانویسی و پیوسته‌نویسی " /><Run FontSize="14" Text="آن‌ها آشنا شوید" /><Run FontSize="14" Text="." /><LineBreak /><Run FontSize="14" FontWeight="Bold" /><LineBreak /><Run FontWeight="Bold" Text="منابع:" /><LineBreak /><Run Text="1- فرهنگ جامع واژگان مترادف و متضاد فارسی، فرج‌الله خداپرستی " /><LineBreak /><Run Text="2- فرهنگ طیفی زبان فارسی، جمشید فراروی" /><LineBreak /><Run Text="3- فرهنگ املایی خط فارسی، علی‌اشرف صادقی و زهرا زندی مقدم" /><LineBreak /><LineBreak /><Run Text="سید ایوب کوکبی" /><LineBreak /><Run
+                        FlowDirection="LeftToRight"
+                        FontFamily="calibri"
+                        FontSize="14"
+                        Text="kokabi1365@gmail.com" /></TextBlock>
             </StackPanel>
             <Button
-                Width="210"
+                Width="150"
                 Height="25"
                 Margin="0,25,0,0"
                 Background="LightGreen"
                 Click="ButtonBase_OnClick"
-                Content="در صورت تمایل حمایت کنید"
+                Content="حمایت از برنامه"
                 FontSize="11.5"
                 Style="{StaticResource ButtonStyle2}" />
             <StackPanel
@@ -114,34 +118,21 @@
                     x:Name="VirgoolIcon"
                     Margin="0,-2,0,0"
                     VerticalAlignment="Center"
+                    Cursor="Hand"
                     MouseLeftButtonDown="VirgoolIcon_OnMouseLeftButtonDown"
                     Source="../Resources/Icons/Virgool-16.png"
-                    Style="{StaticResource ImageStyle}" />
+                    Style="{StaticResource ImageStyle}"
+                    ToolTip="صفحۀ شخصی من در ویرگول" />
                 <Image
                     x:Name="GithubIcon"
-                    Margin="10,0,5,0"
+                    Margin="10,0,10,0"
                     VerticalAlignment="Center"
+                    Cursor="Hand"
                     MouseLeftButtonDown="GithubIcon_OnMouseLeftButtonDown"
                     Source="../Resources/Icons/Github-16.png"
-                    Style="{StaticResource ImageStyle}" />
-                <Image
-                    x:Name="TwitterIcon"
-                    Width="16"
-                    Height="16"
-                    Margin="5,0,10,0"
-                    VerticalAlignment="Center"
-                    MouseLeftButtonDown="TwitterIcon_OnMouseLeftButtonDownIcon_OnMouseLeftButtonDown"
-                    Source="../Resources/Icons/Twitter-16.png"
-                    Style="{StaticResource ImageStyle}" />
-                <Image
-                    x:Name="EmailIcon"
-                    VerticalAlignment="Center"
-                    MouseLeftButtonDown="EmailIcon_OnMouseLeftButtonDown"
-                    Source="../Resources/Icons/Email-16.png"
-                    Style="{StaticResource ImageStyle}" />
+                    Style="{StaticResource ImageStyle}"
+                    ToolTip="سورس پروژه در گیت‌هاب" />
             </StackPanel>
-
-            <TextBlock Margin="0,8,0,0" TextAlignment="Center"><Run FontWeight="Bold" Text="سید ایوب کوکبی" /></TextBlock>
         </StackPanel>
 
     </Border>

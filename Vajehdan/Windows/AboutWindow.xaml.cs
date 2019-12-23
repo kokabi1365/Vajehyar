@@ -42,8 +42,6 @@ namespace Vajehdan.Windows
 
         }
 
-       
-
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
         {
             if (e.ChangedButton == MouseButton.Left)
@@ -84,12 +82,6 @@ namespace Vajehdan.Windows
             app.HideMainWindow();
         }
 
-        private void EmailIcon_OnMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            Process.Start("mailto:kokabi1365@gmail.com?subject=واژه‌یار");
-            e.Handled = true;
-        }
-
         private void GithubIcon_OnMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             Process.Start(Settings.Default.GithubUrl);
@@ -101,11 +93,6 @@ namespace Vajehdan.Windows
             Process.Start(Settings.Default.VirgoolUrl);
             e.Handled = true;
         }
-
-        private void TwitterIcon_OnMouseLeftButtonDownIcon_OnMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            Process.Start(Settings.Default.TwitterID);
-            e.Handled = true;
-        }
+       
     }
 }
