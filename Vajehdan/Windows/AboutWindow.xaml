@@ -86,20 +86,7 @@
                     HorizontalAlignment="Center"
                     FlowDirection="RightToLeft"
                     LineHeight="19"
-                    TextWrapping="Wrap"><Run
-                        FontSize="14"
-                        FontWeight="Bold"
-                        Text="واژه‌یار" /><Run FontSize="14" Text="، برنامه‌ای " /><Run
-                        FontSize="14"
-                        FontWeight="Bold"
-                        Text="رایگان " /><Run FontSize="14" Text="و " /><Run
-                        FontSize="14"
-                        FontWeight="Bold"
-                        Text="متن‌باز " /><Run FontSize="14" Text="است که " /><Run FontSize="14" Text="به شما کمک می‌کند " /><Run FontSize="14" Text="تا " /><Run FontSize="14" Text="مترادف و متضاد" /><Run FontSize="14" Text=" کلمات فارسی و" /><Run FontSize="14" Text=" " /><Run FontSize="14" Text="واژه‌هایی" /><Run FontSize="14" Text=" را" /><Run FontSize="14" Text=" که به نوعی با هم ارتباط معنایی دارند " /><Run FontSize="14" Text="یافته " /><Run FontSize="14" Text="و با" /><Run FontSize="14" Text=" شیوۀ جدانویسی و پیوسته‌نویسی " /><Run FontSize="14" Text="آن‌ها آشنا شوید" /><Run FontSize="14" Text="." /><LineBreak /><Run FontSize="14" FontWeight="Bold" /><LineBreak /><Run FontWeight="Bold" Text="منابع:" /><LineBreak /><Run Text="1- فرهنگ جامع واژگان مترادف و متضاد فارسی، فرج‌الله خداپرستی " /><LineBreak /><Run Text="2- فرهنگ طیفی زبان فارسی، جمشید فراروی" /><LineBreak /><Run Text="3- فرهنگ املایی خط فارسی، علی‌اشرف صادقی و زهرا زندی مقدم" /><LineBreak /><LineBreak /><Run Text="سید ایوب کوکبی" /><LineBreak /><Run
-                        FlowDirection="LeftToRight"
-                        FontFamily="calibri"
-                        FontSize="14"
-                        Text="kokabi1365@gmail.com" /></TextBlock>
+                    TextWrapping="Wrap"><Run FontWeight="Bold" FontSize="14" Text="واژه‌یاد"/><Run FontSize="14" Text="، برنامه‌ای "/><Run FontWeight="Bold" FontSize="14" Text="رایگان و متن‌باز "/><Run FontSize="14" Text="برای بهبود نگارش فارسی است. این برنامه به شما کمک می‌کند تا مترادف و متضاد کلمات فارسی و همچنین کلماتی"/><Run FontSize="14" Text=" "/><Run FontSize="14" Text="که به نوعی با هم ارتباط معنایی دارند را بیابید."/><LineBreak/><Run FontWeight="Bold" FontSize="14"/><LineBreak/><Run FontWeight="Bold" Text="منابع:"/><LineBreak/><Run Text="1- فرهنگ جامع واژگان مترادف و متضاد فارسی، فرج‌الله خداپرستی "/><LineBreak/><Run Text="2- فرهنگ طیفی زبان فارسی، جمشید فراروی"/><LineBreak/><Run Text="3- فرهنگ املایی خط فارسی، علی‌اشرف صادقی و زهرا زندی مقدم"/><LineBreak/><LineBreak/><Run Text="سید ایوب کوکبی"/><LineBreak/><Run FontSize="14" FlowDirection="LeftToRight" FontFamily="calibri" Text="kokabi1365@gmail.com"/></TextBlock>
             </StackPanel>
             <Button
                 Width="150"
