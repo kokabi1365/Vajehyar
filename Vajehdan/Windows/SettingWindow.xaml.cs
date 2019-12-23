@@ -96,5 +96,10 @@ namespace Vajehdan.Windows
             Settings.Default.TopMostWindow = true;
             Settings.Default.Save();
         }
+
+        private void TopMostWindow_Checked(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

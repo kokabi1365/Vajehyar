@@ -59,7 +59,7 @@
             <CheckBox
                 Name="MinimizeWhenClickOutside"
                 Margin="0,5,15,0"
-                Content="‌پنهان کردن برنامه هنگام کلیک خارج از پنجرۀ جستجو"
+                Content="‌پنهان کردن برنامه، هنگام کلیک در خارج از پنجرۀ جستجو"
                 FlowDirection="RightToLeft"
                 IsChecked="{Binding Source={x:Static properties:Settings.Default}, Path=MinimizeWhenClickOutside, Mode=TwoWay}"
                 Style="{StaticResource SliderCheckBox}" />
@@ -67,7 +67,7 @@
             <CheckBox
                 Name="TopMostWindow"
                 Margin="0,5,15,0"
-                Content="‌نمایش بالای همۀ پنجره‌ها"
+                Content="‌نمایش برنامه در بالای همۀ پنجره‌ها"
                 FlowDirection="RightToLeft"
                 IsChecked="{Binding Source={x:Static properties:Settings.Default}, Path=TopMostWindow, Mode=TwoWay}"
                 Style="{StaticResource SliderCheckBox}" />
