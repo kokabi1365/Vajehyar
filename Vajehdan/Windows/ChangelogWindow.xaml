@@ -30,11 +30,14 @@
                     Margin="28,5,0,0"
                     VerticalAlignment="Center"
                     Style="{StaticResource WindowTitleStyle}"
-                    Text="تغییرات نسخۀ جدید واژه یار" />
+                    Text="تغییرات نسخۀ جدید واژه یاد" />
             </StackPanel>
 
             <ScrollViewer Height="300" Margin="15,0,10,0">
-                <TextBlock FontSize="13" Text="{Binding Changelog}" />
+                <TextBlock
+                    FontSize="13"
+                    Text="{Binding Changelog}"
+                    TextWrapping="Wrap" />
             </ScrollViewer>
             <StackPanel
                 Margin="0,15,0,0"

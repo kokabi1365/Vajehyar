@@ -53,7 +53,7 @@
                                 FontFamily="{StaticResource IranSans}"
                                 FontSize="14"
                                 FontWeight="Bold"
-                                Text="واژه یار" />
+                                Text="واژه ‌یاد" />
                             <TextBlock VerticalAlignment="Center">
                                 <Hyperlink
                                     x:Name="Version"
