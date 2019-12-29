@@ -8,6 +8,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Threading;
+using Microsoft.Win32;
 
 namespace Vajehdan.Utility
 {
@@ -51,7 +52,10 @@ namespace Vajehdan.Utility
                 : Application.Current.Windows.OfType<T>().Any(w => w.Name.Equals(name));
         }
 
-        
+        public static bool isValueExist(RegistryKey basedKey, string value)
+        {
+            return basedKey.GetValue(value, null) != null;
+        }
     }
 
 
