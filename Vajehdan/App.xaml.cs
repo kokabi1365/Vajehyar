@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -17,6 +18,7 @@ using ContextMenu = System.Windows.Controls.ContextMenu;
 using FileDialog = Microsoft.Win32.FileDialog;
 using KeyEventArgs = System.Windows.Forms.KeyEventArgs;
 using MessageBox = System.Windows.MessageBox;
+using MessageBoxOptions = System.Windows.MessageBoxOptions;
 using MouseEventArgs = System.Windows.Forms.MouseEventArgs;
 
 namespace Vajehdan
@@ -33,11 +35,22 @@ namespace Vajehdan
 
         public App()
         {
+            AppDomain currentDomain=AppDomain.CurrentDomain;
+            currentDomain.UnhandledException += CurrentDomain_UnhandledException;
+        }
 
-#if (!DEBUG)
+        private void CurrentDomain_UnhandledException(object sender, UnhandledExceptionEventArgs args)
+        {
+            Exception e = (Exception)args.ExceptionObject;
+            string error =
+                $"Source: {e.Source}\n\n" +
+                $"Message: {e.Message}\n\n" +
+                $"Target: {e.TargetSite}\n\n" +
+                $"StackTrace: {e.Demystify()}\n\n";
 
-            DispatcherUnhandledException += App_OnDispatcherUnhandledException;
-#endif
+            File.WriteAllText("log.txt", error);
+            MessageBox.Show(e.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            Environment.Exit(-1);
         }
 
 
@@ -226,22 +239,6 @@ namespace Vajehdan
         }
         #endregion
 
-        private void App_OnDispatcherUnhandledException(object sender, DispatcherUnhandledExceptionEventArgs e)
-        {
-            string errorMessage = string.Format("An unhandled exception occurred: {0}", e.Exception.Message);
-            Exception exception = e.Exception;
-            string error =
-                $"Source: {exception.Source}\n\n" +
-                $"Message: {exception.Message}\n\n" +
-                $"Target: {exception.TargetSite}\n\n" +
-                $"StackTrace: {exception.StackTrace}\n\n" +
-                $"InnerException: {exception.InnerException.Message}";
-            
-            
-            File.WriteAllText("log.txt",error);
-
-                MessageBox.Show(exception.InnerException.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-            Environment.Exit(-1);
-        }
+       
     }
 }
