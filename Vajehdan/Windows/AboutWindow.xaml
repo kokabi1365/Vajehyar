@@ -39,11 +39,8 @@
                     Orientation="Horizontal">
 
                     <Image
-                        Width="38"
-                        Height="38"
                         Margin="3"
-                        RenderOptions.BitmapScalingMode="NearestNeighbor"
-                        Source="/Vajehdan;component/Resources/Icons/Vajehdan.png" />
+                        Source="/Vajehdan;component/Resources/Icons/Vajehdan.ico" />
 
                     <StackPanel Margin="5,0,0,0">
 
