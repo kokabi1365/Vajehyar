@@ -49,27 +49,11 @@
                 Style="{StaticResource SliderCheckBox}" />
 
             <CheckBox
-                Name="MinimizeType"
-                Margin="0,5,15,0"
-                Content="نمایش آیکون برنامه در نوار وظیفه "
-                FlowDirection="RightToLeft"
-                IsChecked="{Binding Source={x:Static properties:Settings.Default}, Path=ShowInTaskbar, Mode=TwoWay}"
-                Style="{StaticResource SliderCheckBox}" />
-
-            <CheckBox
                 Name="MinimizeWhenClickOutside"
                 Margin="0,5,15,0"
                 Content="‌پنهان کردن برنامه، هنگام کلیک در خارج از پنجرۀ جستجو"
                 FlowDirection="RightToLeft"
                 IsChecked="{Binding Source={x:Static properties:Settings.Default}, Path=MinimizeWhenClickOutside, Mode=TwoWay}"
-                Style="{StaticResource SliderCheckBox}" />
-
-            <CheckBox
-                Name="TopMostWindow"
-                Margin="0,5,15,0"
-                Content="‌نمایش برنامه در بالای همۀ پنجره‌ها"
-                FlowDirection="RightToLeft"
-                IsChecked="{Binding Source={x:Static properties:Settings.Default}, Path=TopMostWindow, Mode=TwoWay}"
                 Style="{StaticResource SliderCheckBox}" />
 
             <StackPanel

@@ -18,7 +18,6 @@
     IsTabStop="False"
     MouseDown="Window_MouseDown"
     ResizeMode="CanMinimize"
-    ShowInTaskbar="{Binding Source={x:Static properties:Settings.Default}, Path=ShowInTaskbar, Mode=OneWay}"
     SizeToContent="Height"
     StateChanged="Window_StateChanged"
     Style="{StaticResource WindowStyle}"

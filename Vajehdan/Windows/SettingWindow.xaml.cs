@@ -92,14 +92,9 @@ namespace Vajehdan.Windows
             Settings.Default.FontSize = 13;
             Settings.Default.MinimizeWhenClickOutside = false;
             Settings.Default.StartByWindows = false;
-            Settings.Default.ShowInTaskbar = false;
-            Settings.Default.TopMostWindow = true;
             Settings.Default.Save();
         }
 
-        private void TopMostWindow_Checked(object sender, RoutedEventArgs e)
-        {
-
-        }
+        
     }
 }

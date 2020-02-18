@@ -197,10 +197,7 @@ namespace Vajehdan
         #region Show and hide windows
         public void HideMainWindow()
         {
-            if (!Settings.Default.ShowInTaskbar)
-            {
-                _mainWindow.Hide();
-            }
+            _mainWindow.Hide();
             _mainWindow.WindowState = WindowState.Minimized;
         }
 

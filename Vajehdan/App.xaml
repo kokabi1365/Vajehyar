@@ -78,7 +78,7 @@
 
         <Style x:Key="WindowStyle" TargetType="Window">
             <Setter Property="WindowStyle" Value="None" />
-            <Setter Property="Topmost" Value="{Binding Source={x:Static properties:Settings.Default}, Path=TopMostWindow, Mode=OneWay}" />
+            <Setter Property="Topmost" Value="True" />
             <Setter Property="ResizeMode" Value="NoResize" />
             <Setter Property="AllowsTransparency" Value="True" />
             <Setter Property="Background" Value="Transparent" />

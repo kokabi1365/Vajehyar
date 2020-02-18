@@ -214,9 +214,7 @@ namespace Vajehdan.Windows
 
             if (!Utility.Helper.IsWindowOpen<SettingWindow>())
             {
-                if (!Settings.Default.ShowInTaskbar)
-                    Hide();
-
+                Hide();
                 WindowState = WindowState.Minimized;
             }
         }
