@@ -193,9 +193,6 @@
     <Resource Include="Resources\Icons\Exit-30.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\Icons\Vajehdan.png" />
-  </ItemGroup>
-  <ItemGroup>
     <PublishFile Include="Vajehdan.exe.config">
       <Visible>False</Visible>
       <Group>

@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Globalization;
 using System.Linq;
 using System.Text.RegularExpressions;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -256,6 +257,8 @@ namespace Vajehdan.Windows
         private void Word_OnClick(object sender, RoutedEventArgs e)
         {
             txtSearch.Text = FilterString = (sender as Button).Content.ToString();
+            txtSearch.Focus();
+            txtSearch.SelectAll();
         }
 
         private void TxtSearch_OnPreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
@@ -281,6 +284,14 @@ namespace Vajehdan.Windows
         private void PartSearch_OnChecked(object sender, RoutedEventArgs e)
         {
             FilterCollection();
+        }
+
+        private void TxtSearch_OnLostFocus(object sender, RoutedEventArgs e)
+        {
+            /*Dispatcher?.BeginInvoke((ThreadStart)(() =>
+            {
+                txtSearch.Focus();
+            }));*/
         }
     }
 

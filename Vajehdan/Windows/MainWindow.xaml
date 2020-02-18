@@ -118,6 +118,7 @@
                                 Background="White"
                                 BorderBrush="Transparent"
                                 BorderThickness="0"
+                                LostFocus="TxtSearch_OnLostFocus"
                                 FontWeight="Bold"
                                 Foreground="Black"
                                 IsTabStop="True"
