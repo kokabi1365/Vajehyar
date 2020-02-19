@@ -5,9 +5,6 @@
     <Setting Name="StartupArgument" Type="System.String" Scope="Application">
       <Value Profile="(Default)">--autoStart</Value>
     </Setting>
-    <Setting Name="ShortcutKey" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Alt + Shift + V</Value>
-    </Setting>
     <Setting Name="StartByWindows" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
@@ -58,6 +55,9 @@
     </Setting>
     <Setting Name="PartSearch" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="OpenByDoubleAlt" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
     </Setting>
   </Settings>
 </SettingsFile>

@@ -34,18 +34,6 @@ namespace Vajehdan.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Alt + Shift + V")]
-        public string ShortcutKey {
-            get {
-                return ((string)(this["ShortcutKey"]));
-            }
-            set {
-                this["ShortcutKey"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("False")]
         public bool StartByWindows {
             get {
@@ -224,6 +212,18 @@ namespace Vajehdan.Properties {
             }
             set {
                 this["PartSearch"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool OpenByDoubleAlt {
+            get {
+                return ((bool)(this["OpenByDoubleAlt"]));
+            }
+            set {
+                this["OpenByDoubleAlt"] = value;
             }
         }
     }

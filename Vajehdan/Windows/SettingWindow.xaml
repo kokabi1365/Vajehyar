@@ -56,46 +56,18 @@
                 IsChecked="{Binding Source={x:Static properties:Settings.Default}, Path=MinimizeWhenClickOutside, Mode=TwoWay}"
                 Style="{StaticResource SliderCheckBox}" />
 
+            <CheckBox
+                Name="OpenByDoubleAlt"
+                Margin="0,5,15,0"
+                Content="‌نمایش پنجرۀ جستجو با دوبار زدن Alt"
+                FlowDirection="RightToLeft"
+                IsChecked="{Binding Source={x:Static properties:Settings.Default}, Path=OpenByDoubleAlt, Mode=TwoWay}"
+                Style="{StaticResource SliderCheckBox}" />
+
             <StackPanel
                 Margin="0,10,19,0"
                 FlowDirection="RightToLeft"
                 Orientation="Horizontal" />
-
-            <GroupBox
-                Width="350"
-                Margin="0,20,0,0"
-                Padding="10"
-                FlowDirection="RightToLeft">
-                <GroupBox.Header>
-                    <TextBlock FontWeight="Bold" Text="تنظیم کلید میانبر " />
-                </GroupBox.Header>
-                <GroupItem>
-                    <StackPanel>
-                        <TextBlock
-                            Margin="0,0,0,5"
-                            HorizontalAlignment="Center"
-                            FlowDirection="RightToLeft"
-                            Text="در کادر پایین کلید میانبر مورد نظر را فشار دهید:"
-                            TextWrapping="Wrap" />
-
-                        <TextBox
-                            Name="textBox"
-                            Width="205"
-                            Height="23"
-                            Padding="10,0"
-                            HorizontalContentAlignment="Center"
-                            VerticalContentAlignment="Center"
-                            FlowDirection="LeftToRight"
-                            FontFamily="calibri"
-                            FontSize="13"
-                            FontWeight="Light"
-                            Foreground="DimGray"
-                            KeyDown="TextBox_OnKeyDown"
-                            Text="{Binding Source={x:Static properties:Settings.Default}, Path=ShortcutKey, Mode=TwoWay}" />
-                    </StackPanel>
-                </GroupItem>
-            </GroupBox>
-
             <StackPanel Margin="0,20,0,0" HorizontalAlignment="Center">
 
                 <GroupBox

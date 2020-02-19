@@ -5,6 +5,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using System.Runtime.InteropServices.WindowsRuntime;
 using System.Threading;
 using System.Windows;
 using System.Windows.Forms;
@@ -31,6 +32,8 @@ namespace Vajehdan
         private KeyboardHook _keyboardHook;
         private string _appName;
         private ContextMenu _contextMenu;
+        int triggerThreshold = 500; //This would be equivalent to .5 seconds
+        int lastCtrlTick = 0;
         #endregion
 
         public App()
@@ -148,50 +151,22 @@ namespace Vajehdan
                 return;
             }
 
-            if (IsShortcutKeysPressed(e))
-                ShowMainWindow();
+            if (!Settings.Default.OpenByDoubleAlt)
+                return;
+
+            if (e.Modifiers != Keys.Alt)
+                return;
+
+            int thisCtrlTick = Environment.TickCount;
+            int elapsed = thisCtrlTick - lastCtrlTick;
             
+            if (elapsed <= triggerThreshold)
+            {
+                ShowMainWindow();
+            }
+            lastCtrlTick = thisCtrlTick;
         }
 
-        private bool IsShortcutKeysPressed(KeyEventArgs e)
-        {
-            var splittedKeys = Settings.Default.ShortcutKey.Split('+');
-            var keys = new List<Keys>();
-            var allKeyPressed = false;
-
-            foreach (var key in splittedKeys)
-            {
-                var kk = key;
-                if (kk.Contains("Ctrl"))
-                    kk = "Control";
-                var k = (Keys)Enum.Parse(typeof(Keys), kk);
-                keys.Add(k);
-            }
-
-            switch (keys.Count)
-            {
-                case 1:
-                    if (e.KeyData == keys[0])
-                        allKeyPressed = true;
-                    break;
-                case 2:
-                    if (e.KeyData == (keys[0] | keys[1])) allKeyPressed = true;
-
-                    break;
-
-                case 3:
-                    if (e.KeyData == (keys[0] | keys[1] | keys[2]))
-                        allKeyPressed = true;
-                    break;
-
-                case 4:
-                    if (e.KeyData == (keys[0] | keys[1] | keys[2] | keys[3]))
-                        allKeyPressed = true;
-                    break;
-            }
-
-            return allKeyPressed;
-        }
         #endregion
 
         #region Show and hide windows
