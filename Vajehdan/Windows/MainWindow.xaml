@@ -291,6 +291,7 @@
                                                                     Click="Word_OnClick"
                                                                     Content="{Binding}"
                                                                     MouseRightButtonUp="Word_OnMouseRightButtonUp"
+                                                                    Cursor="Hand"
                                                                     Style="{StaticResource WordStyle}" />
                                                             </DataTemplate>
                                                         </ItemsControl.ItemTemplate>
@@ -406,6 +407,7 @@
                                                                     Background="#FFE3EC91"
                                                                     Click="Word_OnClick"
                                                                     Content="{Binding}"
+                                                                    Cursor="Hand"
                                                                     MouseRightButtonUp="Word_OnMouseRightButtonUp"
                                                                     Style="{StaticResource WordStyle}" />
                                                             </DataTemplate>

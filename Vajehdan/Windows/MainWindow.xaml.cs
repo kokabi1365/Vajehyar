@@ -304,6 +304,7 @@ namespace Vajehdan.Windows
             /*Dispatcher?.BeginInvoke((ThreadStart)(() =>
             {
                 txtSearch.Focus();
+                txtSearch.SelectAll();
             }));*/
         }
     }
