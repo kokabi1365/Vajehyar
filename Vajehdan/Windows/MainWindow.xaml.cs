@@ -14,6 +14,7 @@ using System.Windows.Input;
 using System.Windows.Markup;
 using System.Windows.Media;
 using System.Windows.Threading;
+using Gma.System.MouseKeyHook;
 using Vajehdan.Properties;
 using Vajehdan.Utility;
 using KeyEventArgs = System.Windows.Input.KeyEventArgs;
@@ -28,6 +29,7 @@ namespace Vajehdan.Windows
     public partial class MainWindow : INotifyPropertyChanged
     {
         private List<string> _list1;
+        private IKeyboardMouseEvents globalHook;
 
         private ICollectionView _motaradefMotazadList;
         public ICollectionView MotaradefMotazadList
@@ -52,7 +54,11 @@ namespace Vajehdan.Windows
 
         public MainWindow(Database database)
         {
+            globalHook = Hook.GlobalEvents();
+            globalHook.MouseDown += GlobalHook_MouseDown;
+
             InitializeComponent();
+
 
             MotaradefMotazadList = CollectionViewSource.GetDefaultView(database.words_motaradef);
             MotaradefMotazadList.Filter = FilterResult;
@@ -70,12 +76,21 @@ namespace Vajehdan.Windows
             emlaeiCollectionView.CustomSort = new CustomSorter(this);
 
             hint.Text = $"جستجوی بین {database.GetCount().Round().Format()} واژۀ فارسی";
-
             
 
 #if (!DEBUG)
             CheckUpdate();
+
 #endif
+        }
+
+        private void GlobalHook_MouseDown(object sender, System.Windows.Forms.MouseEventArgs e)
+        {
+            if (e.X < Left || e.X>Left+Width || e.Y<Top || e.Y>Top+Height)
+            {
+                MainWindow_OnDeactivated(null,null);
+            }
+
         }
 
         private async void CheckUpdate()
