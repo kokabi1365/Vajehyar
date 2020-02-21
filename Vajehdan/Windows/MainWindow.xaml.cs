@@ -59,7 +59,6 @@ namespace Vajehdan.Windows
 
             InitializeComponent();
 
-
             MotaradefMotazadList = CollectionViewSource.GetDefaultView(database.words_motaradef);
             MotaradefMotazadList.Filter = FilterResult;
             var motaradefCollectionView = MotaradefMotazadList as ListCollectionView;
@@ -282,18 +281,6 @@ namespace Vajehdan.Windows
             }
         }
 
-        private void BackButton_OnClick(object sender, RoutedEventArgs e)
-        {
-            txtSearch.Undo();
-            FilterString = txtSearch.Text;
-        }
-
-        private void ForwardButton_OnClick(object sender, RoutedEventArgs e)
-        {
-            txtSearch.Redo();
-            FilterString = txtSearch.Text;
-        }
-
         private void PartSearch_OnChecked(object sender, RoutedEventArgs e)
         {
             FilterCollection();
@@ -301,11 +288,11 @@ namespace Vajehdan.Windows
 
         private void TxtSearch_OnLostFocus(object sender, RoutedEventArgs e)
         {
-            /*Dispatcher?.BeginInvoke((ThreadStart)(() =>
+            Dispatcher?.BeginInvoke((ThreadStart)(() =>
             {
-                txtSearch.Focus();
+                Keyboard.Focus(txtSearch);
                 txtSearch.SelectAll();
-            }));*/
+            }));
         }
     }
 

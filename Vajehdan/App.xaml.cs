@@ -56,7 +56,7 @@ namespace Vajehdan
             Environment.Exit(-1);
         }
 
-
+        
         #region App Startup
         private void App_Startup(object sender, StartupEventArgs e)
         {
@@ -153,7 +153,7 @@ namespace Vajehdan
 
             if (!Settings.Default.OpenByDoubleAlt)
                 return;
-
+            
             if (e.Modifiers != Keys.Alt)
                 return;
 

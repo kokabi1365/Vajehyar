@@ -75,41 +75,6 @@
                             <ColumnDefinition Width="Auto" />
                         </Grid.ColumnDefinitions>
 
-                        <Border
-                            Grid.Column="0"
-                            Height="22"
-                            Margin="5,5,2,5"
-                            BorderBrush="DeepSkyBlue"
-                            BorderThickness="2"
-                            CornerRadius="5">
-                            <StackPanel Height="20" Orientation="Horizontal">
-                                <Button
-                                    Name="BackButton"
-                                    Width="20"
-                                    Margin="0,-1,0,0"
-                                    VerticalAlignment="Center"
-                                    BorderBrush="DeepSkyBlue"
-                                    BorderThickness="0,0,1,0"
-                                    Click="BackButton_OnClick"
-                                    Content="&lt;"
-                                    FontSize="14"
-                                    Style="{StaticResource StylelessButtonStyle}"
-                                    ToolTip="کلمۀ قبل" />
-                                <Button
-                                    Name="ForwardButton"
-                                    Width="20"
-                                    Margin="0,-1,0,0"
-                                    VerticalAlignment="Center"
-                                    BorderBrush="DeepSkyBlue"
-                                    BorderThickness="1,0,0,0"
-                                    Click="ForwardButton_OnClick"
-                                    Content="&gt;"
-                                    FontSize="14"
-                                    Style="{StaticResource StylelessButtonStyle}"
-                                    ToolTip="کلمۀ بعد" />
-                            </StackPanel>
-                        </Border>
-
                         <Grid Grid.Column="1">
                             <TextBox
                                 x:Name="txtSearch"
@@ -118,6 +83,7 @@
                                 BorderBrush="Transparent"
                                 BorderThickness="0"
                                 LostFocus="TxtSearch_OnLostFocus"
+                                FocusManager.IsFocusScope="True"
                                 FontWeight="Bold"
                                 Foreground="Black"
                                 IsTabStop="True"
@@ -166,6 +132,7 @@
                 Name="PartSearch"
                 Grid.Row="1"
                 Margin="0,4,0,0"
+                FocusManager.FocusedElement="{Binding ElementName=txtSearch}"
                 HorizontalAlignment="Right"
                 Checked="PartSearch_OnChecked"
                 Content="جستجوی بخشی از کلمه"
@@ -290,6 +257,7 @@
                                                                     Background="#FFE3EC91"
                                                                     Click="Word_OnClick"
                                                                     Content="{Binding}"
+                                                                    FocusManager.FocusedElement="{Binding ElementName=txtSearch}"
                                                                     MouseRightButtonUp="Word_OnMouseRightButtonUp"
                                                                     Cursor="Hand"
                                                                     Style="{StaticResource WordStyle}" />
@@ -407,6 +375,7 @@
                                                                     Background="#FFE3EC91"
                                                                     Click="Word_OnClick"
                                                                     Content="{Binding}"
+                                                                    FocusManager.FocusedElement="{Binding ElementName=txtSearch}"
                                                                     Cursor="Hand"
                                                                     MouseRightButtonUp="Word_OnMouseRightButtonUp"
                                                                     Style="{StaticResource WordStyle}" />
