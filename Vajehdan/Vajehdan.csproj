@@ -121,6 +121,8 @@
     <Compile Include="Windows\ChangelogWindow.xaml.cs">
       <DependentUpon>ChangelogWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Windows\CustomSorter.cs" />
+    <Compile Include="Converters\DefaultFontConverter.cs" />
     <Compile Include="Windows\SettingWindow.xaml.cs">
       <DependentUpon>SettingWindow.xaml</DependentUpon>
     </Compile>
@@ -249,6 +251,7 @@
   <ItemGroup>
     <None Include="Resources\Dicts\Sample.txt" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

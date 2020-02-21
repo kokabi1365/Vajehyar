@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Globalization;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Threading;
@@ -11,7 +9,6 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Input;
-using System.Windows.Markup;
 using System.Windows.Media;
 using System.Windows.Threading;
 using Gma.System.MouseKeyHook;
@@ -295,50 +292,4 @@ namespace Vajehdan.Windows
             }));
         }
     }
-
-    internal class CustomSorter : IComparer
-    {
-        private MainWindow mainWindow;
-
-        public CustomSorter(MainWindow mainWindow)
-        {
-            this.mainWindow = mainWindow;
-        }
-
-        public int Compare(object x, object y)
-        {
-            string item1 = string.Join("", (x as List<string>)?.ToArray());
-            string item2 = string.Join("", (y as List<string>)?.ToArray());
-            string filter = mainWindow.FilterString;
-
-            int a = item1?.IndexOf(filter) ?? -1;
-            int b = item2?.IndexOf(filter) ?? -1;
-
-            return a.CompareTo(b);
-        }
-
-    }
-
-    public class DefaultFontConverter : MarkupExtension, IValueConverter
-    {
-        public object Convert(object value, Type targetType,
-            object parameter, CultureInfo culture)
-        {
-            return value.ToString().Contains("فونت پیش‌فرض") || string.IsNullOrEmpty(value.ToString()) ? parameter : value;
-        }
-
-        public object ConvertBack(object value, Type targetType,
-            object parameter, CultureInfo culture)
-        {
-            throw new NotImplementedException();
-        }
-
-        public override object ProvideValue(IServiceProvider serviceProvider)
-        {
-            return this;
-        }
-    }
-
-
-
 }

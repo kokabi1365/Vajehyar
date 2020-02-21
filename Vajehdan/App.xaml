@@ -4,6 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="clr-namespace:Vajehdan"
     xmlns:properties="clr-namespace:Vajehdan.Properties"
+    xmlns:converters="clr-namespace:Vajehdan.Converters"
     Exit="App_OnExit"
     Startup="App_Startup">
 
@@ -13,6 +14,7 @@
         <BooleanToVisibilityConverter x:Key="BoolToVis" />
         <FontFamily x:Key="IranSans">pack://application:,,,/Resources/Fonts/#IRANSans</FontFamily>
         <FontFamily x:Key="IranSansNum">pack://application:,,,/Resources/Fonts/#IRANSans(FaNum)</FontFamily>
+        <converters:DefaultFontConverter x:Key="DefaultFontConverter" />
 
         <Style x:Key="TabControlStyle" TargetType="{x:Type TabControl}">
             <Setter Property="Padding" Value="10,5,10,5" />
