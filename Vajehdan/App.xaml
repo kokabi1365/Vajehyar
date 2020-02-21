@@ -12,8 +12,7 @@
 
         <WindowStartupLocation x:Key="Wsl">CenterScreen</WindowStartupLocation>
         <BooleanToVisibilityConverter x:Key="BoolToVis" />
-        <FontFamily x:Key="IranSans">pack://application:,,,/Resources/Fonts/#IRANSans</FontFamily>
-        <FontFamily x:Key="IranSansNum">pack://application:,,,/Resources/Fonts/#IRANSans(FaNum)</FontFamily>
+        <FontFamily x:Key="vazir">pack://application:,,,/Resources/Fonts/#vazir</FontFamily>
         <converters:DefaultFontConverter x:Key="DefaultFontConverter" />
 
         <Style x:Key="TabControlStyle" TargetType="{x:Type TabControl}">
@@ -828,7 +827,7 @@
         <ContextMenu
             x:Key="NotifierContextMenu"
             FlowDirection="RightToLeft"
-            FontFamily="{StaticResource IranSans}"
+            FontFamily="{StaticResource vazir}"
             FontSize="12"
             FontWeight="Light"
             Placement="MousePoint"

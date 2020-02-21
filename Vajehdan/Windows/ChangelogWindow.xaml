@@ -11,7 +11,7 @@
     Height="455"
     DataContext="{Binding RelativeSource={RelativeSource Self}}"
     FlowDirection="RightToLeft"
-    FontFamily="{StaticResource IranSans}"
+    FontFamily="{StaticResource vazir}"
     MouseDown="Window_MouseDown"
     Style="{StaticResource WindowStyle}"
     WindowStartupLocation="CenterScreen"

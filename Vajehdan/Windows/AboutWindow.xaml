@@ -9,7 +9,7 @@
     Width="446.445"
     Height="485.102"
     DataContext="{Binding RelativeSource={RelativeSource Self}}"
-    FontFamily="{StaticResource IranSans}"
+    FontFamily="{StaticResource vazir}"
     Left="{Binding Source={x:Static properties:Settings.Default}, Path=AboutLeftPos, Mode=TwoWay}"
     MouseDown="Window_MouseDown"
     Style="{StaticResource WindowStyle}"
@@ -47,7 +47,7 @@
                         <StackPanel Orientation="Horizontal">
                             <TextBlock
                                 VerticalAlignment="Top"
-                                FontFamily="{StaticResource IranSans}"
+                                FontFamily="{StaticResource vazir}"
                                 FontSize="14"
                                 FontWeight="Bold"
                                 ><Run Text="واژه"/><Run Text="‌"/><Run FlowDirection="RightToLeft" Text="دان"/></TextBlock>
@@ -70,7 +70,7 @@
 
                         <TextBlock
                             Margin="0,2,0,0"
-                            FontFamily="{StaticResource IranSans}"
+                            FontFamily="{StaticResource vazir}"
                             FontSize="12"
                             Text="راهنمای واژه‌گزینی کلمات فارسی " />
 

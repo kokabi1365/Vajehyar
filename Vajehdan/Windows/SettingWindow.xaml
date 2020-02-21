@@ -10,7 +10,7 @@
     Title="SettingsWindow"
     Width="491"
     Height="515"
-    FontFamily="{StaticResource IranSans}"
+    FontFamily="{StaticResource vazir}"
     Left="{Binding Source={x:Static properties:Settings.Default}, Path=SettingLeftPos, Mode=TwoWay}"
     MouseDown="SettingWindow_OnMouseDown"
     Style="{StaticResource WindowStyle}"
@@ -101,7 +101,7 @@
                                         <ComboBoxItem
                                             Content="فونت پیش‌فرض"
                                             FlowDirection="RightToLeft"
-                                            FontFamily="{StaticResource IranSans}"
+                                            FontFamily="{StaticResource vazir}"
                                             FontSize="11"
                                             FontWeight="Bold"
                                             Foreground="Black" />
@@ -112,7 +112,6 @@
                             <StackPanel>
                                 <TextBlock
                                     Margin="15,0,0,-8"
-                                    FontFamily="{StaticResource IranSansNum}"
                                     Text="{Binding ElementName=FontSize, Path=Value}"
                                     TextAlignment="Center" />
                                 <Slider
@@ -121,7 +120,6 @@
                                     Height="23"
                                     Margin="10,0,0,0"
                                     FlowDirection="LeftToRight"
-                                    FontFamily="{StaticResource IranSansNum}"
                                     FontSize="12"
                                     Foreground="DimGray"
                                     Maximum="20"

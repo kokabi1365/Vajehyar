@@ -171,13 +171,10 @@
       <Generator>PublicSettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
-    <Resource Include="Resources\Fonts\IRANSans%28FaNum%29.ttf" />
+    <Resource Include="Resources\Fonts\vazir.ttf" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Resources\Fonts\IRANSans.ttf" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\Icons\Vajehdan.ico" />
