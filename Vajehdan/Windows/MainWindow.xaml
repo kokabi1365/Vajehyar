@@ -5,7 +5,6 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:properties="clr-namespace:Vajehdan.Properties"
-    x:Name="window"
     Title="واژه‌دان"
     Width="650"
     MaxHeight="350"
@@ -21,8 +20,15 @@
     mc:Ignorable="d">
 
     <Border Background="AliceBlue" BorderBrush="DarkGray" BorderThickness="1">
-        <DockPanel >
-            <Grid DockPanel.Dock="Top">
+
+        <Grid>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
                 <TextBox
                 x:Name="txtSearch"
                 VerticalContentAlignment="Center"
@@ -35,21 +41,20 @@
                 KeyDown="TxtSearch_OnKeyDown"
                 PreviewKeyDown="TxtSearch_OnPreviewKeyDown"
                 PreviewMouseLeftButtonUp="TxtSearch_OnPreviewMouseLeftButtonUp"/>
-
-                <CheckBox
-                Name="PartSearch"
-                Padding="5,0,5,0"
-                VerticalAlignment="Center"
-                FocusManager.FocusedElement="{Binding ElementName=txtSearch}"
-                HorizontalAlignment="Right"
-                Style="{StaticResource SliderCheckBox}"
-                Checked="PartSearch_OnChecked"
-                Unchecked="PartSearch_OnChecked"
-                Content="جستجوی بخشی از کلمه"
-                IsChecked="{Binding Source={x:Static properties:Settings.Default}, Path=PartSearch, Mode=TwoWay}"
-                ToolTip="مثلاً با جستجوی «مهم»، کلماتی مثل «مهمات» و «مهمانی» هم نمایش داده می‌شود."/>
+                <CheckBox 
+                  Name="PartSearch"
+                  Padding="5,0,5,0"
+                  VerticalAlignment="Center"
+                  FocusManager.FocusedElement="{Binding ElementName=txtSearch}"
+                  HorizontalAlignment="Right"
+                  Style="{StaticResource SliderCheckBox}"
+                  Checked="PartSearch_OnChecked"
+                  Unchecked="PartSearch_OnChecked"
+                  Content="جستجوی بخشی از کلمه"
+                  IsChecked="{Binding Source={x:Static properties:Settings.Default}, Path=PartSearch, Mode=TwoWay}"
+                  ToolTip="مثلاً با جستجوی «مهم»، کلماتی مثل «مهمات» و «مهمانی» هم نمایش داده می‌شود."/>
             </Grid>
-            <TabControl x:Name="TabControl">
+            <TabControl x:Name="TabControl" Grid.Row="1">
                 <TabControl.Style>
                     <Style BasedOn="{StaticResource TabControlStyle}" TargetType="TabControl">
                         <Style.Triggers>
@@ -216,7 +221,7 @@
                             x:Name="Datagrid_Emlaei"
                             FlowDirection="RightToLeft"
                             ItemsSource="{Binding EmlaeiList, IsAsync=True}" BorderBrush="DarkGray" BorderThickness="0,0,0,1" Margin="0,5,0,0">
-                            
+
                             <ItemsControl.ItemsPanel>
                                 <ItemsPanelTemplate>
                                     <WrapPanel/>
@@ -234,25 +239,26 @@
                                         Style="{StaticResource WordStyle}" />
                                 </DataTemplate>
                             </ItemsControl.ItemTemplate>
-                          
+
                         </ItemsControl>
                     </ScrollViewer>
                 </TabItem>
             </TabControl>
             <Border
+                    Grid.Row="2"
             Name="AutoCloseMessageContainer"
             Margin="0,10,0,0"
             Padding="15,3,15,3"
             HorizontalAlignment="Center"
             VerticalAlignment="Center"
             Background="LightGoldenrodYellow"
-            CornerRadius="15"
             Visibility="Collapsed">
                 <TextBlock
                 Name="AutoClosemessage"
                 TextAlignment="Center" />
             </Border>
-        </DockPanel>
+
+        </Grid>
 
     </Border>
 

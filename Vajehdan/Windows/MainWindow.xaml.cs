@@ -77,6 +77,9 @@ namespace Vajehdan.Windows
 
         private void GlobalHook_MouseDown(object sender, System.Windows.Forms.MouseEventArgs e)
         {
+            if (!Settings.Default.MinimizeWhenClickOutside)
+                return;
+            
             if (e.X < Left || e.X>Left+Width || e.Y<Top || e.Y>Top+Height)
             {
                 Hide();

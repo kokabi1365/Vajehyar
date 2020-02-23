@@ -155,7 +155,7 @@ namespace Vajehdan
 
             if (!Settings.Default.OpenByDoubleAlt)
                 return;
-            
+
             if (e.Modifiers != Keys.Alt)
                 return;
 
