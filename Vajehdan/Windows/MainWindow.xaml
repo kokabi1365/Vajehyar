@@ -71,30 +71,18 @@
                                 <DataTrigger Binding="{Binding ElementName=Datagrid_Motaradef, Path=Items.Count}" Value="0">
                                     <Setter Property="Visibility" Value="Collapsed" />
                                 </DataTrigger>
-
                             </Style.Triggers>
                         </Style>
                     </TabItem.Style>
-
                     <TabItem.Header>
-                        <StackPanel
-                                FlowDirection="RightToLeft"
-                                Orientation="Horizontal"
-                                ToolTip="فرهنگ کلمات مترادف و متضاد زبان فارسی">
-                            <Label Content="فرهنگ مترادف و متضاد" />
-                            <Border
-                                    Width="40"
-                                    Height="20"
-                                    Background="White"
-                                    BorderBrush="DeepSkyBlue"
-                                    BorderThickness="1"
-                                    CornerRadius="10">
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="فرهنگ مترادف متضاد" />
+                            <Border Style="{StaticResource CounterStyle}">
                                 <TextBlock
                                         Margin="0,2,0,0"
-                                        HorizontalAlignment="Center"
                                         VerticalAlignment="Center"
-                                        FontSize="12"
-                                        FontWeight="Bold"
+                                        HorizontalAlignment="Center"
+                                        FontSize="14"
                                         Text="{Binding ElementName=Datagrid_Motaradef, Path=Items.Count}"
                                         TextAlignment="Center" />
                             </Border>
@@ -103,7 +91,6 @@
                     <ScrollViewer FlowDirection="LeftToRight" PreviewMouseWheel="UIElement_OnPreviewMouseWheel" >
                         <DataGrid
                                 x:Name="Datagrid_Motaradef"
-                                
                                 HorizontalAlignment="Right"
                                 VerticalContentAlignment="Center"
                                 AutoGenerateColumns="False"

@@ -15,6 +15,15 @@
         <FontFamily x:Key="vazir">pack://application:,,,/Resources/Fonts/#vazir</FontFamily>
         <converters:DefaultFontConverter x:Key="DefaultFontConverter" />
 
+        <Style x:Key="CounterStyle" TargetType="Border">
+            <Setter Property="Width" Value="40"/>
+            <Setter Property="Height" Value="20"/>
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="BorderBrush" Value="DeepSkyBlue"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="CornerRadius" Value="10"/>
+        </Style>
+
         <Style x:Key="FocusTextBox" TargetType="StackPanel">
            <Style.Triggers>
                 <DataTrigger Binding="{Binding ElementName=txtSearch, Path=IsVisible}" Value="True">
