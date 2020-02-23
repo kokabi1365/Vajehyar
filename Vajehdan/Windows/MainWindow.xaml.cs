@@ -71,9 +71,6 @@ namespace Vajehdan.Windows
             var emlaeiCollectionView = EmlaeiList as ListCollectionView;
             emlaeiCollectionView.CustomSort = new CustomSorter(this);
 
-            hint.Text = $"جستجوی بین {database.GetCount().Round().Format()} واژۀ فارسی";
-            
-
 #if (!DEBUG)
             CheckUpdate();
 
@@ -84,7 +81,8 @@ namespace Vajehdan.Windows
         {
             if (e.X < Left || e.X>Left+Width || e.Y<Top || e.Y>Top+Height)
             {
-                MainWindow_OnDeactivated(null,null);
+                Hide();
+                WindowState = WindowState.Minimized;
             }
 
         }
@@ -178,14 +176,6 @@ namespace Vajehdan.Windows
         }
 
 
-        private void Window_StateChanged(object sender, EventArgs e)
-        {
-            if (WindowState == WindowState.Normal)
-            {
-                txtSearch.SelectAll();
-            }
-        }
-
         #endregion
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -209,28 +199,7 @@ namespace Vajehdan.Windows
                 txtSearch.SelectionLength = 0;
             }
         }
-
-        private void TxtSearch_OnPreviewTextInput(object sender, TextCompositionEventArgs e)
-        {
-            if (!Regex.IsMatch(e.Text, @"^[\u0600-\u06FF\uFB8A\u067E\u0686\u06AF\u200C\u200F]+$"))
-            {
-                e.Handled = true;
-            }
-        }
-
-        private void MainWindow_OnDeactivated(object sender, EventArgs e)
-        {
-            if (!Settings.Default.MinimizeWhenClickOutside)
-                return;
-
-            if (!Utility.Helper.IsWindowOpen<SettingWindow>())
-            {
-                Hide();
-                WindowState = WindowState.Minimized;
-            }
-        }
-
-
+        
         private async Task ShowMessage(string message)
         {
             AutoClosemessage.Text = message;
@@ -252,6 +221,7 @@ namespace Vajehdan.Windows
             if (e.Key == Key.Enter)
             {
                 FilterString = txtSearch.Text;
+                txtSearch.SelectAll();
             }
         }
 
@@ -288,7 +258,6 @@ namespace Vajehdan.Windows
             Dispatcher?.BeginInvoke((ThreadStart)(() =>
             {
                 Keyboard.Focus(txtSearch);
-                txtSearch.SelectAll();
             }));
         }
     }

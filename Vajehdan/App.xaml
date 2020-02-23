@@ -15,6 +15,14 @@
         <FontFamily x:Key="vazir">pack://application:,,,/Resources/Fonts/#vazir</FontFamily>
         <converters:DefaultFontConverter x:Key="DefaultFontConverter" />
 
+        <Style x:Key="FocusTextBox" TargetType="StackPanel">
+           <Style.Triggers>
+                <DataTrigger Binding="{Binding ElementName=txtSearch, Path=IsVisible}" Value="True">
+                    <Setter Property="FocusManager.FocusedElement" Value="{Binding ElementName=txtSearch}"/>
+                </DataTrigger>
+           </Style.Triggers>
+        </Style>
+
         <Style x:Key="TabControlStyle" TargetType="{x:Type TabControl}">
             <Setter Property="Padding" Value="10,5,10,5" />
             <Setter Property="Margin" Value="3.5" />
