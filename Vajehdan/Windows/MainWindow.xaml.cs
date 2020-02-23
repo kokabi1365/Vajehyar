@@ -67,9 +67,7 @@ namespace Vajehdan.Windows
             teyfiCollectionView.CustomSort = new CustomSorter(this);
 
             EmlaeiList = CollectionViewSource.GetDefaultView(database.words_emlaei);
-            EmlaeiList.Filter = EmlaeiFilterResult;
-            var emlaeiCollectionView = EmlaeiList as ListCollectionView;
-            emlaeiCollectionView.CustomSort = new CustomSorter(this);
+            EmlaeiList.Filter = EmlaeiFilterResult;            
 
 #if (!DEBUG)
             CheckUpdate();
@@ -152,15 +150,14 @@ namespace Vajehdan.Windows
             if (string.IsNullOrEmpty(_filterString))
                 return false;
 
-            var words = obj as List<string>;
+            var words = obj as string;
 
-            for (int i = 0; i < words.Count; i++)
-            {
-                if (words[i].RemoveDiacritics().Contains(_filterString))
+            
+                if (words.RemoveDiacritics().Contains(_filterString))
                 {
                     return true;
                 }
-            }
+            
 
             return false;
         }
@@ -207,13 +204,6 @@ namespace Vajehdan.Windows
             await Task.Delay(2000);
             AutoCloseMessageContainer.Visibility = Visibility.Collapsed;
 
-        }
-
-        private void UIElement_OnPreviewMouseWheel(object sender, MouseWheelEventArgs e)
-        {
-            ScrollViewer scv = (ScrollViewer)sender;
-            scv.ScrollToVerticalOffset(scv.VerticalOffset - e.Delta);
-            e.Handled = true;
         }
 
         private void TxtSearch_OnKeyDown(object sender, KeyEventArgs e)

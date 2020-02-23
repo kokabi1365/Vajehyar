@@ -8,8 +8,10 @@
     x:Name="window"
     Title="واژه‌دان"
     Width="650"
+    MaxHeight="350"
     DataContext="{Binding RelativeSource={RelativeSource Self}}"
-    FontFamily="{StaticResource vazir}"
+    FontFamily="{Binding Source={x:Static properties:Settings.Default}, Path=Font, TargetNullValue={StaticResource vazir}, Converter={StaticResource DefaultFontConverter}, Mode=OneWay}"
+    FontSize="{Binding Source={x:Static properties:Settings.Default}, Path=FontSize, Mode=OneWay}"
     MouseDown="Window_MouseDown"
     ResizeMode="CanMinimize"
     SizeToContent="Height"
@@ -19,9 +21,9 @@
     mc:Ignorable="d">
 
     <Border Background="AliceBlue" BorderBrush="DarkGray" BorderThickness="1">
-        <StackPanel Style="{StaticResource FocusTextBox}">
-        <Grid>
-            <TextBox
+        <DockPanel >
+            <Grid DockPanel.Dock="Top">
+                <TextBox
                 x:Name="txtSearch"
                 VerticalContentAlignment="Center"
                 BorderThickness="0"
@@ -46,8 +48,8 @@
                 Content="جستجوی بخشی از کلمه"
                 IsChecked="{Binding Source={x:Static properties:Settings.Default}, Path=PartSearch, Mode=TwoWay}"
                 ToolTip="مثلاً با جستجوی «مهم»، کلماتی مثل «مهمات» و «مهمانی» هم نمایش داده می‌شود."/>
-        </Grid>
-        <TabControl x:Name="TabControl">
+            </Grid>
+            <TabControl x:Name="TabControl">
                 <TabControl.Style>
                     <Style BasedOn="{StaticResource TabControlStyle}" TargetType="TabControl">
                         <Style.Triggers>
@@ -88,85 +90,34 @@
                             </Border>
                         </StackPanel>
                     </TabItem.Header>
-                    <ScrollViewer FlowDirection="LeftToRight" PreviewMouseWheel="UIElement_OnPreviewMouseWheel" >
-                        <DataGrid
+                    <ScrollViewer FlowDirection="LeftToRight">
+                        <ItemsControl
                                 x:Name="Datagrid_Motaradef"
-                                HorizontalAlignment="Right"
-                                VerticalContentAlignment="Center"
-                                AutoGenerateColumns="False"
-                                BorderBrush="{x:Null}"
-                                CanUserAddRows="False"
-                                CanUserResizeRows="False"
-                                EnableColumnVirtualization="True"
-                                EnableRowVirtualization="True"
                                 FlowDirection="RightToLeft"
-                                FontFamily="{Binding Source={x:Static properties:Settings.Default}, Path=Font, TargetNullValue={StaticResource vazir}, Converter={StaticResource DefaultFontConverter}, Mode=OneWay}"
-                                FontSize="{Binding Source={x:Static properties:Settings.Default}, Path=FontSize, Mode=OneWay}"
-                                HeadersVisibility="None"
-                                HorizontalGridLinesBrush="Gray"
-                                HorizontalScrollBarVisibility="Hidden"
-                                IsTabStop="False"
-                                ItemsSource="{Binding MotaradefMotazadList, IsAsync=True}"
-                                MaxColumnWidth="{Binding ElementName=window, Path=Width}"
-                                RowBackground="AliceBlue"
-                                SelectionMode="Single"
-                                SelectionUnit="Cell"
-                                VerticalGridLinesBrush="White"
-                                VerticalScrollBarVisibility="Hidden"
-                                VirtualizingPanel.ScrollUnit="Pixel">
-                            <DataGrid.CellStyle>
-                                <Style TargetType="DataGridCell">
-                                    <Setter Property="FocusVisualStyle" Value="{x:Null}" />
-                                    <Setter Property="BorderThickness" Value="0" />
-                                    <Style.Triggers>
-                                        <Trigger Property="IsSelected" Value="True">
-                                            <Setter Property="Background" Value="Transparent" />
-                                            <Setter Property="BorderBrush" Value="Transparent" />
-                                            <Setter Property="Foreground" Value="Black" />
-                                        </Trigger>
-                                    </Style.Triggers>
-                                </Style>
-                            </DataGrid.CellStyle>
-
-                            <DataGrid.Columns>
-                                <DataGridTemplateColumn Width="*" IsReadOnly="True">
-                                    <DataGridTemplateColumn.CellTemplate>
-                                        <DataTemplate>
-
-                                            <WrapPanel>
-                                                <ItemsControl ItemsSource="{Binding}">
-                                                    <ItemsControl.ItemsPanel>
-                                                        <ItemsPanelTemplate>
-                                                            <WrapPanel Orientation="Horizontal" />
-                                                        </ItemsPanelTemplate>
-                                                    </ItemsControl.ItemsPanel>
-                                                    <ItemsControl.ItemTemplate>
-                                                        <DataTemplate>
-                                                            <Button
-                                                                    Background="#FFE3EC91"
-                                                                    Click="Word_OnClick"
-                                                                    Content="{Binding}"
-                                                                    FocusManager.FocusedElement="{Binding ElementName=txtSearch}"
-                                                                    MouseRightButtonUp="Word_OnMouseRightButtonUp"
-                                                                    Cursor="Hand"
-                                                                    Style="{StaticResource WordStyle}" />
-                                                        </DataTemplate>
-                                                    </ItemsControl.ItemTemplate>
-                                                </ItemsControl>
-                                            </WrapPanel>
-
-                                        </DataTemplate>
-                                    </DataGridTemplateColumn.CellTemplate>
-                                </DataGridTemplateColumn>
-                            </DataGrid.Columns>
-
-                            <DataGrid.Background>
-                                <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
-                                    <GradientStop Offset="0" Color="#FFEDF9FF" />
-                                    <GradientStop Offset="1" Color="White" />
-                                </LinearGradientBrush>
-                            </DataGrid.Background>
-                        </DataGrid>
+                                ItemsSource="{Binding MotaradefMotazadList, IsAsync=True}">
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <ItemsControl ItemsSource="{Binding}" BorderBrush="DarkGray" BorderThickness="0,0,0,1" Margin="0,5,0,0">
+                                        <ItemsControl.ItemsPanel>
+                                            <ItemsPanelTemplate>
+                                                <WrapPanel/>
+                                            </ItemsPanelTemplate>
+                                        </ItemsControl.ItemsPanel>
+                                        <ItemsControl.ItemTemplate>
+                                            <DataTemplate>
+                                                <Button
+                                                    Click="Word_OnClick"
+                                                    Content="{Binding}"
+                                                    FocusManager.FocusedElement="{Binding ElementName=txtSearch}"
+                                                    MouseRightButtonUp="Word_OnMouseRightButtonUp"
+                                                    Cursor="Hand"
+                                                    Style="{StaticResource WordStyle}" />
+                                            </DataTemplate>
+                                        </ItemsControl.ItemTemplate>
+                                    </ItemsControl>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
                     </ScrollViewer>
 
                 </TabItem>
@@ -182,109 +133,47 @@
                         </Style>
                     </TabItem.Style>
                     <TabItem.Header>
-                        <StackPanel
-                                FlowDirection="RightToLeft"
-                                Orientation="Horizontal"
-                                ToolTip=" دنبال واژۀ «کنفرانس» هستید ولی فقط معنای دوری مثل «گفتگو» یا «صحبت» را به خاطر می‌آورید. با جستجوی هر یک از این دو کلمه می‌توانید واژۀ یاد شده را پیدا کنید."
-                                ToolTipService.ShowDuration="120000">
-                            <Label Content="طیفی" />
-                            <Border
-                                    Width="40"
-                                    Height="20"
-                                    Background="White"
-                                    BorderBrush="DeepSkyBlue"
-                                    BorderThickness="1"
-                                    CornerRadius="10">
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="فرهنگ طیفی"/>
+                            <Border Style="{StaticResource CounterStyle}">
                                 <TextBlock
-                                        Margin="0,2,0,0"
-                                        HorizontalAlignment="Center"
-                                        VerticalAlignment="Center"
-                                        FontSize="12"
-                                        FontWeight="Bold"
-                                        Text="{Binding ElementName=Datagrid_Teyfi, Path=Items.Count}"
-                                        TextAlignment="Center" />
+                                    Margin="0,2,0,0"
+                                    VerticalAlignment="Center"
+                                    HorizontalAlignment="Center"
+                                    FontSize="14"
+                                    Text="{Binding ElementName=Datagrid_Teyfi, Path=Items.Count}"
+                                    TextAlignment="Center" />
                             </Border>
                         </StackPanel>
                     </TabItem.Header>
-                    <ScrollViewer FlowDirection="LeftToRight" PreviewMouseWheel="UIElement_OnPreviewMouseWheel">
-                        <DataGrid
-                                x:Name="Datagrid_Teyfi"
-                                HorizontalAlignment="Right"
-                                VerticalContentAlignment="Center"
-                                AutoGenerateColumns="False"
-                                BorderBrush="{x:Null}"
-                                CanUserAddRows="False"
-                                CanUserResizeRows="False"
-                                EnableColumnVirtualization="True"
-                                EnableRowVirtualization="True"
-                                FlowDirection="RightToLeft"
-                                FontFamily="{Binding Source={x:Static properties:Settings.Default}, Path=Font, TargetNullValue={StaticResource vazir}, Converter={StaticResource DefaultFontConverter}, Mode=OneWay}"
-                                FontSize="{Binding Source={x:Static properties:Settings.Default}, Path=FontSize, Mode=OneWay}"
-                                HeadersVisibility="None"
-                                HorizontalGridLinesBrush="Gray"
-                                HorizontalScrollBarVisibility="Hidden"
-                                IsTabStop="False"
-                                ItemsSource="{Binding TeyfiList, IsAsync=True}"
-                                MaxColumnWidth="{Binding ElementName=window, Path=Width}"
-                                RowBackground="AliceBlue"
-                                SelectionMode="Single"
-                                SelectionUnit="Cell"
-                                VerticalGridLinesBrush="White"
-                                VerticalScrollBarVisibility="Hidden"
-                                VirtualizingPanel.ScrollUnit="Pixel">
-                            <DataGrid.CellStyle>
-                                <Style TargetType="DataGridCell">
-                                    <Setter Property="FocusVisualStyle" Value="{x:Null}" />
-                                    <Setter Property="BorderThickness" Value="0" />
-                                    <Style.Triggers>
-                                        <Trigger Property="IsSelected" Value="True">
-                                            <Setter Property="Background" Value="Transparent" />
-                                            <Setter Property="BorderBrush" Value="Transparent" />
-                                            <Setter Property="Foreground" Value="Black" />
-                                        </Trigger>
-                                    </Style.Triggers>
-                                </Style>
-                            </DataGrid.CellStyle>
-
-                            <DataGrid.Columns>
-                                <DataGridTemplateColumn Width="*" IsReadOnly="True">
-                                    <DataGridTemplateColumn.CellTemplate>
-                                        <DataTemplate>
-
-                                            <WrapPanel>
-                                                <ItemsControl ItemsSource="{Binding}">
-                                                    <ItemsControl.ItemsPanel>
-                                                        <ItemsPanelTemplate>
-                                                            <WrapPanel Orientation="Horizontal" />
-                                                        </ItemsPanelTemplate>
-                                                    </ItemsControl.ItemsPanel>
-                                                    <ItemsControl.ItemTemplate>
-                                                        <DataTemplate>
-                                                            <Button
-                                                                    Background="#FFE3EC91"
-                                                                    Click="Word_OnClick"
-                                                                    Content="{Binding}"
-                                                                    FocusManager.FocusedElement="{Binding ElementName=txtSearch}"
-                                                                    Cursor="Hand"
-                                                                    MouseRightButtonUp="Word_OnMouseRightButtonUp"
-                                                                    Style="{StaticResource WordStyle}" />
-                                                        </DataTemplate>
-                                                    </ItemsControl.ItemTemplate>
-                                                </ItemsControl>
-                                            </WrapPanel>
-
-                                        </DataTemplate>
-                                    </DataGridTemplateColumn.CellTemplate>
-                                </DataGridTemplateColumn>
-                            </DataGrid.Columns>
-
-                            <DataGrid.Background>
-                                <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
-                                    <GradientStop Offset="0" Color="#FFEDF9FF" />
-                                    <GradientStop Offset="1" Color="White" />
-                                </LinearGradientBrush>
-                            </DataGrid.Background>
-                        </DataGrid>
+                    <ScrollViewer FlowDirection="LeftToRight">
+                        <ItemsControl
+                            x:Name="Datagrid_Teyfi"
+                            FlowDirection="RightToLeft"
+                            ItemsSource="{Binding TeyfiList, IsAsync=True}">
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <ItemsControl ItemsSource="{Binding}" BorderBrush="DarkGray" BorderThickness="0,0,0,1" Margin="0,5,0,0">
+                                        <ItemsControl.ItemsPanel>
+                                            <ItemsPanelTemplate>
+                                                <WrapPanel/>
+                                            </ItemsPanelTemplate>
+                                        </ItemsControl.ItemsPanel>
+                                        <ItemsControl.ItemTemplate>
+                                            <DataTemplate>
+                                                <Button
+                                                    Click="Word_OnClick"
+                                                    Content="{Binding}"
+                                                    FocusManager.FocusedElement="{Binding ElementName=txtSearch}"
+                                                    MouseRightButtonUp="Word_OnMouseRightButtonUp"
+                                                    Cursor="Hand"
+                                                    Style="{StaticResource WordStyle}" />
+                                            </DataTemplate>
+                                        </ItemsControl.ItemTemplate>
+                                    </ItemsControl>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
                     </ScrollViewer>
                 </TabItem>
                 <TabItem>
@@ -294,7 +183,6 @@
                                 <DataTrigger Binding="{Binding ElementName=Datagrid_Emlaei, Path=Items.Count}" Value="0">
                                     <Setter Property="Visibility" Value="Collapsed" />
                                 </DataTrigger>
-
                             </Style.Triggers>
                         </Style>
                     </TabItem.Style>
@@ -323,76 +211,35 @@
                             </Border>
                         </StackPanel>
                     </TabItem.Header>
-                    <ScrollViewer FlowDirection="LeftToRight" PreviewMouseWheel="UIElement_OnPreviewMouseWheel">
-                        <DataGrid
-                                x:Name="Datagrid_Emlaei"
-                                HorizontalAlignment="Right"
-                                VerticalContentAlignment="Center"
-                                AutoGenerateColumns="False"
-                                BorderBrush="{x:Null}"
-                                CanUserAddRows="False"
-                                CanUserResizeRows="False"
-                                EnableColumnVirtualization="True"
-                                EnableRowVirtualization="True"
-                                FlowDirection="RightToLeft"
-                                FontFamily="{Binding Source={x:Static properties:Settings.Default}, Path=Font, TargetNullValue={StaticResource vazir}, Converter={StaticResource DefaultFontConverter}, Mode=OneWay}"
-                                FontSize="{Binding Source={x:Static properties:Settings.Default}, Path=FontSize, Mode=OneWay}"
-                                HeadersVisibility="None"
-                                HorizontalGridLinesBrush="Gray"
-                                HorizontalScrollBarVisibility="Hidden"
-                                IsTabStop="False"
-                                ItemsSource="{Binding EmlaeiList}"
-                                MaxColumnWidth="{Binding ElementName=window, Path=Width}"
-                                RowBackground="AliceBlue"
-                                SelectionMode="Single"
-                                SelectionUnit="Cell"
-                                VerticalGridLinesBrush="White"
-                                VerticalScrollBarVisibility="Hidden"
-                                VirtualizingPanel.ScrollUnit="Pixel">
-                            <DataGrid.CellStyle>
-                                <Style TargetType="DataGridCell">
-                                    <Setter Property="FocusVisualStyle" Value="{x:Null}" />
-                                    <Setter Property="BorderThickness" Value="0" />
-                                    <Style.Triggers>
-                                        <Trigger Property="IsSelected" Value="True">
-                                            <Setter Property="Background" Value="Transparent" />
-                                            <Setter Property="BorderBrush" Value="Transparent" />
-                                            <Setter Property="Foreground" Value="Black" />
-                                        </Trigger>
-                                    </Style.Triggers>
-                                </Style>
-                            </DataGrid.CellStyle>
+                    <ScrollViewer FlowDirection="LeftToRight">
+                        <ItemsControl
+                            x:Name="Datagrid_Emlaei"
+                            FlowDirection="RightToLeft"
+                            ItemsSource="{Binding EmlaeiList, IsAsync=True}" BorderBrush="DarkGray" BorderThickness="0,0,0,1" Margin="0,5,0,0">
+                            
+                            <ItemsControl.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <WrapPanel/>
+                                </ItemsPanelTemplate>
+                            </ItemsControl.ItemsPanel>
 
-                            <DataGrid.Columns>
-                                <DataGridTextColumn
-                                        Width="*"
-                                        Binding="{Binding [0]}"
-                                        CanUserReorder="False"
-                                        CanUserResize="False"
-                                        CanUserSort="False"
-                                        IsReadOnly="True">
-                                    <DataGridTextColumn.ElementStyle>
-                                        <Style>
-                                            <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
-                                            <Setter Property="TextBlock.VerticalAlignment" Value="Top" />
-                                            <Setter Property="TextBlock.FlowDirection" Value="RightToLeft" />
-                                            <Setter Property="TextBlock.Padding" Value="7" />
-                                        </Style>
-                                    </DataGridTextColumn.ElementStyle>
-                                </DataGridTextColumn>
-                            </DataGrid.Columns>
-
-                            <DataGrid.Background>
-                                <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
-                                    <GradientStop Offset="0" Color="#FFEDF9FF" />
-                                    <GradientStop Offset="1" Color="White" />
-                                </LinearGradientBrush>
-                            </DataGrid.Background>
-                        </DataGrid>
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <Button
+                                        Click="Word_OnClick"
+                                        Content="{Binding}"
+                                        FocusManager.FocusedElement="{Binding ElementName=txtSearch}"
+                                        MouseRightButtonUp="Word_OnMouseRightButtonUp"
+                                        Cursor="Hand"
+                                        Style="{StaticResource WordStyle}" />
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                          
+                        </ItemsControl>
                     </ScrollViewer>
                 </TabItem>
             </TabControl>
-        <Border
+            <Border
             Name="AutoCloseMessageContainer"
             Margin="0,10,0,0"
             Padding="15,3,15,3"
@@ -401,11 +248,11 @@
             Background="LightGoldenrodYellow"
             CornerRadius="15"
             Visibility="Collapsed">
-            <TextBlock
+                <TextBlock
                 Name="AutoClosemessage"
                 TextAlignment="Center" />
-        </Border>
-        </StackPanel>
+            </Border>
+        </DockPanel>
 
     </Border>
 

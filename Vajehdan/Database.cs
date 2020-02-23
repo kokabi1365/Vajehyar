@@ -14,7 +14,7 @@ namespace Vajehdan
 
         public List<List<string>> words_motaradef { get; } = new List<List<string>>();
         public List<List<string>> words_teyfi { get; } = new List<List<string>>();
-        public List<List<string>> words_emlaei { get; } = new List<List<string>>();
+        public List<string> words_emlaei { get; } = new List<string>();
 
         private Database()
         {
@@ -41,22 +41,10 @@ namespace Vajehdan
             {
                 words_teyfi.Add(line.Split('،').ToList());
             }
-
-            foreach (string line in lines3)
-            {
-                words_emlaei.Add(new List<string>() {line});
-            }
+            
+            words_emlaei.AddRange(lines3);
+            
         }
 
-        public int GetCount()
-        {
-            int count = 0;
-            words_motaradef.ForEach(line => count += line.Count);
-            words_teyfi.ForEach(line => count += line.Count);
-            words_emlaei.ForEach(line => count += line.Count);
-            return count;
-        }
-
-        
     }
 }

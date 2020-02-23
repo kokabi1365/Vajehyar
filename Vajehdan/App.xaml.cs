@@ -39,7 +39,9 @@ namespace Vajehdan
         public App()
         {
             AppDomain currentDomain=AppDomain.CurrentDomain;
+#if !DEBUG
             currentDomain.UnhandledException += CurrentDomain_UnhandledException;
+#endif
         }
 
         private void CurrentDomain_UnhandledException(object sender, UnhandledExceptionEventArgs args)
@@ -181,7 +183,6 @@ namespace Vajehdan
             _contextMenu.IsOpen = false;
             _mainWindow.WindowState = WindowState.Normal;
             _mainWindow.Show();
-            _mainWindow.Datagrid_Motaradef.UnselectAllCells();
             _mainWindow.txtSearch.SelectAll();
             _mainWindow.txtSearch.Focus();
         }
