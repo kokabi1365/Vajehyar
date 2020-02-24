@@ -28,16 +28,11 @@ namespace Vajehdan.Utility
             return basedKey.GetValue(value, null) != null;
         }
 
-        public static async Task<bool> UserKeepsTyping(TextBox textBox)
+        public static async Task<bool> IsIdle(this TextBox textBox)
         {
-            async Task<bool> UserKeepsTyping()
-            {
-                string txt = textBox.Text;
-                await Task.Delay(200);
-                return txt != textBox.Text;
-            }
-
-            return await UserKeepsTyping();
+            string txt = textBox.Text;
+            await Task.Delay(200);
+            return txt == textBox.Text;
         }
     }
 

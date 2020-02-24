@@ -247,10 +247,10 @@ namespace Vajehdan.Windows
 
         private async void TxtSearch_OnTextChanged(object sender, TextChangedEventArgs e)
         {
-            if (await Helper.UserKeepsTyping((TextBox)sender))
-                return;
-            
-            FilterString = txtSearch.Text;
+            if (await txtSearch.IsIdle())
+            {
+                FilterString = txtSearch.Text;
+            }
         }
     }
 }
