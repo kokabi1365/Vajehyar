@@ -38,10 +38,10 @@
                         Padding="5"
                         LostFocus="TxtSearch_OnLostFocus"
                         FontSize="16"
-                        KeyDown="TxtSearch_OnKeyDown"
+                        TextChanged="TxtSearch_OnTextChanged"
                         PreviewKeyDown="TxtSearch_OnPreviewKeyDown"
                         PreviewMouseLeftButtonUp="TxtSearch_OnPreviewMouseLeftButtonUp"/>
-                    <TextBlock Margin="5,2" Text="جستجو ..." VerticalAlignment="Center"
+                    <TextBlock Margin="5,2" Text="جستجو ..." VerticalAlignment="Center" HorizontalAlignment="Left"
                                Foreground="DarkGray" Visibility="{Binding ElementName=txtSearch, Path=Text.IsEmpty, Converter={StaticResource BoolToVis}}" />
                 </Grid>
                 

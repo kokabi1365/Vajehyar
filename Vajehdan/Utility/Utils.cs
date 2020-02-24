@@ -9,6 +9,8 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Threading;
 using Microsoft.Win32;
+using Octokit;
+using Application = System.Windows.Application;
 
 namespace Vajehdan.Utility
 {
@@ -24,6 +26,18 @@ namespace Vajehdan.Utility
         public static bool isValueExist(RegistryKey basedKey, string value)
         {
             return basedKey.GetValue(value, null) != null;
+        }
+
+        public static async Task<bool> UserKeepsTyping(TextBox textBox)
+        {
+            async Task<bool> UserKeepsTyping()
+            {
+                string txt = textBox.Text;
+                await Task.Delay(200);
+                return txt != textBox.Text;
+            }
+
+            return await UserKeepsTyping();
         }
     }
 

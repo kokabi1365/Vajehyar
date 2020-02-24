@@ -111,7 +111,7 @@ namespace Vajehdan.Windows
             _motaradefMotazadList?.Refresh();
             _TeyfiList?.Refresh();
             _EmlaeiList?.Refresh();
-            txtSearch.SelectAll();
+            //txtSearch.SelectAll();
         }
 
         public bool FilterResult(object obj)
@@ -209,15 +209,6 @@ namespace Vajehdan.Windows
 
         }
 
-        private void TxtSearch_OnKeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.Key == Key.Enter)
-            {
-                FilterString = txtSearch.Text;
-                txtSearch.SelectAll();
-            }
-        }
-
         private async void Word_OnMouseRightButtonUp(object sender, MouseButtonEventArgs e)
         {
             string word = (sender as Button).Content.ToString();
@@ -252,6 +243,14 @@ namespace Vajehdan.Windows
             {
                 Keyboard.Focus(txtSearch);
             }));
+        }
+
+        private async void TxtSearch_OnTextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (await Helper.UserKeepsTyping((TextBox)sender))
+                return;
+            
+            FilterString = txtSearch.Text;
         }
     }
 }
