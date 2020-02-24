@@ -29,18 +29,22 @@
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
             <Grid Grid.Row="0">
-                <TextBox
-                x:Name="txtSearch"
-                VerticalContentAlignment="Center"
-                BorderThickness="0"
-                Text="خواندن"
-                Height="35"
-                Padding="5"
-                LostFocus="TxtSearch_OnLostFocus"
-                FontSize="16"
-                KeyDown="TxtSearch_OnKeyDown"
-                PreviewKeyDown="TxtSearch_OnPreviewKeyDown"
-                PreviewMouseLeftButtonUp="TxtSearch_OnPreviewMouseLeftButtonUp"/>
+                <Grid Background="White" HorizontalAlignment="Stretch">
+                    <TextBox
+                        x:Name="txtSearch"
+                        VerticalContentAlignment="Center"
+                        BorderThickness="0"
+                        Height="35"
+                        Padding="5"
+                        LostFocus="TxtSearch_OnLostFocus"
+                        FontSize="16"
+                        KeyDown="TxtSearch_OnKeyDown"
+                        PreviewKeyDown="TxtSearch_OnPreviewKeyDown"
+                        PreviewMouseLeftButtonUp="TxtSearch_OnPreviewMouseLeftButtonUp"/>
+                    <TextBlock Margin="5,2" Text="جستجو ..." VerticalAlignment="Center"
+                               Foreground="DarkGray" Visibility="{Binding ElementName=txtSearch, Path=Text.IsEmpty, Converter={StaticResource BoolToVis}}" />
+                </Grid>
+                
                 <CheckBox 
                   Name="PartSearch"
                   Padding="5,0,5,0"
