@@ -27,6 +27,7 @@ namespace Vajehdan.Windows
     {
         private List<string> _list1;
         private IKeyboardMouseEvents globalHook;
+        private BackgroundWorker bw;
 
         private ICollectionView _motaradefMotazadList;
         public ICollectionView MotaradefMotazadList
@@ -49,11 +50,18 @@ namespace Vajehdan.Windows
             set { _EmlaeiList = value; NotifyPropertyChanged("EmlaeiList"); }
         }
 
+        private ICollectionView _didYouMeanList;
+        public ICollectionView DidYouMeanList
+        {
+            get => _didYouMeanList;
+            set { _didYouMeanList = value; NotifyPropertyChanged("DidYouMeanList"); }
+        }
+
         public MainWindow(Database database)
         {
             globalHook = Hook.GlobalEvents();
             globalHook.MouseDown += GlobalHook_MouseDown;
-
+            
             InitializeComponent();
 
             MotaradefMotazadList = CollectionViewSource.GetDefaultView(database.words_motaradef);
@@ -67,12 +75,20 @@ namespace Vajehdan.Windows
             teyfiCollectionView.CustomSort = new CustomSorter(this);
 
             EmlaeiList = CollectionViewSource.GetDefaultView(database.words_emlaei);
-            EmlaeiList.Filter = EmlaeiFilterResult;            
+            EmlaeiList.Filter = EmlaeiFilterResult;       
+            
+            bw=new BackgroundWorker();
+            bw.DoWork += Bw_DoWork;
 
 #if (!DEBUG)
             CheckUpdate();
 
 #endif
+        }
+
+        private void Bw_DoWork(object sender, DoWorkEventArgs e)
+        {
+            
         }
 
         private void GlobalHook_MouseDown(object sender, System.Windows.Forms.MouseEventArgs e)
@@ -116,37 +132,22 @@ namespace Vajehdan.Windows
 
         public bool FilterResult(object obj)
         {
+
             if (string.IsNullOrEmpty(_filterString))
                 return false;
 
             var words = obj as List<string>;
 
-            switch (PartSearch.IsChecked)
-            {
-                case false:
-                    for (int i = 0; i < words.Count; i++)
-                    {
-                        if (words[i] == _filterString)
-                        {
-                            return true;
-                        }
-                    }
-
-                    break;
-
-                case true:
-                    for (int i = 0; i < words.Count; i++)
-                    {
-                        if (words[i].Contains(_filterString))
-                        {
-                            return true;
-                        }
-                    }
-                    break;
-            }
+            if (PartSearch.IsChecked is false)
+                return words.AsParallel().Any(t => t == _filterString);
+            
+            if (PartSearch.IsChecked is true) 
+                return words.AsParallel().Any(t => t.Contains(_filterString));
 
             return false;
         }
+
+
 
         private bool EmlaeiFilterResult(object obj)
         {
@@ -154,15 +155,8 @@ namespace Vajehdan.Windows
                 return false;
 
             var words = obj as string;
-
             
-                if (words.RemoveDiacritics().Contains(_filterString))
-                {
-                    return true;
-                }
-            
-
-            return false;
+            return words.RemoveDiacritics().Contains(_filterString);
         }
 
         #region Events
@@ -247,7 +241,19 @@ namespace Vajehdan.Windows
 
         private async void TxtSearch_OnTextChanged(object sender, TextChangedEventArgs e)
         {
+            if (txtSearch.Text.Length==1)
+                return;
+            
             if (await txtSearch.IsIdle())
+            {
+                FilterString = txtSearch.Text;
+                DidYouMeanList = CollectionViewSource.GetDefaultView(new List<string>() {"test1", "test2"});
+            }
+        }
+
+        private void TxtSearch_OnKeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
             {
                 FilterString = txtSearch.Text;
             }
