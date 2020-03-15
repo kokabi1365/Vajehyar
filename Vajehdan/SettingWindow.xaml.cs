@@ -1,15 +1,8 @@
-﻿using System;
-using System.Diagnostics;
-using System.Text;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
+﻿using System.Windows;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Navigation;
 using Vajehdan.Properties;
 
-namespace Vajehdan.Windows
+namespace Vajehdan
 {
     /// <summary>
     /// Interaction logic for SettingWindow.xaml

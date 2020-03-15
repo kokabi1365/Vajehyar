@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 
-namespace Vajehdan.Windows
+namespace Vajehdan
 {
     internal class CustomSorter : IComparer
     {

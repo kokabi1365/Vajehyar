@@ -4,7 +4,6 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="clr-namespace:Vajehdan"
     xmlns:properties="clr-namespace:Vajehdan.Properties"
-    xmlns:converters="clr-namespace:Vajehdan.Converters"
     Exit="App_OnExit"
     Startup="App_Startup">
 
@@ -12,8 +11,8 @@
 
         <WindowStartupLocation x:Key="Wsl">CenterScreen</WindowStartupLocation>
         <BooleanToVisibilityConverter x:Key="BoolToVis" />
-        <FontFamily x:Key="vazir">pack://application:,,,/Resources/Fonts/#vazir</FontFamily>
-        <converters:DefaultFontConverter x:Key="DefaultFontConverter" />
+        <FontFamily x:Key="vazir">pack://application:,,,/Resources/#vazir</FontFamily>
+        <local:DefaultFontConverter x:Key="DefaultFontConverter" />
 
         <Style x:Key="CounterStyle" TargetType="Border">
             <Setter Property="Width" Value="40"/>
@@ -856,7 +855,7 @@
                 Click="Menu_Setting"
                 Header="تنظیمات">
                 <MenuItem.Icon>
-                    <Image Source="Resources/Icons/Settings-24.png" />
+                    <Image Source="Resources/Settings-24.png" />
                 </MenuItem.Icon>
             </MenuItem>
 
@@ -866,7 +865,7 @@
                 Click="Menu_About"
                 Header="دربارۀ برنامه">
                 <MenuItem.Icon>
-                    <Image Source="Resources/Icons/About-24.png" />
+                    <Image Source="Resources/About-24.png" />
                 </MenuItem.Icon>
             </MenuItem>
 
@@ -876,7 +875,7 @@
                 Click="Menu_Exit"
                 Header="خروج">
                 <MenuItem.Icon>
-                    <Image Source="Resources/Icons/Exit-30.png" />
+                    <Image Source="Resources/Exit-30.png" />
                 </MenuItem.Icon>
             </MenuItem>
 

@@ -1,5 +1,5 @@
 ﻿<Window
-    x:Class="Vajehdan.Windows.AboutWindow"
+    x:Class="Vajehdan.AboutWindow"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -40,7 +40,7 @@
 
                     <Image
                         Margin="3"
-                        Source="/Vajehdan;component/Resources/Icons/Vajehdan.ico" />
+                        Source="/Resources/Vajehdan.ico" />
 
                     <StackPanel Margin="5,0,0,0">
 
@@ -104,7 +104,7 @@
                     VerticalAlignment="Center"
                     Cursor="Hand"
                     MouseLeftButtonDown="VirgoolIcon_OnMouseLeftButtonDown"
-                    Source="../Resources/Icons/Virgool-16.png"
+                    Source="Resources/Virgool-16.png"
                     Style="{StaticResource ImageStyle}"
                     ToolTip="صفحۀ شخصی من در ویرگول" />
                 <Image
@@ -113,7 +113,7 @@
                     VerticalAlignment="Center"
                     Cursor="Hand"
                     MouseLeftButtonDown="GithubIcon_OnMouseLeftButtonDown"
-                    Source="../Resources/Icons/Github-16.png"
+                    Source="Resources/Github-16.png"
                     Style="{StaticResource ImageStyle}"
                     ToolTip="سورس پروژه در گیت‌هاب" />
             </StackPanel>

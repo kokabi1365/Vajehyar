@@ -11,10 +11,9 @@ using System.Windows;
 using System.Windows.Forms;
 using System.Windows.Input;
 using System.Windows.Threading;
+using Gma.System.MouseKeyHook;
 using Microsoft.Win32;
 using Vajehdan.Properties;
-using Vajehdan.Utility;
-using Vajehdan.Windows;
 using ContextMenu = System.Windows.Controls.ContextMenu;
 using FileDialog = Microsoft.Win32.FileDialog;
 using KeyEventArgs = System.Windows.Forms.KeyEventArgs;
@@ -29,7 +28,7 @@ namespace Vajehdan
         #region Fields
         private NotifyIcon _notifyIcon;
         private MainWindow _mainWindow;
-        private KeyboardHook _keyboardHook;
+        private IKeyboardMouseEvents _hook;
         private string _appName;
         private ContextMenu _contextMenu;
         int triggerThreshold = 500; //This would be equivalent to .5 seconds
@@ -38,6 +37,7 @@ namespace Vajehdan
 
         public App()
         {
+            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("MjIzMDA2QDMxMzcyZTM0MmUzMEdXcEJJVDRCTnFCbWhRbDRabWVkMU1DdURxYmpwWnZMSHgzYnVsN3N5VHM9");
             AppDomain currentDomain=AppDomain.CurrentDomain;
 #if !DEBUG
             currentDomain.UnhandledException += CurrentDomain_UnhandledException;
@@ -73,9 +73,10 @@ namespace Vajehdan
             SetKeyboardHook();
             SetNotifyIcon();
 
+          
             _mainWindow = new MainWindow(Database.Instance);
             var hasStartByWindowsArg = e.Args.Any(s => s.Contains(Settings.Default.StartupArgument));
-
+            
             //Start minimized if specified
             if (hasStartByWindowsArg)
                 HideMainWindow();
@@ -89,7 +90,7 @@ namespace Vajehdan
         private void SetNotifyIcon()
         {
             _notifyIcon = new NotifyIcon();
-            var ico = GetResourceStream(new Uri("pack://application:,,,/Resources/Icons/Vajehdan.ico"))?.Stream;
+            var ico = GetResourceStream(new Uri("pack://application:,,,/Resources/Vajehdan.ico"))?.Stream;
             _notifyIcon.Icon = new Icon(ico);
             _notifyIcon.Visible = true;
             _notifyIcon.Text = "واژه‌دان";
@@ -137,12 +138,11 @@ namespace Vajehdan
         #region Keyboard hook and shortcut key
         private void SetKeyboardHook()
         {
-            _keyboardHook = new KeyboardHook();
-            _keyboardHook.SetHook();
-            _keyboardHook.OnKeyDownEvent += OnHookKeyDown;
+            _hook = Hook.GlobalEvents();
+            _hook.KeyDown += _hook_KeyDown;
         }
 
-        private void OnHookKeyDown(object sender, KeyEventArgs e)
+        private void _hook_KeyDown(object sender, KeyEventArgs e)
         {
             if (Current.Windows.OfType<SettingWindow>().Any()) return;
 
@@ -161,14 +161,13 @@ namespace Vajehdan
 
             int thisCtrlTick = Environment.TickCount;
             int elapsed = thisCtrlTick - lastCtrlTick;
-            
+
             if (elapsed <= triggerThreshold)
             {
                 ShowMainWindow();
             }
             lastCtrlTick = thisCtrlTick;
         }
-
         #endregion
 
         #region Show and hide windows

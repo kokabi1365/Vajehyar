@@ -3,7 +3,7 @@ using System.Globalization;
 using System.Windows.Data;
 using System.Windows.Markup;
 
-namespace Vajehdan.Converters
+namespace Vajehdan
 {
     public class DefaultFontConverter : MarkupExtension, IValueConverter
     {

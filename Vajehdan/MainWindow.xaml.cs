@@ -1,24 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
-using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Threading;
 using Gma.System.MouseKeyHook;
 using Vajehdan.Properties;
-using Vajehdan.Utility;
 using KeyEventArgs = System.Windows.Input.KeyEventArgs;
 using MessageBox = System.Windows.Forms.MessageBox;
 
 
-namespace Vajehdan.Windows
+namespace Vajehdan
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -77,8 +72,7 @@ namespace Vajehdan.Windows
             EmlaeiList = CollectionViewSource.GetDefaultView(database.words_emlaei);
             EmlaeiList.Filter = EmlaeiFilterResult;       
             
-            bw=new BackgroundWorker();
-            bw.DoWork += Bw_DoWork;
+            
 
 #if (!DEBUG)
             CheckUpdate();
@@ -86,11 +80,7 @@ namespace Vajehdan.Windows
 #endif
         }
 
-        private void Bw_DoWork(object sender, DoWorkEventArgs e)
-        {
-            
-        }
-
+       
         private void GlobalHook_MouseDown(object sender, System.Windows.Forms.MouseEventArgs e)
         {
             if (!Settings.Default.MinimizeWhenClickOutside)
@@ -106,7 +96,7 @@ namespace Vajehdan.Windows
 
         private async void CheckUpdate()
         {
-            await GithubHelper.CheckUpdate();
+            await Helper.CheckUpdate();
         }
 
         private string _filterString;
@@ -138,13 +128,8 @@ namespace Vajehdan.Windows
 
             var words = obj as List<string>;
 
-            if (PartSearch.IsChecked is false)
-                return words.AsParallel().Any(t => t == _filterString);
-            
-            if (PartSearch.IsChecked is true) 
-                return words.AsParallel().Any(t => t.Contains(_filterString));
+            return words.AsParallel().Any(t => t.Contains(_filterString));
 
-            return false;
         }
 
 

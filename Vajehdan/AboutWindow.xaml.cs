@@ -6,9 +6,8 @@ using System.Windows;
 using System.Windows.Input;
 using System.Windows.Navigation;
 using Vajehdan.Properties;
-using Vajehdan.Utility;
 
-namespace Vajehdan.Windows
+namespace Vajehdan
 {
     /// <summary>
     /// Interaction logic for AboutWindow
