@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Globalization;
 using System.Linq;
 using System.Reflection;
@@ -102,6 +103,12 @@ namespace Vajehdan
             }
 
             return stringBuilder.ToString();
+        }
+
+        public static Icon GetIconFromResource(string resource)
+        {
+            var ico = Application.GetResourceStream(new Uri($"pack://application:,,,/Resources/{resource}"))?.Stream;
+            return new Icon(ico);
         }
     }
 

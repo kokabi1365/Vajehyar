@@ -6,7 +6,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:properties="clr-namespace:Vajehdan.Properties"
     xmlns:scm="clr-namespace:System.ComponentModel;assembly=WindowsBase"
-    Name="SettingsWindow"
+    Closing="SettingWindow_OnClosing"
     Title="SettingsWindow"
     Width="491"
     Height="515"
@@ -34,7 +34,7 @@
                 Height="25"
                 HorizontalAlignment="Right"
                 VerticalAlignment="Center"
-                Click="Button_Click"
+                Click="ButtonBase_OnClick"
                 Content="x"
                 Style="{StaticResource ButtonStyle1}" />
 
@@ -59,7 +59,7 @@
             <CheckBox
                 Name="OpenByDoubleAlt"
                 Margin="0,5,15,0"
-                Content="‌نمایش پنجرۀ جستجو با دوبار زدن Alt"
+                Content="‌نمایش پنجره با دوبار زدن Alt"
                 FlowDirection="RightToLeft"
                 IsChecked="{Binding Source={x:Static properties:Settings.Default}, Path=OpenByDoubleAlt, Mode=TwoWay}"
                 Style="{StaticResource SliderCheckBox}" />

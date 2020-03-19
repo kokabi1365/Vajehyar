@@ -9,8 +9,9 @@ using System.Windows.Data;
 using System.Windows.Input;
 using Gma.System.MouseKeyHook;
 using Vajehdan.Properties;
+using Button = System.Windows.Controls.Button;
+using Clipboard = System.Windows.Clipboard;
 using KeyEventArgs = System.Windows.Input.KeyEventArgs;
-using MessageBox = System.Windows.Forms.MessageBox;
 
 
 namespace Vajehdan
@@ -20,10 +21,6 @@ namespace Vajehdan
     /// </summary>
     public partial class MainWindow : INotifyPropertyChanged
     {
-        private List<string> _list1;
-        private IKeyboardMouseEvents globalHook;
-        private BackgroundWorker bw;
-
         private ICollectionView _motaradefMotazadList;
         public ICollectionView MotaradefMotazadList
         {
@@ -54,9 +51,9 @@ namespace Vajehdan
 
         public MainWindow(Database database)
         {
-            globalHook = Hook.GlobalEvents();
-            globalHook.MouseDown += GlobalHook_MouseDown;
-            
+            var globalMouseHook = Hook.GlobalEvents();
+            globalMouseHook.MouseDown += GlobalMouseHook_MouseDown;
+
             InitializeComponent();
 
             MotaradefMotazadList = CollectionViewSource.GetDefaultView(database.words_motaradef);
@@ -80,18 +77,16 @@ namespace Vajehdan
 #endif
         }
 
-       
-        private void GlobalHook_MouseDown(object sender, System.Windows.Forms.MouseEventArgs e)
+        private void GlobalMouseHook_MouseDown(object sender, System.Windows.Forms.MouseEventArgs e)
         {
             if (!Settings.Default.MinimizeWhenClickOutside)
                 return;
-            
-            if (e.X < Left || e.X>Left+Width || e.Y<Top || e.Y>Top+Height)
+
+            if (e.X < Left || e.X > Left + Width || e.Y < Top || e.Y > Top + Height)
             {
                 Hide();
                 WindowState = WindowState.Minimized;
             }
-
         }
 
         private async void CheckUpdate()

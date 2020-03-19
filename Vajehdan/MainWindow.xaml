@@ -6,6 +6,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:properties="clr-namespace:Vajehdan.Properties"
     xmlns:syncfusion="http://schemas.syncfusion.com/wpf" 
+    xmlns:tb="http://www.hardcodet.net/taskbar" 
     Title="واژه‌دان"
     Width="650"
     MaxHeight="350"
@@ -17,53 +18,60 @@
     SizeToContent="Height"
     FlowDirection="RightToLeft"
     Style="{StaticResource WindowStyle}"
+    Icon="Resources/Vajehdan.ico"
     WindowStartupLocation="CenterScreen"
     mc:Ignorable="d">
 
-    <Border Background="AliceBlue" BorderBrush="DarkGray" BorderThickness="1">
+   
+        <Border Background="AliceBlue" BorderBrush="DarkGray" BorderThickness="1">
 
-        <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="Auto"/>
-            </Grid.RowDefinitions>
-            <syncfusion:SfTextBoxExt
-                x:Name="txtSearch"
-                Grid.Row="0"
-                VerticalContentAlignment="Center"
-                BorderThickness="0"
-                Height="40"
-                Padding="5"
-                Watermark="جستجو"
-                VerticalAlignment="Center"
-                LostFocus="TxtSearch_OnLostFocus"
-                FontSize="16"
-                TextChanged="TxtSearch_OnTextChanged"
-                KeyUp="TxtSearch_OnKeyUp"
-                PreviewKeyDown="TxtSearch_OnPreviewKeyDown"
-                PreviewMouseLeftButtonUp="TxtSearch_OnPreviewMouseLeftButtonUp"/>
-            <StackPanel
-                Grid.Row="1"
-                Orientation="Horizontal">
-                <syncfusion:SfDataGrid></syncfusion:SfDataGrid>
-            </StackPanel>
-            <Border
-            Grid.Row="2"
-            Name="AutoCloseMessageContainer"
-            Margin="0,10,0,0"
-            Padding="15,3,15,3"
-            HorizontalAlignment="Center"
-            VerticalAlignment="Center"
-            Background="LightGoldenrodYellow"
-            Visibility="Collapsed">
-                <TextBlock
-                Name="AutoClosemessage"
-                TextAlignment="Center" />
-            </Border>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <syncfusion:SfTextBoxExt
+                    x:Name="txtSearch"
+                    Grid.Row="0"
+                    VerticalContentAlignment="Center"
+                    BorderThickness="0"
+                    Height="40"
+                    Padding="5"
+                    Watermark="جستجو"
+                    VerticalAlignment="Center"
+                    LostFocus="TxtSearch_OnLostFocus"
+                    FontSize="16"
+                    TextChanged="TxtSearch_OnTextChanged"
+                    KeyUp="TxtSearch_OnKeyUp"
+                    PreviewKeyDown="TxtSearch_OnPreviewKeyDown"
+                    PreviewMouseLeftButtonUp="TxtSearch_OnPreviewMouseLeftButtonUp"/>
+                <StackPanel
+                    Grid.Row="1"
+                    Orientation="Horizontal">
+                    <syncfusion:SfDataGrid></syncfusion:SfDataGrid>
+                </StackPanel>
+                <Border
+                    Grid.Row="2"
+                    Name="AutoCloseMessageContainer"
+                    Margin="0,10,0,0"
+                    Padding="15,3,15,3"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Background="LightGoldenrodYellow"
+                    Visibility="Collapsed">
+                    <TextBlock
+                        Name="AutoClosemessage"
+                        TextAlignment="Center" />
+                </Border>
 
-        </Grid>
+            </Grid>
 
-    </Border>
+        </Border>
+        
+        
+
+
+    
 
 </Window>

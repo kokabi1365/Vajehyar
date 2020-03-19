@@ -3,9 +3,7 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="clr-namespace:Vajehdan"
-    xmlns:properties="clr-namespace:Vajehdan.Properties"
-    Exit="App_OnExit"
-    Startup="App_Startup">
+    xmlns:properties="clr-namespace:Vajehdan.Properties">
 
     <Application.Resources>
 
@@ -837,9 +835,7 @@
 
         <!--#endregion-->
 
-
-
-
+        
         <ContextMenu
             x:Key="NotifierContextMenu"
             FlowDirection="RightToLeft"
@@ -850,9 +846,10 @@
             StaysOpen="True">
 
             <MenuItem
+                Name="ItemSetting"
                 Height="24"
                 Margin="3,8,0,0"
-                Click="Menu_Setting"
+                Click="Menu_RunCommand"
                 Header="تنظیمات">
                 <MenuItem.Icon>
                     <Image Source="Resources/Settings-24.png" />
@@ -860,9 +857,10 @@
             </MenuItem>
 
             <MenuItem
+                Name="ItemAbout"
                 Height="24"
                 Margin="3"
-                Click="Menu_About"
+                Click="Menu_RunCommand"
                 Header="دربارۀ برنامه">
                 <MenuItem.Icon>
                     <Image Source="Resources/About-24.png" />
@@ -870,9 +868,10 @@
             </MenuItem>
 
             <MenuItem
+                Name="ItemExit"
                 Height="24"
                 Margin="3,0,0,8"
-                Click="Menu_Exit"
+                Click="Menu_RunCommand"
                 Header="خروج">
                 <MenuItem.Icon>
                     <Image Source="Resources/Exit-30.png" />

@@ -78,7 +78,7 @@ namespace Vajehdan
         {
             Close();
             App app = ((App)Application.Current);
-            app.HideMainWindow();
+            //app.HideMainWindow();
         }
 
         private void GithubIcon_OnMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
