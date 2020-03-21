@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Threading;
@@ -6,9 +7,11 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
+using System.Windows.Forms;
 using System.Windows.Input;
 using Gma.System.MouseKeyHook;
 using Vajehdan.Properties;
+using Application = System.Windows.Application;
 using Button = System.Windows.Controls.Button;
 using Clipboard = System.Windows.Clipboard;
 using KeyEventArgs = System.Windows.Input.KeyEventArgs;
@@ -21,6 +24,9 @@ namespace Vajehdan
     /// </summary>
     public partial class MainWindow : INotifyPropertyChanged
     {
+        private readonly int _triggerThreshold = 500;
+        private int _lastCtrlTick;
+
         private ICollectionView _motaradefMotazadList;
         public ICollectionView MotaradefMotazadList
         {
@@ -49,14 +55,13 @@ namespace Vajehdan
             set { _didYouMeanList = value; NotifyPropertyChanged("DidYouMeanList"); }
         }
 
-        public MainWindow(Database database)
+        public MainWindow()
         {
-            var globalMouseHook = Hook.GlobalEvents();
-            globalMouseHook.MouseDown += GlobalMouseHook_MouseDown;
+            
 
             InitializeComponent();
 
-            MotaradefMotazadList = CollectionViewSource.GetDefaultView(database.words_motaradef);
+            /*MotaradefMotazadList = CollectionViewSource.GetDefaultView(database.words_motaradef);
             MotaradefMotazadList.Filter = FilterResult;
             var motaradefCollectionView = MotaradefMotazadList as ListCollectionView;
             motaradefCollectionView.CustomSort = new CustomSorter(this);
@@ -67,26 +72,47 @@ namespace Vajehdan
             teyfiCollectionView.CustomSort = new CustomSorter(this);
 
             EmlaeiList = CollectionViewSource.GetDefaultView(database.words_emlaei);
-            EmlaeiList.Filter = EmlaeiFilterResult;       
-            
-            
+            EmlaeiList.Filter = EmlaeiFilterResult;*/
+
+            var globalMouseHook = Hook.GlobalEvents();
+            globalMouseHook.MouseDown += GlobalMouseHook_MouseDown;
+
+            _keyboardHook = new KeyboardHook();
+            _keyboardHook.SetHook();
+            _keyboardHook.OnKeyDownEvent += (o, arg) =>
+            {
+                //if (Windows.OfType<SettingWindow>().Any()) return;
+
+                if (arg.KeyData == Keys.Escape)
+                {
+                    HideMainWindow();
+                    return;
+                }
+
+                if (!Settings.Default.OpenByDoubleAlt)
+                    return;
+
+                if (arg.Modifiers != Keys.Alt)
+                    return;
+
+                int thisCtrlTick = Environment.TickCount;
+                int elapsed = thisCtrlTick - _lastCtrlTick;
+
+                if (elapsed <= _triggerThreshold)
+                {
+                    ShowMainWindow();
+                }
+
+                _lastCtrlTick = thisCtrlTick;
+            };
+
+
+
 
 #if (!DEBUG)
             CheckUpdate();
 
 #endif
-        }
-
-        private void GlobalMouseHook_MouseDown(object sender, System.Windows.Forms.MouseEventArgs e)
-        {
-            if (!Settings.Default.MinimizeWhenClickOutside)
-                return;
-
-            if (e.X < Left || e.X > Left + Width || e.Y < Top || e.Y > Top + Height)
-            {
-                Hide();
-                WindowState = WindowState.Minimized;
-            }
         }
 
         private async void CheckUpdate()
@@ -95,6 +121,7 @@ namespace Vajehdan
         }
 
         private string _filterString;
+        private KeyboardHook _keyboardHook;
 
         public string FilterString
         {
@@ -236,6 +263,50 @@ namespace Vajehdan
             if (e.Key == Key.Enter)
             {
                 FilterString = txtSearch.Text;
+            }
+        }
+
+        private void Menu_RunCommand(object sender, RoutedEventArgs e)
+        {
+            switch (((FrameworkElement)sender).Name)
+            {
+                case "ItemSetting":
+                    new SettingWindow().Show();
+                    break;
+
+                case "ItemAbout":
+                    new AboutWindow().Show();
+                    break;
+
+                case "ItemExit":
+                    Application.Current.Shutdown();
+                    break;
+            }
+        }
+
+        public void ShowMainWindow()
+        {
+            NotifyIcon.ContextMenu.IsOpen = false;
+            WindowState = WindowState.Normal;
+            Show();
+            txtSearch.SelectAll();
+            txtSearch.Focus();
+        }
+
+        public void HideMainWindow()
+        {
+            Hide();
+            WindowState = WindowState.Minimized;
+        }
+
+        private void GlobalMouseHook_MouseDown(object sender, System.Windows.Forms.MouseEventArgs e)
+        {
+            if (!Settings.Default.MinimizeWhenClickOutside)
+                return;
+
+            if (e.X < Left || e.X > Left + Width || e.Y < Top || e.Y > Top + Height)
+            {
+                HideMainWindow();
             }
         }
     }

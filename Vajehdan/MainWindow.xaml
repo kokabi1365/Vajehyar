@@ -22,7 +22,52 @@
     WindowStartupLocation="CenterScreen"
     mc:Ignorable="d">
 
-   
+    <Grid>
+        <tb:TaskbarIcon x:Name="NotifyIcon" IconSource="Resources/Vajehdan.ico">
+            <tb:TaskbarIcon.ContextMenu>
+                <ContextMenu
+                    FlowDirection="RightToLeft"
+                    FontFamily="{StaticResource vazir}"
+                    FontSize="12"
+                    FontWeight="Light"
+                    Placement="MousePoint">
+
+                    <MenuItem
+                        Name="ItemSetting"
+                        Height="24"
+                        Margin="3,8,0,0"
+                        Click="Menu_RunCommand"
+                        Header="تنظیمات">
+                        <MenuItem.Icon>
+                            <Image Source="Resources/Settings-24.png" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+
+                    <MenuItem
+                        Name="ItemAbout"
+                        Height="24"
+                        Margin="3"
+                        Click="Menu_RunCommand"
+                        Header="دربارۀ برنامه">
+                        <MenuItem.Icon>
+                            <Image Source="Resources/About-24.png" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+
+                    <MenuItem
+                        Name="ItemExit"
+                        Height="24"
+                        Margin="3,0,0,8"
+                        Click="Menu_RunCommand"
+                        Header="خروج">
+                        <MenuItem.Icon>
+                            <Image Source="Resources/Exit-30.png" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+
+                </ContextMenu>
+            </tb:TaskbarIcon.ContextMenu>
+        </tb:TaskbarIcon>
         <Border Background="AliceBlue" BorderBrush="DarkGray" BorderThickness="1">
 
             <Grid>
@@ -68,6 +113,10 @@
             </Grid>
 
         </Border>
+    </Grid>
+
+   
+    
         
         
 
