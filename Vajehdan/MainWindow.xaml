@@ -6,24 +6,26 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:properties="clr-namespace:Vajehdan.Properties"
     xmlns:syncfusion="http://schemas.syncfusion.com/wpf" 
-    xmlns:tb="http://www.hardcodet.net/taskbar" 
+    xmlns:tb="http://www.hardcodet.net/taskbar"
     Title="واژه‌دان"
     Width="650"
     MaxHeight="350"
-    DataContext="{Binding RelativeSource={RelativeSource Self}}"
     FontFamily="{Binding Source={x:Static properties:Settings.Default}, Path=Font, TargetNullValue={StaticResource vazir}, Converter={StaticResource DefaultFontConverter}, Mode=OneWay}"
     FontSize="{Binding Source={x:Static properties:Settings.Default}, Path=FontSize, Mode=OneWay}"
-    MouseDown="Window_MouseDown"
-    ResizeMode="CanMinimize"
     SizeToContent="Height"
     FlowDirection="RightToLeft"
     Style="{StaticResource WindowStyle}"
     Icon="Resources/Vajehdan.ico"
     WindowStartupLocation="CenterScreen"
     mc:Ignorable="d">
-
-    <Grid>
-        <tb:TaskbarIcon x:Name="NotifyIcon" IconSource="Resources/Vajehdan.ico">
+    <Window.CommandBindings>
+        <CommandBinding Command="{x:Static SystemCommands.RestoreWindowCommand}" Executed="NotifyIconClickCommand"/>
+    </Window.CommandBindings>
+    <Grid Margin="20">
+        <Grid.Effect>
+            <DropShadowEffect Direction="360" ShadowDepth="0" BlurRadius="25" Color="#FFBBBBBB"/>
+        </Grid.Effect>
+        <tb:TaskbarIcon x:Name="NotifyIcon" IconSource="Resources/Vajehdan.ico"  LeftClickCommand="SystemCommands.RestoreWindowCommand">
             <tb:TaskbarIcon.ContextMenu>
                 <ContextMenu
                     FlowDirection="RightToLeft"
@@ -68,8 +70,8 @@
                 </ContextMenu>
             </tb:TaskbarIcon.ContextMenu>
         </tb:TaskbarIcon>
-        <Border Background="AliceBlue" BorderBrush="DarkGray" BorderThickness="1">
 
+        <Border Background="AliceBlue" BorderBrush="DarkGray" BorderThickness="1">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
@@ -81,12 +83,12 @@
                     Grid.Row="0"
                     VerticalContentAlignment="Center"
                     BorderThickness="0"
-                    Height="40"
-                    Padding="5"
+                    Height="50"
+                    Padding="10,0,0,0"
                     Watermark="جستجو"
                     VerticalAlignment="Center"
                     LostFocus="TxtSearch_OnLostFocus"
-                    FontSize="16"
+                    FontSize="20"
                     TextChanged="TxtSearch_OnTextChanged"
                     KeyUp="TxtSearch_OnKeyUp"
                     PreviewKeyDown="TxtSearch_OnPreviewKeyDown"
@@ -94,7 +96,7 @@
                 <StackPanel
                     Grid.Row="1"
                     Orientation="Horizontal">
-                    <syncfusion:SfDataGrid></syncfusion:SfDataGrid>
+                    <syncfusion:SfDataGrid Visibility="Collapsed"></syncfusion:SfDataGrid>
                 </StackPanel>
                 <Border
                     Grid.Row="2"
@@ -114,13 +116,5 @@
 
         </Border>
     </Grid>
-
-   
-    
-        
-        
-
-
-    
 
 </Window>

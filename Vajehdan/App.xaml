@@ -98,17 +98,7 @@
             <Setter Property="AllowsTransparency" Value="True" />
             <Setter Property="Background" Value="Transparent" />
             <Setter Property="ShowInTaskbar" Value="False" />
-
             <Setter Property="Language" Value="fa-IR" />
-            <Setter Property="Effect">
-                <Setter.Value>
-                    <DropShadowEffect
-                        BlurRadius="10"
-                        Direction="0"
-                        ShadowDepth="0"
-                        Color="#FFB6E6FF" />
-                </Setter.Value>
-            </Setter>
         </Style>
 
         <Style x:Key="{x:Type ToolTip}" TargetType="ToolTip">
@@ -830,12 +820,7 @@
                 </Trigger>
             </Style.Triggers>
         </Style>
-
-        <!--  End of Horizontal_Slider  -->
-
-        <!--#endregion-->
       
-        
 
     </Application.Resources>
 </Application>

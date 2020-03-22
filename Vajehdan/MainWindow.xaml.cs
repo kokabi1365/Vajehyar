@@ -6,6 +6,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 using System.Windows.Data;
 using System.Windows.Forms;
 using System.Windows.Input;
@@ -106,6 +107,8 @@ namespace Vajehdan
                 _lastCtrlTick = thisCtrlTick;
             };
 
+            HideMainWindow();
+
 
 
 
@@ -165,19 +168,6 @@ namespace Vajehdan
             
             return words.RemoveDiacritics().Contains(_filterString);
         }
-
-        #region Events
-
-        private void Window_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            if (e.ChangedButton == MouseButton.Left)
-            {
-                DragMove();
-            }
-        }
-
-
-        #endregion
 
         public event PropertyChangedEventHandler PropertyChanged;
         private void NotifyPropertyChanged(string property)
@@ -286,11 +276,8 @@ namespace Vajehdan
 
         public void ShowMainWindow()
         {
-            NotifyIcon.ContextMenu.IsOpen = false;
             WindowState = WindowState.Normal;
             Show();
-            txtSearch.SelectAll();
-            txtSearch.Focus();
         }
 
         public void HideMainWindow()
@@ -308,6 +295,12 @@ namespace Vajehdan
             {
                 HideMainWindow();
             }
+        }
+
+
+        private void NotifyIconClickCommand(object sender, ExecutedRoutedEventArgs e)
+        {
+            ShowMainWindow();
         }
     }
 }
