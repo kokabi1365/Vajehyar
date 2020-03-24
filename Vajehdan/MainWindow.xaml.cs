@@ -10,7 +10,13 @@ using System.Windows.Controls.Primitives;
 using System.Windows.Data;
 using System.Windows.Forms;
 using System.Windows.Input;
+using System.Windows.Threading;
+using BFF.DataVirtualizingCollection;
 using Gma.System.MouseKeyHook;
+using Syncfusion.UI.Xaml.Grid;
+using Syncfusion.UI.Xaml.Grid.Helpers;
+using Syncfusion.UI.Xaml.ScrollAxis;
+using Vajehdan;
 using Vajehdan.Properties;
 using Application = System.Windows.Application;
 using Button = System.Windows.Controls.Button;
@@ -27,6 +33,29 @@ namespace Vajehdan
     {
         private readonly int _triggerThreshold = 500;
         private int _lastCtrlTick;
+
+        private AsyncVirtualizingCollection<string[]> _motaradefList;
+        public AsyncVirtualizingCollection<string[]> MotaradefList
+        {
+            get { return _motaradefList; }
+            set
+            {
+                _motaradefList = value;
+                NotifyPropertyChanged("MotaradefList");
+            }
+        }
+
+
+        private GridVirtualizingCollectionView _gridVirtualizingItemsSource;
+        public GridVirtualizingCollectionView GridVirtualizingItemsSource
+        {
+            get { return _gridVirtualizingItemsSource; }
+            set
+            {
+                _gridVirtualizingItemsSource = value;
+                NotifyPropertyChanged("GridVirtualizingItemsSource");
+            }
+        }
 
         private ICollectionView _motaradefMotazadList;
         public ICollectionView MotaradefMotazadList
@@ -62,11 +91,11 @@ namespace Vajehdan
 
             InitializeComponent();
 
-            /*MotaradefMotazadList = CollectionViewSource.GetDefaultView(database.words_motaradef);
-            MotaradefMotazadList.Filter = FilterResult;
-            var motaradefCollectionView = MotaradefMotazadList as ListCollectionView;
-            motaradefCollectionView.CustomSort = new CustomSorter(this);
-
+            //MotaradefMotazadList = CollectionViewSource.GetDefaultView(Database.Motaradef());
+            //MotaradefMotazadList.Filter = FilterResult;
+            //var motaradefCollectionView = MotaradefMotazadList as ListCollectionView;
+            //motaradefCollectionView.CustomSort = new CustomSorter(this);
+            /*
             TeyfiList = CollectionViewSource.GetDefaultView(database.words_teyfi);
             TeyfiList.Filter = FilterResult;
             var teyfiCollectionView = TeyfiList as ListCollectionView;
@@ -75,9 +104,15 @@ namespace Vajehdan
             EmlaeiList = CollectionViewSource.GetDefaultView(database.words_emlaei);
             EmlaeiList.Filter = EmlaeiFilterResult;*/
 
+            //GridVirtualizingItemsSource = new GridVirtualizingCollectionView(Database.Motaradef());
+            IItemsProvider<string[]> items=new MotaradefItemProvider(Database.Motaradef().Count,50);
+            MotaradefList=new AsyncVirtualizingCollection<string[]>(items);
+            
+
+
             var globalMouseHook = Hook.GlobalEvents();
             globalMouseHook.MouseDown += GlobalMouseHook_MouseDown;
-
+            
             _keyboardHook = new KeyboardHook();
             _keyboardHook.SetHook();
             _keyboardHook.OnKeyDownEvent += (o, arg) =>
@@ -123,37 +158,18 @@ namespace Vajehdan
             await Helper.CheckUpdate();
         }
 
-        private string _filterString;
         private KeyboardHook _keyboardHook;
 
-        public string FilterString
-        {
-            get => _filterString;
-            set
-            {
-                _filterString = value;
-                NotifyPropertyChanged("FilterString");
-                FilterCollection();
-            }
-        }
-
-        private void FilterCollection()
-        {
-            _motaradefMotazadList?.Refresh();
-            _TeyfiList?.Refresh();
-            _EmlaeiList?.Refresh();
-            //txtSearch.SelectAll();
-        }
 
         public bool FilterResult(object obj)
         {
-
-            if (string.IsNullOrEmpty(_filterString))
+            string filterString = txtSearch.Text;
+            if (string.IsNullOrEmpty(filterString))
                 return false;
 
-            var words = obj as List<string>;
+            var words = string.Join("،",obj as string[]);
 
-            return words.AsParallel().Any(t => t.Contains(_filterString));
+            return words.Contains(filterString);
 
         }
 
@@ -161,12 +177,13 @@ namespace Vajehdan
 
         private bool EmlaeiFilterResult(object obj)
         {
-            if (string.IsNullOrEmpty(_filterString))
+            string filterString = txtSearch.Text;
+            if (string.IsNullOrEmpty(filterString))
                 return false;
 
             var words = obj as string;
             
-            return words.RemoveDiacritics().Contains(_filterString);
+            return words.RemoveDiacritics().Contains(filterString);
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -210,7 +227,7 @@ namespace Vajehdan
 
         private void Word_OnClick(object sender, RoutedEventArgs e)
         {
-            txtSearch.Text = FilterString = (sender as Button).Content.ToString();
+            //txtSearch.Text = FilterString = (sender as Button).Content.ToString();
             txtSearch.Focus();
             txtSearch.SelectAll();
         }
@@ -223,11 +240,6 @@ namespace Vajehdan
             }
         }
 
-        private void PartSearch_OnChecked(object sender, RoutedEventArgs e)
-        {
-            FilterCollection();
-        }
-
         private void TxtSearch_OnLostFocus(object sender, RoutedEventArgs e)
         {
             Dispatcher?.BeginInvoke((ThreadStart)(() =>
@@ -236,15 +248,15 @@ namespace Vajehdan
             }));
         }
 
-        private async void TxtSearch_OnTextChanged(object sender, TextChangedEventArgs e)
+        private void TxtSearch_OnTextChanged(object sender, TextChangedEventArgs e)
         {
             if (txtSearch.Text.Length==1)
                 return;
             
-            if (await txtSearch.IsIdle())
+            //if (await txtSearch.IsIdle())
             {
-                FilterString = txtSearch.Text;
-                DidYouMeanList = CollectionViewSource.GetDefaultView(new List<string>() {"test1", "test2"});
+                //DataGrid_Motaradef.View.Filter = FilterResult;
+                //DataGrid_Motaradef.View.RefreshFilter();
             }
         }
 
@@ -252,7 +264,7 @@ namespace Vajehdan
         {
             if (e.Key == Key.Enter)
             {
-                FilterString = txtSearch.Text;
+                //FilterString = txtSearch.Text;
             }
         }
 
@@ -278,6 +290,8 @@ namespace Vajehdan
         {
             WindowState = WindowState.Normal;
             Show();
+            txtSearch.Focus();
+            txtSearch.SelectAll();
         }
 
         public void HideMainWindow()
@@ -302,5 +316,8 @@ namespace Vajehdan
         {
             ShowMainWindow();
         }
+
+
     }
+
 }

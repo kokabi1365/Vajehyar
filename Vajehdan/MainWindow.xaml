@@ -8,8 +8,9 @@
     xmlns:syncfusion="http://schemas.syncfusion.com/wpf" 
     xmlns:tb="http://www.hardcodet.net/taskbar"
     Title="واژه‌دان"
-    Width="650"
+    Width="1000"
     MaxHeight="350"
+    DataContext="{Binding RelativeSource={RelativeSource Self}}"
     FontFamily="{Binding Source={x:Static properties:Settings.Default}, Path=Font, TargetNullValue={StaticResource vazir}, Converter={StaticResource DefaultFontConverter}, Mode=OneWay}"
     FontSize="{Binding Source={x:Static properties:Settings.Default}, Path=FontSize, Mode=OneWay}"
     SizeToContent="Height"
@@ -23,7 +24,7 @@
     </Window.CommandBindings>
     <Grid Margin="20">
         <Grid.Effect>
-            <DropShadowEffect Direction="360" ShadowDepth="0" BlurRadius="25" Color="#FFBBBBBB"/>
+            <DropShadowEffect Direction="360" ShadowDepth="0" BlurRadius="25" Color="#FFBBBBBB" Opacity=".6"/>
         </Grid.Effect>
         <tb:TaskbarIcon x:Name="NotifyIcon" IconSource="Resources/Vajehdan.ico"  LeftClickCommand="SystemCommands.RestoreWindowCommand">
             <tb:TaskbarIcon.ContextMenu>
@@ -78,6 +79,7 @@
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
+               
                 <syncfusion:SfTextBoxExt
                     x:Name="txtSearch"
                     Grid.Row="0"
@@ -93,11 +95,36 @@
                     KeyUp="TxtSearch_OnKeyUp"
                     PreviewKeyDown="TxtSearch_OnPreviewKeyDown"
                     PreviewMouseLeftButtonUp="TxtSearch_OnPreviewMouseLeftButtonUp"/>
-                <StackPanel
-                    Grid.Row="1"
-                    Orientation="Horizontal">
-                    <syncfusion:SfDataGrid Visibility="Collapsed"></syncfusion:SfDataGrid>
-                </StackPanel>
+                <Grid Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" MinWidth="300"/>
+                        <ColumnDefinition Width="*" MinWidth="300"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <ListView Grid.Column="0"  Name="DataGrid_Motaradef" Style="{StaticResource lvStyle}" ItemsSource="{Binding MotaradefList}">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ItemsControl ItemsSource="{Binding}">
+                                    <ItemsControl.ItemsPanel>
+                                        <ItemsPanelTemplate>
+                                            <WrapPanel Orientation="Horizontal" Height="20"/>
+                                        </ItemsPanelTemplate>
+                                    </ItemsControl.ItemsPanel>
+                                    <ItemsControl.ItemTemplate>
+                                        <DataTemplate>
+                                            <Button
+                                                Click="Word_OnClick"
+                                                Content="{Binding .}"
+                                                Style="{StaticResource WordStyle}"
+                                                MouseRightButtonUp="Word_OnMouseRightButtonUp"
+                                            />
+                                        </DataTemplate>
+                                    </ItemsControl.ItemTemplate>
+                                </ItemsControl>
+                            </DataTemplate>
+                            </ListView.ItemTemplate>
+                    </ListView>
+                </Grid>
                 <Border
                     Grid.Row="2"
                     Name="AutoCloseMessageContainer"

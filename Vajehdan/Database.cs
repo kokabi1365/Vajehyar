@@ -5,46 +5,44 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using Octokit;
+using Syncfusion.Data.Extensions;
 
 namespace Vajehdan
 {
     public sealed class Database
     {
-        public static Database Instance { get; } = new Database();
 
-        public List<List<string>> words_motaradef { get; } = new List<List<string>>();
-        public List<List<string>> words_teyfi { get; } = new List<List<string>>();
-        public List<string> words_emlaei { get; } = new List<string>();
-
-        private Database()
+        public static List<string[]> Motaradef()
         {
-            string dictMotaradef = Properties.Resources.Motaradef_Motazad;
-            //string dictMotaradef = Properties.Resources.Sample;
-            string dictTeyfi = Properties.Resources.Teyfi;
-            string dictEmlaei = Properties.Resources.Emlaei;
+            string[] lines = Properties.Resources.Motaradef_Motazad.Split('\n');
+            List<string[]> words=new List<string[]>();
+            lines.ForEach(l => words.Add(l.Split('،')));
+            return words;
+        }
 
-            string[] lines1 = dictMotaradef.Split(new[] {Environment.NewLine},
-                StringSplitOptions.RemoveEmptyEntries);
+        public static List<string[]> Teyfi()
+        {
+            string[] lines = Properties.Resources.Motaradef_Motazad.Split('\n');
+            List<string[]> words = new List<string[]>();
+            lines.ForEach(l => words.Add(l.Split('،')));
+            return words;
+        }
 
-            string[] lines2 = dictTeyfi.Split(new[] {Environment.NewLine},
-                StringSplitOptions.RemoveEmptyEntries);
+        public static List<string> Emlaei()
+        {
+            string[] lines = Properties.Resources.Motaradef_Motazad.Split('\n');
+            List<string> words = new List<string>();
+            words.AddRange(lines);
+            return words;
+        }
 
-            string[] lines3 = dictEmlaei.Split(new[] {Environment.NewLine},
-                StringSplitOptions.RemoveEmptyEntries);
+        public static string[] Motaradef1()
+        {
+            return Properties.Resources.Motaradef_Motazad.Split('\n');
 
-            foreach (string line in lines1)
-            {
-                words_motaradef.Add(line.Split('،').ToList());
-            }
-
-            foreach (string line in lines2)
-            {
-                words_teyfi.Add(line.Split('،').ToList());
-            }
-            
-            words_emlaei.AddRange(lines3);
-            
         }
 
     }
+
+    
 }

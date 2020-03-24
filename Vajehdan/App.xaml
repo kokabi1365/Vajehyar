@@ -223,6 +223,8 @@
         <Style x:Key="WordStyle" TargetType="Button">
             <Setter Property="Margin" Value="2,5,2,5" />
             <Setter Property="Foreground" Value="Black" />
+            <Setter Property="Height" Value="18" />
+            <Setter Property="VerticalAlignment" Value="Center" />
             <Setter Property="Background" Value="#FFE3EC91"/>
             <Setter Property="Template">
                 <Setter.Value>
@@ -230,6 +232,7 @@
 
                         <Border
                             x:Name="border"
+                            CornerRadius="3"
                             Background="{TemplateBinding Background}"
                             RenderTransformOrigin="0.5,0.5">
                             <ContentPresenter
@@ -820,7 +823,19 @@
                 </Trigger>
             </Style.Triggers>
         </Style>
-      
+
+        <Style x:Key="lvStyle" TargetType="{x:Type ListView}">
+            <Setter Property="VirtualizingStackPanel.IsVirtualizing" Value="True"/>
+            <Setter Property="VirtualizingStackPanel.VirtualizationMode" Value="Recycling"/>
+            <Setter Property="ScrollViewer.IsDeferredScrollingEnabled" Value="True"/>
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding IsLoading}" Value="True">
+                    <Setter Property="ListView.Cursor" Value="Wait"/>
+                    <Setter Property="ListView.Background" Value="LightGray"/>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+
 
     </Application.Resources>
 </Application>
