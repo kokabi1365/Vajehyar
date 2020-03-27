@@ -912,7 +912,7 @@ namespace Vajehdan
         {
             Thread.Sleep(_fetchDelay);
 
-            return Database.Motaradef();
+            return Database.Motaradef().Take(count).ToList();
         }
     }
 

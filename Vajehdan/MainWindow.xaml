@@ -79,7 +79,7 @@
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
-               
+
                 <syncfusion:SfTextBoxExt
                     x:Name="txtSearch"
                     Grid.Row="0"
@@ -101,28 +101,45 @@
                         <ColumnDefinition Width="*" MinWidth="300"/>
                         <ColumnDefinition Width="Auto"/>
                     </Grid.ColumnDefinitions>
-                    <ListView Grid.Column="0"  Name="DataGrid_Motaradef" Style="{StaticResource lvStyle}" ItemsSource="{Binding MotaradefList}">
+                    <ListView Grid.Column="0"  Name="ListView_Motaradef" Style="{StaticResource lvStyle}" AlternationCount="2" ScrollViewer.HorizontalScrollBarVisibility="Disabled" HorizontalContentAlignment="Stretch" ItemsSource="{Binding MotaradefList}">
                         <ListView.ItemTemplate>
                             <DataTemplate>
-                                <ItemsControl ItemsSource="{Binding}">
-                                    <ItemsControl.ItemsPanel>
-                                        <ItemsPanelTemplate>
-                                            <WrapPanel Orientation="Horizontal" Height="20"/>
-                                        </ItemsPanelTemplate>
-                                    </ItemsControl.ItemsPanel>
-                                    <ItemsControl.ItemTemplate>
-                                        <DataTemplate>
-                                            <Button
-                                                Click="Word_OnClick"
-                                                Content="{Binding .}"
-                                                Style="{StaticResource WordStyle}"
-                                                MouseRightButtonUp="Word_OnMouseRightButtonUp"
-                                            />
-                                        </DataTemplate>
-                                    </ItemsControl.ItemTemplate>
-                                </ItemsControl>
+                                <Border BorderThickness="0,0,0,1">
+                                    <Border.BorderBrush>
+                                        <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                                            <LinearGradientBrush.RelativeTransform>
+                                                <TransformGroup>
+                                                    <ScaleTransform CenterY="0.5" CenterX="0.5"/>
+                                                    <SkewTransform CenterY="0.5" CenterX="0.5"/>
+                                                    <RotateTransform Angle="90" CenterY="0.5" CenterX="0.5"/>
+                                                    <TranslateTransform/>
+                                                </TransformGroup>
+                                            </LinearGradientBrush.RelativeTransform>
+                                            <GradientStop Color="#FFE2E2E2" Offset="1"/>
+                                            <GradientStop Color="White" Offset="0"/>
+                                        </LinearGradientBrush>
+                                    </Border.BorderBrush>
+                                    <ItemsControl ItemsSource="{Binding}">
+                                        <ItemsControl.ItemsPanel>
+                                            <ItemsPanelTemplate>
+                                                <WrapPanel Orientation="Horizontal" Margin="5"/>
+                                            </ItemsPanelTemplate>
+                                        </ItemsControl.ItemsPanel>
+                                        <ItemsControl.ItemTemplate>
+                                            <DataTemplate>
+                                                <Button
+                                                    Click="Word_OnClick"
+                                                    Content="{Binding .}"
+                                                    Style="{StaticResource WordStyle}"
+                                                    MouseRightButtonUp="Word_OnMouseRightButtonUp"
+                                                />
+                                            </DataTemplate>
+                                        </ItemsControl.ItemTemplate>
+                                    </ItemsControl>
+                                </Border>
+
                             </DataTemplate>
-                            </ListView.ItemTemplate>
+                        </ListView.ItemTemplate>
                     </ListView>
                 </Grid>
                 <Border

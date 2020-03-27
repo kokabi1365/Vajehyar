@@ -85,6 +85,27 @@ namespace Vajehdan
             set { _didYouMeanList = value; NotifyPropertyChanged("DidYouMeanList"); }
         }
 
+        private string _filterString;
+
+        public string FilterString
+        {
+            get => _filterString;
+            set
+            {
+                _filterString = value;
+                NotifyPropertyChanged("FilterString");
+                FilterCollection();
+            }
+        }
+
+        private void FilterCollection()
+        {
+            //_motaradefMotazadList?.Refresh();
+            //_TeyfiList?.Refresh();
+            //_EmlaeiList?.Refresh();
+            //txtSearch.SelectAll();
+        }
+
         public MainWindow()
         {
             
@@ -94,7 +115,7 @@ namespace Vajehdan
             //MotaradefMotazadList = CollectionViewSource.GetDefaultView(Database.Motaradef());
             //MotaradefMotazadList.Filter = FilterResult;
             //var motaradefCollectionView = MotaradefMotazadList as ListCollectionView;
-            //motaradefCollectionView.CustomSort = new CustomSorter(this);
+            //motaradefCollectionView.CustomSort = new CzustomSorter(this);
             /*
             TeyfiList = CollectionViewSource.GetDefaultView(database.words_teyfi);
             TeyfiList.Filter = FilterResult;
@@ -104,10 +125,16 @@ namespace Vajehdan
             EmlaeiList = CollectionViewSource.GetDefaultView(database.words_emlaei);
             EmlaeiList.Filter = EmlaeiFilterResult;*/
 
-            //GridVirtualizingItemsSource = new GridVirtualizingCollectionView(Database.Motaradef());
-            IItemsProvider<string[]> items=new MotaradefItemProvider(Database.Motaradef().Count,50);
+            GridVirtualizingItemsSource=new GridVirtualizingCollectionView(Database.Motaradef());
+            GridVirtualizingItemsSource.LoadMoreItemsAsync(10);
+            IItemsProvider<string[]> items=new MotaradefItemProvider(Database.Motaradef().Count,100);
             MotaradefList=new AsyncVirtualizingCollection<string[]>(items);
-            
+            var s=MotaradefList.ItemsProvider.FetchRange(0, 3);
+            MotaradefMotazadList = CollectionViewSource.GetDefaultView(s);
+            //MotaradefMotazadList.Filter = FilterResult;
+            //var motaradefCollectionView = MotaradefMotazadList as ListCollectionView;
+            //motaradefCollectionView.CustomSort = new CustomSorter(this);
+
 
 
             var globalMouseHook = Hook.GlobalEvents();
@@ -153,6 +180,7 @@ namespace Vajehdan
 #endif
         }
 
+       
         private async void CheckUpdate()
         {
             await Helper.CheckUpdate();
@@ -255,8 +283,7 @@ namespace Vajehdan
             
             //if (await txtSearch.IsIdle())
             {
-                //DataGrid_Motaradef.View.Filter = FilterResult;
-                //DataGrid_Motaradef.View.RefreshFilter();
+                //FilterString = txtSearch.Text;
             }
         }
 
