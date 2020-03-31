@@ -1,0 +1,528 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Telerik.Windows.Controls.Diagrams.Ribbon</name>
+    </assembly>
+    <members>
+        <member name="T:Telerik.Windows.Automation.Peers.RadDiagramRibbonAutomationPeer">
+            <summary>
+            UI Automation Peer class for <see cref="T:Telerik.Windows.Controls.Diagrams.Ribbon.RadDiagramRibbon"/>.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.Automation.Peers.RadDiagramRibbonAutomationPeer.#ctor(Telerik.Windows.Controls.Diagrams.Ribbon.RadDiagramRibbon)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Windows.Automation.Peers.RadDiagramRibbonAutomationPeer"/> class.
+            </summary>
+            <param name="owner">The owner.</param>
+        </member>
+        <member name="M:Telerik.Windows.Automation.Peers.RadDiagramRibbonAutomationPeer.GetItemStatusCore">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Windows.Automation.Peers.RadDiagramRibbonAutomationPeer.GetChildrenCore">
+            <inheritdoc />	
+        </member>
+        <member name="M:Telerik.Windows.Automation.Peers.RadDiagramRibbonAutomationPeer.GetAutomationControlTypeCore">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Windows.Automation.Peers.RadDiagramRibbonAutomationPeer.GetNameCore">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Windows.Automation.Peers.RadDiagramRibbonAutomationPeer.GetClassNameCore">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Windows.Automation.Peers.RadDiagramRibbonAutomationPeer.GetHelpTextCore">
+            <inheritdoc />
+        </member>
+        <member name="T:Telerik.Windows.Controls.Diagrams.Ribbon.ActiveToolToBooleanConverter">
+            <summary>
+            Used for conversion between the active tool of the diagram and all tool buttons in the diagram ribbon.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.Controls.Diagrams.Ribbon.ActiveToolToBooleanConverter.Convert(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            Returns true if there is a match between the Active Tool and the converter parameter provided from the button.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.Controls.Diagrams.Ribbon.ActiveToolToBooleanConverter.ConvertBack(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            Returns the active tool type if there is a match between the Active Tool and the converter parameter provided from the button.
+            </summary>
+        </member>
+        <member name="T:Telerik.Windows.Controls.Diagrams.Ribbon.DiagramRibbonExtensions">
+            <summary>
+            Class for attached DiagramRibbon behaviors.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.Diagrams.Ribbon.DiagramRibbonExtensions.RibbonTabHeaderProperty">
+            <summary>
+            Identifies the RibbonTabHeader attached property.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.Controls.Diagrams.Ribbon.DiagramRibbonExtensions.GetRibbonTabHeader(System.Windows.DependencyObject)">
+            <summary>
+            Gets the header of the associated <see cref="T:Telerik.Windows.Controls.RadRibbonTab"/>.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.Controls.Diagrams.Ribbon.DiagramRibbonExtensions.SetRibbonTabHeader(System.Windows.DependencyObject,System.String)">
+            <summary>
+            Sets the header of the tab to which the group will be added <see cref="T:Telerik.Windows.Controls.RadRibbonGroup"/>.
+            </summary>
+        </member>
+        <member name="T:Telerik.Windows.Controls.Diagrams.Ribbon.NullToBooleanConverter">
+            <summary>
+            Used for enabling ruler / navigation pane / toolbox visibility checkboxes.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.Controls.Diagrams.Ribbon.NullToBooleanConverter.Convert(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            Returns true if the value is not null, otherwise.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.Controls.Diagrams.Ribbon.NullToBooleanConverter.ConvertBack(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            Convert back is not implemented.
+            </summary>
+        </member>
+        <member name="T:Telerik.Windows.Controls.Diagrams.Ribbon.BridgeTypeModel">
+            <summary>
+            Model for populating bridge type options combo box.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.Diagrams.Ribbon.BridgeTypeModel.BridgeType">
+            <summary>
+            Connection BridgeType.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.Diagrams.Ribbon.BridgeTypeModel.IconPath">
+            <summary>
+            Path to the bridge type model's icon.
+            </summary>
+        </member>
+        <member name="T:Telerik.Windows.Controls.Diagrams.Ribbon.PercentageConverter">
+            <summary>
+            Converts double to percent and vice versa.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.Controls.Diagrams.Ribbon.PercentageConverter.Convert(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            Converts double to percent.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Windows.Controls.Diagrams.Ribbon.PercentageConverter.ConvertBack(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            Converts percent to double.
+            </summary>
+        </member>
+        <member name="T:Telerik.Windows.Controls.Diagrams.Ribbon.DiagramRibbonCommands">
+            <summary>
+            This static class lists all DiagramRibbon related public Commands.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.Controls.Diagrams.Ribbon.DiagramRibbonCommands.#cctor">
+            <summary>
+            Initializes static members of the <see cref="T:Telerik.Windows.Controls.Diagrams.Ribbon.DiagramRibbonCommands"/> class.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.Diagrams.Ribbon.DiagramRibbonCommands.SugiyamaLayout">
+            <summary>
+            Gets the SugiyamaLayout command.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.Diagrams.Ribbon.DiagramRibbonCommands.TreeLayout">
+            <summary>
+            Gets the TreeLayout command.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.Diagrams.Ribbon.DiagramRibbonCommands.ChangeConnectionType">
+            <summary>
+            Gets the ChangeConnectionType command.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.Diagrams.Ribbon.DiagramRibbonCommands.ChangeUseFreeConnectors">
+            <summary>
+            Gets the ChangeUseFreeConnectors command.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.Diagrams.Ribbon.DiagramRibbonCommands.EnableAStarRouter">
+            <summary>
+            Gets the EnableAStarRouter command.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.Diagrams.Ribbon.DiagramRibbonCommands.RouteAll">
+            <summary>
+            Gets the RouteAll command.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.Diagrams.Ribbon.DiagramRibbonCommands.ChangeShapeTool">
+            <summary>
+            Gets the ChangeShapeTool command.
+            </summary>
+        </member>
+        <member name="T:Telerik.Windows.Controls.Diagrams.Ribbon.RadDiagramRibbon">
+            <summary>
+            Represents the Ribbon UI control for developing office inspired diagram applications.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.Diagrams.Ribbon.RadDiagramRibbon.DiagramProperty">
+            <summary>
+            Identifies the Diagram dependency property.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.Diagrams.Ribbon.RadDiagramRibbon.HorizontalRulerProperty">
+            <summary>
+            Identifies the HorizontalRuler dependency property.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.Diagrams.Ribbon.RadDiagramRibbon.VerticalRulerProperty">
+            <summary>
+            Identifies the VerticalRuler dependency property.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.Diagrams.Ribbon.RadDiagramRibbon.NavigationPaneProperty">
+            <summary>
+            Identifies the NavigationPane dependency property.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.Diagrams.Ribbon.RadDiagramRibbon.ToolboxProperty">
+            <summary>
+            Identifies the Toolbox dependency property.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.Diagrams.Ribbon.RadDiagramRibbon.QuickAccessToolBarProperty">
+            <summary>
+            Identifies the QuickAccessToolBar property.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.Diagrams.Ribbon.RadDiagramRibbon.TitleBarVisibilityProperty">
+            <summary>
+            Identifies the TitleBarVisibility property.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.Diagrams.Ribbon.RadDiagramRibbon.QuickAccessToolBarPositionProperty">
+            <summary>
+            Identifies the QuickAccessToolBarPosition property.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.Diagrams.Ribbon.RadDiagramRibbon.BackstageClippingElementProperty">
+            <summary>
+            Gets or sets the area that will contain the backstage.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.Diagrams.Ribbon.RadDiagramRibbon.ApplicationButtonContentProperty">
+            <summary>
+            Identifies the ApplicationButtonContent property.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.Diagrams.Ribbon.RadDiagramRibbon.ApplicationButtonImageSourceProperty">
+            <summary>
+            Identifies the ApplicationButtonImageSource property.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.Diagrams.Ribbon.RadDiagramRibbon.BackstageProperty">
+            <summary>
+            Identifies the Backstage property.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.Diagrams.Ribbon.RadDiagramRibbon.RibbonViewStyleProperty">
+            <summary>
+            Identifies the RibbonViewStyle dependency property.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.Diagrams.Ribbon.RadDiagramRibbon.LayoutModeProperty">
+            <summary>
+            Identifies the LayoutMode dependency property.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.Diagrams.Ribbon.RadDiagramRibbon.ShowLayoutModeButtonProperty">
+            <summary>
+            Identifies the ShowLayoutModeButton dependency property.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.Diagrams.Ribbon.RadDiagramRibbon.LayoutModeButtonContentProperty">
+            <summary>
+            Identifies the LayoutModeButtonContent dependency property.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.Diagrams.Ribbon.RadDiagramRibbon.HtmlExportButtonClickedEvent">
+            <summary>
+            This event fires when the HTML Export button is clicked.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.Diagrams.Ribbon.RadDiagramRibbon.ActiveToolTypeProperty">
+            <summary>
+            Identifies the ActiveToolType dependency property.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.Diagrams.Ribbon.RadDiagramRibbon.SelectedShapeToolIndexProperty">
+            <summary>
+            Identifies the SelectedShapeToolIndex dependency property.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.Diagrams.Ribbon.RadDiagramRibbon.DiagramLineStrokeProperty">
+            <summary>
+            Identifies the DiagramLineStroke dependency property.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.Diagrams.Ribbon.RadDiagramRibbon.DiagramCellWidthProperty">
+            <summary>
+            Identifies the DiagramCellWidth dependency property.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.Diagrams.Ribbon.RadDiagramRibbon.DiagramCellHeightProperty">
+            <summary>
+            Identifies the DiagramCellHeight dependency property.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.Diagrams.Ribbon.RadDiagramRibbon.AdditionalTabsProperty">
+            <summary>
+            Identifies the <see cref="P:Telerik.Windows.Controls.Diagrams.Ribbon.RadDiagramRibbon.AdditionalTabs"/> dependency property.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.Diagrams.Ribbon.RadDiagramRibbon.AdditionalGroupsProperty">
+            <summary>
+            Identifies the <see cref="P:Telerik.Windows.Controls.Diagrams.Ribbon.RadDiagramRibbon.AdditionalGroups"/> dependency property.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.Controls.Diagrams.Ribbon.RadDiagramRibbon.#cctor">
+            <summary>
+            Initializes static members of the <see cref="T:Telerik.Windows.Controls.Diagrams.Ribbon.RadDiagramRibbon"/> class.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.Controls.Diagrams.Ribbon.RadDiagramRibbon.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Windows.Controls.Diagrams.Ribbon.RadDiagramRibbon"/> class.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.Controls.Diagrams.Ribbon.RadDiagramRibbon.ResetTheme">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Windows.Controls.Diagrams.Ribbon.RadDiagramRibbon.OnApplyTemplate">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Windows.Controls.Diagrams.Ribbon.RadDiagramRibbon.OnInitialized(System.EventArgs)">
+            <summary>
+            Raises the <see cref="E:System.Windows.FrameworkElement.Initialized"/> event.
+            This method is invoked whenever <see cref="P:System.Windows.FrameworkElement.IsInitialized"/> is set to true internally.
+            </summary>
+            <param name="e">The <see cref="T:System.Windows.RoutedEventArgs"/> that contains the event data.</param>
+        </member>
+        <member name="M:Telerik.Windows.Controls.Diagrams.Ribbon.RadDiagramRibbon.OnCreateAutomationPeer">
+            <inheritdoc /> 
+        </member>
+        <member name="E:Telerik.Windows.Controls.Diagrams.Ribbon.RadDiagramRibbon.HtmlExportButtonClicked">
+            <summary>
+            Occurs when the HTML Export button is clicked.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.Diagrams.Ribbon.RadDiagramRibbon.Diagram">
+            <summary>
+            Gets or sets the diagram.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.Diagrams.Ribbon.RadDiagramRibbon.HorizontalRuler">
+            <summary>
+            Gets or sets the horizontal diagram ruler.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.Diagrams.Ribbon.RadDiagramRibbon.VerticalRuler">
+            <summary>
+            Gets or sets the vertical diagram ruler.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.Diagrams.Ribbon.RadDiagramRibbon.NavigationPane">
+            <summary>
+            Gets or sets the navigation pane.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.Diagrams.Ribbon.RadDiagramRibbon.Toolbox">
+            <summary>
+            Gets or sets the toolbox.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.Diagrams.Ribbon.RadDiagramRibbon.QuickAccessToolBar">
+            <summary>
+            Gets or sets the QuickAccessToolBar.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.Diagrams.Ribbon.RadDiagramRibbon.TitleBarVisibility">
+            <summary>
+            Gets or sets the title bar visibility of the RadRibbonView.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.Diagrams.Ribbon.RadDiagramRibbon.QuickAccessToolBarPosition">
+            <summary>
+            Gets or sets the quick access toolbar position.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.Diagrams.Ribbon.RadDiagramRibbon.BackstageClippingElement">
+            <summary>
+            Gets or sets the area that will contain the backstage.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.Diagrams.Ribbon.RadDiagramRibbon.Backstage">
+            <summary>
+            Gets or sets the backstage.
+            </summary>
+            <value>The backstage.</value>
+        </member>
+        <member name="P:Telerik.Windows.Controls.Diagrams.Ribbon.RadDiagramRibbon.ApplicationButtonContent">
+            <summary>
+            Gets or sets the application button content. Use this property or ApplicationButtonImageSource property 
+            to set the content of the application button.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.Diagrams.Ribbon.RadDiagramRibbon.ApplicationButtonImageSource">
+            <summary>
+            Gets or sets the application button image source.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.Diagrams.Ribbon.RadDiagramRibbon.RibbonViewStyle">
+            <summary>
+            Styles the RibbonView.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.Diagrams.Ribbon.RadDiagramRibbon.LayoutMode">
+            <summary>
+            Gets or sets the LayoutMode of the <see cref="T:Telerik.Windows.Controls.RadRibbonView"/>.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.Diagrams.Ribbon.RadDiagramRibbon.ShowLayoutModeButton">
+            <summary>
+            Gets or sets a value indicating whether to show layout button should be visible.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.Diagrams.Ribbon.RadDiagramRibbon.LayoutModeButtonContent">
+            <summary>
+            Gets or sets the content of the LayoutMode button.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.Diagrams.Ribbon.RadDiagramRibbon.AdditionalTabs">
+            <summary>
+            Gets the collection of additional <see cref="T:Telerik.Windows.Controls.RadRibbonTab"/>s.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.Diagrams.Ribbon.RadDiagramRibbon.AdditionalGroups">
+            <summary>
+            Gets the collection of additional <see cref="T:Telerik.Windows.Controls.RadRibbonGroup"/>s.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.Diagrams.Ribbon.RadDiagramRibbon.SelectedShapeToolIndex">
+            <summary>
+            Gets the index of the active shape tool. 0 - Rectangle, 1 - Ellipse, 2 - Triangle.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.Diagrams.Ribbon.RadDiagramRibbon.ActiveToolType">
+            <summary>
+            Gets or sets the active tool of the DiagramRibbon (Diagram default tools and shape tool).
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.Diagrams.Ribbon.RadDiagramRibbon.DiagramLineStroke">
+            <summary>
+            Gets the lines stroke of the diagram's background grid.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.Diagrams.Ribbon.RadDiagramRibbon.DiagramCellHeight">
+            <summary>
+            Gets the sell size height of the diagram.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.Diagrams.Ribbon.RadDiagramRibbon.DiagramCellWidth">
+            <summary>
+            Gets the sell size width of the diagram.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.Diagrams.Ribbon.RadDiagramRibbon.RibbonView">
+            <summary>
+            The RibbonView that is wrapped in this <see cref="T:Telerik.Windows.Controls.Diagrams.Ribbon.RadDiagramRibbon"/> instance.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.Diagrams.Ribbon.RadDiagramRibbon.ShapeTool">
+            <summary>
+            The mouse tool for creating different kind of shapes.
+            </summary>
+        </member>
+        <member name="T:Telerik.Windows.Controls.Diagrams.Ribbon.ShapeToolType">
+            <summary>
+            Defines available shape tool types.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.Diagrams.Ribbon.ShapeToolType.Rectangle">
+            <summary>
+            Rectangle shape tool.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.Diagrams.Ribbon.ShapeToolType.Ellipse">
+            <summary>
+            Ellipse shape tool.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.Diagrams.Ribbon.ShapeToolType.Triangle">
+            <summary>
+            Triangle shape tool.
+            </summary>
+        </member>
+        <member name="T:Telerik.Windows.Controls.Diagrams.Ribbon.ToolType">
+            <summary>
+            Defines available mouse and shape tools for diagram used with ribbon.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.Diagrams.Ribbon.ToolType.Text">
+            <summary>
+            Text tool type.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.Diagrams.Ribbon.ToolType.Path">
+            <summary>
+            Path tool type.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.Diagrams.Ribbon.ToolType.Pencil">
+            <summary>
+            Pencil tool type.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.Diagrams.Ribbon.ToolType.Pointer">
+            <summary>
+            Pointer tool type.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.Diagrams.Ribbon.ToolType.Connector">
+            <summary>
+            Connector tool type.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.Diagrams.Ribbon.ToolType.Shape">
+            <summary>
+            Shape tool type.
+            </summary>
+        </member>
+        <member name="T:Telerik.Windows.Controls.Diagrams.Ribbon.ShapeTool">
+            <summary>
+            A Mouse tool which can be used to create different geometry shapes.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.Controls.Diagrams.Ribbon.ShapeTool.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Windows.Controls.Diagrams.Ribbon.ShapeTool"/> class.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.Controls.Diagrams.Ribbon.ShapeTool.MouseDoubleClick(Telerik.Windows.Diagrams.Core.PointerArgs)">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Windows.Controls.Diagrams.Ribbon.ShapeTool.MouseDown(Telerik.Windows.Diagrams.Core.PointerArgs)">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Windows.Controls.Diagrams.Ribbon.ShapeTool.MouseMove(Telerik.Windows.Diagrams.Core.PointerArgs)">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Windows.Controls.Diagrams.Ribbon.ShapeTool.MouseUp(Telerik.Windows.Diagrams.Core.PointerArgs)">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Windows.Controls.Diagrams.Ribbon.ShapeTool.Geometry">
+            <summary>
+            The geometry of the shape which the tool creates.
+            </summary>
+        </member>
+    </members>
+</doc>

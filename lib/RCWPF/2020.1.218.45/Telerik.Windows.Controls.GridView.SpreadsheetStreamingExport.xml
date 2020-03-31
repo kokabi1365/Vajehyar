@@ -1,0 +1,812 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Telerik.Windows.Controls.GridView.SpreadsheetStreamingExport</name>
+    </assembly>
+    <members>
+        <member name="T:Telerik.Windows.Controls.GridView.SpreadsheetStreamingExport.GridViewSpreadStreamElementExportedEventArgs">
+            <summary>
+            Contains data needed to handle the ElementExported event.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.GridView.SpreadsheetStreamingExport.GridViewSpreadStreamElementExportedEventArgs.Element">
+            <summary>
+            Gets the current element.
+            </summary>
+            <value>The element.</value>
+        </member>
+        <member name="T:Telerik.Windows.Controls.GridView.SpreadsheetStreamingExport.GridViewSpreadStreamElementExportingEventArgs">
+            <summary>
+            Contains data needed to handle the ElementExporting event.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.GridView.SpreadsheetStreamingExport.GridViewSpreadStreamElementExportingEventArgs.Cancel">
+            <summary>
+            Gets or sets boolean value indicating whether the event should be canceled or not.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.GridView.SpreadsheetStreamingExport.GridViewSpreadStreamElementExportingEventArgs.Element">
+            <summary>
+            Gets the current element.
+            </summary>
+            <value>The element.</value>
+        </member>
+        <member name="P:Telerik.Windows.Controls.GridView.SpreadsheetStreamingExport.GridViewSpreadStreamElementExportingEventArgs.Value">
+            <summary>
+            Gets or sets the value to be exported.
+            </summary>
+            <value>The value to be exported.</value>
+        </member>
+        <member name="P:Telerik.Windows.Controls.GridView.SpreadsheetStreamingExport.GridViewSpreadStreamElementExportingEventArgs.Column">
+            <summary>
+            Gets the column of the cell.
+            </summary>
+            <value>The column.</value>
+        </member>
+        <member name="P:Telerik.Windows.Controls.GridView.SpreadsheetStreamingExport.GridViewSpreadStreamElementExportingEventArgs.Style">
+            <summary>
+            Gets or sets the style set for the cell.
+            </summary>
+            <value>The style.</value>
+        </member>
+        <member name="T:Telerik.Windows.Controls.GridView.SpreadsheetStreamingExport.GridViewSpreadStreamExportOptions">
+            <summary>
+            Provides various options for exporting to XLSX and CSV.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.Controls.GridView.SpreadsheetStreamingExport.GridViewSpreadStreamExportOptions.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Windows.Controls.GridView.SpreadsheetStreamingExport.GridViewSpreadStreamExportOptions"/> class.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.Controls.GridView.SpreadsheetStreamingExport.GridViewSpreadStreamExportOptions.#ctor(Telerik.Windows.Controls.GridView.SpreadsheetStreamingExport.GridViewSpreadStreamExportOptions)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Windows.Controls.GridView.SpreadsheetStreamingExport.GridViewSpreadStreamExportOptions"/> class.
+            </summary>
+            <param name="options">The options.</param>
+        </member>
+        <member name="P:Telerik.Windows.Controls.GridView.SpreadsheetStreamingExport.GridViewSpreadStreamExportOptions.ExportDefaultStyles">
+            <summary>
+            Specifies whether GridViewDataControl will be exported with its default styles.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.GridView.SpreadsheetStreamingExport.GridViewSpreadStreamExportOptions.Items">
+            <summary>
+            Items to be exported.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.GridView.SpreadsheetStreamingExport.GridViewSpreadStreamExportOptions.ShowColumnHeaders">
+            <summary>
+            Include column headers on export.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.GridView.SpreadsheetStreamingExport.GridViewSpreadStreamExportOptions.ShowColumnFooters">
+            <summary>
+            Include column footers on export.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.GridView.SpreadsheetStreamingExport.GridViewSpreadStreamExportOptions.ShowGroupFooters">
+            <summary>
+            Include group footers on export.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.GridView.SpreadsheetStreamingExport.GridViewSpreadStreamExportOptions.ShowColumnGroups">
+            <summary>
+            Include column groups on export.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.GridView.SpreadsheetStreamingExport.GridViewSpreadStreamExportOptions.ShowGroupHeaderRowAggregates">
+            <summary>
+            Include group header aggregates on export.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.GridView.SpreadsheetStreamingExport.GridViewSpreadStreamExportOptions.ShowGroupRows">
+            <summary>
+            Include group rows on export.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.GridView.SpreadsheetStreamingExport.GridViewSpreadStreamExportOptions.IgnoreCollapsedGroups">
+            <summary>
+            Include collapsed groups on export.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.GridView.SpreadsheetStreamingExport.GridViewSpreadStreamExportOptions.HiddenColumnExportOption">
+            <summary>
+            Gets or sets a value indicating how hidden columns are exported.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.GridView.SpreadsheetStreamingExport.GridViewSpreadStreamExportOptions.ColumnWidth">
+            <summary>
+            Gets or sets the width of the columns that are exported.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.GridView.SpreadsheetStreamingExport.GridViewSpreadStreamExportOptions.Culture">
+            <summary>
+            Export culture.
+            </summary>
+        </member>
+        <member name="T:Telerik.Windows.Controls.GridView.SpreadsheetStreamingExport.SpreadStreamCellStyle">
+            <summary>
+            A wrapper class used to transform the WPF types to types compatible with the SpreadStreamProcessing needs.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.Controls.GridView.SpreadsheetStreamingExport.SpreadStreamCellStyle.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Windows.Controls.GridView.SpreadsheetStreamingExport.SpreadStreamCellStyle"/> class.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.Controls.GridView.SpreadsheetStreamingExport.SpreadStreamCellStyle.#ctor(Telerik.Documents.SpreadsheetStreaming.SpreadCellFormat,System.Windows.Media.Color,System.Windows.Media.Color,System.Windows.Media.FontFamily,System.Nullable{System.Double},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},Telerik.Documents.SpreadsheetStreaming.SpreadHorizontalAlignment,Telerik.Documents.SpreadsheetStreaming.SpreadVerticalAlignment,Telerik.Documents.SpreadsheetStreaming.SpreadUnderlineType)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Windows.Controls.GridView.SpreadsheetStreamingExport.SpreadStreamCellStyle"/> class.
+            </summary>
+            <param name="cellFormat">Current excel cell.</param>
+            <param name="backColor">BackColor of cell.</param>
+            <param name="foreground">ForeColor of cell.</param>
+            <param name="fontFamily">FontFamily of cell.</param>
+            <param name="fontSize">Font size of cell.</param>
+            <param name="isBold">Is text bold.</param>
+            <param name="isItalic">Is text italic.</param>
+            <param name="underlineType">Is text underlined.</param>
+            <param name="horizontalAlignment">Horizontal text alignment.</param>
+            <param name="verticalAlignment">Vertical text alignment.</param>
+            <param name="isWrapped">Is text wrapped.</param>      
+        </member>
+        <member name="P:Telerik.Windows.Controls.GridView.SpreadsheetStreamingExport.SpreadStreamCellStyle.CellFormat">
+            <summary>
+            Gets or sets the cell format.
+            </summary>
+            <value>The cell format.</value>
+        </member>
+        <member name="P:Telerik.Windows.Controls.GridView.SpreadsheetStreamingExport.SpreadStreamCellStyle.Background">
+            <summary>
+            Gets or sets the fill of the excel cell.
+            </summary>
+            <value>
+            The fill.
+            </value>
+        </member>
+        <member name="P:Telerik.Windows.Controls.GridView.SpreadsheetStreamingExport.SpreadStreamCellStyle.Foreground">
+            <summary>
+            Gets or sets the ForeColor of the excel cell.
+            </summary>
+            <value>
+            The ForeColor.
+            </value>
+        </member>
+        <member name="P:Telerik.Windows.Controls.GridView.SpreadsheetStreamingExport.SpreadStreamCellStyle.FontFamily">
+            <summary>
+            Gets or sets the font family of the excel cell.
+            </summary>
+            <value>
+            The font family.
+            </value>
+        </member>
+        <member name="P:Telerik.Windows.Controls.GridView.SpreadsheetStreamingExport.SpreadStreamCellStyle.FontSize">
+            <summary>
+            Gets or sets the font size of the text.
+            </summary>
+            <value>The FontSize.</value>
+        </member>
+        <member name="P:Telerik.Windows.Controls.GridView.SpreadsheetStreamingExport.SpreadStreamCellStyle.HorizontalAlignment">
+            <summary>
+            Gets or sets the horizontal alignment.
+            </summary>
+            <value>The HorizontalAlignment.</value>
+        </member>
+        <member name="P:Telerik.Windows.Controls.GridView.SpreadsheetStreamingExport.SpreadStreamCellStyle.VerticalAlignment">
+            <summary>
+            Gets or sets the vertical alignment.
+            </summary>
+            <value>The VerticalAlignment.</value>
+        </member>
+        <member name="P:Telerik.Windows.Controls.GridView.SpreadsheetStreamingExport.SpreadStreamCellStyle.IsBold">
+            <summary>
+            Gets or sets the IsBold property of the cells.
+            </summary>
+            <value>The IsBold.</value>
+        </member>
+        <member name="P:Telerik.Windows.Controls.GridView.SpreadsheetStreamingExport.SpreadStreamCellStyle.IsItalic">
+            <summary>
+            Gets or sets the isItalic property of the cells.
+            </summary>
+            <value>The IsItalic.</value>
+        </member>
+        <member name="P:Telerik.Windows.Controls.GridView.SpreadsheetStreamingExport.SpreadStreamCellStyle.IsWrapped">
+            <summary>
+            Gets or sets the IsWrapped property of the cells.
+            </summary>
+            <value>The IsWrapped.</value>
+        </member>
+        <member name="P:Telerik.Windows.Controls.GridView.SpreadsheetStreamingExport.SpreadStreamCellStyle.UnderlineType">
+            <summary>
+            Gets or sets the UnderlineType of the text in the cells.
+            </summary>
+            <value>The Underline.</value>
+        </member>
+        <member name="T:Telerik.Windows.Controls.GridView.SpreadsheetStreamingExport.HiddenColumnExportOptions">
+            <summary>
+            Represents the different options for exporting hidden columns.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.GridView.SpreadsheetStreamingExport.HiddenColumnExportOptions.ExportAlways">
+            <summary>
+            Always export the columns.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.GridView.SpreadsheetStreamingExport.HiddenColumnExportOptions.DoNotExport">
+            <summary>
+            The columns will not be exported.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.GridView.SpreadsheetStreamingExport.HiddenColumnExportOptions.ExportAsHidden">
+            <summary>
+            Export the columns as hidden.
+            </summary>
+        </member>
+        <member name="T:Telerik.Windows.Controls.GridView.SpreadStreamWorkbookEventHandler">
+            <summary>
+            Represents the method that will handle the SpreadWorkbookCreated event.
+            </summary>
+            <param name="sender">The sender.</param>
+            <param name="e">The <see cref="T:Telerik.Windows.Controls.GridView.SpreadStreamWorkbookEventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="T:Telerik.Windows.Controls.GridView.SpreadStreamWorkbookEventArgs">
+            <summary>
+            Provides event arguments for the SpreadWorkbookCreated event.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.Controls.GridView.SpreadStreamWorkbookEventArgs.#ctor(Telerik.Documents.SpreadsheetStreaming.IWorkbookExporter)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Windows.Controls.GridView.SpreadStreamWorkbookEventArgs"/> class.
+            </summary>
+            <param name="workbook">The workbook.</param>
+        </member>
+        <member name="P:Telerik.Windows.Controls.GridView.SpreadStreamWorkbookEventArgs.Workbook">
+            <summary>
+            Gets the <code>IWorkbookExporter</code> element.
+            </summary>
+        </member>
+        <member name="T:Telerik.Windows.Controls.GridView.SpreadStreamWorksheetEventHandler">
+            <summary>
+            Represents the method that will handle the SpreadWorksheetCreated and SpreadWorksheetExporting events.
+            </summary>
+            <param name="sender">The sender.</param>
+            <param name="e">The <see cref="T:Telerik.Windows.Controls.GridView.SpreadStreamWorksheetEventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="T:Telerik.Windows.Controls.GridView.SpreadStreamWorksheetEventArgs">
+            <summary>
+            Provides event arguments for the SpreadWorksheetCreated and SpreadWorksheetExporting events.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.Controls.GridView.SpreadStreamWorksheetEventArgs.#ctor(Telerik.Documents.SpreadsheetStreaming.IWorksheetExporter)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Windows.Controls.GridView.SpreadStreamWorksheetEventArgs"/> class.
+            </summary>
+            <param name="worksheet">The worksheet.</param>
+        </member>
+        <member name="P:Telerik.Windows.Controls.GridView.SpreadStreamWorksheetEventArgs.Worksheet">
+            <summary>
+            Gets the <code>IWorksheetExporter</code> element.
+            </summary>
+        </member>
+        <member name="T:Telerik.Windows.Controls.GridView.SpreadsheetStreamingExport.SpreadStreamExportElement">
+            <summary>
+            Enumerator that indicates the type of the current exporting element.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.GridView.SpreadsheetStreamingExport.SpreadStreamExportElement.HeaderCell">
+            <summary>
+            Header cell.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.GridView.SpreadsheetStreamingExport.SpreadStreamExportElement.FooterCell">
+            <summary>
+            Footer cell.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.GridView.SpreadsheetStreamingExport.SpreadStreamExportElement.GroupHeaderCell">
+            <summary>
+            Group header cell.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.GridView.SpreadsheetStreamingExport.SpreadStreamExportElement.GroupFooterCell">
+            <summary>
+            Group footer cell.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.GridView.SpreadsheetStreamingExport.SpreadStreamExportElement.Cell">
+            <summary>
+            Data cell.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.GridView.SpreadsheetStreamingExport.SpreadStreamExportElement.CommonColumnHeader">
+            <summary>
+            A row containing merged column headers.
+            </summary>
+        </member>
+        <member name="T:Telerik.Windows.Controls.GridView.SpreadsheetStreamingExport.SpreadStreamExportRenderer">
+            <summary>
+            Represents a class which exposes all methods needed to export using RadSpreadStreamProcessing.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.Controls.GridView.SpreadsheetStreamingExport.SpreadStreamExportRenderer.FinishExport">
+            <summary>
+            Exports workbook.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.Controls.GridView.SpreadsheetStreamingExport.SpreadStreamExportRenderer.GetFileExtension(Telerik.Windows.Controls.GridView.SpreadsheetStreamingExport.SpreadStreamExportFormat)">
+            <summary>
+            Gets file extension.
+            </summary>
+            <param name="exportFormat">Export format.</param>
+        </member>
+        <member name="M:Telerik.Windows.Controls.GridView.SpreadsheetStreamingExport.SpreadStreamExportRenderer.CreateColumn">
+            <summary>
+            Creates the column.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.Controls.GridView.SpreadsheetStreamingExport.SpreadStreamExportRenderer.GetColumn">
+            <summary>
+            Gets the column.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Windows.Controls.GridView.SpreadsheetStreamingExport.SpreadStreamExportRenderer.SkipColumns(System.Int32)">
+            <summary>
+            Skips the columns.
+            </summary>
+            <param name="count">The count.</param>
+        </member>
+        <member name="M:Telerik.Windows.Controls.GridView.SpreadsheetStreamingExport.SpreadStreamExportRenderer.CreateWorkbook(System.IO.Stream,Telerik.Windows.Controls.GridView.SpreadsheetStreamingExport.SpreadStreamExportFormat)">
+            <summary>
+            Creates new workbook.
+            </summary>
+            <param name="stream">The stream.</param>
+            <param name="exportFormat">The export format.</param>
+        </member>
+        <member name="M:Telerik.Windows.Controls.GridView.SpreadsheetStreamingExport.SpreadStreamExportRenderer.GetWorksheet">
+            <summary>
+            Gets current worksheet.
+            </summary>
+            <returns>Worksheet as object.</returns>
+        </member>
+        <member name="M:Telerik.Windows.Controls.GridView.SpreadsheetStreamingExport.SpreadStreamExportRenderer.AddWorksheet(System.String)">
+            <summary>
+            Create and add excel worksheet to the workbook.
+            </summary>
+            <param name="sheetName">Excel workbook.</param>
+        </member>
+        <member name="M:Telerik.Windows.Controls.GridView.SpreadsheetStreamingExport.SpreadStreamExportRenderer.CallOnWorksheetCreated">
+            <summary>
+            Calls the WorksheetCreated event.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.Controls.GridView.SpreadsheetStreamingExport.SpreadStreamExportRenderer.FinishCell">
+            <summary>
+            Finishes the cell.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.Controls.GridView.SpreadsheetStreamingExport.SpreadStreamExportRenderer.SetHiddenRow">
+            <summary>
+            Sets current worksheet row as hidden.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.Controls.GridView.SpreadsheetStreamingExport.SpreadStreamExportRenderer.SetRowHeight(System.Double,System.Boolean)">
+            <summary>
+            Sets height of current row in worksheet.
+            </summary>
+            <param name="height">Height of row.</param>
+            <param name="pixels">If true, sets the row height in pixels, otherwise - in points.</param>
+        </member>
+        <member name="M:Telerik.Windows.Controls.GridView.SpreadsheetStreamingExport.SpreadStreamExportRenderer.SetHiddenColumn">
+            <summary>
+            Sets current worksheet column as hidden.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.Controls.GridView.SpreadsheetStreamingExport.SpreadStreamExportRenderer.SetColumnWidth(System.Double,System.Boolean)">
+            <summary>
+            Sets the width of current worksheet column.
+            </summary>
+            <param name="width">The width.</param>
+            <param name="pixels">If true, setts the width in pixels, otherwise - in characters.</param>
+        </member>
+        <member name="M:Telerik.Windows.Controls.GridView.SpreadsheetStreamingExport.SpreadStreamExportRenderer.CreateRow">
+            <summary>
+            Creates the row.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.Controls.GridView.SpreadsheetStreamingExport.SpreadStreamExportRenderer.GetRow(System.Boolean)">
+            <summary>
+            Gets current Row.
+            </summary>
+            <returns>Row as object.</returns>
+        </member>
+        <member name="M:Telerik.Windows.Controls.GridView.SpreadsheetStreamingExport.SpreadStreamExportRenderer.GetCell">
+            <summary>
+            Gets current Cell.
+            </summary>
+            <returns>Cell as object.</returns>
+        </member>
+        <member name="M:Telerik.Windows.Controls.GridView.SpreadsheetStreamingExport.SpreadStreamExportRenderer.CreateCell">
+            <summary>
+            Creates CellSelection.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.Controls.GridView.SpreadsheetStreamingExport.SpreadStreamExportRenderer.CreateAndAddCellForMerge(System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Creates CellSelection.
+            </summary>
+            <param name="startRowIndex">From row index.</param>
+            <param name="startColumnIndex">From column index.</param>
+            <param name="endRowIndex">To row index.</param>
+            <param name="endColumnIndex">To column index.</param>
+        </member>
+        <member name="M:Telerik.Windows.Controls.GridView.SpreadsheetStreamingExport.SpreadStreamExportRenderer.SetCellValue(System.String)">
+            <summary>
+            Sets the value of current CellSelection.
+            </summary>
+            <param name="text">Text.</param>
+        </member>
+        <member name="M:Telerik.Windows.Controls.GridView.SpreadsheetStreamingExport.SpreadStreamExportRenderer.SetCellValue(Telerik.Windows.Controls.GridView.SpreadsheetStreamingExport.DataType,System.Object)">
+            <summary>
+            Sets the value of current CellSelection.
+            </summary>
+            <param name="dataType">CellSelection data type.</param>
+            <param name="value">Value.</param>
+        </member>
+        <member name="M:Telerik.Windows.Controls.GridView.SpreadsheetStreamingExport.SpreadStreamExportRenderer.SetCellFormat(Telerik.Documents.SpreadsheetStreaming.SpreadCellFormat)">
+            <summary>
+            Sets the cell format.
+            </summary>
+            <param name="spreadCellFormat">The cell format.</param>
+        </member>
+        <member name="M:Telerik.Windows.Controls.GridView.SpreadsheetStreamingExport.SpreadStreamExportRenderer.ClearCellValue">
+            <summary>
+            Clears the value of current Cell.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.Controls.GridView.SpreadsheetStreamingExport.SpreadStreamExportRenderer.SkipCells(System.Int32)">
+            <summary>
+            Skips the cells.
+            </summary>
+            <param name="count">The count.</param>
+        </member>
+        <member name="M:Telerik.Windows.Controls.GridView.SpreadsheetStreamingExport.SpreadStreamExportRenderer.GetCellFormat(System.Boolean)">
+            <summary>
+            Gets current SpreadCellFormat.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.Controls.GridView.SpreadsheetStreamingExport.SpreadStreamExportRenderer.ApplyCellFormat(System.Object)">
+            <summary>
+            Applies the cell format.
+            Note that format needs to be of SpreadCellFormat type in order to be applied to current cell.
+            </summary>
+            <param name="format">The format.</param>
+        </member>
+        <member name="M:Telerik.Windows.Controls.GridView.SpreadsheetStreamingExport.SpreadStreamExportRenderer.ApplyCellStyle(Telerik.Windows.Controls.GridView.SpreadsheetStreamingExport.SpreadStreamCellStyle,System.String)">
+            <summary>
+            Applies the cell style.
+            </summary>
+            <param name="cellStyle">The cell style.</param>
+            <param name="numberFormat">The format string.</param>
+        </member>
+        <member name="M:Telerik.Windows.Controls.GridView.SpreadsheetStreamingExport.SpreadStreamExportRenderer.GetCellStyle">
+            <summary>
+            Gets the cell style info.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Windows.Controls.GridView.SpreadsheetStreamingExport.SpreadStreamExportRenderer.OnWorksheetCreated(Telerik.Windows.Controls.GridView.SpreadStreamWorksheetEventArgs)">
+            <summary>
+            Raises the <see cref="E:SpreadWorksheetCreated"/> event.
+            </summary>
+            <param name="e">The <see cref="T:Telerik.Windows.Controls.GridView.SpreadStreamWorksheetEventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="M:Telerik.Windows.Controls.GridView.SpreadsheetStreamingExport.SpreadStreamExportRenderer.OnWorksheetExporting(Telerik.Windows.Controls.GridView.SpreadStreamWorksheetEventArgs)">
+            <summary>
+            Raises the <see cref="E:SpreadWorksheetExporting"/> event.
+            </summary>
+            <param name="e">The <see cref="T:Telerik.Windows.Controls.GridView.SpreadStreamWorksheetEventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="M:Telerik.Windows.Controls.GridView.SpreadsheetStreamingExport.SpreadStreamExportRenderer.OnWorkbookCreated(Telerik.Windows.Controls.GridView.SpreadStreamWorkbookEventArgs)">
+            <summary>
+            Raises the <see cref="E:SpreadWorkbookCreated"/> event.
+            </summary>
+            <param name="e">The <see cref="T:Telerik.Windows.Controls.GridView.SpreadStreamWorkbookEventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="M:Telerik.Windows.Controls.GridView.SpreadsheetStreamingExport.SpreadStreamExportRenderer.FinishColumn">
+            <summary>
+            Finishes the column.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.Controls.GridView.SpreadsheetStreamingExport.SpreadStreamExportRenderer.FinishRow">
+            <summary>
+            Finishes the row.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.Controls.GridView.SpreadsheetStreamingExport.SpreadStreamExportRenderer.FinishWorksheet">
+            <summary>
+            Finishes the worksheet.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.Controls.GridView.SpreadsheetStreamingExport.SpreadStreamExportRenderer.SetDateTimeValue(System.Object)">
+            <summary>
+            Sets the value as date time.
+            </summary>
+            <param name="value">The value.</param>
+            <returns>True is the cell value is set, otherwise - false.</returns>
+        </member>
+        <member name="M:Telerik.Windows.Controls.GridView.SpreadsheetStreamingExport.SpreadStreamExportRenderer.SetNumberValue(System.Object)">
+            <summary>
+            Sets the value as number.
+            </summary>
+            <param name="value">The value.</param>
+            <returns>True is the cell value is set, otherwise - false.</returns>
+        </member>
+        <member name="M:Telerik.Windows.Controls.GridView.SpreadsheetStreamingExport.SpreadStreamExportRenderer.SetBooleanValue(System.Object)">
+            <summary>
+            Sets the value as boolean.
+            </summary>
+            <param name="value">The value.</param>
+            <returns>True is the cell value is set, otherwise - false.</returns>
+        </member>
+        <member name="M:Telerik.Windows.Controls.GridView.SpreadsheetStreamingExport.SpreadStreamExportRenderer.SetStringValue(System.Object)">
+            <summary>
+            Sets the value as string.
+            </summary>
+            <param name="value">The value.</param>
+            <returns>True is the cell value is set, otherwise - false.</returns>
+        </member>
+        <member name="M:Telerik.Windows.Controls.GridView.SpreadsheetStreamingExport.SpreadStreamExportRenderer.FinishWorkbook">
+            <summary>
+            Finishes the workbook.
+            </summary>
+        </member>
+        <member name="E:Telerik.Windows.Controls.GridView.SpreadsheetStreamingExport.SpreadStreamExportRenderer.WorkbookCreated">
+            <summary>
+            Occurs when the workbook is created.
+            This is suitable place to add and/or modify cell styles.
+            </summary>
+        </member>
+        <member name="E:Telerik.Windows.Controls.GridView.SpreadsheetStreamingExport.SpreadStreamExportRenderer.WorksheetExporting">
+            <summary>
+            Occurs when a worksheet is about to be exported.
+            This is suitable place to add footer rows.
+            </summary>
+        </member>
+        <member name="E:Telerik.Windows.Controls.GridView.SpreadsheetStreamingExport.SpreadStreamExportRenderer.WorksheetCreated">
+            <summary>
+            Occurs when a new worksheet is created.
+            This is suitable place to set width of columns, add indent/header rows.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.GridView.SpreadsheetStreamingExport.SpreadStreamExportRenderer.RowIndex">
+            <summary>
+            Gets or sets the index of the row.
+            </summary>
+            <value>The index of the row.</value>
+        </member>
+        <member name="P:Telerik.Windows.Controls.GridView.SpreadsheetStreamingExport.SpreadStreamExportRenderer.ColumnIndex">
+            <summary>
+            Gets or sets the index of the column.
+            </summary>
+            <value>The index of the column.</value>
+        </member>
+        <member name="T:Telerik.Windows.Controls.GridView.SpreadsheetStreamingExport.DataType">
+            <summary>
+            Represents the different supported types of values.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.GridView.SpreadsheetStreamingExport.DataType.String">
+            <summary>
+            String.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.GridView.SpreadsheetStreamingExport.DataType.Number">
+            <summary>
+            Number.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.GridView.SpreadsheetStreamingExport.DataType.DateTime">
+            <summary>
+            DateTime.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.GridView.SpreadsheetStreamingExport.DataType.Boolean">
+            <summary>
+            Boolean.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.GridView.SpreadsheetStreamingExport.DataType.Null">
+            <summary>
+            Null.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.GridView.SpreadsheetStreamingExport.DataType.Other">
+            <summary>
+            Other.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.GridView.SpreadsheetStreamingExport.DataType.Empty">
+            <summary>
+            Used when exporting null value.
+            </summary>
+        </member>
+        <member name="T:Telerik.Windows.Controls.GridView.SpreadsheetStreamingExport.GridViewSpreadStreamExport">
+            <summary>
+            Represents a grid export that utilizes the RadSpreadStreamProcessing library.
+            </summary>
+            <summary>
+            Represents a grid export that utilizes the RadSpreadStreamProcessing library.
+            </summary>
+            <summary>
+            Represents a grid export that utilizes the RadSpreadStreamProcessing library.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.Controls.GridView.SpreadsheetStreamingExport.GridViewSpreadStreamExport.#ctor(Telerik.Windows.Controls.RadGridView)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Windows.Controls.GridView.SpreadsheetStreamingExport.GridViewSpreadStreamExport"/> class.
+            </summary>
+            <param name="radGridView">The grid to export.</param>
+        </member>
+        <member name="M:Telerik.Windows.Controls.GridView.SpreadsheetStreamingExport.GridViewSpreadStreamExport.#ctor(Telerik.Windows.Controls.RadGridView,Telerik.Windows.Controls.GridView.SpreadsheetStreamingExport.SpreadStreamExportFormat)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Windows.Controls.GridView.SpreadsheetStreamingExport.GridViewSpreadStreamExport"/> class.
+            </summary>
+            <param name="radGridView">The grid to export.</param>
+            <param name="spreadExportFormat">The spread export format.</param>
+        </member>
+        <member name="M:Telerik.Windows.Controls.GridView.SpreadsheetStreamingExport.GridViewSpreadStreamExport.RunExport(System.String,Telerik.Windows.Controls.GridView.SpreadsheetStreamingExport.SpreadStreamExportRenderer)">
+            <summary>
+            Starts an export operation.
+            </summary>
+            <param name="fileName">The file name where data will be exported.</param>
+            <param name="exportRenderer">Instance of SpreadStreamExportRenderer class.</param>
+        </member>
+        <member name="M:Telerik.Windows.Controls.GridView.SpreadsheetStreamingExport.GridViewSpreadStreamExport.RunExport(System.String,Telerik.Windows.Controls.GridView.SpreadsheetStreamingExport.SpreadStreamExportRenderer,Telerik.Windows.Controls.GridView.SpreadsheetStreamingExport.GridViewSpreadStreamExportOptions)">
+            <summary>
+            Starts an export operation, in the specified sheet. If such sheet does not exist, it gets created.
+            </summary>
+            <param name="fileName">The file name where data will be exported.</param>
+            <param name="exportRenderer">Instance of SpreadStreamExportRenderer class.</param>
+            <param name="options">The GridViewSpreadStreamExport options.</param>
+        </member>
+        <member name="M:Telerik.Windows.Controls.GridView.SpreadsheetStreamingExport.GridViewSpreadStreamExport.RunExport(System.IO.Stream,Telerik.Windows.Controls.GridView.SpreadsheetStreamingExport.SpreadStreamExportRenderer)">
+            <summary>
+            Starts an export operation.
+            </summary>
+            <param name="exportStream">The stream where data will be exported.</param>
+            <param name="exportRenderer">Instance of SpreadStreamExportRenderer class.</param>
+        </member>
+        <member name="M:Telerik.Windows.Controls.GridView.SpreadsheetStreamingExport.GridViewSpreadStreamExport.RunExport(System.IO.Stream,Telerik.Windows.Controls.GridView.SpreadsheetStreamingExport.SpreadStreamExportRenderer,Telerik.Windows.Controls.GridView.SpreadsheetStreamingExport.GridViewSpreadStreamExportOptions)">
+            <summary>
+            Starts an export operation, in the specified sheet. If such sheet does not exist, it gets created.
+            </summary>
+            <param name="exportStream">The stream where data will be exported.</param>
+            <param name="exportRenderer">Instance of SpreadStreamExportRenderer class.</param>
+            <param name="options">The GridViewSpreadStreamExport options.</param>
+        </member>
+        <member name="M:Telerik.Windows.Controls.GridView.SpreadsheetStreamingExport.GridViewSpreadStreamExport.RunExportAsync(System.String,Telerik.Windows.Controls.GridView.SpreadsheetStreamingExport.SpreadStreamExportRenderer)">
+            <summary>
+            Starts an export operation that runs in a background thread.
+            </summary>
+            <param name="fileName">The file name where data will be exported.</param>
+            <param name="exportRenderer">Instance of SpreadStreamExportRenderer class.</param>
+        </member>
+        <member name="M:Telerik.Windows.Controls.GridView.SpreadsheetStreamingExport.GridViewSpreadStreamExport.RunExportAsync(System.String,Telerik.Windows.Controls.GridView.SpreadsheetStreamingExport.SpreadStreamExportRenderer,Telerik.Windows.Controls.GridView.SpreadsheetStreamingExport.GridViewSpreadStreamExportOptions)">
+            <summary>
+            Starts an async export operation, in the specified sheet. If such sheet does not exist, it gets created.
+            </summary>
+            <param name="fileName">The file name where data will be exported.</param>
+            <param name="exportRenderer">Instance of SpreadStreamExportRenderer class.</param>
+            <param name="options">The GridViewSpreadStreamExport options.</param>
+        </member>
+        <member name="M:Telerik.Windows.Controls.GridView.SpreadsheetStreamingExport.GridViewSpreadStreamExport.RunExportAsync(System.IO.Stream,Telerik.Windows.Controls.GridView.SpreadsheetStreamingExport.SpreadStreamExportRenderer)">
+            <summary>
+            Starts an export operation that runs in a background thread.
+            </summary>
+            <param name="exportStream">The stream where data will be exported.</param>
+            <param name="exportRenderer">Instance of SpreadStreamExportRenderer class.</param>
+        </member>
+        <member name="M:Telerik.Windows.Controls.GridView.SpreadsheetStreamingExport.GridViewSpreadStreamExport.RunExportAsync(System.IO.Stream,Telerik.Windows.Controls.GridView.SpreadsheetStreamingExport.SpreadStreamExportRenderer,Telerik.Windows.Controls.GridView.SpreadsheetStreamingExport.GridViewSpreadStreamExportOptions)">
+            <summary>
+            Starts an async export operation, in the specified sheet. If such sheet does not exist, it gets created.
+            </summary>
+            <param name="exportStream">The stream where data will be exported.</param>
+            <param name="exportRenderer">Instance of SpreadStreamExportRenderer class.</param>
+            <param name="options">The GridViewSpreadStreamExport options.</param>
+        </member>
+        <member name="M:Telerik.Windows.Controls.GridView.SpreadsheetStreamingExport.GridViewSpreadStreamExport.CancelExportAsync">
+            <summary>
+            Cancels an asynchronous export operation.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.Controls.GridView.SpreadsheetStreamingExport.GridViewSpreadStreamExport.OnExportCompleted(System.EventArgs)">
+            <summary>
+            Raises the <see cref="E:ExportCompleted"/> event.
+            </summary>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="M:Telerik.Windows.Controls.GridView.SpreadsheetStreamingExport.GridViewSpreadStreamExport.OnAsyncExportProgressChanged(System.ComponentModel.ProgressChangedEventArgs)">
+            <summary>
+            Raises the <see cref="E:AsyncExportProgressChanged"/> event.
+            </summary>
+            <param name="e">The <see cref="T:System.ComponentModel.ProgressChangedEventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="M:Telerik.Windows.Controls.GridView.SpreadsheetStreamingExport.GridViewSpreadStreamExport.OnAsyncExportCompleted(System.ComponentModel.AsyncCompletedEventArgs)">
+            <summary>
+            Raises the <see cref="E:AsyncExportCompleted"/> event.
+            </summary>
+            <param name="e">The <see cref="T:System.ComponentModel.AsyncCompletedEventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="P:Telerik.Windows.Controls.GridView.SpreadsheetStreamingExport.GridViewSpreadStreamExport.RadGridViewToExport">
+            <summary>
+            Gets or sets the RadGridView to export.
+            </summary>
+            <value>
+            The RadGridView to export.
+            </value>
+        </member>
+        <member name="E:Telerik.Windows.Controls.GridView.SpreadsheetStreamingExport.GridViewSpreadStreamExport.ElementExportingToDocument">
+            <summary>
+            Occurs before element export to XLSX or CSV.
+            </summary>
+        </member>
+        <member name="E:Telerik.Windows.Controls.GridView.SpreadsheetStreamingExport.GridViewSpreadStreamExport.ElementExportedToDocument">
+            <summary>
+            Occurs after element export to XLSX or CSV.
+            </summary>
+        </member>
+        <member name="E:Telerik.Windows.Controls.GridView.SpreadsheetStreamingExport.GridViewSpreadStreamExport.AsyncExportProgressChanged">
+            <summary>
+            Occurs when the progress of an async export operation changes.
+            </summary>
+        </member>
+        <member name="E:Telerik.Windows.Controls.GridView.SpreadsheetStreamingExport.GridViewSpreadStreamExport.ExportCompleted">
+            <summary>
+            Occurs when the export process completes.
+            </summary>
+        </member>
+        <member name="E:Telerik.Windows.Controls.GridView.SpreadsheetStreamingExport.GridViewSpreadStreamExport.AsyncExportCompleted">
+            <summary>
+            Occurs when an async export operation is completed.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.GridView.SpreadsheetStreamingExport.GridViewSpreadStreamExport.SheetName">
+            <summary>
+            Gets or sets the name of the sheet.
+            </summary>
+            <value>
+            The name of the sheet.
+            </value>
+        </member>
+        <member name="P:Telerik.Windows.Controls.GridView.SpreadsheetStreamingExport.GridViewSpreadStreamExport.ShowLoadingIndicatorWhileAsyncExport">
+            <summary>
+            Gets or sets a value indicating whether a RadBusyIndicator will be shown while async export operation is running.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.GridView.SpreadsheetStreamingExport.GridViewSpreadStreamExport.ExportFormat">
+            <summary>
+            Gets or sets the format of the exported file - XLSX or CSV.
+            </summary>
+            <value>
+            The file extension.
+            </value>
+        </member>
+        <member name="T:Telerik.Windows.Controls.GridView.SpreadsheetStreamingExport.SpreadStreamExportFormat">
+            <summary>
+            Enumeration listing the export formats supported by RadSpreadStreamProcessing.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.GridView.SpreadsheetStreamingExport.SpreadStreamExportFormat.Xlsx">
+            <summary>
+            XLSX format.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.GridView.SpreadsheetStreamingExport.SpreadStreamExportFormat.Csv">
+            <summary>
+            CSV format.
+            </summary>
+        </member>
+    </members>
+</doc>

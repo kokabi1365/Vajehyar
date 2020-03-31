@@ -11,23 +11,6 @@ namespace Vajehdan
 {
     public sealed class Database
     {
-
-        public static List<string[]> Motaradef()
-        {
-            string[] lines = Properties.Resources.Motaradef_Motazad.Split('\n');
-            List<string[]> words=new List<string[]>();
-            lines.ForEach(l => words.Add(l.Split('،')));
-            return words;
-        }
-
-        public static List<string[]> Teyfi()
-        {
-            string[] lines = Properties.Resources.Motaradef_Motazad.Split('\n');
-            List<string[]> words = new List<string[]>();
-            lines.ForEach(l => words.Add(l.Split('،')));
-            return words;
-        }
-
         public static List<string> Emlaei()
         {
             string[] lines = Properties.Resources.Motaradef_Motazad.Split('\n');
@@ -36,10 +19,19 @@ namespace Vajehdan
             return words;
         }
 
-        public static string[] Motaradef1()
+        public static List<Entry> Motaradef()
         {
-            return Properties.Resources.Motaradef_Motazad.Split('\n');
-
+            List<Entry> entries=new List<Entry>();
+            
+            foreach (var line in Properties.Resources.Motaradef_Motazad.Split('\n'))
+            {
+                Entry entry=new Entry();
+                entry.Meanings = line;
+                entry.MeaningsArray = line.Split('،');
+                entries.Add(entry);
+            }
+          
+            return entries;
         }
 
     }

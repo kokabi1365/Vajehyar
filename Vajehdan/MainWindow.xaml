@@ -5,8 +5,9 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:properties="clr-namespace:Vajehdan.Properties"
-    xmlns:syncfusion="http://schemas.syncfusion.com/wpf" 
+    xmlns:telerik="clr-namespace:Telerik;assembly=Telerik.Windows.Controls"
     xmlns:tb="http://www.hardcodet.net/taskbar"
+    xmlns:controls="http://schemas.telerik.com/2008/xaml/presentation"
     Title="واژه‌دان"
     Width="1000"
     MaxHeight="350"
@@ -80,14 +81,15 @@
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
 
-                <syncfusion:SfTextBoxExt
+                <controls:RadWatermarkTextBox
                     x:Name="txtSearch"
                     Grid.Row="0"
                     VerticalContentAlignment="Center"
                     BorderThickness="0"
                     Height="50"
+                    WatermarkContent="جستجو"
+                    WatermarkBehavior="HideOnTextEntered"
                     Padding="10,0,0,0"
-                    Watermark="جستجو"
                     VerticalAlignment="Center"
                     LostFocus="TxtSearch_OnLostFocus"
                     FontSize="20"
@@ -101,46 +103,40 @@
                         <ColumnDefinition Width="*" MinWidth="300"/>
                         <ColumnDefinition Width="Auto"/>
                     </Grid.ColumnDefinitions>
-                    <ListView Grid.Column="0"  Name="ListView_Motaradef" Style="{StaticResource lvStyle}" AlternationCount="2" ScrollViewer.HorizontalScrollBarVisibility="Disabled" HorizontalContentAlignment="Stretch" ItemsSource="{Binding MotaradefList}">
-                        <ListView.ItemTemplate>
-                            <DataTemplate>
-                                <Border BorderThickness="0,0,0,1">
-                                    <Border.BorderBrush>
-                                        <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
-                                            <LinearGradientBrush.RelativeTransform>
-                                                <TransformGroup>
-                                                    <ScaleTransform CenterY="0.5" CenterX="0.5"/>
-                                                    <SkewTransform CenterY="0.5" CenterX="0.5"/>
-                                                    <RotateTransform Angle="90" CenterY="0.5" CenterX="0.5"/>
-                                                    <TranslateTransform/>
-                                                </TransformGroup>
-                                            </LinearGradientBrush.RelativeTransform>
-                                            <GradientStop Color="#FFE2E2E2" Offset="1"/>
-                                            <GradientStop Color="White" Offset="0"/>
-                                        </LinearGradientBrush>
-                                    </Border.BorderBrush>
-                                    <ItemsControl ItemsSource="{Binding}">
-                                        <ItemsControl.ItemsPanel>
-                                            <ItemsPanelTemplate>
-                                                <WrapPanel Orientation="Horizontal" Margin="5"/>
-                                            </ItemsPanelTemplate>
-                                        </ItemsControl.ItemsPanel>
-                                        <ItemsControl.ItemTemplate>
-                                            <DataTemplate>
-                                                <Button
-                                                    Click="Word_OnClick"
-                                                    Content="{Binding .}"
-                                                    Style="{StaticResource WordStyle}"
-                                                    MouseRightButtonUp="Word_OnMouseRightButtonUp"
-                                                />
-                                            </DataTemplate>
-                                        </ItemsControl.ItemTemplate>
-                                    </ItemsControl>
-                                </Border>
 
-                            </DataTemplate>
-                        </ListView.ItemTemplate>
-                    </ListView>
+                    <controls:RadGridView Loaded="Datagrid_Motaradef_OnLoaded" Grid.Column="0" Name="Datagrid_Motaradef" ShowSearchPanel="True" ColumnWidth="*" CanUserSelect="False" ShowGroupPanel="False" IsReadOnly="True" RowIndicatorVisibility="Collapsed" DragElementAction="None" AutoGenerateColumns="False" ItemsSource="{Binding MotaradefMotazadList}">
+                        <controls:RadGridView.RowStyle>
+                            <Style TargetType="controls:GridViewRow">
+                                <Setter Property="MouseOverBackground" Value="Transparent"/>
+                            </Style>
+                        </controls:RadGridView.RowStyle>
+                        <controls:RadGridView.Columns>
+                            <controls:GridViewDataColumn Header="مترادف" DataMemberBinding="{Binding MeaningsArray}" >
+                                <controls:GridViewDataColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <ItemsControl ItemsSource="{Binding MeaningsArray}">
+                                            <ItemsControl.ItemsPanel>
+                                                <ItemsPanelTemplate>
+                                                    <WrapPanel Orientation="Horizontal" Margin="5"/>
+                                                </ItemsPanelTemplate>
+                                            </ItemsControl.ItemsPanel>
+                                            <ItemsControl.ItemTemplate>
+                                                <DataTemplate>
+                                                    <Button
+                                                        Click="Word_OnClick"
+                                                        Content="{Binding .}"
+                                                        Style="{StaticResource WordStyle}"
+                                                        MouseRightButtonUp="Word_OnMouseRightButtonUp"
+                                                    />
+                                                </DataTemplate>
+                                            </ItemsControl.ItemTemplate>
+                                        </ItemsControl>
+
+                                    </DataTemplate>
+                                </controls:GridViewDataColumn.CellTemplate>
+                            </controls:GridViewDataColumn>
+                        </controls:RadGridView.Columns>
+                    </controls:RadGridView>
                 </Grid>
                 <Border
                     Grid.Row="2"

@@ -1,0 +1,1302 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Telerik.Windows.SyntaxEditor.Core</name>
+    </assembly>
+    <members>
+        <member name="T:Telerik.Windows.SyntaxEditor.Core.Deque`1">
+            <summary>
+            Cut down implementation of double ended queue for keeping undo/redo actions
+            supports only back enqueue and dequeue from both ends.
+            </summary>
+        </member>
+        <member name="T:Telerik.Windows.SyntaxEditor.Core.LimitedStack`1">
+            <summary>
+            Stack that drops the bottom item if its size gets bigger than the maxSize, effectively keeping the latest N items.
+            </summary>
+        </member>
+        <member name="T:Telerik.Windows.SyntaxEditor.Core.Editor.ITextDocumentEditor">
+            <summary>
+            Represents an editor  for text documents.
+            </summary>
+        </member>
+        <member name="E:Telerik.Windows.SyntaxEditor.Core.Editor.ITextDocumentEditor.DocumentChanging">
+            <summary>
+            Occurs when document is being changed.
+            </summary>
+        </member>
+        <member name="E:Telerik.Windows.SyntaxEditor.Core.Editor.ITextDocumentEditor.DocumentChanged">
+            <summary>
+            Occurs when document has been changed.
+            </summary>
+        </member>
+        <member name="E:Telerik.Windows.SyntaxEditor.Core.Editor.ITextDocumentEditor.DocumentContentChanged">
+            <summary>
+            Occurs when the content of the document has been changed.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.SyntaxEditor.Core.Editor.ITextDocumentEditor.Document">
+            <summary>
+            Gets or sets the text document.
+            </summary>
+        </member>
+        <member name="T:Telerik.Windows.SyntaxEditor.Core.History.TextChangeHistoryAction">
+            <summary>
+            Represents a list of changes in the document.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.SyntaxEditor.Core.History.TextChangeHistoryAction.#ctor(Telerik.Windows.SyntaxEditor.Core.Text.TextDocument,System.Collections.Generic.IEnumerable{Telerik.Windows.SyntaxEditor.Core.Text.TextChange},System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Windows.SyntaxEditor.Core.History.TextChangeHistoryAction"/> class.
+            </summary>
+            <param name="document"></param>
+            <param name="textChanges"></param>
+            <param name="displayText"></param>
+        </member>
+        <member name="P:Telerik.Windows.SyntaxEditor.Core.History.TextChangeHistoryAction.Context">
+            <summary>
+            The context of the action.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.SyntaxEditor.Core.History.TextChangeHistoryAction.Document">
+            <summary>
+            Gets the document of the change.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.SyntaxEditor.Core.History.TextChangeHistoryAction.Changes">
+            <summary>
+            Gets the changes in this action.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.SyntaxEditor.Core.History.TextChangeHistoryAction.DisplayText">
+            <summary>
+            Gets the display text of the action.
+            </summary>
+        </member>
+        <member name="T:Telerik.Windows.SyntaxEditor.Core.History.TextDocumentHistory">
+            <summary>
+            Represents a history in the text document.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.SyntaxEditor.Core.History.TextDocumentHistory.#ctor(Telerik.Windows.SyntaxEditor.Core.Text.TextDocument)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Windows.SyntaxEditor.Core.History.TextDocumentHistory"/> class.
+            </summary>
+            <param name="document"></param>
+        </member>
+        <member name="M:Telerik.Windows.SyntaxEditor.Core.History.TextDocumentHistory.Undo">
+            <summary>
+            Performs an undo operation.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Windows.SyntaxEditor.Core.History.TextDocumentHistory.Redo">
+            <summary>
+            Performs a redo operation.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Windows.SyntaxEditor.Core.History.TextDocumentHistory.Clear">
+            <summary>
+            Clears the undo/redo history stacks.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.SyntaxEditor.Core.History.TextDocumentHistory.OnRecordExecuting">
+            <summary>
+            Called when record is executing.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.SyntaxEditor.Core.History.TextDocumentHistory.OnRecordExecuted(Telerik.Windows.SyntaxEditor.Core.History.TextChangeHistoryAction,System.Boolean)">
+            <summary>
+            Called when record is executed.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.SyntaxEditor.Core.History.TextDocumentHistory.OnUndoExecuting(Telerik.Windows.SyntaxEditor.Core.History.TextChangeHistoryAction)">
+            <summary>
+            Called when action is being undone.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.SyntaxEditor.Core.History.TextDocumentHistory.OnUndoExecuted(Telerik.Windows.SyntaxEditor.Core.History.TextChangeHistoryAction)">
+            <summary>
+            Called when action is undone. 
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.SyntaxEditor.Core.History.TextDocumentHistory.OnRedoExecuting(Telerik.Windows.SyntaxEditor.Core.History.TextChangeHistoryAction)">
+            <summary>
+            Called when action is being redone.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.SyntaxEditor.Core.History.TextDocumentHistory.OnRedoExecuted(Telerik.Windows.SyntaxEditor.Core.History.TextChangeHistoryAction)">
+            <summary>
+            Called when action is redone.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.SyntaxEditor.Core.History.TextDocumentHistory.CanUndo">
+            <summary>
+            Gets a value indicating whether the history can be undone.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.SyntaxEditor.Core.History.TextDocumentHistory.CanRedo">
+            <summary>
+            Gets a value indicating whether the history can be redone.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.SyntaxEditor.Core.History.TextDocumentHistory.Depth">
+            <summary>
+            Gets or sets the depth of the history.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.SyntaxEditor.Core.History.TextDocumentHistory.IsInUndoGroup">
+            <summary>
+            Gets a value indicating whether this instance is in undo group.
+            </summary>
+        </member>
+        <member name="T:Telerik.Windows.SyntaxEditor.Core.Tagging.ClassificationTag">
+            <summary>
+            Represents tag for classifying parts of code file.
+            </summary>
+        </member>
+        <member name="T:Telerik.Windows.SyntaxEditor.Core.Tagging.ITextFormattingTag">
+            <summary>
+            Text formatting tag.
+            </summary>
+        </member>
+        <member name="T:Telerik.Windows.SyntaxEditor.Core.Tagging.ITag">
+            <summary>
+            Basic interface for tagging (marking) a part of the text in the text document.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.SyntaxEditor.Core.Tagging.ITextFormattingTag.FormatDefinitionKey">
+            <summary>
+            Gets the format definition key.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.SyntaxEditor.Core.Tagging.ClassificationTag.#ctor(Telerik.Windows.SyntaxEditor.Core.Tagging.ClassificationType)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Windows.SyntaxEditor.Core.Tagging.ClassificationTag"/> class.
+            </summary>
+            <param name="type"></param>
+        </member>
+        <member name="P:Telerik.Windows.SyntaxEditor.Core.Tagging.ClassificationTag.ClassificationType">
+            <summary>
+            Gets the <see cref="P:Telerik.Windows.SyntaxEditor.Core.Tagging.ClassificationTag.ClassificationType"/> for this tag.
+            </summary>
+        </member>
+        <member name="T:Telerik.Windows.SyntaxEditor.Core.Tagging.ClassificationType">
+            <summary>
+            Represents a classification type.
+            </summary>
+        </member>
+        <member name="T:Telerik.Windows.SyntaxEditor.Core.Tagging.TextFormatDefinitionKey">
+            <summary>
+            Represents key for text format definition.
+            </summary>
+        </member>
+        <member name="T:Telerik.Windows.SyntaxEditor.Core.Tagging.ITextFormatDefinitionKey">
+            <summary>
+            Represents a key for TextFormatDefinition.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.SyntaxEditor.Core.Tagging.ITextFormatDefinitionKey.Name">
+            <summary>
+            The name (key) of this text format definition.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.SyntaxEditor.Core.Tagging.TextFormatDefinitionKey.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Windows.SyntaxEditor.Core.Tagging.TextFormatDefinitionKey"/> class.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.SyntaxEditor.Core.Tagging.TextFormatDefinitionKey.GetHashCode">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Windows.SyntaxEditor.Core.Tagging.TextFormatDefinitionKey.Equals(System.Object)">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Windows.SyntaxEditor.Core.Tagging.TextFormatDefinitionKey.Equals(Telerik.Windows.SyntaxEditor.Core.Tagging.TextFormatDefinitionKey)">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Windows.SyntaxEditor.Core.Tagging.TextFormatDefinitionKey.Name">
+            <summary>
+            Gets the name.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.SyntaxEditor.Core.Tagging.ClassificationType.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Windows.SyntaxEditor.Core.Tagging.ClassificationType"/> class.
+            </summary>
+            <param name="name"></param>
+        </member>
+        <member name="T:Telerik.Windows.SyntaxEditor.Core.Tagging.ClassificationTypes">
+            <summary>
+            Class which defines the classification types existing in a code file.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.SyntaxEditor.Core.Tagging.ClassificationTypes.Comment">
+            <summary>
+            Comment classification.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.SyntaxEditor.Core.Tagging.ClassificationTypes.Identifier">
+            <summary>
+            Identifier classification.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.SyntaxEditor.Core.Tagging.ClassificationTypes.Keyword">
+            <summary>
+            Keyword classification.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.SyntaxEditor.Core.Tagging.ClassificationTypes.PreprocessorKeyword">
+            <summary>
+            PreprocessorKeyword classification.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.SyntaxEditor.Core.Tagging.ClassificationTypes.Operator">
+            <summary>
+            Operator classification.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.SyntaxEditor.Core.Tagging.ClassificationTypes.Literal">
+            <summary>
+            Literal classification.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.SyntaxEditor.Core.Tagging.ClassificationTypes.CharacterLiteral">
+            <summary>
+            CharacterLiteral classification.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.SyntaxEditor.Core.Tagging.ClassificationTypes.NumberLiteral">
+            <summary>
+            NumberLiteral classification.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.SyntaxEditor.Core.Tagging.ClassificationTypes.StringLiteral">
+            <summary>
+            StringLiteral classification.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.SyntaxEditor.Core.Tagging.ClassificationTypes.ExcludedCode">
+            <summary>
+            ExcludedCode classification.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.SyntaxEditor.Core.Tagging.ClassificationTypes.WhiteSpace">
+            <summary>
+            WhiteSpace classification.
+            </summary>
+        </member>
+        <member name="T:Telerik.Windows.SyntaxEditor.Core.Tagging.FoldingRegionTag">
+            <summary>
+            Represents tag for folding regions.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.SyntaxEditor.Core.Tagging.FoldingRegionTag.#ctor(System.String,System.Boolean,System.Object)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Windows.SyntaxEditor.Core.Tagging.FoldingRegionTag"/> class.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.SyntaxEditor.Core.Tagging.FoldingRegionTag.Title">
+            <summary>
+            Gets the title of the folding region.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.SyntaxEditor.Core.Tagging.FoldingRegionTag.IsDefaultFolded">
+            <summary>
+            Gets a value indicating whether this region is folded by default.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.SyntaxEditor.Core.Tagging.FoldingRegionTag.FoldedToolTipContent">
+            <summary>
+            Gets the tooltip content for this region.
+            </summary>
+        </member>
+        <member name="T:Telerik.Windows.SyntaxEditor.Core.Tagging.ITagger`1">
+            <summary>
+            Describes a tagger class behavior.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.SyntaxEditor.Core.Tagging.ITagger`1.GetTags(Telerik.Windows.SyntaxEditor.Core.Text.NormalizedSnapshotSpanCollection)">
+            <summary>
+            Gets the collection of tags.
+            </summary>
+            <param name="spans"></param>
+            <returns></returns>
+        </member>
+        <member name="E:Telerik.Windows.SyntaxEditor.Core.Tagging.ITagger`1.TagsChanged">
+            <summary>
+            Occurs when the tags collection is changed.
+            </summary>
+        </member>
+        <member name="T:Telerik.Windows.SyntaxEditor.Core.Tagging.TaggerBase`1">
+            <summary>
+            Tagger base abstraction.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.SyntaxEditor.Core.Tagging.TaggerBase`1.#ctor(Telerik.Windows.SyntaxEditor.Core.Editor.ITextDocumentEditor)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Windows.SyntaxEditor.Core.Tagging.TaggerBase`1"/> class.
+            </summary>
+            <param name="editor"></param>
+        </member>
+        <member name="M:Telerik.Windows.SyntaxEditor.Core.Tagging.TaggerBase`1.GetTags(Telerik.Windows.SyntaxEditor.Core.Text.NormalizedSnapshotSpanCollection)">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Windows.SyntaxEditor.Core.Tagging.TaggerBase`1.CallOnTagsChanged(Telerik.Windows.SyntaxEditor.Core.Text.Span)">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Windows.SyntaxEditor.Core.Tagging.TaggerBase`1.OnTagsChanged(Telerik.Windows.SyntaxEditor.Core.Tagging.TagsChangedEventArgs)">
+            <inheritdoc />
+        </member>
+        <member name="E:Telerik.Windows.SyntaxEditor.Core.Tagging.TaggerBase`1.TagsChanged">
+            <summary>
+            Occurs when tags collection is changed.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.SyntaxEditor.Core.Tagging.TaggerBase`1.Editor">
+            <summary>
+            Gets the text document editor.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.SyntaxEditor.Core.Tagging.TaggerBase`1.Document">
+            <summary>
+            Gets the text document.
+            </summary>
+        </member>
+        <member name="T:Telerik.Windows.SyntaxEditor.Core.Tagging.TaggersRegistry">
+            <summary>
+            Represents a registry for all taggers.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.SyntaxEditor.Core.Tagging.TaggersRegistry.#ctor(Telerik.Windows.SyntaxEditor.Core.Editor.ITextDocumentEditor)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Windows.SyntaxEditor.Core.Tagging.TaggersRegistry"/> class.
+            </summary>
+            <param name="editor"></param>
+        </member>
+        <member name="M:Telerik.Windows.SyntaxEditor.Core.Tagging.TaggersRegistry.GetTagger``1">
+            <summary>
+            Gets a tag aggregator containing a collection of taggers for a particular tag type.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.SyntaxEditor.Core.Tagging.TaggersRegistry.GetTaggers``1">
+            <summary>
+            Returns a collection of all taggers which can handle a particular tag.
+            </summary>
+            <typeparam name="T">The type of the tag.</typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Windows.SyntaxEditor.Core.Tagging.TaggersRegistry.IsTaggerRegistered``1(Telerik.Windows.SyntaxEditor.Core.Tagging.ITagger{``0})">
+            <summary>
+            Gets a value indicating whether the tagger is already registered.
+            </summary>
+            <param name="tagger"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Windows.SyntaxEditor.Core.Tagging.TaggersRegistry.RegisterTagger``1(Telerik.Windows.SyntaxEditor.Core.Tagging.ITagger{``0})">
+            <summary>
+            Registers a tagger instance.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.SyntaxEditor.Core.Tagging.TaggersRegistry.UnregisterTagger``1(Telerik.Windows.SyntaxEditor.Core.Tagging.ITagger{``0})">
+            <summary>
+            Unregisters a tagger instance.
+            </summary>
+        </member>
+        <member name="T:Telerik.Windows.SyntaxEditor.Core.Tagging.TagsChangedEventArgs">
+            <summary>
+            Event args for TagsChanged event.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.SyntaxEditor.Core.Tagging.TagsChangedEventArgs.Span">
+            <summary>
+            Gets the TextSnapshotSpan.
+            </summary>
+        </member>
+        <member name="T:Telerik.Windows.SyntaxEditor.Core.Tagging.TagSpan`1">
+            <summary>
+            Tag-Span couple.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.SyntaxEditor.Core.Tagging.TagSpan`1.#ctor(Telerik.Windows.SyntaxEditor.Core.Text.TextSnapshotSpan,`0)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Windows.SyntaxEditor.Core.Tagging.TagSpan`1"/> class.
+            </summary>
+            <param name="textSnapshotSpan"></param>
+            <param name="tag"></param>
+        </member>
+        <member name="P:Telerik.Windows.SyntaxEditor.Core.Tagging.TagSpan`1.SnapshotSpan">
+            <summary>
+            Gets the span.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.SyntaxEditor.Core.Tagging.TagSpan`1.Tag">
+            <summary>
+            Gets the tag.
+            </summary>
+        </member>
+        <member name="T:Telerik.Windows.SyntaxEditor.Core.Tagging.TextBorderTag">
+            <summary>
+            Represents a text border tag.
+            </summary>
+        </member>
+        <member name="T:Telerik.Windows.SyntaxEditor.Core.Tagging.TextFormattingTagBase">
+            <summary>
+            Base class for text formatting tags.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.SyntaxEditor.Core.Tagging.TextFormattingTagBase.#ctor(Telerik.Windows.SyntaxEditor.Core.Tagging.ITextFormatDefinitionKey)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Windows.SyntaxEditor.Core.Tagging.TextFormattingTagBase"/> class.
+            </summary>
+            <param name="formatDefinitionKey"></param>
+        </member>
+        <member name="P:Telerik.Windows.SyntaxEditor.Core.Tagging.TextFormattingTagBase.FormatDefinitionKey">
+            <summary>
+            Gets the format definition key.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.SyntaxEditor.Core.Tagging.TextBorderTag.#ctor(Telerik.Windows.SyntaxEditor.Core.Tagging.ITextFormatDefinitionKey)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Windows.SyntaxEditor.Core.Tagging.TextBorderTag"/> class.
+            </summary>
+        </member>
+        <member name="T:Telerik.Windows.SyntaxEditor.Core.Tagging.TextHighlightTag">
+            <summary>
+            Represents tag for text highlighting.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.SyntaxEditor.Core.Tagging.TextHighlightTag.#ctor(Telerik.Windows.SyntaxEditor.Core.Tagging.ITextFormatDefinitionKey)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Windows.SyntaxEditor.Core.Tagging.TextHighlightTag"/> class.
+            </summary>
+            <param name="formatDefinitionKey"></param>
+        </member>
+        <member name="T:Telerik.Windows.SyntaxEditor.Core.Tagging.ToolTipTag">
+            <summary>
+            Represents a tooltip tag.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.SyntaxEditor.Core.Tagging.ToolTipTag.#ctor(System.Object)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Windows.SyntaxEditor.Core.Tagging.ToolTipTag"/> class.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.SyntaxEditor.Core.Tagging.ToolTipTag.ToolTipContent">
+            <summary>
+            Gets the tooltip content.
+            </summary>
+        </member>
+        <member name="T:Telerik.Windows.SyntaxEditor.Core.Tagging.UnderlineTag">
+            <summary>
+            Represents a tag for underlined text.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.SyntaxEditor.Core.Tagging.UnderlineTag.#ctor(Telerik.Windows.SyntaxEditor.Core.Tagging.ITextFormatDefinitionKey)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Windows.SyntaxEditor.Core.Tagging.UnderlineTag"/> class.
+            </summary>
+            <param name="formatDefinitionKey"></param>
+        </member>
+        <member name="T:Telerik.Windows.SyntaxEditor.Core.Text.LineBreak">
+            <summary>
+            LineBreak helper class.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.SyntaxEditor.Core.Text.LineBreak.NewLine">
+            <summary>
+            NewLine char.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.SyntaxEditor.Core.Text.LineBreak.NewLineString">
+            <summary>
+            NewLine string.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.SyntaxEditor.Core.Text.LineBreak.IsLineBreak(System.Char)">
+            <summary>
+            Gets a value indicating whether the given char is a line break.
+            </summary>
+        </member>
+        <member name="T:Telerik.Windows.SyntaxEditor.Core.Text.NormalizedSnapshotSpanCollection">
+            <summary>
+            Represents a normalized snapshot span collection.
+            NOTE: A read-only collection of TextSnapshotSpan objects, all from the same snapshot.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.SyntaxEditor.Core.Text.NormalizedSnapshotSpanCollection.Empty">
+            <summary>
+            Empty instance.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.SyntaxEditor.Core.Text.NormalizedSnapshotSpanCollection.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Windows.SyntaxEditor.Core.Text.NormalizedSnapshotSpanCollection"/> class.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.SyntaxEditor.Core.Text.NormalizedSnapshotSpanCollection.#ctor(Telerik.Windows.SyntaxEditor.Core.Text.TextSnapshotSpan)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Windows.SyntaxEditor.Core.Text.NormalizedSnapshotSpanCollection"/> class.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.SyntaxEditor.Core.Text.NormalizedSnapshotSpanCollection.#ctor(System.Collections.Generic.IEnumerable{Telerik.Windows.SyntaxEditor.Core.Text.TextSnapshotSpan})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Windows.SyntaxEditor.Core.Text.NormalizedSnapshotSpanCollection"/> class.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.SyntaxEditor.Core.Text.NormalizedSnapshotSpanCollection.#ctor(Telerik.Windows.SyntaxEditor.Core.Text.TextSnapshot,System.Collections.Generic.IEnumerable{Telerik.Windows.SyntaxEditor.Core.Text.Span})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Windows.SyntaxEditor.Core.Text.NormalizedSnapshotSpanCollection"/> class.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.SyntaxEditor.Core.Text.NormalizedSnapshotSpanCollection.Difference(Telerik.Windows.SyntaxEditor.Core.Text.NormalizedSnapshotSpanCollection,Telerik.Windows.SyntaxEditor.Core.Text.NormalizedSnapshotSpanCollection)">
+            <summary>
+            Gets the difference between two <see cref="T:Telerik.Windows.SyntaxEditor.Core.Text.NormalizedSnapshotSpanCollection"/> instances.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.SyntaxEditor.Core.Text.NormalizedSnapshotSpanCollection.Intersection(Telerik.Windows.SyntaxEditor.Core.Text.NormalizedSnapshotSpanCollection,Telerik.Windows.SyntaxEditor.Core.Text.NormalizedSnapshotSpanCollection)">
+            <summary>
+            Gets the intersection instance of two <see cref="T:Telerik.Windows.SyntaxEditor.Core.Text.NormalizedSnapshotSpanCollection"/> instances.
+            </summary>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Windows.SyntaxEditor.Core.Text.NormalizedSnapshotSpanCollection.Overlap(Telerik.Windows.SyntaxEditor.Core.Text.NormalizedSnapshotSpanCollection,Telerik.Windows.SyntaxEditor.Core.Text.NormalizedSnapshotSpanCollection)">
+            <summary>
+            Overlaps two instances of <see cref="T:Telerik.Windows.SyntaxEditor.Core.Text.NormalizedSnapshotSpanCollection"/> class.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.SyntaxEditor.Core.Text.NormalizedSnapshotSpanCollection.Union(Telerik.Windows.SyntaxEditor.Core.Text.NormalizedSnapshotSpanCollection,Telerik.Windows.SyntaxEditor.Core.Text.NormalizedSnapshotSpanCollection)">
+            <summary>
+            Unites two instances of <see cref="T:Telerik.Windows.SyntaxEditor.Core.Text.NormalizedSnapshotSpanCollection"/> class.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.SyntaxEditor.Core.Text.NormalizedSnapshotSpanCollection.op_Equality(Telerik.Windows.SyntaxEditor.Core.Text.NormalizedSnapshotSpanCollection,Telerik.Windows.SyntaxEditor.Core.Text.NormalizedSnapshotSpanCollection)">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Windows.SyntaxEditor.Core.Text.NormalizedSnapshotSpanCollection.op_Inequality(Telerik.Windows.SyntaxEditor.Core.Text.NormalizedSnapshotSpanCollection,Telerik.Windows.SyntaxEditor.Core.Text.NormalizedSnapshotSpanCollection)">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Windows.SyntaxEditor.Core.Text.NormalizedSnapshotSpanCollection.OverlapsWith(Telerik.Windows.SyntaxEditor.Core.Text.NormalizedSnapshotSpanCollection)">
+            <summary>
+            Checks if this instance overlaps with other <see cref="T:Telerik.Windows.SyntaxEditor.Core.Text.NormalizedSnapshotSpanCollection"/> instance.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.SyntaxEditor.Core.Text.NormalizedSnapshotSpanCollection.IntersectsWith(Telerik.Windows.SyntaxEditor.Core.Text.NormalizedSnapshotSpanCollection)">
+            <summary>
+            Checks if this instance intersects with other <see cref="T:Telerik.Windows.SyntaxEditor.Core.Text.NormalizedSnapshotSpanCollection"/> instance.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.SyntaxEditor.Core.Text.NormalizedSnapshotSpanCollection.Contains(Telerik.Windows.SyntaxEditor.Core.Text.TextSnapshotSpan)">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Windows.SyntaxEditor.Core.Text.NormalizedSnapshotSpanCollection.Contains(System.Object)">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Windows.SyntaxEditor.Core.Text.NormalizedSnapshotSpanCollection.IndexOf(Telerik.Windows.SyntaxEditor.Core.Text.TextSnapshotSpan)">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Windows.SyntaxEditor.Core.Text.NormalizedSnapshotSpanCollection.IndexOf(System.Object)">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Windows.SyntaxEditor.Core.Text.NormalizedSnapshotSpanCollection.GetEnumerator">
+            <summary>
+            Gets the enumerator.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.SyntaxEditor.Core.Text.NormalizedSnapshotSpanCollection.CopyTo(System.Array,System.Int32)">
+            <summary>
+            Copies this instance into an array.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.SyntaxEditor.Core.Text.NormalizedSnapshotSpanCollection.CopyTo(Telerik.Windows.SyntaxEditor.Core.Text.TextSnapshotSpan[],System.Int32)">
+            <summary>
+            Copies this instance into a TextSnapshotSpan array.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.SyntaxEditor.Core.Text.NormalizedSnapshotSpanCollection.Equals(System.Object)">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Windows.SyntaxEditor.Core.Text.NormalizedSnapshotSpanCollection.GetHashCode">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Windows.SyntaxEditor.Core.Text.NormalizedSnapshotSpanCollection.ToString">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Windows.SyntaxEditor.Core.Text.NormalizedSnapshotSpanCollection.Count">
+            <summary>
+            Gets the count of the spans.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.SyntaxEditor.Core.Text.NormalizedSnapshotSpanCollection.Item(System.Int32)">
+            <summary>
+            Gets or sets an index-based snapshot from the collection.
+            </summary>
+            <param name="index"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Telerik.Windows.SyntaxEditor.Core.Text.NormalizedSpanCollection">
+            <summary>
+            A collection of spans that are sorted by start position, // with adjacent and overlapping spans combined.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.SyntaxEditor.Core.Text.NormalizedSpanCollection.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Windows.SyntaxEditor.Core.Text.NormalizedSpanCollection"/> class.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.SyntaxEditor.Core.Text.NormalizedSpanCollection.#ctor(System.Collections.Generic.IEnumerable{Telerik.Windows.SyntaxEditor.Core.Text.Span})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Windows.SyntaxEditor.Core.Text.NormalizedSpanCollection"/> class.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.SyntaxEditor.Core.Text.NormalizedSpanCollection.#ctor(Telerik.Windows.SyntaxEditor.Core.Text.Span)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Windows.SyntaxEditor.Core.Text.NormalizedSpanCollection"/> class.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.SyntaxEditor.Core.Text.NormalizedSpanCollection.#ctor(Telerik.Windows.SyntaxEditor.Core.Text.NormalizedSpanCollection.OrderedSpanList)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Windows.SyntaxEditor.Core.Text.NormalizedSpanCollection"/> class.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.SyntaxEditor.Core.Text.NormalizedSpanCollection.Intersection(Telerik.Windows.SyntaxEditor.Core.Text.NormalizedSpanCollection,Telerik.Windows.SyntaxEditor.Core.Text.NormalizedSpanCollection)">
+            <summary>
+            Intersects two <see cref="T:Telerik.Windows.SyntaxEditor.Core.Text.NormalizedSpanCollection"/> instances.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.SyntaxEditor.Core.Text.NormalizedSpanCollection.Union(Telerik.Windows.SyntaxEditor.Core.Text.NormalizedSpanCollection,Telerik.Windows.SyntaxEditor.Core.Text.NormalizedSpanCollection)">
+            <summary>
+            Unites two <see cref="T:Telerik.Windows.SyntaxEditor.Core.Text.NormalizedSpanCollection"/> instances.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.SyntaxEditor.Core.Text.NormalizedSpanCollection.Difference(Telerik.Windows.SyntaxEditor.Core.Text.NormalizedSpanCollection,Telerik.Windows.SyntaxEditor.Core.Text.NormalizedSpanCollection)">
+            <summary>
+            Gets the difference instance between two instances of <see cref="T:Telerik.Windows.SyntaxEditor.Core.Text.NormalizedSpanCollection"/>.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.SyntaxEditor.Core.Text.NormalizedSpanCollection.Overlap(Telerik.Windows.SyntaxEditor.Core.Text.NormalizedSpanCollection,Telerik.Windows.SyntaxEditor.Core.Text.NormalizedSpanCollection)">
+            <summary>
+            Overlaps two <see cref="T:Telerik.Windows.SyntaxEditor.Core.Text.NormalizedSpanCollection"/> instances.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.SyntaxEditor.Core.Text.NormalizedSpanCollection.op_Equality(Telerik.Windows.SyntaxEditor.Core.Text.NormalizedSpanCollection,Telerik.Windows.SyntaxEditor.Core.Text.NormalizedSpanCollection)">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Windows.SyntaxEditor.Core.Text.NormalizedSpanCollection.op_Inequality(Telerik.Windows.SyntaxEditor.Core.Text.NormalizedSpanCollection,Telerik.Windows.SyntaxEditor.Core.Text.NormalizedSpanCollection)">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Windows.SyntaxEditor.Core.Text.NormalizedSpanCollection.Equals(System.Object)">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Windows.SyntaxEditor.Core.Text.NormalizedSpanCollection.GetHashCode">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Windows.SyntaxEditor.Core.Text.NormalizedSpanCollection.ToString">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Windows.SyntaxEditor.Core.Text.NormalizedSpanCollection.IntersectsWith(Telerik.Windows.SyntaxEditor.Core.Text.NormalizedSpanCollection)">
+            <summary>
+            Checks if this instance intersects with other <see cref="T:Telerik.Windows.SyntaxEditor.Core.Text.NormalizedSpanCollection"/> instance.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.SyntaxEditor.Core.Text.NormalizedSpanCollection.OverlapsWith(Telerik.Windows.SyntaxEditor.Core.Text.NormalizedSpanCollection)">
+            <summary>
+            Checks if this instance overlaps with other <see cref="T:Telerik.Windows.SyntaxEditor.Core.Text.NormalizedSpanCollection"/> instance.
+            </summary>
+        </member>
+        <member name="T:Telerik.Windows.SyntaxEditor.Core.Text.PositionAnchoringType">
+            <summary>
+            Enum PositionAnchoringType.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.SyntaxEditor.Core.Text.PositionAnchoringType.None">
+            <summary>
+            None type.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.SyntaxEditor.Core.Text.PositionAnchoringType.BeforeInsertion">
+            <summary>
+            BeforeInsertion type.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.SyntaxEditor.Core.Text.PositionAnchoringType.AfterInsertion">
+            <summary>
+            AfterInsertion type.
+            </summary>
+        </member>
+        <member name="T:Telerik.Windows.SyntaxEditor.Core.Text.Span">
+            <summary>
+            Represents a document span.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.SyntaxEditor.Core.Text.Span.Empty">
+            <summary>
+            Empty span.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.SyntaxEditor.Core.Text.Span.#ctor(System.Int32,System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Windows.SyntaxEditor.Core.Text.Span"/> struct.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.SyntaxEditor.Core.Text.Span.op_Equality(Telerik.Windows.SyntaxEditor.Core.Text.Span,Telerik.Windows.SyntaxEditor.Core.Text.Span)">
+            <summary>
+            Implementation of == operator.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.SyntaxEditor.Core.Text.Span.op_Inequality(Telerik.Windows.SyntaxEditor.Core.Text.Span,Telerik.Windows.SyntaxEditor.Core.Text.Span)">
+            <summary>
+            Implementation of != operator.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.SyntaxEditor.Core.Text.Span.FromBounds(System.Int32,System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Windows.SyntaxEditor.Core.Text.Span"/> struct from start and end.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.SyntaxEditor.Core.Text.Span.Contains(System.Int32)">
+            <summary>
+            Checks if the given position in contained in the span.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.SyntaxEditor.Core.Text.Span.Contains(Telerik.Windows.SyntaxEditor.Core.Text.Span)">
+            <summary>
+            Checks if the given span in contained in this span instance.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.SyntaxEditor.Core.Text.Span.OverlapsWith(Telerik.Windows.SyntaxEditor.Core.Text.Span)">
+            <summary>
+            Checks if the given span overlaps with this span instance.
+            </summary>
+            <param name="span"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Windows.SyntaxEditor.Core.Text.Span.Overlap(Telerik.Windows.SyntaxEditor.Core.Text.Span)">
+            <summary>
+            Gets the Span which is a result from the overlap of the given span parameter instance and this span instance.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.SyntaxEditor.Core.Text.Span.IntersectsWith(Telerik.Windows.SyntaxEditor.Core.Text.Span)">
+            <summary>
+            Checks if the given span intersects with this span instance.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.SyntaxEditor.Core.Text.Span.Intersection(Telerik.Windows.SyntaxEditor.Core.Text.Span)">
+            <summary>
+            Gets the Span that is result from the intersection of the given span parameter instance and this span instance.
+            </summary>
+            <param name="span"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Windows.SyntaxEditor.Core.Text.Span.Equals(System.Object)">
+            <summary>
+            Equals implementation.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.SyntaxEditor.Core.Text.Span.GetHashCode">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Windows.SyntaxEditor.Core.Text.Span.ToString">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Windows.SyntaxEditor.Core.Text.Span.Start">
+            <summary>
+            Gets the start of the span.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.SyntaxEditor.Core.Text.Span.Length">
+            <summary>
+            Gets the length of this span.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.SyntaxEditor.Core.Text.Span.End">
+            <summary>
+            Gets the end of the span.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.SyntaxEditor.Core.Text.Span.IsEmpty">
+            <summary>
+            Gets a value indicating whether the span is empty.
+            </summary>
+        </member>
+        <member name="T:Telerik.Windows.SyntaxEditor.Core.Text.TextChange">
+            <summary>
+            Represents a text change.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.SyntaxEditor.Core.Text.TextChange.#ctor(System.Int32,System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Windows.SyntaxEditor.Core.Text.TextChange"/> class.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.SyntaxEditor.Core.Text.TextChange.Reverse">
+            <summary>
+            Reverses the text change.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.SyntaxEditor.Core.Text.TextChange.TranslatePosition(System.Int32,Telerik.Windows.SyntaxEditor.Core.Text.PositionAnchoringType)">
+            <summary>
+            Translates the given position.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.SyntaxEditor.Core.Text.TextChange.OldSpan">
+            <summary>
+            Gets the old span.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.SyntaxEditor.Core.Text.TextChange.NewSpan">
+            <summary>
+            Gets the new span.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.SyntaxEditor.Core.Text.TextChange.OldText">
+            <summary>
+            Gets the old text.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.SyntaxEditor.Core.Text.TextChange.NewText">
+            <summary>
+            Gets the new text.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.SyntaxEditor.Core.Text.TextChange.Delta">
+            <summary>
+            Gets the difference in the new / old text lengths.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.SyntaxEditor.Core.Text.TextChange.LineCountDelta">
+            <summary>
+            Gets the line count difference.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.SyntaxEditor.Core.Text.TextChange.InsertedLineCount">
+            <summary>
+            Gets the inserted lines count.
+            </summary>
+        </member>
+        <member name="T:Telerik.Windows.SyntaxEditor.Core.Text.TextContentChangedEventArgs">
+            <summary>
+            Event args for class for TextContentChanged event.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.SyntaxEditor.Core.Text.TextContentChangedEventArgs.#ctor(Telerik.Windows.SyntaxEditor.Core.Text.TextSnapshot,Telerik.Windows.SyntaxEditor.Core.Text.TextSnapshot)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Windows.SyntaxEditor.Core.Text.TextContentChangedEventArgs"/> class.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.SyntaxEditor.Core.Text.TextContentChangedEventArgs.BeforeChangeSnapshot">
+            <summary>
+            Gets the <see cref="T:Telerik.Windows.SyntaxEditor.Core.Text.TextSnapshot"/> before change.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.SyntaxEditor.Core.Text.TextContentChangedEventArgs.AfterChangeSnapshot">
+            <summary>
+            Gets the <see cref="T:Telerik.Windows.SyntaxEditor.Core.Text.TextSnapshot"/> after change.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.SyntaxEditor.Core.Text.TextContentChangedEventArgs.BeforeChangeVersion">
+            <summary>
+            Gets the <see cref="T:Telerik.Windows.SyntaxEditor.Core.Text.TextVersion"/> before change.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.SyntaxEditor.Core.Text.TextContentChangedEventArgs.AfterChangeVersion">
+            <summary>
+            Gets the <see cref="T:Telerik.Windows.SyntaxEditor.Core.Text.TextVersion"/> after change. 
+            </summary>
+        </member>
+        <member name="T:Telerik.Windows.SyntaxEditor.Core.Text.TextContentChangingEventArgs">
+            <summary>
+            Event args for class for TextContentChanging event.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.SyntaxEditor.Core.Text.TextContentChangingEventArgs.#ctor(Telerik.Windows.SyntaxEditor.Core.Text.TextSnapshot,Telerik.Windows.SyntaxEditor.Core.Text.TextChange)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Windows.SyntaxEditor.Core.Text.TextContentChangingEventArgs"/> class.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.SyntaxEditor.Core.Text.TextContentChangingEventArgs.Cancel">
+            <summary>
+            Cancels the content changing.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.SyntaxEditor.Core.Text.TextContentChangingEventArgs.Canceled">
+            <summary>
+            Gets a value indicating whether the text change should be cancelled.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.SyntaxEditor.Core.Text.TextContentChangingEventArgs.BeforeChangeSnapshot">
+            <summary>
+            Gets the snapshot before the change.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.SyntaxEditor.Core.Text.TextContentChangingEventArgs.Change">
+            <summary>
+            Gets the text change.
+            </summary>
+        </member>
+        <member name="T:Telerik.Windows.SyntaxEditor.Core.Text.TextDocument">
+            <summary>
+            Represents a text document.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.SyntaxEditor.Core.Text.TextDocument.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Windows.SyntaxEditor.Core.Text.TextDocument"/> class.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.SyntaxEditor.Core.Text.TextDocument.#ctor(System.IO.TextReader)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Windows.SyntaxEditor.Core.Text.TextDocument"/> class.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.SyntaxEditor.Core.Text.TextDocument.#ctor(Telerik.Windows.SyntaxEditor.Core.Text.TextDocument)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Windows.SyntaxEditor.Core.Text.TextDocument"/> class.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.SyntaxEditor.Core.Text.TextDocument.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Windows.SyntaxEditor.Core.Text.TextDocument"/> class.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.SyntaxEditor.Core.Text.TextDocument.Find(System.String,System.Int32)">
+            <summary>
+            Looks up for a span containing the search text.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.SyntaxEditor.Core.Text.TextDocument.Find(System.String,System.Int32,System.Boolean)">
+            <summary>
+            Looks up for a span containing the search text.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.SyntaxEditor.Core.Text.TextDocument.Find(System.String,System.Int32,System.Boolean,System.Boolean)">
+            <summary>
+            Looks up for a span containing the search text.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.SyntaxEditor.Core.Text.TextDocument.FindPrevious(System.String,System.Int32,System.Boolean)">
+            <summary>
+            Looks up for a previous span containing the search text.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Windows.SyntaxEditor.Core.Text.TextDocument.FindAll(System.String)">
+            <summary>
+            Looks up for a all spans containing the search text.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.SyntaxEditor.Core.Text.TextDocument.FindAll(System.String,System.Boolean)">
+            <summary>
+            Looks up for a all spans containing the search text.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.SyntaxEditor.Core.Text.TextDocument.FindAll(System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Looks up for a all spans containing the search text.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.SyntaxEditor.Core.Text.TextDocument.Insert(System.Int32,System.String)">
+            <summary>
+            Inserts text at the given position.
+            </summary>
+            <param name="position"></param>
+            <param name="text"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Windows.SyntaxEditor.Core.Text.TextDocument.Delete(Telerik.Windows.SyntaxEditor.Core.Text.Span)">
+            <summary>
+            Deletes the given span.
+            </summary>
+            <param name="spanToDelete"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Windows.SyntaxEditor.Core.Text.TextDocument.Replace(Telerik.Windows.SyntaxEditor.Core.Text.Span,System.String)">
+            <summary>
+            Replaces the given span with the given replace text.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.SyntaxEditor.Core.Text.TextDocument.ReplaceNextMatch(System.String,System.Int32,System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Replaces the next matched strings of the given search text with the provided replace text.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.SyntaxEditor.Core.Text.TextDocument.ReplaceAllMatches(System.String,System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Replaces all matched strings of the given search text with the provided replace text.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.SyntaxEditor.Core.Text.TextDocument.OnPreviewTextContentChanging(Telerik.Windows.SyntaxEditor.Core.Text.TextContentChangingEventArgs)">
+            <summary>
+            Raises the PreviewTextContentChanging event.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.SyntaxEditor.Core.Text.TextDocument.OnTextContentChanging(Telerik.Windows.SyntaxEditor.Core.Text.TextContentChangingEventArgs)">
+            <summary>
+            Raises the TextContentChanging event.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.SyntaxEditor.Core.Text.TextDocument.OnPreviewTextContentChanged(Telerik.Windows.SyntaxEditor.Core.Text.TextContentChangedEventArgs)">
+            <summary>
+            Raises the PreviewTextContentChanged event.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.SyntaxEditor.Core.Text.TextDocument.OnTextContentChanged(Telerik.Windows.SyntaxEditor.Core.Text.TextContentChangedEventArgs)">
+            <summary>
+            Raises the TextContentChanged event.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.SyntaxEditor.Core.Text.TextDocument.CurrentSnapshot">
+            <summary>
+            Gets the current snapshot.
+            </summary>
+        </member>
+        <member name="E:Telerik.Windows.SyntaxEditor.Core.Text.TextDocument.PreviewTextContentChanging">
+            <summary>
+            Occurs when text is about to be changing.
+            </summary>
+        </member>
+        <member name="E:Telerik.Windows.SyntaxEditor.Core.Text.TextDocument.TextContentChanging">
+            <summary>
+            Occurs when text is changing.
+            </summary>
+        </member>
+        <member name="E:Telerik.Windows.SyntaxEditor.Core.Text.TextDocument.PreviewTextContentChanged">
+            <summary>
+            Occurs when text is about to be changed.
+            </summary>
+        </member>
+        <member name="E:Telerik.Windows.SyntaxEditor.Core.Text.TextDocument.TextContentChanged">
+            <summary>
+            Occurs when text is changed.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.SyntaxEditor.Core.Text.TextDocument.History">
+            <summary>
+            Gets the document history.
+            </summary>
+        </member>
+        <member name="T:Telerik.Windows.SyntaxEditor.Core.Text.TextSnapshot">
+            <summary>
+            Represents a snapshot of the text.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.SyntaxEditor.Core.Text.TextSnapshot.GetText">
+            <summary>
+            Gets the text of this snapshot instance.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.SyntaxEditor.Core.Text.TextSnapshot.GetText(Telerik.Windows.SyntaxEditor.Core.Text.Span)">
+            <summary>
+            Gets the text of the given span.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.SyntaxEditor.Core.Text.TextSnapshot.GetLineNumberFromPosition(System.Int32)">
+            <summary>
+            Gets the line number from the given position.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.SyntaxEditor.Core.Text.TextSnapshot.GetLineFromPosition(System.Int32)">
+            <summary>
+            Gets the snapshot line number from the given position.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.SyntaxEditor.Core.Text.TextSnapshot.GetLineFromLineNumber(System.Int32)">
+            <summary>
+            Gets the snapshot line number from the line number.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.SyntaxEditor.Core.Text.TextSnapshot.TextDocument">
+            <summary>
+            Gets the text document.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.SyntaxEditor.Core.Text.TextSnapshot.Version">
+            <summary>
+            Gets the version of the snapshot.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.SyntaxEditor.Core.Text.TextSnapshot.Length">
+            <summary>
+            Gets the length of the text.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.SyntaxEditor.Core.Text.TextSnapshot.LineCount">
+            <summary>
+            Gets the count of the lines.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.SyntaxEditor.Core.Text.TextSnapshot.Lines">
+            <summary>
+            Gets the lines.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.SyntaxEditor.Core.Text.TextSnapshot.Span">
+            <summary>
+            Gets a span from 0 to the <see cref="P:Telerik.Windows.SyntaxEditor.Core.Text.TextSnapshot.Length"/>.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.SyntaxEditor.Core.Text.TextSnapshot.Item(System.Int32)">
+            <summary>
+            Gets an index-based char.
+            </summary>
+            <param name="position"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Telerik.Windows.SyntaxEditor.Core.Text.TextSnapshotLine">
+            <summary>
+            Represents a line from the snapshot.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.SyntaxEditor.Core.Text.TextSnapshotLine.op_Equality(Telerik.Windows.SyntaxEditor.Core.Text.TextSnapshotLine,Telerik.Windows.SyntaxEditor.Core.Text.TextSnapshotLine)">
+            <summary>
+            Implementation of == operator.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.SyntaxEditor.Core.Text.TextSnapshotLine.op_Inequality(Telerik.Windows.SyntaxEditor.Core.Text.TextSnapshotLine,Telerik.Windows.SyntaxEditor.Core.Text.TextSnapshotLine)">
+            <summary>
+            Implementation of != operator.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.SyntaxEditor.Core.Text.TextSnapshotLine.GetText">
+            <summary>
+            Gets the text of this snapshot instance.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Windows.SyntaxEditor.Core.Text.TextSnapshotLine.GetHashCode">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Windows.SyntaxEditor.Core.Text.TextSnapshotLine.Equals(System.Object)">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Windows.SyntaxEditor.Core.Text.TextSnapshotLine.LineNumber">
+            <summary>
+            Gets the line number.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.SyntaxEditor.Core.Text.TextSnapshotLine.Snapshot">
+            <summary>
+            Gets the snapshot of this line instance.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.SyntaxEditor.Core.Text.TextSnapshotLine.Span">
+            <summary>
+            Gets the span of this line instance.
+            </summary>
+        </member>
+        <member name="T:Telerik.Windows.SyntaxEditor.Core.Text.TextSnapshotSpan">
+            <summary>
+            Represents a text snapshot span.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.SyntaxEditor.Core.Text.TextSnapshotSpan.#ctor(Telerik.Windows.SyntaxEditor.Core.Text.TextSnapshot,Telerik.Windows.SyntaxEditor.Core.Text.Span)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Windows.SyntaxEditor.Core.Text.TextSnapshotSpan"/> class.
+            </summary>
+            <param name="textSnapshot"></param>
+            <param name="span"></param>
+        </member>
+        <member name="M:Telerik.Windows.SyntaxEditor.Core.Text.TextSnapshotSpan.op_Equality(Telerik.Windows.SyntaxEditor.Core.Text.TextSnapshotSpan,Telerik.Windows.SyntaxEditor.Core.Text.TextSnapshotSpan)">
+            <summary>
+            Implementation of == operator.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.SyntaxEditor.Core.Text.TextSnapshotSpan.op_Inequality(Telerik.Windows.SyntaxEditor.Core.Text.TextSnapshotSpan,Telerik.Windows.SyntaxEditor.Core.Text.TextSnapshotSpan)">
+            <summary>
+            Implementation of != operator.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.SyntaxEditor.Core.Text.TextSnapshotSpan.GetText">
+            <summary>
+            Gets the text from the snapshot.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Windows.SyntaxEditor.Core.Text.TextSnapshotSpan.GetHashCode">
+            <summary>
+            Gets the hash code of this instance.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Windows.SyntaxEditor.Core.Text.TextSnapshotSpan.Equals(System.Object)">
+            <summary>
+            Equals implementation.
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Windows.SyntaxEditor.Core.Text.TextSnapshotSpan.ToNormalizedCollection">
+            <summary>
+            Converts this instance to normalized collection.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.SyntaxEditor.Core.Text.TextSnapshotSpan.Snapshot">
+            <summary>
+            Gets the snapshot.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.SyntaxEditor.Core.Text.TextSnapshotSpan.Span">
+            <summary>
+            Gets the span.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.SyntaxEditor.Core.Text.TextSnapshotSpan.Start">
+            <summary>
+            Gets the start of the span.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.SyntaxEditor.Core.Text.TextSnapshotSpan.End">
+            <summary>
+            Gets the end of the span.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.SyntaxEditor.Core.Text.TextSnapshotSpan.Length">
+            <summary>
+            Gets the length of the span.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.SyntaxEditor.Core.Text.TextSnapshotSpan.IsEmpty">
+            <summary>
+            Gets a flag whether the span is empty.
+            </summary>
+        </member>
+        <member name="T:Telerik.Windows.SyntaxEditor.Core.Text.TextVersion">
+            <summary>
+            Represents version of the text document.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.SyntaxEditor.Core.Text.TextVersion.VersionNumber">
+            <summary>
+            Version number.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.SyntaxEditor.Core.Text.TextVersion.TextDocument">
+            <summary>
+            The document.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.SyntaxEditor.Core.Text.TextVersion.ChangeToNextVersion">
+            <summary>
+            Change with the next version.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.SyntaxEditor.Core.Text.TextVersion.Next">
+            <summary>
+            The next version.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.SyntaxEditor.Core.Text.TextVersion.Length">
+            <summary>
+            The length of the text.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.SyntaxEditor.Core.Utilities.DocumentEnvironment.NewLine">
+            <summary>
+            Represents platform independent new line constant. 
+            </summary>
+        </member>
+    </members>
+</doc>

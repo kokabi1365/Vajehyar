@@ -1,0 +1,2943 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Telerik.Windows.Controls.ConversationalUI</name>
+    </assembly>
+    <members>
+        <member name="T:Telerik.Windows.Automation.Peers.CardAutomationPeer">
+            <summary>
+            An AutomationPeer type for Card control.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.Automation.Peers.CardAutomationPeer.#ctor(Telerik.Windows.Controls.ConversationalUI.Card)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Windows.Automation.Peers.CardAutomationPeer"/> class.
+            </summary>
+            <param name="cardControl">The card control.</param>
+        </member>
+        <member name="M:Telerik.Windows.Automation.Peers.CardAutomationPeer.GetCustomPropertyValuesCore">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Windows.Automation.Peers.CardAutomationPeer.GetAutomationControlTypeCore">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Windows.Automation.Peers.CardAutomationPeer.GetClassNameCore">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Windows.Automation.Peers.CardAutomationPeer.GetHelpTextCore">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Windows.Automation.Peers.CardAutomationPeer.GetAutomationIdCore">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Windows.Automation.Peers.CardAutomationPeer.GetItemStatusCore">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Windows.Automation.Peers.CardAutomationPeer.OwningCardControl">
+            <summary>
+            Gets the owning Card control.
+            </summary>
+            <value>The owning card control.</value>
+        </member>
+        <member name="T:Telerik.Windows.Automation.Peers.CarouselCardAutomationPeer">
+            <summary>
+            An AutomationPeer type for CarouselCard.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.Automation.Peers.CarouselCardAutomationPeer.#ctor(Telerik.Windows.Controls.ConversationalUI.CarouselCard)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Windows.Automation.Peers.CarouselCardAutomationPeer"/> class.
+            </summary>
+            <param name="carouselCardControl">The carousel card.</param>
+        </member>
+        <member name="M:Telerik.Windows.Automation.Peers.CarouselCardAutomationPeer.GetCustomPropertyValuesCore">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Windows.Automation.Peers.CarouselCardAutomationPeer.GetAutomationControlTypeCore">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Windows.Automation.Peers.CarouselCardAutomationPeer.GetClassNameCore">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Windows.Automation.Peers.CarouselCardAutomationPeer.GetHelpTextCore">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Windows.Automation.Peers.CarouselCardAutomationPeer.GetAutomationIdCore">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Windows.Automation.Peers.CarouselCardAutomationPeer.GetItemStatusCore">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Windows.Automation.Peers.CarouselCardAutomationPeer.OwningCarouselCard">
+            <summary>
+            Gets the owning CarouselCard.
+            </summary>
+            <value>The owning carousel card.</value>
+        </member>
+        <member name="T:Telerik.Windows.Automation.Peers.FlightCardAutomationPeer">
+            <summary>
+            An AutomationPeer type for FlightCard.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.Automation.Peers.FlightCardAutomationPeer.#ctor(Telerik.Windows.Controls.ConversationalUI.FlightCard)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Windows.Automation.Peers.FlightCardAutomationPeer"/> class.
+            </summary>
+            <param name="flightCardControl">The flight card control.</param>
+        </member>
+        <member name="M:Telerik.Windows.Automation.Peers.FlightCardAutomationPeer.GetCustomPropertyValuesCore">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Windows.Automation.Peers.FlightCardAutomationPeer.GetAutomationControlTypeCore">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Windows.Automation.Peers.FlightCardAutomationPeer.GetClassNameCore">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Windows.Automation.Peers.FlightCardAutomationPeer.GetHelpTextCore">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Windows.Automation.Peers.FlightCardAutomationPeer.GetAutomationIdCore">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Windows.Automation.Peers.FlightCardAutomationPeer.GetItemStatusCore">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Windows.Automation.Peers.FlightCardAutomationPeer.OwningFlightCard">
+            <summary>
+            Gets the owning FlightCard control.
+            </summary>
+            <value>The owning flight card.</value>
+        </member>
+        <member name="T:Telerik.Windows.Automation.Peers.ImageCardAutomationPeer">
+            <summary>
+            An AutomationPeer type for ImageCard.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.Automation.Peers.ImageCardAutomationPeer.#ctor(Telerik.Windows.Controls.ConversationalUI.ImageCard)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Windows.Automation.Peers.ImageCardAutomationPeer"/> class.
+            </summary>
+            <param name="imageCardControl">The image card control.</param>
+        </member>
+        <member name="M:Telerik.Windows.Automation.Peers.ImageCardAutomationPeer.GetCustomPropertyValuesCore">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Windows.Automation.Peers.ImageCardAutomationPeer.GetAutomationControlTypeCore">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Windows.Automation.Peers.ImageCardAutomationPeer.GetClassNameCore">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Windows.Automation.Peers.ImageCardAutomationPeer.GetHelpTextCore">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Windows.Automation.Peers.ImageCardAutomationPeer.GetAutomationIdCore">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Windows.Automation.Peers.ImageCardAutomationPeer.GetItemStatusCore">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Windows.Automation.Peers.ImageCardAutomationPeer.OwningImageCard">
+            <summary>
+            Gets the owning ImageCard.
+            </summary>
+            <value>The owning image card.</value>
+        </member>
+        <member name="T:Telerik.Windows.Automation.Peers.ProductCardAutomationPeer">
+            <summary>
+            An AutomationPeer type for ProductCard.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.Automation.Peers.ProductCardAutomationPeer.#ctor(Telerik.Windows.Controls.ConversationalUI.ProductCard)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Windows.Automation.Peers.ProductCardAutomationPeer"/> class.
+            </summary>
+            <param name="productCardControl">The product card control.</param>
+        </member>
+        <member name="M:Telerik.Windows.Automation.Peers.ProductCardAutomationPeer.GetCustomPropertyValuesCore">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Windows.Automation.Peers.ProductCardAutomationPeer.GetAutomationControlTypeCore">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Windows.Automation.Peers.ProductCardAutomationPeer.GetClassNameCore">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Windows.Automation.Peers.ProductCardAutomationPeer.GetHelpTextCore">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Windows.Automation.Peers.ProductCardAutomationPeer.GetAutomationIdCore">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Windows.Automation.Peers.ProductCardAutomationPeer.GetItemStatusCore">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Windows.Automation.Peers.ProductCardAutomationPeer.OwningProductCard">
+            <summary>
+            Gets the owning ProductCard.
+            </summary>
+            <value>The owning product card.</value>
+        </member>
+        <member name="T:Telerik.Windows.Automation.Peers.WeatherCardAutomationPeer">
+            <summary>
+            An AutomationPeer type for WeatherCard.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.Automation.Peers.WeatherCardAutomationPeer.#ctor(Telerik.Windows.Controls.ConversationalUI.WeatherCard)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Windows.Automation.Peers.WeatherCardAutomationPeer"/> class.
+            </summary>
+            <param name="weatherCard">The weather card.</param>
+        </member>
+        <member name="M:Telerik.Windows.Automation.Peers.WeatherCardAutomationPeer.GetCustomPropertyValuesCore">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Windows.Automation.Peers.WeatherCardAutomationPeer.GetAutomationControlTypeCore">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Windows.Automation.Peers.WeatherCardAutomationPeer.GetClassNameCore">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Windows.Automation.Peers.WeatherCardAutomationPeer.GetHelpTextCore">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Windows.Automation.Peers.WeatherCardAutomationPeer.GetAutomationIdCore">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Windows.Automation.Peers.WeatherCardAutomationPeer.GetItemStatusCore">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Windows.Automation.Peers.WeatherCardAutomationPeer.OwningWeatherCard">
+            <summary>
+            Gets the owning WeatherCard.
+            </summary>
+            <value>The owning weather card.</value>
+        </member>
+        <member name="T:Telerik.Windows.Automation.Peers.RadChatAutomationPeer">
+            <summary>
+            Represents an automation peer for the <see cref="T:Telerik.Windows.Controls.RadChat"/>.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.Automation.Peers.RadChatAutomationPeer.#ctor(Telerik.Windows.Controls.RadChat)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Windows.Automation.Peers.RadChatAutomationPeer"/> class.
+            </summary>
+            <param name="owner">The <see cref="T:Telerik.Windows.Controls.RadChat"/>.</param>
+        </member>
+        <member name="M:Telerik.Windows.Automation.Peers.RadChatAutomationPeer.GetCustomPropertyValuesCore">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Windows.Automation.Peers.RadChatAutomationPeer.GetAutomationControlTypeCore">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Windows.Automation.Peers.RadChatAutomationPeer.GetClassNameCore">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Windows.Automation.Peers.RadChatAutomationPeer.GetNameCore">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Windows.Automation.Peers.RadChatAutomationPeer.GetHelpTextCore">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Windows.Automation.Peers.RadChatAutomationPeer.GetChildrenCore">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Windows.Automation.Peers.RadChatAutomationPeer.GetItemStatusCore">
+            <inheritdoc />
+        </member>
+        <member name="T:Telerik.Windows.Automation.Peers.TextMessageControlAutomationPeer">
+            <summary>
+            An AutomationPeer type for TextMessageControl.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.Automation.Peers.TextMessageControlAutomationPeer.#ctor(Telerik.Windows.Controls.ConversationalUI.TextMessageControl)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Windows.Automation.Peers.TextMessageControlAutomationPeer"/> class.
+            </summary>
+            <param name="textMessageControl">The text message control.</param>
+        </member>
+        <member name="M:Telerik.Windows.Automation.Peers.TextMessageControlAutomationPeer.GetCustomPropertyValuesCore">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Windows.Automation.Peers.TextMessageControlAutomationPeer.GetAutomationControlTypeCore">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Windows.Automation.Peers.TextMessageControlAutomationPeer.GetClassNameCore">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Windows.Automation.Peers.TextMessageControlAutomationPeer.GetHelpTextCore">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Windows.Automation.Peers.TextMessageControlAutomationPeer.GetAutomationIdCore">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Windows.Automation.Peers.TextMessageControlAutomationPeer.GetItemStatusCore">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Windows.Automation.Peers.TextMessageControlAutomationPeer.OwningTextMessageControl">
+            <summary>
+            Gets the owning TextMessage control.
+            </summary>
+            <value>The owning text message control.</value>
+        </member>
+        <member name="T:Telerik.Windows.Controls.ConversationalUI.IMessageConverter">
+            <summary>
+            Defines methods for converting between message and data object.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.Controls.ConversationalUI.IMessageConverter.ConvertItem(System.Object)">
+            <summary>
+            Converts the given item to message.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.Controls.ConversationalUI.IMessageConverter.ConvertMessage(Telerik.Windows.Controls.ConversationalUI.MessageBase)">
+            <summary>
+            Converts the given message to a data item of an appropriate type.
+            </summary>
+        </member>
+        <member name="T:Telerik.Windows.Controls.ConversationalUI.InlineViewModel">
+            <summary>
+            Represents view model for ChatMessageList.
+            </summary>
+        </member>
+        <member name="T:Telerik.Windows.Controls.ConversationalUI.ReportResultViewModel">
+            <summary>
+            Defines members for handling response actions and message results.
+            </summary>
+        </member>
+        <member name="T:Telerik.Windows.Controls.ConversationalUI.IReportMessageResult">
+            <summary>
+            Enables a chat message to report results (change of key properties; action execution).
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.IReportMessageResult.ReportActions">
+            <summary>
+            Gets the collection of ReportActions that are associated with the message. The default UI implementation will visualize them as buttons.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.IReportMessageResult.AutoReport">
+            <summary>
+            Gets or sets a value that indicates whether the message will automatically report results.
+            Setting it to true will force any properties that are marked with ReportResult attribute to raise
+            the ReportMessageResult event of RadChat.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.IReportMessageResult.PostResultInline">
+            <summary>
+            Gets or sets a value that indicates whether response action should create a text inline message with its result.
+            The formatted text result can be found and modified in ReportMessageResult's event arguments.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.IReportMessageResult.CloseAfterReport">
+            <summary>
+            Gets or sets a value that indicates whether the message will be removed after it reports a result.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.Controls.ConversationalUI.ReportResultViewModel.#ctor(Telerik.Windows.Controls.ConversationalUI.MessageBase)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Windows.Controls.ConversationalUI.ReportResultViewModel"/> class.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.Controls.ConversationalUI.ReportResultViewModel.OnCommitMessageResult">
+            <summary>
+            Reports message result when commit action is executed.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.Controls.ConversationalUI.ReportResultViewModel.ReportMessageResultIfNeeded(System.String)">
+            <summary>
+            Reports message result for a certain property.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.Controls.ConversationalUI.ReportResultViewModel.OnCancelMessageResult">
+            <summary>
+            Reports message result when cancel action is executed.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.Controls.ConversationalUI.ReportResultViewModel.OnPropertyChanged(System.String)">
+            <summary>
+            Raises the PropertyChanged event.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.Controls.ConversationalUI.ReportResultViewModel.OnReportMessageResult(System.String)">
+            <summary>
+            Extracts the result values for a certain property and raises ReportMessageResult event.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.Controls.ConversationalUI.ReportResultViewModel.OnMessagePropertyChanged(System.Object,System.ComponentModel.PropertyChangedEventArgs)">
+            <summary>
+            Raises ReportMessageResult for AutoReport messages.
+            </summary>
+        </member>
+        <member name="E:Telerik.Windows.Controls.ConversationalUI.ReportResultViewModel.PropertyChanged">
+            <inheritdoc />
+        </member>
+        <member name="E:Telerik.Windows.Controls.ConversationalUI.ReportResultViewModel.ReportMessageResult">
+            <summary>
+            Event that is raised when the associated message reports a result (key property change or action execution). 
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.ReportResultViewModel.Message">
+            <summary>
+            Gets the associated message.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.ReportResultViewModel.CloseAfterReport">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.ReportResultViewModel.PostResultInline">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.ReportResultViewModel.AutoReport">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.ReportResultViewModel.ReportActions">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Windows.Controls.ConversationalUI.InlineViewModel.#ctor(Telerik.Windows.Controls.ConversationalUI.MessageBase)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Windows.Controls.ConversationalUI.InlineViewModel"/> class.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.InlineViewModel.IsSelected">
+            <summary>
+            Gets or sets a value that indicates whether the message is selected.
+            </summary>		
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.InlineViewModel.Status">
+            <summary>
+            Gets or sets a value that represents the status text.
+            </summary>		
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.InlineViewModel.StatusVisibility">
+            <summary>
+            Gets or sets a value that represents the status visibility.
+            </summary>			
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.InlineViewModel.CreationDateVisibility">
+            <summary>
+            Gets or sets a value that represents the creation date visibility.
+            </summary>			
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.InlineViewModel.CreationDate">
+            <summary>
+            Gets a value that represents the moment in time at which the message was registered.
+            </summary>			
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.InlineViewModel.CalculatedCornerRadius">
+            <summary>
+            Gets or sets a value that represents the calculated CornerRadius.
+            </summary>			
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.InlineViewModel.CornerRadiusValue">
+            <summary>
+            Gets or sets a value that represents the CornerRadius.
+            </summary>			
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.InlineViewModel.PositionInGroup">
+            <summary>
+            Gets the message's position in its parent MessageGroup.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.InlineViewModel.ReportCommandsVisibility">
+            <summary>
+            Gets or sets a value that represents the visibility of the ReportCommands panel.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.InlineViewModel.Alignment">
+            <summary>
+            Gets a value that represents the visibility of the horizontal alignment.
+            </summary>
+        </member>
+        <member name="T:Telerik.Windows.Controls.ConversationalUI.OverlayViewModel">
+            <summary>
+            Represents view model for ChatOverlay.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.Controls.ConversationalUI.OverlayViewModel.#ctor(Telerik.Windows.Controls.ConversationalUI.MessageBase)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Windows.Controls.ConversationalUI.OverlayViewModel"/> class.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.OverlayViewModel.Header">
+            <summary>
+            Gets or sets the overlay header.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.OverlayViewModel.Footer">
+            <summary>
+            Gets or sets the overlay footer.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.OverlayViewModel.HeaderTemplate">
+            <summary>
+            Gets or sets the template that represents the overlay header.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.OverlayViewModel.FooterTemplate">
+            <summary>
+            Gets or sets the template that represents the overlay footer.
+            </summary>
+        </member>
+        <member name="T:Telerik.Windows.Controls.ConversationalUI.PopupViewModel">
+            <summary>
+            Represents view model for ChatPopupPlaceHolder.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.Controls.ConversationalUI.PopupViewModel.#ctor(Telerik.Windows.Controls.ConversationalUI.MessageBase)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Windows.Controls.ConversationalUI.PopupViewModel"/> class.
+            </summary>
+        </member>
+        <member name="T:Telerik.Windows.Controls.ConversationalUI.CancelResponseAction">
+            <summary>
+            Represents a response action that cancels the message interaction.
+            </summary>
+        </member>
+        <member name="T:Telerik.Windows.Controls.ConversationalUI.ResponseAction">
+            <summary>
+            Represents a class that wraps command logic for the response actions feature of messages.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.Controls.ConversationalUI.ResponseAction.#ctor(Telerik.Windows.Controls.ConversationalUI.MessageBase)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Windows.Controls.ConversationalUI.ResponseAction"/> class.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.ResponseAction.Text">
+            <summary>
+            Gets or sets the response action's text.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.ResponseAction.CommandButtonVisibility">
+            <summary>
+            Gets or sets the visibility of the button that visualizes the command.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.ResponseAction.Command">
+            <summary>
+            Gets the command associated with the response action.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.ResponseAction.Message">
+            <summary>
+            Gets or sets the associated message.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.Controls.ConversationalUI.CancelResponseAction.#ctor(Telerik.Windows.Controls.ConversationalUI.MessageBase)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Windows.Controls.ConversationalUI.CancelResponseAction"/> class.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.Controls.ConversationalUI.CancelResponseAction.#ctor(Telerik.Windows.Controls.ConversationalUI.MessageBase,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Windows.Controls.ConversationalUI.CancelResponseAction"/> class.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.CancelResponseAction.PreCancelAction">
+            <summary>
+            Gets or sets an action that is invoked before OnCancelMessageResult.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.CancelResponseAction.Command">
+            <inheritdoc />
+        </member>
+        <member name="T:Telerik.Windows.Controls.ConversationalUI.CommitResponseAction">
+            <summary>
+            Represents a response action that confirms the message interaction.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.Controls.ConversationalUI.CommitResponseAction.#ctor(Telerik.Windows.Controls.ConversationalUI.MessageBase)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Windows.Controls.ConversationalUI.CommitResponseAction"/> class.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.Controls.ConversationalUI.CommitResponseAction.#ctor(Telerik.Windows.Controls.ConversationalUI.MessageBase,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Windows.Controls.ConversationalUI.CommitResponseAction"/> class.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.CommitResponseAction.PreCommitAction">
+            <summary>
+            Gets or sets an action that is invoked before OnCommitMessageResult.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.CommitResponseAction.Command">
+            <inheritdoc />
+        </member>
+        <member name="T:Telerik.Windows.Controls.ConversationalUI.Author">
+            <summary>
+            Represent a chat participant. Author of messages.
+            </summary>	
+        </member>
+        <member name="M:Telerik.Windows.Controls.ConversationalUI.Author.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the Author class.
+            </summary>		
+        </member>
+        <member name="M:Telerik.Windows.Controls.ConversationalUI.Author.#ctor(System.String,System.Windows.Media.ImageSource)">
+            <summary>
+            Initializes a new instance of the Author class.
+            </summary>		
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.Author.DefaultAuthor">
+            <summary>
+            Gets the default author that is used if no CurrentAuthor is assigned.
+            </summary>	
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.Author.Name">
+            <summary>
+            Gets or sets the Author's name.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.Author.Avatar">
+            <summary>
+            Gets or sets the Author's avatar.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.Author.Data">
+            <summary>
+            Gets or sets additional data.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.Author.IsCurrent">
+            <summary>
+            Gets a value that indicates whether this Author instance represents the current author.
+            </summary>
+        </member>
+        <member name="T:Telerik.Windows.Controls.ConversationalUI.InlineMessageControl">
+            <summary>
+            Represents control that hosts inline messages as its content.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.ConversationalUI.InlineMessageControl.CornerRadiusValueProperty">
+            <summary>
+            Identifies the <see cref="P:Telerik.Windows.Controls.ConversationalUI.InlineMessageControl.CornerRadiusValue"/> dependency property.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.Controls.ConversationalUI.InlineMessageControl.#ctor">
+            <summary>
+            Initializes a new instance of the InlineMessageControl class.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.Controls.ConversationalUI.InlineMessageControl.OnInitialized(System.EventArgs)">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.InlineMessageControl.CornerRadiusValue">
+            <summary>
+            Gets or sets the corner radius value. It is further modified by the position in group property.
+            </summary>
+        </member>
+        <member name="T:Telerik.Windows.Controls.ConversationalUI.IFormatResult">
+            <summary>
+            Defines members form formatting value to string.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.Controls.ConversationalUI.IFormatResult.FormatResult(System.Object)">
+            <summary>
+            Invokes the formatting function.
+            </summary>
+        </member>
+        <member name="T:Telerik.Windows.Controls.ConversationalUI.MessageReportType">
+            <summary>
+            Represents report types that happen after message interaction.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.ConversationalUI.MessageReportType.Cancel">
+            <summary>
+            Represents an action that cancels the message interaction.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.ConversationalUI.MessageReportType.Commit">
+            <summary>
+            Represents an action that confirms the message interaction.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.ConversationalUI.MessageReportType.Value">
+            <summary>
+            Represents an action that chooses a value.
+            </summary>
+        </member>
+        <member name="T:Telerik.Windows.Controls.ConversationalUI.ReportResultAttribute">
+            <summary>
+            Represent an attribute that is used to mark properties, which changes report results to RadChat.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.Controls.ConversationalUI.ReportResultAttribute.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Windows.Controls.ConversationalUI.ReportResultAttribute"/> class.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.Controls.ConversationalUI.ReportResultAttribute.#ctor(System.Boolean)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Windows.Controls.ConversationalUI.ReportResultAttribute"/> class.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.Controls.ConversationalUI.ReportResultAttribute.#ctor(System.Type)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Windows.Controls.ConversationalUI.ReportResultAttribute"/> class.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.Controls.ConversationalUI.ReportResultAttribute.#ctor(System.Type,System.Boolean)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Windows.Controls.ConversationalUI.ReportResultAttribute"/> class.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.ReportResultAttribute.ResultFormatter">
+            <summary>
+            Gets the result formatter associated with the attribute.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.ReportResultAttribute.AutoReport">
+            <summary>
+            Gets or sets a value that indicates whether the property will automatically report on change.
+            </summary>
+        </member>
+        <member name="T:Telerik.Windows.Controls.ConversationalUI.MessageReporter">
+            <summary>
+            Represents a class that translates the ReportMessageResult to RadChat.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.Controls.ConversationalUI.MessageReporter.#ctor(Telerik.Windows.Controls.ConversationalUI.IMessageReportSubscriber,Telerik.Windows.Controls.RadChat)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Windows.Controls.ConversationalUI.MessageReporter"/> class.
+            </summary>
+        </member>
+        <member name="T:Telerik.Windows.Controls.ConversationalUI.MessageType">
+            <summary>
+            Represents the different type of messages supported by RadChat.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.ConversationalUI.MessageType.Text">
+            <summary>
+            Represents a plain text message.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.ConversationalUI.MessageType.Calendar">
+            <summary>
+            Represents a date time message.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.ConversationalUI.MessageType.DataForm">
+            <summary>
+            Represents a message that displays the properties of an item.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.ConversationalUI.MessageType.List">
+            <summary>
+            Represents a message that displays a list of options.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.ConversationalUI.MessageType.Card">
+            <summary>
+            Represents a basic card message.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.ConversationalUI.MessageType.ImageCard">
+            <summary>
+            Represents a card message that displays an image.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.ConversationalUI.MessageType.ProductCard">
+            <summary>
+            Represents a card message that displays product info.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.ConversationalUI.MessageType.WeatherCard">
+            <summary>
+            Represents a card message that displays weather info.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.ConversationalUI.MessageType.FlightCard">
+            <summary>
+            Represents a card message that displays flight info.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.ConversationalUI.MessageType.Carousel">
+            <summary>
+            Represents a message that displays a carousel list of rich content controls (or cards).
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.ConversationalUI.MessageType.Image">
+            <summary>
+            Represents an image message.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.ConversationalUI.MessageType.Gif">
+            <summary>
+            Represents a gif message.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.ConversationalUI.MessageType.Custom">
+            <summary>
+            Represents a custom message.
+            </summary>
+        </member>
+        <member name="T:Telerik.Windows.Controls.ConversationalUI.ResultFormatter`1">
+            <summary>
+            Represents a formatter that is used by ReportResultAttribute.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.Controls.ConversationalUI.ResultFormatter`1.#ctor(System.Func{`0,System.String})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Windows.Controls.ConversationalUI.ResultFormatter`1"/> class.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.Controls.ConversationalUI.ResultFormatter`1.FormatResult(System.Object)">
+            <summary>
+            Invokes the formatting function.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.Controls.ConversationalUI.ResultFormatter`1.FormatResult(`0)">
+            <summary>
+            Invokes the formatting function.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.ResultFormatter`1.ResultFormatFunc">
+            <summary>
+            Gets or sets the formatting function.
+            </summary>
+        </member>
+        <member name="T:Telerik.Windows.Controls.ConversationalUI.ChatMessageList">
+            <summary>
+            Represents control that displays inline messages by a set of authors.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.Controls.ConversationalUI.ChatMessageList.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Windows.Controls.ConversationalUI.ChatMessageList"/> class.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.Controls.ConversationalUI.ChatMessageList.OnApplyTemplate">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Windows.Controls.ConversationalUI.ChatMessageList.OnInitialized(System.EventArgs)">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.ChatMessageList.ParentChat">
+            <summary>
+            Gets the parent chat.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.ChatMessageList.MessageListTemplateSelector">
+            <summary>
+            Gets a DataTemplateSelector that assigns appropriate visual templates for the separate types of MessageListItems.
+            </summary>
+        </member>
+        <member name="T:Telerik.Windows.Controls.ConversationalUI.ChatOverlay">
+            <summary>
+            Represents control that displays a single overlay message.
+            </summary>
+        </member>
+        <member name="T:Telerik.Windows.Controls.ConversationalUI.IMessageReportSubscriber">
+            <summary>
+            Defines members for connecting to MessageReporter.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.Controls.ConversationalUI.IMessageReportSubscriber.RemoveMessage(Telerik.Windows.Controls.ConversationalUI.MessageBase)">
+            <summary>
+            Removes the underlying message.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.IMessageReportSubscriber.MessageReporter">
+            <summary>
+            Gets the assigned MessageReported.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.ConversationalUI.ChatOverlay.HeaderBackgroundProperty">
+            <summary>
+            Identifies the <see cref="P:Telerik.Windows.Controls.ConversationalUI.ChatOverlay.HeaderBackground"/> dependency property.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.ConversationalUI.ChatOverlay.FooterBackgroundProperty">
+            <summary>
+            Identifies the <see cref="P:Telerik.Windows.Controls.ConversationalUI.ChatOverlay.FooterBackground"/> dependency property.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.ConversationalUI.ChatOverlay.ActionsBackgroundProperty">
+            <summary>
+            Identifies the <see cref="P:Telerik.Windows.Controls.ConversationalUI.ChatOverlay.ActionsBackground"/> dependency property.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.ConversationalUI.ChatOverlay.MainBackgroundProperty">
+            <summary>
+            Identifies the <see cref="P:Telerik.Windows.Controls.ConversationalUI.ChatOverlay.MainBackground"/> dependency property.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.Controls.ConversationalUI.ChatOverlay.OnApplyTemplate">
+            <inheritdoc/>
+        </member>
+        <member name="M:Telerik.Windows.Controls.ConversationalUI.ChatOverlay.AddMessage(Telerik.Windows.Controls.ConversationalUI.MessageBase)">
+            <summary>
+            Adds a message as overlay content.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.Controls.ConversationalUI.ChatOverlay.RemoveMessage(Telerik.Windows.Controls.ConversationalUI.MessageBase)">
+            <summary>
+            Clears the overlay message and removes event subscriptions, if present.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.Controls.ConversationalUI.ChatOverlay.OnInitialized(System.EventArgs)">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.ChatOverlay.HeaderBackground">
+            <summary>
+            Gets or sets a brush that is used for header background.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.ChatOverlay.FooterBackground">
+            <summary>
+            Gets or sets a brush that is used for footer background.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.ChatOverlay.ActionsBackground">
+            <summary>
+            Gets or sets a brush that is used for action panel's background.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.ChatOverlay.MainBackground">
+            <summary>
+            Gets or sets a brush that is used for the main background.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.ChatOverlay.MessageReporter">
+            <summary>
+            Gets the MessageReporter control that processes result actions.
+            </summary>
+        </member>
+        <member name="T:Telerik.Windows.Controls.ConversationalUI.IInlineMessage">
+            <summary>
+            Represents message that can be displayed in inline position.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.IInlineMessage.InlineViewModel">
+            <summary>
+            Gets the InlineViewModel.
+            </summary>
+        </member>
+        <member name="T:Telerik.Windows.Controls.ConversationalUI.IOverlayMessage">
+            <summary>
+            Represents message that can be displayed in overlay position.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.IOverlayMessage.OverlayViewModel">
+            <summary>
+            Gets the OverlayViewModel.
+            </summary>
+        </member>
+        <member name="T:Telerik.Windows.Controls.ConversationalUI.IPopupMessage">
+            <summary>
+            Represents message that can be displayed in popup position.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.IPopupMessage.PopupViewModel">
+            <summary>
+            Gets the PopupViewModel.
+            </summary>
+        </member>
+        <member name="T:Telerik.Windows.Controls.ConversationalUI.MessageBase">
+            <summary>
+            Represents the most basic abstraction of message that can report action results.
+            </summary>	
+        </member>
+        <member name="M:Telerik.Windows.Controls.ConversationalUI.MessageBase.#ctor(Telerik.Windows.Controls.ConversationalUI.MessageDisplayPosition,Telerik.Windows.Controls.ConversationalUI.Author,Telerik.Windows.Controls.ConversationalUI.MessageType,System.DateTime)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Windows.Controls.ConversationalUI.MessageBase"/> class.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.Controls.ConversationalUI.MessageBase.SubscribeToMessageResult(System.Action{System.Object,Telerik.Windows.Controls.ConversationalUI.MessageResultEventArgs})">
+            <summary>
+            Subscribes to child response actions.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.Controls.ConversationalUI.MessageBase.ValidateMessageDisplayPosition">
+            <summary>
+            Validates whether the chosen DisplayPosition is supported by the message.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.Controls.ConversationalUI.MessageBase.OnPropertyChanged(System.String)">
+            <summary>
+            Raises the PropertyChanged event.
+            </summary>
+        </member>
+        <member name="E:Telerik.Windows.Controls.ConversationalUI.MessageBase.PropertyChanged">
+            <summary>
+            Event is raised when a property of the type changes its value.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.MessageBase.ReportViewModel">
+            <summary>
+            Gets the view model instance that handles report results. It is initialized in accordance of the MessageDisplayPosition of the message.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.MessageBase.DisplayPosition">
+            <summary>
+            Gets the DisplayPosition.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.MessageBase.MessageType">
+            <summary>
+            Gets the MessageType.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.MessageBase.AutoReport">
+            <summary>
+            Gets or sets a value that indicates whether the message will automatically report results.
+            Setting it to true will force any properties that are marked with ReportResult attribute to raise
+            the ReportMessageResult event of RadChat.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.MessageBase.PostResultInline">
+            <summary>
+            Gets or sets a value that indicates whether response action should create a text inline message with its result.
+            The formatted text result can be found and modified in ReportMessageResult's event arguments.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.MessageBase.CloseAfterReport">
+            <summary>
+            Gets or sets a value that indicates whether the message will be removed after it reports a result.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.MessageBase.ReportActions">
+            <summary>
+            Gets the collection of ReportActions that are associated with the message. The default UI implementation will visualize them as buttons.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.MessageBase.Author">
+            <summary>
+            Gets the author of the message.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.MessageBase.CreationDate">
+            <summary>
+            Gets the time when the message was created.
+            </summary>
+        </member>
+        <member name="T:Telerik.Windows.Controls.ConversationalUI.ValueResponseAction">
+            <summary>
+            Represents a response action that chooses a specific value.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.Controls.ConversationalUI.ValueResponseAction.#ctor(Telerik.Windows.Controls.ConversationalUI.MessageBase)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Windows.Controls.ConversationalUI.ValueResponseAction"/> class.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.ValueResponseAction.Command">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.ValueResponseAction.DataObjectValue">
+            <summary>
+            Gets or sets the value.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.ValueResponseAction.TextResultValue">
+            <summary>
+            Gets or sets value that will be post as text result.
+            </summary>
+        </member>
+        <member name="T:Telerik.Windows.Controls.ConversationalUI.MessageDisplayPosition">
+            <summary>
+            Specifies the position of the message on the display.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.ConversationalUI.MessageDisplayPosition.Popup">
+            <summary>
+            Indicates that the message will be displayed in the ChatPopupPlaceholder (half-screen).
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.ConversationalUI.MessageDisplayPosition.Inline">
+            <summary>
+            Indicates that the message will be displayed in the ChatMessageList (item control).
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.ConversationalUI.MessageDisplayPosition.Overlay">
+            <summary>
+            Indicates the the message will be displayed in the ChatOverlay (full screen).
+            </summary>
+        </member>
+        <member name="T:Telerik.Windows.Controls.ConversationalUI.MessageGroup">
+            <summary>
+            MessageGroup is sequence of messages that have the same author.
+            </summary>	
+        </member>
+        <member name="M:Telerik.Windows.Controls.ConversationalUI.MessageGroup.#ctor">
+            <summary>
+            Initializes a new instance of the MessageGroup class.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.Controls.ConversationalUI.MessageGroup.OnMessagesItemChanged(System.Object,Telerik.Windows.Data.ItemChangedEventArgs{Telerik.Windows.Controls.ConversationalUI.InlineViewModel})">
+            <summary>
+            Invoked when a child messages raises PropertyChanged event.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.Controls.ConversationalUI.MessageGroup.OnInitialized(System.EventArgs)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Telerik.Windows.Controls.ConversationalUI.MessageResultEventArgs">
+            <summary>
+            Provides data for the result of an executed report action.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.MessageResultEventArgs.Message">
+            <summary>
+            Gets the message that reports the current result.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.MessageResultEventArgs.TextMessageResult">
+            <summary>
+            Gets or sets the message result that will be post as a text message.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.MessageResultEventArgs.PropertyName">
+            <summary>
+            Gets the name of the modified property.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.MessageResultEventArgs.DataObjectResult">
+            <summary>
+            Gets or sets the object value of the post result.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.MessageResultEventArgs.PostResultInline">
+            <summary>
+            Gets or sets a value that indicates whether text result should be post as an inline message.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.MessageResultEventArgs.CloseAfterReport">
+            <summary>
+            Gets or sets a value that indicates whether message should be removed after report.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.MessageResultEventArgs.ReportType">
+            <summary>
+            Gets the message report type.
+            </summary>
+        </member>
+        <member name="T:Telerik.Windows.Controls.ConversationalUI.MessageTemplateSelector">
+            <summary>
+            DataTemplateSelector class that different templates for the separate message types.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.Controls.ConversationalUI.MessageTemplateSelector.SelectTemplate(System.Object,System.Windows.DependencyObject)">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.MessageTemplateSelector.CalendarMessageTemplate">
+            <summary>
+            Gets or sets the data template associated with MessageType.Calendar.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.MessageTemplateSelector.TextMessageTemplate">
+            <summary>
+            Gets or sets the data template associated with MessageType.Text.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.MessageTemplateSelector.ListMessageTemplate">
+            <summary>
+            Gets or sets the data template associated with MessageType.List.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.MessageTemplateSelector.CardTemplate">
+            <summary>
+            Gets or sets the data template associated with MessageType.Card.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.MessageTemplateSelector.ImageCardTemplate">
+            <summary>
+            Gets or sets the data template associated with MessageType.ImageCard.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.MessageTemplateSelector.ProductCardTemplate">
+            <summary>
+            Gets or sets the data template associated with MessageType.ProductCard.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.MessageTemplateSelector.WeatherCardTemplate">
+            <summary>
+            Gets or sets the data template associated with MessageType.WeatherCard.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.MessageTemplateSelector.FlightCardTemplate">
+            <summary>
+            Gets or sets the data template associated with MessageType.FlightCard.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.MessageTemplateSelector.CarouselTemplate">
+            <summary>
+            Gets or sets the data template associated with MessageType.Carousel.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.MessageTemplateSelector.ImageTemplate">
+            <summary>
+            Gets or sets the data template associated with MessageType.Image.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.MessageTemplateSelector.GifTemplate">
+            <summary>
+            Gets or sets the data template associated with MessageType.Gif.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.MessageTemplateSelector.DataFormTemplate">
+            <summary>
+            Gets or sets the data template associated with MessageType.DataForm.
+            </summary>
+        </member>
+        <member name="T:Telerik.Windows.Controls.ConversationalUI.MessageGroupViewModel">
+            <summary>
+            Represents the view model that contains the properties needed for MessageGroup.
+            </summary>
+        </member>
+        <member name="T:Telerik.Windows.Controls.ConversationalUI.MessageListItemViewModelBase">
+            <summary>
+            Represents a basic view model class for MessageList items.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.MessageListItemViewModelBase.Alignment">
+            <summary>
+            Gets the horizontal alignment.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.Controls.ConversationalUI.MessageGroupViewModel.#ctor(Telerik.Windows.Controls.ConversationalUI.Author)">
+            <summary>
+            Initializes a new instance of the MessageGroupViewModel class.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.Controls.ConversationalUI.MessageGroupViewModel.AddMessage(Telerik.Windows.Controls.ConversationalUI.MessageBase)">
+            <summary>
+            Adds an inline message to the MessageGroup.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.Controls.ConversationalUI.MessageGroupViewModel.OnMessagesCollectionChanged(System.Object,System.Collections.Specialized.NotifyCollectionChangedEventArgs)">
+            <summary>
+            Invoked when the messages collection is modified.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.Controls.ConversationalUI.MessageGroupViewModel.OnMessagesItemChanged(System.Object,Telerik.Windows.Data.ItemChangedEventArgs{Telerik.Windows.Controls.ConversationalUI.InlineViewModel})">
+            <summary>
+            Invoked when one of the messages is modified.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.Controls.ConversationalUI.MessageGroupViewModel.GetCornerRadius(Telerik.Windows.Controls.ConversationalUI.InlineViewModel)">
+            <summary>
+            Calculate corner radius in accordance to PositionInGroup.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.MessageGroupViewModel.CreationDate">
+            <summary>
+            Gets the time when the message was created (first message).
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.MessageGroupViewModel.Author">
+            <summary>
+            Gets the groups' author.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.MessageGroupViewModel.Alignment">
+            <summary>
+            Gets the groups' alignment.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.MessageGroupViewModel.AvatarAlignment">
+            <summary>
+            Gets the avatar alignment in accordance to the current author.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.MessageGroupViewModel.Messages">
+            <summary>
+            Gets the collection of member inline messages.
+            </summary>
+        </member>
+        <member name="T:Telerik.Windows.Controls.ConversationalUI.MessageListTemplateSelector">
+            <summary>
+            Represents data template selector for choosing appropriate templates for MessageList items.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.Controls.ConversationalUI.MessageListTemplateSelector.SelectTemplate(System.Object,System.Windows.DependencyObject)">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.MessageListTemplateSelector.TimeBreakTemplate">
+            <summary>
+            Gets the template associated with TimeBreak.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.MessageListTemplateSelector.MessageGroupTemplate">
+            <summary>
+            Gets the template associated with MessageGroup.
+            </summary>
+        </member>
+        <member name="T:Telerik.Windows.Controls.ConversationalUI.MessagePosition">
+            <summary>
+            Specifies the position of the message.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.ConversationalUI.MessagePosition.Single">
+            <summary>
+            Describes the state of being the only message in a MessageGroup.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.ConversationalUI.MessagePosition.First">
+            <summary>
+            Describes the state of being the first message in a MessageGroup.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.ConversationalUI.MessagePosition.Middle">
+            <summary>
+            Describes the state of being an intermediate message (between the first and the last).
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.ConversationalUI.MessagePosition.Last">
+            <summary>
+            Describes the state of being the last message in a MessageGroup.
+            </summary>
+        </member>
+        <member name="T:Telerik.Windows.Controls.ConversationalUI.CalendarMessage">
+            <summary>
+            Represents message type that displays DateTime values.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.Controls.ConversationalUI.CalendarMessage.#ctor(Telerik.Windows.Controls.ConversationalUI.MessageDisplayPosition,Telerik.Windows.Controls.ConversationalUI.Author,System.DateTime)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Windows.Controls.ConversationalUI.CalendarMessage"/> class.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.Controls.ConversationalUI.CalendarMessage.#ctor(Telerik.Windows.Controls.ConversationalUI.MessageDisplayPosition,Telerik.Windows.Controls.ConversationalUI.Author,System.DateTime,System.DateTime)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Windows.Controls.ConversationalUI.CalendarMessage"/> class.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.Controls.ConversationalUI.CalendarMessage.#ctor(Telerik.Windows.Controls.ConversationalUI.MessageDisplayPosition,Telerik.Windows.Controls.ConversationalUI.Author,System.DateTime,System.DateTime,System.DateTime)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Windows.Controls.ConversationalUI.CalendarMessage"/> class.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.CalendarMessage.SelectedDate">
+            <summary>
+            Gets or sets the currently selected DateTime value.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.CalendarMessage.DisplayDate">
+            <summary>
+            Gets or sets the DateTime value that defines the initial calendar month view.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.CalendarMessage.OverlayViewModel">
+            <summary>
+            Gets the OverlayViewModel.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.CalendarMessage.InlineViewModel">
+            <summary>
+            Gets the InlineViewModel.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.CalendarMessage.PopupViewModel">
+            <summary>
+            Gets the PopupViewModel.
+            </summary>
+        </member>
+        <member name="T:Telerik.Windows.Controls.ConversationalUI.Card">
+            <summary>
+            Represents a basic card control.
+            </summary>	
+        </member>
+        <member name="F:Telerik.Windows.Controls.ConversationalUI.Card.TitleProperty">
+            <summary>
+            Identifies the <see cref="P:Telerik.Windows.Controls.ConversationalUI.Card.Title"/> dependency property.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.ConversationalUI.Card.SubTitleProperty">
+            <summary>
+            Identifies the <see cref="P:Telerik.Windows.Controls.ConversationalUI.Card.SubTitle"/> dependency property.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.ConversationalUI.Card.TextProperty">
+            <summary>
+            Identifies the <see cref="P:Telerik.Windows.Controls.ConversationalUI.Card.Text"/> dependency property.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.ConversationalUI.Card.ActionResultsOrientationProperty">
+            <summary>
+            Identifies the <see cref="P:Telerik.Windows.Controls.ConversationalUI.Card.ActionResultsOrientation"/> dependency property.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.Controls.ConversationalUI.Card.OnInitialized(System.EventArgs)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Telerik.Windows.Controls.ConversationalUI.Card.OnCreateAutomationPeer">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.Card.Title">
+            <summary>
+            Gets or sets the text.
+            </summary>     
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.Card.SubTitle">
+            <summary>
+            Gets or sets the subtitle.
+            </summary>      
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.Card.Text">
+            <summary>
+            Gets or sets the text.
+            </summary>      
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.Card.ActionResultsOrientation">
+            <summary>
+            Gets or sets the orientation of action results list.
+            </summary>        
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.Card.CachedAutomationId">
+            <summary>
+            Get or sets the manually set AutomationId value (in case there is such one).
+            </summary>
+        </member>
+        <member name="T:Telerik.Windows.Controls.ConversationalUI.CardMessage">
+            <summary>
+            Represents a basic card message.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.Controls.ConversationalUI.CardMessage.#ctor(Telerik.Windows.Controls.ConversationalUI.Author,System.DateTime)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Windows.Controls.ConversationalUI.CardMessage"/> class.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.CardMessage.Title">
+            <summary>
+            Gets or sets the text.
+            </summary>     
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.CardMessage.SubTitle">
+            <summary>
+            Gets or sets the subtitle.
+            </summary>      
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.CardMessage.Text">
+            <summary>
+            Gets or sets the text.
+            </summary>     
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.CardMessage.ActionResultsOrientation">
+            <summary>
+            Gets or sets the orientation of action results list.
+            </summary>    
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.CardMessage.InlineViewModel">
+            <summary>
+            Gets the InlineViewModel.
+            </summary>
+        </member>
+        <member name="T:Telerik.Windows.Controls.ConversationalUI.FlightCard">
+            <summary>
+            Represents card control that is used to display FlightMessages.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.ConversationalUI.FlightCard.FlightsProperty">
+            <summary>
+            Identifies the <see cref="P:Telerik.Windows.Controls.ConversationalUI.FlightCard.Flights"/> dependency property.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.ConversationalUI.FlightCard.PassengerNameProperty">
+            <summary>
+            Identifies the <see cref="P:Telerik.Windows.Controls.ConversationalUI.FlightCard.PassengerName"/> dependency property.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.ConversationalUI.FlightCard.TotalProperty">
+            <summary>
+            Identifies the <see cref="P:Telerik.Windows.Controls.ConversationalUI.FlightCard.Total"/> dependency property.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.ConversationalUI.FlightCard.ImageSourceProperty">
+            <summary>
+            Identifies the <see cref="P:Telerik.Windows.Controls.ConversationalUI.FlightCard.ImageSource"/> dependency property.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.ConversationalUI.FlightCard.ActionResultsOrientationProperty">
+            <summary>
+            Identifies the <see cref="P:Telerik.Windows.Controls.ConversationalUI.FlightCard.ActionResultsOrientation"/> dependency property.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.Controls.ConversationalUI.FlightCard.OnInitialized(System.EventArgs)">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Windows.Controls.ConversationalUI.FlightCard.OnCreateAutomationPeer">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.FlightCard.Flights">
+            <summary>
+            Gets or sets a collection of the displayed flights.
+            </summary>      
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.FlightCard.PassengerName">
+            <summary>
+            Gets or sets the name of the passenger.
+            </summary>      
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.FlightCard.Total">
+            <summary>
+            Gets or sets formatted total price.
+            </summary>      
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.FlightCard.ImageSource">
+            <summary>
+            Gets or sets the flight image source.
+            </summary>      
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.FlightCard.ActionResultsOrientation">
+            <summary>
+            Gets or sets the orientation of action results list.
+            </summary>    
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.FlightCard.CachedAutomationId">
+            <summary>
+            Get or sets the manually set AutomationId value (in case there is such one).
+            </summary>
+        </member>
+        <member name="T:Telerik.Windows.Controls.ConversationalUI.FlightCardMessage">
+            <summary>
+            Represents card message type that displays information about flights.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.Controls.ConversationalUI.FlightCardMessage.#ctor(Telerik.Windows.Controls.ConversationalUI.Author,System.DateTime)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Windows.Controls.ConversationalUI.FlightCardMessage"/> class.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.FlightCardMessage.PassengerName">
+            <summary>
+            Gets or sets the name of the passenger.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.FlightCardMessage.Total">
+            <summary>
+            Gets or sets the formatted total price.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.FlightCardMessage.ImageSource">
+            <summary>
+            Gets or sets the flight icon image.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.FlightCardMessage.ActionResultsOrientation">
+            <summary>
+            Gets or sets the orientation of action results list.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.FlightCardMessage.Flights">
+            <summary>
+            Gets a collection of the displayed flights.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.FlightCardMessage.InlineViewModel">
+            <summary>
+            Gets the InlineViewModel.
+            </summary>
+        </member>
+        <member name="T:Telerik.Windows.Controls.ConversationalUI.FlightInfo">
+            <summary>
+            Represents information about a flight for the means of FlightCard.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.FlightInfo.DepartureCity">
+            <summary>
+            Gets or sets the name of the departure city .
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.FlightInfo.DepartureAirport">
+            <summary>
+            Gets or sets the name of the departure airport.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.FlightInfo.DepartureDateTime">
+            <summary>
+            Gets or sets the time of departure.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.FlightInfo.ArrivalCity">
+            <summary>
+            Gets or sets the name of the arrival city.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.FlightInfo.ArrivalAirport">
+            <summary>
+            Gets or sets the name of the arrival airport.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.FlightInfo.ArrivalDateTime">
+            <summary>
+            Gets or sets the time of arrival.
+            </summary>
+        </member>
+        <member name="T:Telerik.Windows.Controls.ConversationalUI.CardOrientation">
+            <summary>
+            Represents the different types of card layout orientation.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.ConversationalUI.CardOrientation.Portrait">
+            <summary>
+            Represents Portrait (vertical) orientation.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.ConversationalUI.CardOrientation.Landscape">
+            <summary>
+            Represents Landscape (horizontal) orientation.
+            </summary>
+        </member>
+        <member name="T:Telerik.Windows.Controls.ConversationalUI.ImageCard">
+            <summary>
+            Represents a card control that is used to display image messages.
+            </summary>	
+        </member>
+        <member name="F:Telerik.Windows.Controls.ConversationalUI.ImageCard.CardOrientationProperty">
+            <summary>
+            Identifies the <see cref="P:Telerik.Windows.Controls.ConversationalUI.ImageCard.CardOrientation"/> dependency property.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.ConversationalUI.ImageCard.ImageSourceProperty">
+            <summary>
+            Identifies the <see cref="P:Telerik.Windows.Controls.ConversationalUI.ImageCard.ImageSource"/> dependency property.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.ConversationalUI.ImageCard.ImageDisplayModeProperty">
+            <summary>
+            Identifies the <see cref="P:Telerik.Windows.Controls.ConversationalUI.ImageCard.ImageDisplayMode"/> dependency property.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.Controls.ConversationalUI.ImageCard.OnInitialized(System.EventArgs)">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Windows.Controls.ConversationalUI.ImageCard.OnCreateAutomationPeer">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.ImageCard.CardOrientation">
+            <summary>
+            Gets or sets the layout orientation.
+            </summary>      
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.ImageCard.ImageSource">
+            <summary>
+            Gets or sets the image source.
+            </summary>      
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.ImageCard.ImageDisplayMode">
+            <summary>
+            Gets or sets the image display mode.
+            </summary>      
+        </member>
+        <member name="T:Telerik.Windows.Controls.ConversationalUI.ImageCardMessage">
+            <summary>
+            Represents a message that displays images and text.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.Controls.ConversationalUI.ImageCardMessage.#ctor(Telerik.Windows.Controls.ConversationalUI.Author,System.Windows.Media.ImageSource,System.DateTime)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Windows.Controls.ConversationalUI.ImageCardMessage"/> class.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.Controls.ConversationalUI.ImageCardMessage.#ctor(Telerik.Windows.Controls.ConversationalUI.Author,System.DateTime)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Windows.Controls.ConversationalUI.ImageCardMessage"/> class.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.ImageCardMessage.ImageSource">
+            <summary>
+            Gets or sets the image source.
+            </summary>   
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.ImageCardMessage.ImageDisplayMode">
+            <summary>
+            Gets or sets the image display mode.
+            </summary>      
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.ImageCardMessage.CardOrientation">
+            <summary>
+            Gets or sets the layout orientation.
+            </summary>
+        </member>
+        <member name="T:Telerik.Windows.Controls.ConversationalUI.ImageDisplayMode">
+            <summary>
+            Represents the image sizing display modes for ImageCards.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.ConversationalUI.ImageDisplayMode.Stretch">
+            <summary>
+            The image is stretched.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.ConversationalUI.ImageDisplayMode.Thumbnail">
+            <summary>
+            The image is presented as a thumbnail.
+            </summary>
+        </member>
+        <member name="T:Telerik.Windows.Controls.ConversationalUI.ProductCard">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.ConversationalUI.ProductCard.PriceProperty">
+            <summary>
+            Identifies the <see cref="P:Telerik.Windows.Controls.ConversationalUI.ProductCard.Price"/> dependency property.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.ConversationalUI.ProductCard.RatingProperty">
+            <summary>
+            Identifies the <see cref="P:Telerik.Windows.Controls.ConversationalUI.ProductCard.Rating"/> dependency property.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.ConversationalUI.ProductCard.RatingItemsCountProperty">
+            <summary>
+            Identifies the <see cref="P:Telerik.Windows.Controls.ConversationalUI.ProductCard.RatingItemsCount"/> dependency property.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.Controls.ConversationalUI.ProductCard.OnInitialized(System.EventArgs)">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Windows.Controls.ConversationalUI.ProductCard.OnCreateAutomationPeer">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.ProductCard.Price">
+            <summary>
+            Gets or sets the formatted price.
+            </summary>      
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.ProductCard.Rating">
+            <summary>
+            Gets or sets the rating of the product.
+            </summary>      
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.ProductCard.RatingItemsCount">
+            <summary>
+            Gets or sets the number of rating items (stars).
+            </summary>      
+        </member>
+        <member name="T:Telerik.Windows.Controls.ConversationalUI.ProductCardMessage">
+            <summary>
+            Represents a card message that displays info about a product.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.Controls.ConversationalUI.ProductCardMessage.#ctor(Telerik.Windows.Controls.ConversationalUI.Author,System.DateTime)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Windows.Controls.ConversationalUI.ProductCardMessage"/> class.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.Controls.ConversationalUI.ProductCardMessage.#ctor(Telerik.Windows.Controls.ConversationalUI.Author,System.Windows.Media.ImageSource,System.DateTime)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Windows.Controls.ConversationalUI.ProductCardMessage"/> class.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.ProductCardMessage.Rating">
+            <summary>
+            Gets or sets the rating of the product.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.ProductCardMessage.Price">
+            <summary>
+            Gets or sets the formatted price.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.ProductCardMessage.RatingItemsCount">
+            <summary>
+            Gets or sets the number of rating items (stars).
+            </summary>
+        </member>
+        <member name="T:Telerik.Windows.Controls.ConversationalUI.WeatherCard">
+            <summary>
+            Represents a card control that is used to display WeatherCards.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.ConversationalUI.WeatherCard.TemperatureProperty">
+            <summary>
+            Identifies the <see cref="P:Telerik.Windows.Controls.ConversationalUI.WeatherCard.Temperature"/> dependency property.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.ConversationalUI.WeatherCard.HumidityProperty">
+            <summary>
+            Identifies the <see cref="P:Telerik.Windows.Controls.ConversationalUI.WeatherCard.Humidity"/> dependency property.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.ConversationalUI.WeatherCard.DewProperty">
+            <summary>
+            Identifies the <see cref="P:Telerik.Windows.Controls.ConversationalUI.WeatherCard.Dew"/> dependency property.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.ConversationalUI.WeatherCard.PressureProperty">
+            <summary>
+            Identifies the <see cref="P:Telerik.Windows.Controls.ConversationalUI.WeatherCard.Pressure"/> dependency property.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.ConversationalUI.WeatherCard.WindProperty">
+            <summary>
+            Identifies the <see cref="P:Telerik.Windows.Controls.ConversationalUI.WeatherCard.Wind"/> dependency property.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.Controls.ConversationalUI.WeatherCard.OnInitialized(System.EventArgs)">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Windows.Controls.ConversationalUI.WeatherCard.OnCreateAutomationPeer">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.WeatherCard.Temperature">
+            <summary>
+            Gets or sets the temperature.
+            </summary>      
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.WeatherCard.Humidity">
+            <summary>
+            Gets or sets the humidity.
+            </summary>      
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.WeatherCard.Dew">
+            <summary>
+            Gets or sets the dew point.
+            </summary>      
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.WeatherCard.Pressure">
+            <summary>
+            Gets or sets the atmospheric pressure.
+            </summary>      
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.WeatherCard.Wind">
+            <summary>
+            Gets or sets the wind parameters.
+            </summary>      
+        </member>
+        <member name="T:Telerik.Windows.Controls.ConversationalUI.WeatherCardMessage">
+            <summary>
+            Represents a message that displays info about weather.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.Controls.ConversationalUI.WeatherCardMessage.#ctor(Telerik.Windows.Controls.ConversationalUI.Author,System.DateTime)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Windows.Controls.ConversationalUI.WeatherCardMessage"/> class.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.Controls.ConversationalUI.WeatherCardMessage.#ctor(Telerik.Windows.Controls.ConversationalUI.Author,System.Windows.Media.ImageSource,System.DateTime)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Windows.Controls.ConversationalUI.WeatherCardMessage"/> class.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.WeatherCardMessage.Temperature">
+            <summary>
+            Gets or sets the temperature.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.WeatherCardMessage.Humidity">
+            <summary>
+            Gets or sets the humidity.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.WeatherCardMessage.Dew">
+            <summary>
+            Gets or sets the dew point.
+            </summary>  
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.WeatherCardMessage.Pressure">
+            <summary>
+            Gets or sets the atmospheric pressure.
+            </summary>  
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.WeatherCardMessage.Wind">
+            <summary>
+            Gets or sets the wind parameters.
+            </summary>
+        </member>
+        <member name="T:Telerik.Windows.Controls.ConversationalUI.CarouselCard">
+            <summary>
+            Represents a control that is used to display CarouselMessages.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.ConversationalUI.CarouselCard.SourceProperty">
+            <summary>
+            Identifies the <see cref="P:Telerik.Windows.Controls.ConversationalUI.CarouselCard.Source"/> dependency property.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.Controls.ConversationalUI.CarouselCard.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Windows.Controls.ConversationalUI.CarouselCard"/> class.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.Controls.ConversationalUI.CarouselCard.OnApplyTemplate">
+            <summary>
+            When overridden in a derived class, is invoked whenever application code or internal processes (such as a rebuilding layout pass) call <see cref="M:System.Windows.Controls.Control.ApplyTemplate"/>.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.Controls.ConversationalUI.CarouselCard.OnInitialized(System.EventArgs)">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Windows.Controls.ConversationalUI.CarouselCard.OnCreateAutomationPeer">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.CarouselCard.Source">
+            <summary>
+            Gets or sets Carousel's data source.
+            </summary>      
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.CarouselCard.CachedAutomationId">
+            <summary>
+            Get or sets the manually set AutomationId value (in case there is such one).
+            </summary>
+        </member>
+        <member name="T:Telerik.Windows.Controls.ConversationalUI.CarouselMessage">
+            <summary>
+            Represents a message that displays a list of rich content elements.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.Controls.ConversationalUI.CarouselMessage.#ctor(Telerik.Windows.Controls.ConversationalUI.MessageDisplayPosition,Telerik.Windows.Controls.ConversationalUI.Author,System.Collections.Generic.IEnumerable{System.Object},System.DateTime)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Windows.Controls.ConversationalUI.CarouselMessage"/> class.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.Controls.ConversationalUI.CarouselMessage.SubscribeToMessageResult(System.Action{System.Object,Telerik.Windows.Controls.ConversationalUI.MessageResultEventArgs})">
+            <summary>
+            Subscribes to ReportViewModel.ReportMessageResult event.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.CarouselMessage.Source">
+            <summary>
+            Gets or sets the Carousel's data source.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.CarouselMessage.LastReportItem">
+            <summary>
+            Gets the child message that was last to report message result.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.CarouselMessage.SelectedItem">
+            <summary>
+            Gets or sets the selected item.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.CarouselMessage.CarouselHeight">
+            <summary>
+            Gets or sets the underlying carousel control's height.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.CarouselMessage.LoadedCommand">
+            <summary>
+            Gets or sets a command that is invoked on RadCarousel.Loaded.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.CarouselMessage.OverlayViewModel">
+            <summary>
+            Gets the OverlayViewModel.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.CarouselMessage.InlineViewModel">
+            <summary>
+            Gets the InlineViewModel.
+            </summary>
+        </member>
+        <member name="T:Telerik.Windows.Controls.ConversationalUI.GifMessage">
+            <summary>
+            Represents a message that displays gif files.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.Controls.ConversationalUI.GifMessage.#ctor(Telerik.Windows.Controls.ConversationalUI.Author,System.Uri,System.DateTime)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Windows.Controls.ConversationalUI.GifMessage"/> class.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.GifMessage.Size">
+            <summary>
+            Gets or sets the size.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.GifMessage.Source">
+            <summary>
+            Gets or sets the gif source.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.GifMessage.MediaEndedCommand">
+            <summary>
+            Gets or sets a command that is executed on MediaElement.MediaEnded.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.GifMessage.Stretch">
+            <summary>
+            Gets or sets the gif stretching behavior.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.GifMessage.InlineViewModel">
+            <summary>
+            Gets the InlineViewModel.
+            </summary>
+        </member>
+        <member name="T:Telerik.Windows.Controls.ConversationalUI.DataFormAutoBind">
+            <summary>
+            Represents attached behavior that can be used to automatically bind data form field to its model property.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.ConversationalUI.DataFormAutoBind.BindEditPropertyProperty">
+            <summary>
+            Identifies the BindEditProperty attached dependency property.
+            </summary>   
+        </member>
+        <member name="M:Telerik.Windows.Controls.ConversationalUI.DataFormAutoBind.GetBindEditProperty(System.Windows.FrameworkElement)">
+            <summary>
+            Gets the BindEditProperty property.
+            </summary>     
+        </member>
+        <member name="M:Telerik.Windows.Controls.ConversationalUI.DataFormAutoBind.SetBindEditProperty(System.Windows.FrameworkElement,System.String)">
+            <summary>
+            Sets the BindEditProperty property.
+            </summary>    
+        </member>
+        <member name="T:Telerik.Windows.Controls.ConversationalUI.DataFormField">
+            <summary>
+            Represents a field for a single property in DataForm message.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.Controls.ConversationalUI.DataFormField.#ctor(System.ComponentModel.PropertyDescriptor,System.Object)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Windows.Controls.ConversationalUI.DataFormField"/> class.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.DataFormField.PropertyDescriptor">
+            <summary>
+            Gets the property descriptor.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.DataFormField.Item">
+            <summary>
+            Gets or sets the bound item.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.DataFormField.DataSource">
+            <summary>
+            Gets or sets the collection of property names.
+            </summary>
+        </member>
+        <member name="T:Telerik.Windows.Controls.ConversationalUI.DataFormMessage">
+            <summary>
+            Represents a message that displays the properties of a bound item.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.Controls.ConversationalUI.DataFormMessage.#ctor(Telerik.Windows.Controls.ConversationalUI.MessageDisplayPosition,Telerik.Windows.Controls.ConversationalUI.Author,System.Object,System.Collections.Generic.IEnumerable{System.String},System.DateTime)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Windows.Controls.ConversationalUI.DataFormMessage"/> class.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.Controls.ConversationalUI.DataFormMessage.ProcessItem(System.Object)">
+            <summary>
+            Extracts collections of fields and property descriptors based on the type of the given item.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.DataFormMessage.Item">
+            <summary>
+            Gets or sets the bound item.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.DataFormMessage.PropertyNames">
+            <summary>
+            Gets or sets the collection of property names.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.DataFormMessage.Fields">
+            <summary>
+            Gets the collection of DataFormFields.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.DataFormMessage.InlineViewModel">
+            <summary>
+            Gets the InlineViewModel.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.DataFormMessage.OverlayViewModel">
+            <summary>
+            Gets the OverlayViewModel.
+            </summary>
+        </member>
+        <member name="T:Telerik.Windows.Controls.ConversationalUI.DataFormTemplateSelector">
+            <summary>
+            Gets an appropriate DataTemplate in accordance to the field type.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.Controls.ConversationalUI.DataFormTemplateSelector.SelectTemplate(System.Object,System.Windows.DependencyObject)">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.DataFormTemplateSelector.TextInputTemplate">
+            <summary>
+            Gets or sets the data template associated with text input field.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.DataFormTemplateSelector.CheckBoxTemplate">
+            <summary>
+            Gets or sets the data template associated with text check box field.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.DataFormTemplateSelector.DateTimeTemplate">
+            <summary>
+            Gets or sets the data template associated with date time field.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.DataFormTemplateSelector.ComboBoxTemplate">
+            <summary>
+            Gets or sets the data template associated with combo box field.
+            </summary>
+        </member>
+        <member name="T:Telerik.Windows.Controls.ConversationalUI.DynamicPropertyDescriptor">
+            <summary>
+            Represent a PropertyDescriptor that describes IDynamicMetaObjectProvider types.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.Controls.ConversationalUI.DynamicPropertyDescriptor.#ctor(System.Type,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Windows.Controls.ConversationalUI.DynamicPropertyDescriptor"/> class.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.Controls.ConversationalUI.DynamicPropertyDescriptor.CanResetValue(System.Object)">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Windows.Controls.ConversationalUI.DynamicPropertyDescriptor.GetValue(System.Object)">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Windows.Controls.ConversationalUI.DynamicPropertyDescriptor.ResetValue(System.Object)">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Windows.Controls.ConversationalUI.DynamicPropertyDescriptor.SetValue(System.Object,System.Object)">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Windows.Controls.ConversationalUI.DynamicPropertyDescriptor.ShouldSerializeValue(System.Object)">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.DynamicPropertyDescriptor.PropertyType">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.DynamicPropertyDescriptor.DisplayName">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.DynamicPropertyDescriptor.ComponentType">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.DynamicPropertyDescriptor.IsReadOnly">
+            <inheritdoc />
+        </member>
+        <member name="T:Telerik.Windows.Controls.ConversationalUI.ImageMessage">
+            <summary>
+            Represents message type that displays an image.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.Controls.ConversationalUI.ImageMessage.#ctor(Telerik.Windows.Controls.ConversationalUI.Author,System.Windows.Media.ImageSource,System.DateTime)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Windows.Controls.ConversationalUI.ImageMessage"/> class.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.ImageMessage.Size">
+            <summary>
+            Gets or sets the image size.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.ImageMessage.Source">
+            <summary>
+            Gets or sets the source of the image.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.ImageMessage.Stretch">
+            <summary>
+            Gets or sets the stretching behavior of the image.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.ImageMessage.InlineViewModel">
+            <summary>
+            Gets the InlineViewModel.
+            </summary>
+        </member>
+        <member name="T:Telerik.Windows.Controls.ConversationalUI.ListMessage">
+            <summary>
+            Represents message type that displays a list of values.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.Controls.ConversationalUI.ListMessage.#ctor(Telerik.Windows.Controls.ConversationalUI.MessageDisplayPosition,Telerik.Windows.Controls.ConversationalUI.Author,System.Collections.IEnumerable,System.DateTime)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Windows.Controls.ConversationalUI.ListMessage"/> class.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.Controls.ConversationalUI.ListMessage.#ctor(Telerik.Windows.Controls.ConversationalUI.MessageDisplayPosition,Telerik.Windows.Controls.ConversationalUI.Author,System.Collections.IEnumerable,System.Windows.Controls.SelectionMode,System.DateTime)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Windows.Controls.ConversationalUI.ListMessage"/> class.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.ListMessage.Source">
+            <summary>
+            Gets or sets the list's data source.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.ListMessage.SelectionChangedCommand">
+            <summary>
+            Gets or sets the command that is executed as soon as change in selection takes place.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.ListMessage.SelectedItem">
+            <summary>
+            Gets or sets the item that is currently selected in the list.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.ListMessage.SelectedIndex">
+            <summary>
+            Gets or sets the index of the item that is currently selected in the list.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.ListMessage.SelectionMode">
+            <summary>
+            Gets or sets the selection mode of the underlying multi-selector control.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.ListMessage.DisplayMemberPath">
+            <summary>
+            Gets or sets the display member path for visualizing the items' content.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.ListMessage.ItemTemplate">
+            <summary>
+            Gets or sets the item template of the underlying ItemsControl.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.ListMessage.OverlayViewModel">
+            <summary>
+            Gets the OverlayViewModel.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.ListMessage.InlineViewModel">
+            <summary>
+            Gets the InlineViewModel.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.ListMessage.PopupViewModel">
+            <summary>
+            Gets the PopupViewModel.
+            </summary>
+        </member>
+        <member name="T:Telerik.Windows.Controls.ConversationalUI.TextMessageControl">
+            <summary>
+            Represents a control that displays text messages. 
+            </summary>	
+        </member>
+        <member name="F:Telerik.Windows.Controls.ConversationalUI.TextMessageControl.TextProperty">
+            <summary>
+            Identifies the <see cref="P:Telerik.Windows.Controls.ConversationalUI.TextMessageControl.Text"/> dependency property.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.ConversationalUI.TextMessageControl.CreationDateProperty">
+            <summary>
+            Identifies the <see cref="P:Telerik.Windows.Controls.ConversationalUI.TextMessageControl.CreationDate"/> dependency property.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.ConversationalUI.TextMessageControl.StatusProperty">
+            <summary>
+            Identifies the <see cref="P:Telerik.Windows.Controls.ConversationalUI.TextMessageControl.Status"/> dependency property.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.ConversationalUI.TextMessageControl.IsSelectedProperty">
+            <summary>
+            Identifies the <see cref="P:Telerik.Windows.Controls.ConversationalUI.TextMessageControl.IsSelected"/> dependency property.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.Controls.ConversationalUI.TextMessageControl.#ctor">
+            <summary>
+            Initializes a new instance of the TextMessageControl class.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.Controls.ConversationalUI.TextMessageControl.OnApplyTemplate">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Windows.Controls.ConversationalUI.TextMessageControl.OnInitialized(System.EventArgs)">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Windows.Controls.ConversationalUI.TextMessageControl.OnCreateAutomationPeer">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.TextMessageControl.Text">
+            <summary>
+            Gets or sets the displayed text.
+            </summary>      
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.TextMessageControl.CreationDate">
+            <summary>
+            Gets or sets the time when the underlying message was created.
+            </summary>      
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.TextMessageControl.Status">
+            <summary>
+            Gets or sets the message status.
+            </summary>      
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.TextMessageControl.IsSelected">
+            <summary>
+            Gets or sets a value that indicates whether the message is selected.
+            </summary>      
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.TextMessageControl.CachedAutomationId">
+            <summary>
+            Get or sets the manually set AutomationId value (in case there is such one).
+            </summary>
+        </member>
+        <member name="T:Telerik.Windows.Controls.ConversationalUI.ChatPopupPlaceholder">
+            <summary>
+            Represents control that displays a single popup message.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.Controls.ConversationalUI.ChatPopupPlaceholder.OnApplyTemplate">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Windows.Controls.ConversationalUI.ChatPopupPlaceholder.AddMessage(Telerik.Windows.Controls.ConversationalUI.MessageBase)">
+            <summary>
+            Adds a message as popup content.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.Controls.ConversationalUI.ChatPopupPlaceholder.RemoveMessage(Telerik.Windows.Controls.ConversationalUI.MessageBase)">
+            <summary>
+            Clears the popup message and removes event subscriptions, if present.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.Controls.ConversationalUI.ChatPopupPlaceholder.OnInitialized(System.EventArgs)">
+            <inheritdoc/>
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.ChatPopupPlaceholder.MessageReporter">
+            <summary>
+            Gets the MessageReporter control that processes result actions.
+            </summary>
+        </member>
+        <member name="T:Telerik.Windows.Controls.ConversationalUI.TextMessage">
+            <summary>
+            Represents a message that displays simple text.
+            </summary>	
+        </member>
+        <member name="M:Telerik.Windows.Controls.ConversationalUI.TextMessage.#ctor(Telerik.Windows.Controls.ConversationalUI.Author,System.String,System.DateTime)">
+            <summary>
+            Initializes a new instance of the TextMessage class.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.Controls.ConversationalUI.TextMessage.#ctor(Telerik.Windows.Controls.ConversationalUI.Author,System.String,System.String,System.DateTime)">
+            <summary>
+            Initializes a new instance of the TextMessage class.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.TextMessage.Text">
+            <summary>
+            Gets or sets the text that gets displayed in the message.
+            </summary>		
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.TextMessage.InlineViewModel">
+            <summary>
+            Gets the InlineViewModel.
+            </summary>	
+        </member>
+        <member name="T:Telerik.Windows.Controls.RadChat">
+            <summary>
+            RadChat is control that provides the look and feel of a chat application. It exposes API for managing and display of text and media messages. 
+            </summary>	
+        </member>
+        <member name="M:Telerik.Windows.Controls.RadChat.AddTimeBreak(System.String)">
+            <summary>
+            Adds a time break with the given header.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.Controls.RadChat.CreateMessageGroup(Telerik.Windows.Controls.ConversationalUI.Author)">
+            <summary>
+            Creates a new message group for the given author.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.Controls.RadChat.AddMessage(Telerik.Windows.Controls.ConversationalUI.MessageBase)">
+            <summary>
+            Adds a new Message to RadChat.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.Controls.RadChat.AddMessage(Telerik.Windows.Controls.ConversationalUI.Author,System.String)">
+            <summary>
+            Adds a new Message to RadChat.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.Controls.RadChat.RemoveMessage(Telerik.Windows.Controls.ConversationalUI.MessageBase)">
+            <summary>
+            Removes an existing inline message from RadChat.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.Controls.RadChat.GetMessageByIndex(System.Int32)">
+            <summary>
+            Returns the inline message by its index position.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.RadChat.DataSourceProperty">
+            <summary>
+            Identifies the <see cref="P:Telerik.Windows.Controls.RadChat.DataSource"/> dependency property.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.RadChat.MessageConverterProperty">
+            <summary>
+            Identifies the <see cref="P:Telerik.Windows.Controls.RadChat.MessageConverter"/> dependency property.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.Controls.RadChat.ConvertItemToMessage(System.Object)">
+            <summary>
+            Uses the given MessageConverter to convert data item to message.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.Controls.RadChat.ConvertMessageToDataItem(Telerik.Windows.Controls.ConversationalUI.MessageBase)">
+            <summary>
+            Uses the given MessageConverter to convert message to data object.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.Controls.RadChat.RebindDataSource">
+            <summary>
+            Rebinds the RadChat, using the collection set as DataSource.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.RadChat.ToolBarCommandsProperty">
+            <summary>
+            Identifies the <see cref="P:Telerik.Windows.Controls.RadChat.ToolBarCommands"/> dependency property.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.RadChat.SendCommandProperty">
+            <summary>
+            Identifies the <see cref="P:Telerik.Windows.Controls.RadChat.SendCommand"/> dependency property.
+            </summary> 
+        </member>
+        <member name="F:Telerik.Windows.Controls.RadChat.AutoIncludeTimeBreaksProperty">
+            <summary>
+            Identifies the <see cref="P:Telerik.Windows.Controls.RadChat.AutoIncludeTimeBreaks"/> dependency property.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.RadChat.CanUserSelectMessageProperty">
+            <summary>
+            Identifies the <see cref="P:Telerik.Windows.Controls.RadChat.CanUserSelectMessage"/> dependency property.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.RadChat.TimeBreakIntervalProperty">
+            <summary>
+            Identifies the <see cref="P:Telerik.Windows.Controls.RadChat.TimeBreakInterval"/> dependency property.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.RadChat.TimeBreakFormatProperty">
+            <summary>
+            Identifies the <see cref="P:Telerik.Windows.Controls.RadChat.TimeBreakFormat"/> dependency property.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.RadChat.VerticalAvatarAlignmentProperty">
+            <summary>
+            Identifies the <see cref="P:Telerik.Windows.Controls.RadChat.VerticalAvatarAlignment"/> dependency property.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.RadChat.MessageListTemplateSelectorProperty">
+            <summary>
+            Identifies the <see cref="P:Telerik.Windows.Controls.RadChat.MessageListTemplateSelector"/> dependency property.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.RadChat.CurrentAuthorProperty">
+            <summary>
+            Identifies the <see cref="P:Telerik.Windows.Controls.RadChat.CurrentAuthor"/> dependency property.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.RadChat.MessagePopupTemplateSelectorProperty">
+            <summary>
+            Identifies the <see cref="P:Telerik.Windows.Controls.RadChat.MessagePopupTemplateSelector"/> dependency property.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.RadChat.ToolBarCommandTemplateSelectorProperty">
+            <summary>
+            Identifies the <see cref="P:Telerik.Windows.Controls.RadChat.ToolBarCommandTemplateSelector"/> dependency property.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.RadChat.ToolBarCommandTemplateProperty">
+            <summary>
+            Identifies the <see cref="P:Telerik.Windows.Controls.RadChat.ToolBarCommandTemplate"/> dependency property.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.RadChat.MessageOverlayTemplateSelectorProperty">
+            <summary>
+            Identifies the <see cref="P:Telerik.Windows.Controls.RadChat.MessageOverlayTemplateSelector"/> dependency property.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.RadChat.SuggestedActionsVisibilityProperty">
+            <summary>
+            Identifies the <see cref="P:Telerik.Windows.Controls.RadChat.SuggestedActionsVisibility"/> dependency property.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.RadChat.InputBoxWatermarkContentProperty">
+            <summary>
+            Identifies the InputBoxWatermarkContent dependency property.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.RadChat.InputBoxTextProperty">
+            <summary>
+            Identifies the InputBoxText dependency property.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.RadChat.TypingCommandProperty">
+            <summary>
+            Identifies the TypingCommand dependency property.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.RadChat.SuggestedActionsProperty">
+            <summary>
+            Identifies the SuggestedActions dependency property.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.RadChat.TypingIndicatorVisibilityProperty">
+            <summary>
+            Identifies the TypingIndicatorVisibility dependency property.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.RadChat.TypingIndicatorTextProperty">
+            <summary>
+            Identifies the TypingIndicatorText dependency property.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.RadChat.TypingIndicatorIconProperty">
+            <summary>
+            Identifies the TypingIndicatorIcon dependency property.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.RadChat.IsToolBarOpenProperty">
+            <summary>
+            Identifies the IsToolBarOpen dependency property.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.RadChat.ReportMessageResultEvent">
+            <summary>
+            Identifies the <c cref="E:Telerik.Windows.Controls.RadChat.ReportMessageResult"/> Event.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.RadChat.SuggestedActionReportedEvent">
+            <summary>
+            Identifies the <c cref="E:Telerik.Windows.Controls.RadChat.SuggestedActionReported"/> Event.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.RadChat.SendMessageEvent">
+            <summary>
+            Identifies the <c cref="E:Telerik.Windows.Controls.RadChat.SendMessage"/> Event.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.Controls.RadChat.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Windows.Controls.RadChat"/> class.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.Controls.RadChat.CloseOverlay">
+            <summary>
+            Closes the overlay view and its content.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.Controls.RadChat.ClosePopup">
+            <summary>
+            Closes the popup placeholder view and its content.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.Controls.RadChat.OnApplyTemplate">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Windows.Controls.RadChat.OnReportMessageResult(Telerik.Windows.Controls.ConversationalUI.MessageResultEventArgs)">
+            <summary>
+            Raises the ReportMessageResult event.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.Controls.RadChat.OnAddingTimeBreak(Telerik.Windows.Controls.ConversationalUI.TimeBreakEventArgs)">
+            <summary>
+            Raises the AddingTimeBreak event.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.Controls.RadChat.OnSendMessage(Telerik.Windows.Controls.ConversationalUI.SendMessageEventArgs)">
+            <summary>
+            Raises the SendMessage routed event.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.Controls.RadChat.OnSuggestedActionReported(Telerik.Windows.Controls.ConversationalUI.SuggestedActionsEventArgs)">
+            <summary>
+            Raises the SuggestedActionReported event.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.Controls.RadChat.OnInitialized(System.EventArgs)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Telerik.Windows.Controls.RadChat.OnCreateAutomationPeer">
+            <summary>
+            Returns an automation peer for this RadChat.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.Controls.RadChat.ShowMessageInPopup(Telerik.Windows.Controls.ConversationalUI.MessageBase)">
+            <summary>
+            Adds a message as popup content.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.Controls.RadChat.ShowMessageInOverlay(Telerik.Windows.Controls.ConversationalUI.MessageBase)">
+            <summary>
+            Adds a message as overlay content.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.RadChat.LastMessageGroup">
+            <summary>
+            Gets the last message group.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.RadChat.LastMessage">
+            <summary>
+            Gets the last message.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.RadChat.MessageReporter">
+            <summary>
+            Gets the MessageReporter control that processes result actions.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.RadChat.MessageListItems">
+            <summary>
+            Gets the collection of MessageListItems (MessageGroups and TimeBreaks).
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.RadChat.MessageGroups">
+            <summary>
+            Gets the collection of MessageGroups.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.RadChat.MessageConverter">
+            <summary>
+            Gets or sets an IMessageConverter that will be used for converting messages to DataSource type vice versa.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.RadChat.DataSource">
+            <summary>
+            Gets or sets a data source that will be used to generate messages in data-bound scenarios.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.RadChat.InlineMessages">
+            <summary>
+            Gets the collection of inline messages.
+            </summary>
+        </member>
+        <member name="E:Telerik.Windows.Controls.RadChat.SuggestedActionReported">
+            <summary>
+            Event is raised when suggested action reports result.
+            </summary>
+        </member>
+        <member name="E:Telerik.Windows.Controls.RadChat.ReportMessageResult">
+            <summary>
+            Event is raised when response action reports result.
+            </summary>
+        </member>
+        <member name="E:Telerik.Windows.Controls.RadChat.SendMessage">
+            <summary>
+            Event is raised when a new message is typed and sent by the current author.
+            </summary>
+        </member>
+        <member name="E:Telerik.Windows.Controls.RadChat.AddingTimeBreak">
+            <summary>
+            Event is raised when time break is added.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.RadChat.MessageListTemplateSelector">
+            <summary>
+            Gets or sets the DataTemplate selector that is used for displaying messages in ChatMessageList.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.RadChat.MessagePopupTemplateSelector">
+            <summary>
+            Gets or sets the DataTemplate selector that is used for displaying messages in ChatPopupPlaceholder.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.RadChat.TimeBreakFormat">
+            <summary>
+            Gets or sets the DateTime string format that is used to display time breaks.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.RadChat.SendCommand">
+            <summary>
+            Gets or sets the command that is executed when a new message is typed in the UI and then sent.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.RadChat.MessageOverlayTemplateSelector">
+            <summary>
+            Gets or sets the DataTemplate selector that is used for displaying messages in ChatOverlay.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.RadChat.AutoIncludeTimeBreaks">
+            <summary>
+            Gets or sets value indicating whether TimeBreaks are automatically included.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.RadChat.CanUserSelectMessage">
+            <summary>
+            Gets or sets value indicating whether users can select inline messages through the UI.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.RadChat.ToolBarCommandTemplateSelector">
+            <summary>
+            Gets or sets a template selector that is used for selecting ToolBar command buttons' content.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.RadChat.ToolBarCommandTemplate">
+            <summary>
+            Gets or sets a data template for the ToolBar command buttons' content.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.RadChat.ToolBarCommands">
+            <summary>
+            Gets the list of ToolBar commands.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.RadChat.CurrentAuthor">
+            <summary>
+            Gets or sets the current author.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.RadChat.TimeBreakInterval">
+            <summary>
+            Gets or sets the interval that should be use to automatically place time breaks.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.RadChat.VerticalAvatarAlignment">
+            <summary>
+            Gets or sets the vertical alignment for <see cref="T:Telerik.Windows.Controls.ConversationalUI.Author"/>'s Avatar.
+            </summary>		
+        </member>
+        <member name="P:Telerik.Windows.Controls.RadChat.SuggestedActionsVisibility">
+            <summary>
+            Gets or sets a value that indicates whether suggested action panel is visible or not.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.RadChat.InputBoxWatermarkContent">
+            <summary>
+            Gets or sets the input box watermark content.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.RadChat.InputBoxText">
+            <summary>
+            Gets or sets the input box text.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.RadChat.TypingCommand">
+            <summary>
+            Gets or sets the command that should be executed on typing.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.RadChat.TypingIndicatorVisibility">
+            <summary>
+            Gets or sets a value that indicates whether the typing indicator is visible or not.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.RadChat.TypingIndicatorText">
+            <summary>
+            Gets or sets the text of the typing indicator.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.RadChat.TypingIndicatorIcon">
+            <summary>
+            Gets or sets the icon of the typing indicator.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.RadChat.IsToolBarOpen">
+            <summary>
+            Gets or sets a value indicating whether the tool bar is open or not.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.RadChat.SuggestedActions">
+            <summary>
+            Gets or sets the list of suggested actions.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.RadChat.CachedAutomationId">
+            <summary>
+            Get or sets the manually set AutomationId value (in case there is such one).
+            </summary>
+        </member>
+        <member name="T:Telerik.Windows.Controls.ConversationalUI.ScrollViewerScrollingHelper">
+            <summary>
+            ScrollViewerScrollingHelper class is used for horizontal scrolling using the mouse wheel.
+            </summary>	
+        </member>
+        <member name="F:Telerik.Windows.Controls.ConversationalUI.ScrollViewerScrollingHelper.IsEnabledProperty">
+            <summary>
+            Identifies the IsEnabled attached dependency property.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.Controls.ConversationalUI.ScrollViewerScrollingHelper.GetIsEnabled(System.Windows.DependencyObject)">
+            <summary>
+            Gets a value that indicates whether ScrollViewerScrollingHelper is enabled.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.Controls.ConversationalUI.ScrollViewerScrollingHelper.SetIsEnabled(System.Windows.DependencyObject,System.Boolean)">
+            <summary>
+            Sets a value that indicates whether ScrollViewerScrollingHelper is enabled.
+            </summary>
+        </member>
+        <member name="T:Telerik.Windows.Controls.ConversationalUI.TimeBreakControl">
+            <summary>
+            Represent a control that is used to display a time break.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.Controls.ConversationalUI.TimeBreakControl.OnInitialized(System.EventArgs)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Telerik.Windows.Controls.ConversationalUI.TimeBreakEventArgs">
+            <summary>
+            Represents the data that is used for describing a time break.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.TimeBreakEventArgs.Header">
+            <summary>
+            Gets or sets the TimeBreak header text.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.TimeBreakEventArgs.LastMessageGroup">
+            <summary>
+            Gets the last MessageGroup.
+            </summary>
+        </member>
+        <member name="T:Telerik.Windows.Controls.ConversationalUI.TimeBreakViewModel">
+            <summary>
+            Represent the view model that exposes the TimeBreak properties.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.TimeBreakViewModel.Alignment">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.TimeBreakViewModel.Header">
+            <summary>
+            Gets or sets the header text.
+            </summary>
+        </member>
+        <member name="T:Telerik.Windows.Controls.ConversationalUI.SendMessageEventArgs">
+            <summary>
+            Represents event arguments for the SendMessage event.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.SendMessageEventArgs.Message">
+            <summary>
+            Gets or sets the sent message.
+            </summary>
+        </member>
+        <member name="T:Telerik.Windows.Controls.ConversationalUI.SuggestedAction">
+            <summary>
+            Represents a class that wraps command logic for the suggested actions feature.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.Controls.ConversationalUI.SuggestedAction.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the SuggestedAction class.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.Controls.ConversationalUI.SuggestedAction.#ctor(System.String,System.Windows.Media.ImageSource)">
+            <summary>
+            Initializes a new instance of the SuggestedAction class.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.SuggestedAction.Text">
+            <summary>
+            Gets or sets the displayed text.
+            </summary>	
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.SuggestedAction.Icon">
+            <summary>
+            Gets or sets the displayed icon.
+            </summary>	
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.SuggestedAction.Command">
+            <summary>
+            Gets the command that is executed when the action is executed.
+            </summary>
+        </member>
+        <member name="T:Telerik.Windows.Controls.ConversationalUI.SuggestedActionsEventArgs">
+            <summary>
+            Represents event arguments for SuggestedActionReported event.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.SuggestedActionsEventArgs.Text">
+            <summary>
+            Gets or sets the text result.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.SuggestedActionsEventArgs.PostResultInline">
+            <summary>
+            Gets or sets a value that indicates whether suggested action should create a text inline message with its result.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.SuggestedActionsEventArgs.CloseAfterReport">
+            <summary>
+            Gets or sets a value that indicates whether the message will be removed after it reports a result.
+            </summary>
+        </member>
+        <member name="T:Telerik.Windows.Controls.ConversationalUI.ToolBarCommand">
+            <summary>
+            Represents a command wrapper that is used in RadChat's ToolBar.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.Controls.ConversationalUI.ToolBarCommand.ToString">
+            <inheritdoc />
+        </member>
+        <member name="M:Telerik.Windows.Controls.ConversationalUI.ToolBarCommand.OnPropertyChanged(System.String)">
+            <summary>
+            Raises the PropertyChanged event.
+            </summary>
+            <param name="propertyName"></param>
+        </member>
+        <member name="E:Telerik.Windows.Controls.ConversationalUI.ToolBarCommand.PropertyChanged">
+            <inheritdoc />
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.ToolBarCommand.Command">
+            <summary>
+            Gets or sets the command.
+            </summary>     
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.ToolBarCommand.Text">
+            <summary>
+            Gets or sets the text.
+            </summary>     
+        </member>
+        <member name="T:Telerik.Windows.Controls.ConversationalUI.TypingIndicator">
+            <summary>
+            Represents a control that visualizes a message when a number of authors are typing.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.ConversationalUI.TypingIndicator.TextProperty">
+            <summary>
+            Identifies the <see cref="P:Telerik.Windows.Controls.ConversationalUI.TypingIndicator.Text"/> dependency property.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.ConversationalUI.TypingIndicator.IconProperty">
+            <summary>
+            Identifies the <see cref="P:Telerik.Windows.Controls.ConversationalUI.TypingIndicator.Icon"/> dependency property.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.Controls.ConversationalUI.TypingIndicator.OnInitialized(System.EventArgs)">
+            <inheritdoc/>
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.TypingIndicator.Text">
+            <summary>
+            Gets or sets a value that represents the displayed text.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.TypingIndicator.Icon">
+            <summary>
+            Gets or sets a value that represents the displayed icon.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.ConversationalUI.PixelBasedScrollingBehavior.IsEnabledProperty">
+            <summary>
+            Identifies the IsEnabled attached dependency property.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.Controls.ConversationalUI.PixelBasedScrollingBehavior.GetIsEnabled(System.Windows.DependencyObject)">
+            <summary>
+            Gets a value that indicates whether PixelBasedScrollingBehavior is enabled.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.Controls.ConversationalUI.PixelBasedScrollingBehavior.SetIsEnabled(System.Windows.DependencyObject,System.Boolean)">
+            <summary>
+            Sets a value that indicates whether PixelBasedScrollingBehavior is enabled.
+            </summary>
+        </member>
+        <member name="T:Telerik.Windows.Controls.ConversationalUI.Properties.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.Properties.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.ConversationalUI.Properties.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+    </members>
+</doc>

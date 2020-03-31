@@ -16,6 +16,8 @@ using Gma.System.MouseKeyHook;
 using Syncfusion.UI.Xaml.Grid;
 using Syncfusion.UI.Xaml.Grid.Helpers;
 using Syncfusion.UI.Xaml.ScrollAxis;
+using Telerik.Windows.Controls;
+using Telerik.Windows.Data;
 using Vajehdan;
 using Vajehdan.Properties;
 using Application = System.Windows.Application;
@@ -34,8 +36,8 @@ namespace Vajehdan
         private readonly int _triggerThreshold = 500;
         private int _lastCtrlTick;
 
-        private AsyncVirtualizingCollection<string[]> _motaradefList;
-        public AsyncVirtualizingCollection<string[]> MotaradefList
+        private VirtualQueryableCollectionView _motaradefList;
+        public VirtualQueryableCollectionView MotaradefList
         {
             get { return _motaradefList; }
             set
@@ -46,18 +48,8 @@ namespace Vajehdan
         }
 
 
-        private GridVirtualizingCollectionView _gridVirtualizingItemsSource;
-        public GridVirtualizingCollectionView GridVirtualizingItemsSource
-        {
-            get { return _gridVirtualizingItemsSource; }
-            set
-            {
-                _gridVirtualizingItemsSource = value;
-                NotifyPropertyChanged("GridVirtualizingItemsSource");
-            }
-        }
-
         private ICollectionView _motaradefMotazadList;
+
         public ICollectionView MotaradefMotazadList
         {
             get => _motaradefMotazadList;
@@ -100,7 +92,7 @@ namespace Vajehdan
 
         private void FilterCollection()
         {
-            //_motaradefMotazadList?.Refresh();
+            _motaradefMotazadList?.Refresh();
             //_TeyfiList?.Refresh();
             //_EmlaeiList?.Refresh();
             //txtSearch.SelectAll();
@@ -111,9 +103,11 @@ namespace Vajehdan
             
 
             InitializeComponent();
-
-            //MotaradefMotazadList = CollectionViewSource.GetDefaultView(Database.Motaradef());
+            MotaradefMotazadList = MotaradefList = new VirtualQueryableCollectionView(Database.Motaradef()) { LoadSize = 10 };
+            MotaradefMotazadList.SortDescriptions.Add(new SortDescription("Meanings",ListSortDirection.Descending));
+           
             //MotaradefMotazadList.Filter = FilterResult;
+            
             //var motaradefCollectionView = MotaradefMotazadList as ListCollectionView;
             //motaradefCollectionView.CustomSort = new CzustomSorter(this);
             /*
@@ -125,12 +119,9 @@ namespace Vajehdan
             EmlaeiList = CollectionViewSource.GetDefaultView(database.words_emlaei);
             EmlaeiList.Filter = EmlaeiFilterResult;*/
 
-            GridVirtualizingItemsSource=new GridVirtualizingCollectionView(Database.Motaradef());
-            GridVirtualizingItemsSource.LoadMoreItemsAsync(10);
-            IItemsProvider<string[]> items=new MotaradefItemProvider(Database.Motaradef().Count,100);
-            MotaradefList=new AsyncVirtualizingCollection<string[]>(items);
-            var s=MotaradefList.ItemsProvider.FetchRange(0, 3);
-            MotaradefMotazadList = CollectionViewSource.GetDefaultView(s);
+
+
+
             //MotaradefMotazadList.Filter = FilterResult;
             //var motaradefCollectionView = MotaradefMotazadList as ListCollectionView;
             //motaradefCollectionView.CustomSort = new CustomSorter(this);
@@ -272,7 +263,7 @@ namespace Vajehdan
         {
             Dispatcher?.BeginInvoke((ThreadStart)(() =>
             {
-                Keyboard.Focus(txtSearch);
+                //Keyboard.Focus(txtSearch);
             }));
         }
 
@@ -285,13 +276,16 @@ namespace Vajehdan
             {
                 //FilterString = txtSearch.Text;
             }
+
+            Datagrid_Motaradef.FilterDescriptors.Clear();
+            Datagrid_Motaradef.FilterDescriptors.Add(new FilterDescriptor("Meanings",FilterOperator.Contains,txtSearch.Text));
         }
 
         private void TxtSearch_OnKeyUp(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Enter)
             {
-                //FilterString = txtSearch.Text;
+                FilterString = txtSearch.Text;
             }
         }
 
@@ -345,6 +339,11 @@ namespace Vajehdan
         }
 
 
+        private void Datagrid_Motaradef_OnLoaded(object sender, RoutedEventArgs e)
+        {
+            var gridView = sender as RadGridView;
+            gridView.SearchStateManager.IsSearchWithAccentEnabled = true;
+        }
     }
 
 }
