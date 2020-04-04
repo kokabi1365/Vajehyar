@@ -156,9 +156,8 @@ namespace Vajehdan
             if (string.IsNullOrEmpty(filterString))
                 return false;
 
-            //var words = string.Join("،",obj as string[]);
-            var words = obj as Entry;
-            return words.Meanings.Contains(filterString);
+            var words = string.Join("،",obj as string[]);
+            return words.Contains(filterString);
 
         }
 
@@ -170,9 +169,9 @@ namespace Vajehdan
             if (string.IsNullOrEmpty(filterString))
                 return false;
 
-            var words = obj as Entry;
+            var words = obj as string;
             
-            return words.Meanings.RemoveDiacritics().Contains(filterString);
+            return words.RemoveDiacritics().Contains(filterString);
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -216,7 +215,7 @@ namespace Vajehdan
 
         private void Word_OnClick(object sender, RoutedEventArgs e)
         {
-            txtSearch.Text = FilterString = (sender as Button).Content.ToString();
+            txtSearch.Text = FilterString = ((sender as Button).Content.ToString()).Trim();
             txtSearch.Focus();
             txtSearch.SelectAll();
         }
@@ -233,7 +232,7 @@ namespace Vajehdan
         {
             Dispatcher?.BeginInvoke((ThreadStart)(() =>
             {
-                //Keyboard.Focus(txtSearch);
+                Keyboard.Focus(txtSearch);
             }));
         }
 

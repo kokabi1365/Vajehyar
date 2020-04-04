@@ -86,12 +86,13 @@
                 <sf:SfTextBoxExt
                     x:Name="txtSearch"
                     Grid.Row="0"
+                    TextWrapping="NoWrap"
+                    AcceptsReturn="False"
                     VerticalContentAlignment="Center"
                     BorderThickness="0"
                     Height="50"
                     Watermark="جستجو"
                     AutoCompleteSource="{Binding MotaradefMotazadList}"
-                    SearchItemPath="{Binding MeaningsArray}"
                     SuggestionMode="Contains"
                     AutoCompleteMode="SuggestAppend"
                     Padding="10,0,0,0"
@@ -102,14 +103,23 @@
                     KeyUp="TxtSearch_OnKeyUp"
                     PreviewKeyDown="TxtSearch_OnPreviewKeyDown"
                     PreviewMouseLeftButtonUp="TxtSearch_OnPreviewMouseLeftButtonUp"/>
-                <Grid Grid.Row="1">
+                <Grid Grid.Row="1" >
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition MinWidth="300"/>
-                        <ColumnDefinition MinWidth="300"/>
-                        <ColumnDefinition MinWidth="100"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
 
                     <DataGrid Grid.Column="0" Name="Datagrid_Motaradef" HorizontalScrollBarVisibility="Disabled" IsReadOnly="True" AutoGenerateColumns="False" ItemsSource="{Binding MotaradefMotazadList}">
+                        <DataGrid.Style>
+                            <Style TargetType="DataGrid">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding Items.Count, RelativeSource={RelativeSource Self}}" Value="0">
+                                        <Setter Property="Visibility" Value="Collapsed" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </DataGrid.Style>
                         <DataGrid.HorizontalGridLinesBrush>
                             <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
                                 <LinearGradientBrush.RelativeTransform>
@@ -139,7 +149,7 @@
                             <DataGridTemplateColumn Width="*" Header="مترادف">
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
-                                        <ItemsControl ItemsSource="{Binding MeaningsArray}">
+                                        <ItemsControl ItemsSource="{Binding}">
                                             <ItemsControl.ItemsPanel>
                                                 <ItemsPanelTemplate>
                                                     <WrapPanel Orientation="Horizontal" Margin="5"/>
@@ -165,7 +175,16 @@
                             </DataGridTemplateColumn>
                         </DataGrid.Columns>
                     </DataGrid>
-                    <DataGrid Grid.Column="1" Name="Datagrid_Teyfi" HorizontalScrollBarVisibility="Disabled" IsReadOnly="True" AutoGenerateColumns="False" ItemsSource="{Binding TeyfiList}">
+                    <DataGrid Grid.Column="1" Name="Datagrid_Teyfi" EnableRowVirtualization="True" EnableColumnVirtualization="True" HorizontalScrollBarVisibility="Disabled" IsReadOnly="True" AutoGenerateColumns="False" ItemsSource="{Binding TeyfiList}">
+                        <DataGrid.Style>
+                            <Style TargetType="DataGrid">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding Items.Count, RelativeSource={RelativeSource Self}}" Value="0">
+                                        <Setter Property="Visibility" Value="Collapsed" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </DataGrid.Style>
                         <DataGrid.HorizontalGridLinesBrush>
                             <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
                                 <LinearGradientBrush.RelativeTransform>
@@ -184,7 +203,7 @@
                             <DataGridTemplateColumn Width="*" Header="طیفی">
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
-                                        <ItemsControl ItemsSource="{Binding MeaningsArray}">
+                                        <ItemsControl ItemsSource="{Binding}">
                                             <ItemsControl.ItemsPanel>
                                                 <ItemsPanelTemplate>
                                                     <WrapPanel Orientation="Horizontal" Margin="5"/>
@@ -197,6 +216,7 @@
                                                         SnapsToDevicePixels="True"
                                                         Click="Word_OnClick"
                                                         Content="{Binding .}"
+                                                        FocusManager.FocusedElement="{Binding ElementName=txtSearch}"
                                                         Style="{StaticResource WordStyle}"
                                                         MouseRightButtonUp="Word_OnMouseRightButtonUp"
                                                     />
@@ -210,6 +230,15 @@
                         </DataGrid.Columns>
                     </DataGrid>
                     <DataGrid Grid.Column="2" Name="Datagrid_Emlaei" HorizontalScrollBarVisibility="Disabled" IsReadOnly="True" AutoGenerateColumns="False" ItemsSource="{Binding EmlaeiList}">
+                        <DataGrid.Style>
+                            <Style TargetType="DataGrid">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding Items.Count, RelativeSource={RelativeSource Self}}" Value="0">
+                                        <Setter Property="Visibility" Value="Collapsed" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </DataGrid.Style>
                         <DataGrid.HorizontalGridLinesBrush>
                             <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
                                 <LinearGradientBrush.RelativeTransform>
@@ -228,25 +257,16 @@
                             <DataGridTemplateColumn Width="*" Header="املایی">
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
-                                        <ItemsControl ItemsSource="{Binding MeaningsArray}">
-                                            <ItemsControl.ItemsPanel>
-                                                <ItemsPanelTemplate>
-                                                    <WrapPanel Orientation="Horizontal" Margin="5"/>
-                                                </ItemsPanelTemplate>
-                                            </ItemsControl.ItemsPanel>
-                                            <ItemsControl.ItemTemplate>
-                                                <DataTemplate>
+                                        
                                                     <Button
                                                         UseLayoutRounding="True"
                                                         SnapsToDevicePixels="True"
                                                         Click="Word_OnClick"
                                                         Content="{Binding .}"
+                                                        FocusManager.FocusedElement="{Binding ElementName=txtSearch}"
                                                         Style="{StaticResource WordStyle}"
                                                         MouseRightButtonUp="Word_OnMouseRightButtonUp"
                                                     />
-                                                </DataTemplate>
-                                            </ItemsControl.ItemTemplate>
-                                        </ItemsControl>
 
                                     </DataTemplate>
                                 </DataGridTemplateColumn.CellTemplate>

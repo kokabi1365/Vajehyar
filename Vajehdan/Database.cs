@@ -11,49 +11,25 @@ namespace Vajehdan
 {
     public sealed class Database
     {
-        public static List<Entry> Motaradef()
+        public static string[][] Motaradef()
         {
-            List<Entry> entries=new List<Entry>();
-            
-            foreach (var line in Properties.Resources.Motaradef_Motazad.Split('\n'))
-            {
-                Entry entry=new Entry();
-                entry.Meanings = line;
-                entry.MeaningsArray = line.Split('،');
-                entries.Add(entry);
-            }
-
-            return entries;
+            string[] lines = Properties.Resources.Motaradef_Motazad.Split('\n');
+            var words = new List<string[]>();
+            lines.ForEach(l => words.Add(l.Split('،')));
+            return words.ToArray();
         }
 
-        public static List<Entry> Teyfi()
+        public static string[][] Teyfi()
         {
-            List<Entry> entries = new List<Entry>();
-
-            foreach (var line in Properties.Resources.Teyfi.Split('\n'))
-            {
-                Entry entry = new Entry();
-                entry.Meanings = line;
-                entry.MeaningsArray = line.Split('،');
-                entries.Add(entry);
-            }
-
-            return entries;
+            string[] lines = Properties.Resources.Teyfi.Split('\n');
+            var words = new List<string[]>();
+            lines.ForEach(l => words.Add(l.Split('،')));
+            return words.ToArray();
         }
 
-        public static List<Entry> Emlaei()
+        public static string[] Emlaei()
         {
-            List<Entry> entries = new List<Entry>();
-
-            foreach (var line in Properties.Resources.Emlaei.Split('\n'))
-            {
-                Entry entry = new Entry();
-                entry.Meanings = line;
-                entry.MeaningsArray = line.Split('،');
-                entries.Add(entry);
-            }
-
-            return entries;
+            return Properties.Resources.Emlaei.Split('\n');
         }
 
     }
