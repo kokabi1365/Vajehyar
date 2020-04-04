@@ -11,7 +11,7 @@ namespace Vajehdan
         public App()
         {
             Syncfusion.Licensing.SyncfusionLicenseProvider
-                .RegisterLicense("MjIzMDA2QDMxMzcyZTM0MmUzMEdXcEJJVDRCTnFCbWhRbDRabWVkMU1DdURxYmpwWnZMSHgzYnVsN3N5VHM9");
+                .RegisterLicense("MjMzODU2QDMxMzgyZTMxMmUzMGVmVFhFRzV2RWo0bWxrWGF5aFpjc0JWNHpXRXlVTzV3RG9IZTVWbFIrdXc9");
 
 #if !DEBUG
             AppDomain currentDomain=AppDomain.CurrentDomain;

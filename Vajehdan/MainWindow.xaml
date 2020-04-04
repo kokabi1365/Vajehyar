@@ -9,6 +9,7 @@
     xmlns:sf="http://schemas.syncfusion.com/wpf" 
     xmlns:tb="http://www.hardcodet.net/taskbar"
     xmlns:controls="http://schemas.telerik.com/2008/xaml/presentation"
+    xmlns:wt="clr-namespace:WPFWaterMarkTextBox;assembly=WPFWaterMarkTextBox"
     Title="واژه‌دان"
     Width="1000"
     MaxHeight="350"
@@ -82,14 +83,17 @@
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
 
-                <controls:RadWatermarkTextBox
+                <sf:SfTextBoxExt
                     x:Name="txtSearch"
                     Grid.Row="0"
                     VerticalContentAlignment="Center"
                     BorderThickness="0"
                     Height="50"
-                    WatermarkContent="جستجو"
-                    WatermarkBehavior="HideOnTextEntered"
+                    Watermark="جستجو"
+                    AutoCompleteSource="{Binding MotaradefMotazadList}"
+                    SearchItemPath="{Binding MeaningsArray}"
+                    SuggestionMode="Contains"
+                    AutoCompleteMode="SuggestAppend"
                     Padding="10,0,0,0"
                     VerticalAlignment="Center"
                     LostFocus="TxtSearch_OnLostFocus"
