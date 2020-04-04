@@ -37,7 +37,7 @@ namespace Vajehdan
         public static async Task<bool> IsIdle(this TextBox textBox)
         {
             string txt = textBox.Text;
-            await Task.Delay(2000);
+            await Task.Delay(250);
             return txt == textBox.Text;
         }
 

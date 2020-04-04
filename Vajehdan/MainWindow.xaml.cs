@@ -36,18 +36,6 @@ namespace Vajehdan
         private readonly int _triggerThreshold = 500;
         private int _lastCtrlTick;
 
-        private VirtualQueryableCollectionView _motaradefList;
-        public VirtualQueryableCollectionView MotaradefList
-        {
-            get { return _motaradefList; }
-            set
-            {
-                _motaradefList = value;
-                NotifyPropertyChanged("MotaradefList");
-            }
-        }
-
-
         private ICollectionView _motaradefMotazadList;
 
         public ICollectionView MotaradefMotazadList
@@ -70,13 +58,6 @@ namespace Vajehdan
             set { _EmlaeiList = value; NotifyPropertyChanged("EmlaeiList"); }
         }
 
-        private ICollectionView _didYouMeanList;
-        public ICollectionView DidYouMeanList
-        {
-            get => _didYouMeanList;
-            set { _didYouMeanList = value; NotifyPropertyChanged("DidYouMeanList"); }
-        }
-
         private string _filterString;
 
         public string FilterString
@@ -93,9 +74,8 @@ namespace Vajehdan
         private void FilterCollection()
         {
             _motaradefMotazadList?.Refresh();
-            //_TeyfiList?.Refresh();
-            //_EmlaeiList?.Refresh();
-            //txtSearch.SelectAll();
+            _TeyfiList?.Refresh();
+            _EmlaeiList?.Refresh();
         }
 
         public MainWindow()
@@ -103,29 +83,18 @@ namespace Vajehdan
             
 
             InitializeComponent();
-            MotaradefMotazadList = MotaradefList = new VirtualQueryableCollectionView(Database.Motaradef()) { LoadSize = 10 };
-            MotaradefMotazadList.SortDescriptions.Add(new SortDescription("Meanings",ListSortDirection.Descending));
-           
-            //MotaradefMotazadList.Filter = FilterResult;
+            MotaradefMotazadList = CollectionViewSource.GetDefaultView(Database.Motaradef());
+            MotaradefMotazadList.Filter = FilterResult;
+            var motaradefCollectionView = MotaradefMotazadList as ListCollectionView;
+            motaradefCollectionView.CustomSort = new CustomSorter(this);
             
-            //var motaradefCollectionView = MotaradefMotazadList as ListCollectionView;
-            //motaradefCollectionView.CustomSort = new CzustomSorter(this);
-            /*
-            TeyfiList = CollectionViewSource.GetDefaultView(database.words_teyfi);
+            TeyfiList = CollectionViewSource.GetDefaultView(Database.Teyfi());
             TeyfiList.Filter = FilterResult;
             var teyfiCollectionView = TeyfiList as ListCollectionView;
             teyfiCollectionView.CustomSort = new CustomSorter(this);
 
-            EmlaeiList = CollectionViewSource.GetDefaultView(database.words_emlaei);
-            EmlaeiList.Filter = EmlaeiFilterResult;*/
-
-
-
-
-            //MotaradefMotazadList.Filter = FilterResult;
-            //var motaradefCollectionView = MotaradefMotazadList as ListCollectionView;
-            //motaradefCollectionView.CustomSort = new CustomSorter(this);
-
+            EmlaeiList = CollectionViewSource.GetDefaultView(Database.Emlaei());
+            EmlaeiList.Filter = EmlaeiFilterResult;
 
 
             var globalMouseHook = Hook.GlobalEvents();
@@ -171,7 +140,8 @@ namespace Vajehdan
 #endif
         }
 
-       
+        
+
         private async void CheckUpdate()
         {
             await Helper.CheckUpdate();
@@ -186,9 +156,9 @@ namespace Vajehdan
             if (string.IsNullOrEmpty(filterString))
                 return false;
 
-            var words = string.Join("،",obj as string[]);
-
-            return words.Contains(filterString);
+            //var words = string.Join("،",obj as string[]);
+            var words = obj as Entry;
+            return words.Meanings.Contains(filterString);
 
         }
 
@@ -200,9 +170,9 @@ namespace Vajehdan
             if (string.IsNullOrEmpty(filterString))
                 return false;
 
-            var words = obj as string;
+            var words = obj as Entry;
             
-            return words.RemoveDiacritics().Contains(filterString);
+            return words.Meanings.RemoveDiacritics().Contains(filterString);
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -246,7 +216,7 @@ namespace Vajehdan
 
         private void Word_OnClick(object sender, RoutedEventArgs e)
         {
-            //txtSearch.Text = FilterString = (sender as Button).Content.ToString();
+            txtSearch.Text = FilterString = (sender as Button).Content.ToString();
             txtSearch.Focus();
             txtSearch.SelectAll();
         }
@@ -267,18 +237,15 @@ namespace Vajehdan
             }));
         }
 
-        private void TxtSearch_OnTextChanged(object sender, TextChangedEventArgs e)
+        private async void TxtSearch_OnTextChanged(object sender, TextChangedEventArgs e)
         {
             if (txtSearch.Text.Length==1)
                 return;
             
-            //if (await txtSearch.IsIdle())
+            if (await txtSearch.IsIdle())
             {
-                //FilterString = txtSearch.Text;
+                FilterString = txtSearch.Text;
             }
-
-            Datagrid_Motaradef.FilterDescriptors.Clear();
-            Datagrid_Motaradef.FilterDescriptors.Add(new FilterDescriptor("Meanings",FilterOperator.Contains,txtSearch.Text));
         }
 
         private void TxtSearch_OnKeyUp(object sender, KeyEventArgs e)
@@ -338,12 +305,6 @@ namespace Vajehdan
             ShowMainWindow();
         }
 
-
-        private void Datagrid_Motaradef_OnLoaded(object sender, RoutedEventArgs e)
-        {
-            var gridView = sender as RadGridView;
-            gridView.SearchStateManager.IsSearchWithAccentEnabled = true;
-        }
     }
 
 }

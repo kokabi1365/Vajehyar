@@ -6,6 +6,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:properties="clr-namespace:Vajehdan.Properties"
     xmlns:telerik="clr-namespace:Telerik;assembly=Telerik.Windows.Controls"
+    xmlns:sf="http://schemas.syncfusion.com/wpf" 
     xmlns:tb="http://www.hardcodet.net/taskbar"
     xmlns:controls="http://schemas.telerik.com/2008/xaml/presentation"
     Title="واژه‌دان"
@@ -99,20 +100,40 @@
                     PreviewMouseLeftButtonUp="TxtSearch_OnPreviewMouseLeftButtonUp"/>
                 <Grid Grid.Row="1">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*" MinWidth="300"/>
-                        <ColumnDefinition Width="*" MinWidth="300"/>
-                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition MinWidth="300"/>
+                        <ColumnDefinition MinWidth="300"/>
+                        <ColumnDefinition MinWidth="100"/>
                     </Grid.ColumnDefinitions>
 
-                    <controls:RadGridView Loaded="Datagrid_Motaradef_OnLoaded" Grid.Column="0" Name="Datagrid_Motaradef" ShowSearchPanel="True" ColumnWidth="*" CanUserSelect="False" ShowGroupPanel="False" IsReadOnly="True" RowIndicatorVisibility="Collapsed" DragElementAction="None" AutoGenerateColumns="False" ItemsSource="{Binding MotaradefMotazadList}">
-                        <controls:RadGridView.RowStyle>
-                            <Style TargetType="controls:GridViewRow">
-                                <Setter Property="MouseOverBackground" Value="Transparent"/>
+                    <DataGrid Grid.Column="0" Name="Datagrid_Motaradef" HorizontalScrollBarVisibility="Disabled" IsReadOnly="True" AutoGenerateColumns="False" ItemsSource="{Binding MotaradefMotazadList}">
+                        <DataGrid.HorizontalGridLinesBrush>
+                            <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                                <LinearGradientBrush.RelativeTransform>
+                                    <TransformGroup>
+                                        <ScaleTransform CenterY="0.5" CenterX="0.5"/>
+                                        <SkewTransform CenterY="0.5" CenterX="0.5"/>
+                                        <RotateTransform Angle="90" CenterY="0.5" CenterX="0.5"/>
+                                        <TranslateTransform/>
+                                    </TransformGroup>
+                                </LinearGradientBrush.RelativeTransform>
+                                <GradientStop Color="#FFE2E2E2" Offset="1"/>
+                                <GradientStop Color="White" Offset="0"/>
+                            </LinearGradientBrush>
+                        </DataGrid.HorizontalGridLinesBrush>
+                        <DataGrid.CellStyle>
+                            <Style TargetType="{x:Type DataGridCell}">
+                                <Setter Property="Foreground" Value="Black" />
+                                <Style.Triggers>
+                                    <Trigger Property="IsSelected" Value="True">
+                                        <Setter Property="Background" Value="{x:Null}" />
+                                        <Setter Property="BorderBrush" Value="{x:Null}" />
+                                    </Trigger>
+                                </Style.Triggers>
                             </Style>
-                        </controls:RadGridView.RowStyle>
-                        <controls:RadGridView.Columns>
-                            <controls:GridViewDataColumn Header="مترادف" DataMemberBinding="{Binding MeaningsArray}" >
-                                <controls:GridViewDataColumn.CellTemplate>
+                        </DataGrid.CellStyle>
+                        <DataGrid.Columns>
+                            <DataGridTemplateColumn Width="*" Header="مترادف">
+                                <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
                                         <ItemsControl ItemsSource="{Binding MeaningsArray}">
                                             <ItemsControl.ItemsPanel>
@@ -123,6 +144,53 @@
                                             <ItemsControl.ItemTemplate>
                                                 <DataTemplate>
                                                     <Button
+                                                        UseLayoutRounding="True"
+                                                        SnapsToDevicePixels="True"
+                                                        Click="Word_OnClick"
+                                                        FocusManager.FocusedElement="{Binding ElementName=txtSearch}"
+                                                        Content="{Binding .}"
+                                                        Style="{StaticResource WordStyle}"
+                                                        MouseRightButtonUp="Word_OnMouseRightButtonUp"
+                                                    />
+                                                </DataTemplate>
+                                            </ItemsControl.ItemTemplate>
+                                        </ItemsControl>
+
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <DataGrid Grid.Column="1" Name="Datagrid_Teyfi" HorizontalScrollBarVisibility="Disabled" IsReadOnly="True" AutoGenerateColumns="False" ItemsSource="{Binding TeyfiList}">
+                        <DataGrid.HorizontalGridLinesBrush>
+                            <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                                <LinearGradientBrush.RelativeTransform>
+                                    <TransformGroup>
+                                        <ScaleTransform CenterY="0.5" CenterX="0.5"/>
+                                        <SkewTransform CenterY="0.5" CenterX="0.5"/>
+                                        <RotateTransform Angle="90" CenterY="0.5" CenterX="0.5"/>
+                                        <TranslateTransform/>
+                                    </TransformGroup>
+                                </LinearGradientBrush.RelativeTransform>
+                                <GradientStop Color="#FFE2E2E2" Offset="1"/>
+                                <GradientStop Color="White" Offset="0"/>
+                            </LinearGradientBrush>
+                        </DataGrid.HorizontalGridLinesBrush>
+                        <DataGrid.Columns>
+                            <DataGridTemplateColumn Width="*" Header="طیفی">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <ItemsControl ItemsSource="{Binding MeaningsArray}">
+                                            <ItemsControl.ItemsPanel>
+                                                <ItemsPanelTemplate>
+                                                    <WrapPanel Orientation="Horizontal" Margin="5"/>
+                                                </ItemsPanelTemplate>
+                                            </ItemsControl.ItemsPanel>
+                                            <ItemsControl.ItemTemplate>
+                                                <DataTemplate>
+                                                    <Button
+                                                        UseLayoutRounding="True"
+                                                        SnapsToDevicePixels="True"
                                                         Click="Word_OnClick"
                                                         Content="{Binding .}"
                                                         Style="{StaticResource WordStyle}"
@@ -133,10 +201,54 @@
                                         </ItemsControl>
 
                                     </DataTemplate>
-                                </controls:GridViewDataColumn.CellTemplate>
-                            </controls:GridViewDataColumn>
-                        </controls:RadGridView.Columns>
-                    </controls:RadGridView>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <DataGrid Grid.Column="2" Name="Datagrid_Emlaei" HorizontalScrollBarVisibility="Disabled" IsReadOnly="True" AutoGenerateColumns="False" ItemsSource="{Binding EmlaeiList}">
+                        <DataGrid.HorizontalGridLinesBrush>
+                            <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                                <LinearGradientBrush.RelativeTransform>
+                                    <TransformGroup>
+                                        <ScaleTransform CenterY="0.5" CenterX="0.5"/>
+                                        <SkewTransform CenterY="0.5" CenterX="0.5"/>
+                                        <RotateTransform Angle="90" CenterY="0.5" CenterX="0.5"/>
+                                        <TranslateTransform/>
+                                    </TransformGroup>
+                                </LinearGradientBrush.RelativeTransform>
+                                <GradientStop Color="#FFE2E2E2" Offset="1"/>
+                                <GradientStop Color="White" Offset="0"/>
+                            </LinearGradientBrush>
+                        </DataGrid.HorizontalGridLinesBrush>
+                        <DataGrid.Columns>
+                            <DataGridTemplateColumn Width="*" Header="املایی">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <ItemsControl ItemsSource="{Binding MeaningsArray}">
+                                            <ItemsControl.ItemsPanel>
+                                                <ItemsPanelTemplate>
+                                                    <WrapPanel Orientation="Horizontal" Margin="5"/>
+                                                </ItemsPanelTemplate>
+                                            </ItemsControl.ItemsPanel>
+                                            <ItemsControl.ItemTemplate>
+                                                <DataTemplate>
+                                                    <Button
+                                                        UseLayoutRounding="True"
+                                                        SnapsToDevicePixels="True"
+                                                        Click="Word_OnClick"
+                                                        Content="{Binding .}"
+                                                        Style="{StaticResource WordStyle}"
+                                                        MouseRightButtonUp="Word_OnMouseRightButtonUp"
+                                                    />
+                                                </DataTemplate>
+                                            </ItemsControl.ItemTemplate>
+                                        </ItemsControl>
+
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
                 </Grid>
                 <Border
                     Grid.Row="2"
