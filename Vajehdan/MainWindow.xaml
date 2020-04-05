@@ -26,189 +26,152 @@
     <Window.CommandBindings>
         <CommandBinding Command="{x:Static SystemCommands.RestoreWindowCommand}" Executed="NotifyIconClickCommand"/>
     </Window.CommandBindings>
-    <Grid>
-        <Grid Margin="20">
-            <Grid.Effect>
-                <DropShadowEffect Direction="360" ShadowDepth="0" BlurRadius="25" Color="#FFBBBBBB" Opacity=".6"/>
-            </Grid.Effect>
-            <tb:TaskbarIcon x:Name="NotifyIcon" IconSource="Resources/Vajehdan.ico"  LeftClickCommand="SystemCommands.RestoreWindowCommand">
-                <tb:TaskbarIcon.ContextMenu>
-                    <ContextMenu
+    <Grid Margin="20" Effect="{StaticResource ShadowEffect}">
+        <Border BorderBrush="LightSkyBlue" BorderThickness="1">
+            <StackPanel>
+                <sf:SfTextBoxExt
+                    x:Name="txtSearch"
+                    Style="{StaticResource TextBoxStyle}"
+                    LostFocus="TxtSearch_OnLostFocus"
+                    TextChanged="TxtSearch_OnTextChanged"
+                    KeyUp="TxtSearch_OnKeyUp"
+                    PreviewKeyDown="TxtSearch_OnPreviewKeyDown"
+                    PreviewMouseLeftButtonUp="TxtSearch_OnPreviewMouseLeftButtonUp"/>
+                <StackPanel Orientation="Horizontal">
+                    <sf:SfDataGrid Name="Datagrid_Motaradef" Style="{StaticResource DataGridStyle}" ItemsSource="{Binding MotaradefMotazadList}">
+                        <sf:SfDataGrid.Columns>
+                            <sf:GridTemplateColumn HeaderText="مترادف">
+                                <sf:GridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <ItemsControl ItemsSource="{Binding}">
+                                            <ItemsControl.ItemsPanel>
+                                                <ItemsPanelTemplate>
+                                                    <WrapPanel Orientation="Horizontal" Margin="5"/>
+                                                </ItemsPanelTemplate>
+                                            </ItemsControl.ItemsPanel>
+                                            <ItemsControl.ItemTemplate>
+                                                <DataTemplate>
+                                                    <Button
+                                                        UseLayoutRounding="True"
+                                                        SnapsToDevicePixels="True"
+                                                        Click="Word_OnClick"
+                                                        FocusManager.FocusedElement="{Binding ElementName=txtSearch}"
+                                                        Content="{Binding .}"
+                                                        Style="{StaticResource WordStyle}"
+                                                        MouseRightButtonUp="Word_OnMouseRightButtonUp"
+                                                    />
+                                                </DataTemplate>
+                                            </ItemsControl.ItemTemplate>
+                                        </ItemsControl>
+
+                                    </DataTemplate>
+                                </sf:GridTemplateColumn.CellTemplate>
+                            </sf:GridTemplateColumn>
+                        </sf:SfDataGrid.Columns>
+                    </sf:SfDataGrid>
+                    <sf:SfDataGrid Name="Datagrid_Teyfi" Style="{StaticResource DataGridStyle}" ItemsSource="{Binding TeyfiList}">
+                        <sf:SfDataGrid.Columns>
+                            <sf:GridTemplateColumn HeaderText="طیفی">
+                                <sf:GridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <ItemsControl ItemsSource="{Binding}">
+                                            <ItemsControl.ItemsPanel>
+                                                <ItemsPanelTemplate>
+                                                    <WrapPanel Orientation="Horizontal" Margin="5"/>
+                                                </ItemsPanelTemplate>
+                                            </ItemsControl.ItemsPanel>
+                                            <ItemsControl.ItemTemplate>
+                                                <DataTemplate>
+                                                    <Button
+                                                        UseLayoutRounding="True"
+                                                        SnapsToDevicePixels="True"
+                                                        Click="Word_OnClick"
+                                                        FocusManager.FocusedElement="{Binding ElementName=txtSearch}"
+                                                        Content="{Binding .}"
+                                                        Style="{StaticResource WordStyle}"
+                                                        MouseRightButtonUp="Word_OnMouseRightButtonUp"
+                                                    />
+                                                </DataTemplate>
+                                            </ItemsControl.ItemTemplate>
+                                        </ItemsControl>
+
+                                    </DataTemplate>
+                                </sf:GridTemplateColumn.CellTemplate>
+                            </sf:GridTemplateColumn>
+                        </sf:SfDataGrid.Columns>
+                    </sf:SfDataGrid>
+                    <sf:SfDataGrid Name="Datagrid_Emlaei" Style="{StaticResource DataGridStyle}" ItemsSource="{Binding EmlaeiList}">
+                        <sf:SfDataGrid.Columns>
+                            <sf:GridTemplateColumn HeaderText="املایی">
+                                <sf:GridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+
+                                        <Button
+                                                        UseLayoutRounding="True"
+                                                        SnapsToDevicePixels="True"
+                                                        Click="Word_OnClick"
+                                                        Content="{Binding .}"
+                                                        FocusManager.FocusedElement="{Binding ElementName=txtSearch}"
+                                                        Style="{StaticResource WordStyle}"
+                                                        MouseRightButtonUp="Word_OnMouseRightButtonUp"
+                                                    />
+
+                                    </DataTemplate>
+                                </sf:GridTemplateColumn.CellTemplate>
+                            </sf:GridTemplateColumn>
+                        </sf:SfDataGrid.Columns>
+                    </sf:SfDataGrid>
+                </StackPanel>
+            </StackPanel>
+        </Border>
+        
+        <toast:Toast x:Name="myToast" VerticalAlignment="Center" Margin="0"  DurationToast="Short" Message="کپی شد"/>
+        <tb:TaskbarIcon x:Name="NotifyIcon" IconSource="Resources/Vajehdan.ico"  LeftClickCommand="SystemCommands.RestoreWindowCommand">
+            <tb:TaskbarIcon.ContextMenu>
+                <ContextMenu
                     FlowDirection="RightToLeft"
                     FontFamily="{StaticResource vazir}"
                     FontSize="12"
                     FontWeight="Light"
                     Placement="MousePoint">
 
-                        <MenuItem
+                    <MenuItem
                         Name="ItemSetting"
                         Height="24"
                         Margin="3,8,0,0"
                         Click="Menu_RunCommand"
                         Header="تنظیمات">
-                            <MenuItem.Icon>
-                                <Image Source="Resources/Settings-24.png" />
-                            </MenuItem.Icon>
-                        </MenuItem>
+                        <MenuItem.Icon>
+                            <Image Source="Resources/Settings-24.png" />
+                        </MenuItem.Icon>
+                    </MenuItem>
 
-                        <MenuItem
+                    <MenuItem
                         Name="ItemAbout"
                         Height="24"
                         Margin="3"
                         Click="Menu_RunCommand"
                         Header="دربارۀ برنامه">
-                            <MenuItem.Icon>
-                                <Image Source="Resources/About-24.png" />
-                            </MenuItem.Icon>
-                        </MenuItem>
+                        <MenuItem.Icon>
+                            <Image Source="Resources/About-24.png" />
+                        </MenuItem.Icon>
+                    </MenuItem>
 
-                        <MenuItem
+                    <MenuItem
                         Name="ItemExit"
                         Height="24"
                         Margin="3,0,0,8"
                         Click="Menu_RunCommand"
                         Header="خروج">
-                            <MenuItem.Icon>
-                                <Image Source="Resources/Exit-30.png" />
-                            </MenuItem.Icon>
-                        </MenuItem>
+                        <MenuItem.Icon>
+                            <Image Source="Resources/Exit-30.png" />
+                        </MenuItem.Icon>
+                    </MenuItem>
 
-                    </ContextMenu>
-                </tb:TaskbarIcon.ContextMenu>
-            </tb:TaskbarIcon>
-            <Border Background="AliceBlue" BorderBrush="DarkGray" BorderThickness="1">
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="*"/>
-                        <RowDefinition Height="Auto"/>
-                    </Grid.RowDefinitions>
-
-                    <sf:SfTextBoxExt
-                    x:Name="txtSearch"
-                    Grid.Row="0"
-                    TextWrapping="NoWrap"
-                    AcceptsReturn="False"
-                    VerticalContentAlignment="Center"
-                    BorderThickness="0"
-                    Height="50"
-                    Watermark="جستجو"
-                    AutoCompleteSource="{Binding MotaradefMotazadList}"
-                    SuggestionMode="Contains"
-                    AutoCompleteMode="SuggestAppend"
-                    Padding="10,0,0,0"
-                    VerticalAlignment="Center"
-                    LostFocus="TxtSearch_OnLostFocus"
-                    FontSize="20"
-                    TextChanged="TxtSearch_OnTextChanged"
-                    KeyUp="TxtSearch_OnKeyUp"
-                    PreviewKeyDown="TxtSearch_OnPreviewKeyDown"
-                    PreviewMouseLeftButtonUp="TxtSearch_OnPreviewMouseLeftButtonUp"/>
-                    <DockPanel Grid.Row="1" >
-                        <DataGrid DockPanel.Dock="Right" Name="Datagrid_Motaradef" Style="{StaticResource DataGridStyle}" ItemsSource="{Binding MotaradefMotazadList}">
-                            <DataGrid.Columns>
-                                <DataGridTemplateColumn Header="مترادف">
-                                    <DataGridTemplateColumn.CellTemplate>
-                                        <DataTemplate>
-                                            <ItemsControl ItemsSource="{Binding}">
-                                                <ItemsControl.ItemsPanel>
-                                                    <ItemsPanelTemplate>
-                                                        <WrapPanel Orientation="Horizontal" Margin="5"/>
-                                                    </ItemsPanelTemplate>
-                                                </ItemsControl.ItemsPanel>
-                                                <ItemsControl.ItemTemplate>
-                                                    <DataTemplate>
-                                                        <Button
-                                                        UseLayoutRounding="True"
-                                                        SnapsToDevicePixels="True"
-                                                        Click="Word_OnClick"
-                                                        FocusManager.FocusedElement="{Binding ElementName=txtSearch}"
-                                                        Content="{Binding .}"
-                                                        Style="{StaticResource WordStyle}"
-                                                        MouseRightButtonUp="Word_OnMouseRightButtonUp"
-                                                    />
-                                                    </DataTemplate>
-                                                </ItemsControl.ItemTemplate>
-                                            </ItemsControl>
-
-                                        </DataTemplate>
-                                    </DataGridTemplateColumn.CellTemplate>
-                                </DataGridTemplateColumn>
-                            </DataGrid.Columns>
-                        </DataGrid>
-                        <DataGrid DockPanel.Dock="Right" Name="Datagrid_Teyfi" Style="{StaticResource DataGridStyle}" ItemsSource="{Binding TeyfiList}">
-                            <DataGrid.Columns>
-                                <DataGridTemplateColumn Width="*" Header="طیفی">
-                                    <DataGridTemplateColumn.CellTemplate>
-                                        <DataTemplate>
-                                            <ItemsControl ItemsSource="{Binding}">
-                                                <ItemsControl.ItemsPanel>
-                                                    <ItemsPanelTemplate>
-                                                        <WrapPanel Orientation="Horizontal" Margin="5"/>
-                                                    </ItemsPanelTemplate>
-                                                </ItemsControl.ItemsPanel>
-                                                <ItemsControl.ItemTemplate>
-                                                    <DataTemplate>
-                                                        <Button
-                                                        UseLayoutRounding="True"
-                                                        SnapsToDevicePixels="True"
-                                                        Click="Word_OnClick"
-                                                        Content="{Binding .}"
-                                                        FocusManager.FocusedElement="{Binding ElementName=txtSearch}"
-                                                        Style="{StaticResource WordStyle}"
-                                                        MouseRightButtonUp="Word_OnMouseRightButtonUp"
-                                                    />
-                                                    </DataTemplate>
-                                                </ItemsControl.ItemTemplate>
-                                            </ItemsControl>
-
-                                        </DataTemplate>
-                                    </DataGridTemplateColumn.CellTemplate>
-                                </DataGridTemplateColumn>
-                            </DataGrid.Columns>
-                        </DataGrid>
-                        <DataGrid DockPanel.Dock="Right" Name="Datagrid_Emlaei" Style="{StaticResource DataGridStyle}" ItemsSource="{Binding EmlaeiList}">
-                            <DataGrid.Columns>
-                                <DataGridTemplateColumn Width="*" Header="املایی">
-                                    <DataGridTemplateColumn.CellTemplate>
-                                        <DataTemplate>
-
-                                            <Button
-                                                        UseLayoutRounding="True"
-                                                        SnapsToDevicePixels="True"
-                                                        Click="Word_OnClick"
-                                                        Content="{Binding .}"
-                                                        FocusManager.FocusedElement="{Binding ElementName=txtSearch}"
-                                                        Style="{StaticResource WordStyle}"
-                                                        MouseRightButtonUp="Word_OnMouseRightButtonUp"
-                                                    />
-
-                                        </DataTemplate>
-                                    </DataGridTemplateColumn.CellTemplate>
-                                </DataGridTemplateColumn>
-                            </DataGrid.Columns>
-                        </DataGrid>
-                    </DockPanel>
-                    <Border
-                    Grid.Row="2"
-                    Name="AutoCloseMessageContainer"
-                    Margin="0,10,0,0"
-                    Padding="15,3,15,3"
-                    HorizontalAlignment="Center"
-                    VerticalAlignment="Center"
-                    Background="LightGoldenrodYellow"
-                    Visibility="Collapsed">
-                        <TextBlock
-                        Name="AutoClosemessage"
-                        TextAlignment="Center" />
-                    </Border>
-
-                </Grid>
-
-            </Border>
-        </Grid>
-        <toast:Toast x:Name="myToast"  Message="کپی شد" Duration="0:0:0:2"/>
+                </ContextMenu>
+            </tb:TaskbarIcon.ContextMenu>
+        </tb:TaskbarIcon>
     </Grid>
-   
+
 
 </Window>

@@ -36,23 +36,23 @@ namespace Vajehdan
         private readonly int _triggerThreshold = 500;
         private int _lastCtrlTick;
 
-        private ICollectionView _motaradefMotazadList;
+        private GridVirtualizingCollectionView _motaradefMotazadList;
 
-        public ICollectionView MotaradefMotazadList
+        public GridVirtualizingCollectionView MotaradefMotazadList
         {
             get => _motaradefMotazadList;
             set { _motaradefMotazadList = value; NotifyPropertyChanged("MotaradefMotazadList"); }
         }
 
-        private ICollectionView _TeyfiList;
-        public ICollectionView TeyfiList
+        private GridVirtualizingCollectionView _TeyfiList;
+        public GridVirtualizingCollectionView TeyfiList
         {
             get => _TeyfiList;
             set { _TeyfiList = value; NotifyPropertyChanged("TeyfiList"); }
         }
 
-        private ICollectionView _EmlaeiList;
-        public ICollectionView EmlaeiList
+        private GridVirtualizingCollectionView _EmlaeiList;
+        public GridVirtualizingCollectionView EmlaeiList
         {
             get => _EmlaeiList;
             set { _EmlaeiList = value; NotifyPropertyChanged("EmlaeiList"); }
@@ -83,17 +83,17 @@ namespace Vajehdan
             
 
             InitializeComponent();
-            MotaradefMotazadList = CollectionViewSource.GetDefaultView(Database.Motaradef());
+            MotaradefMotazadList = new GridVirtualizingCollectionView(Database.Motaradef());
             MotaradefMotazadList.Filter = FilterResult;
-            var motaradefCollectionView = MotaradefMotazadList as ListCollectionView;
-            motaradefCollectionView.CustomSort = new CustomSorter(this);
+            //var motaradefCollectionView = MotaradefMotazadList as ListCollectionView;
+            //motaradefCollectionView.CustomSort = new CustomSorter(this);
             
-            TeyfiList = CollectionViewSource.GetDefaultView(Database.Teyfi());
+            TeyfiList = new GridVirtualizingCollectionView(Database.Teyfi());
             TeyfiList.Filter = FilterResult;
-            var teyfiCollectionView = TeyfiList as ListCollectionView;
-            teyfiCollectionView.CustomSort = new CustomSorter(this);
+            //var teyfiCollectionView = TeyfiList as ListCollectionView;
+            //teyfiCollectionView.CustomSort = new CustomSorter(this);
 
-            EmlaeiList = CollectionViewSource.GetDefaultView(Database.Emlaei());
+            EmlaeiList = new GridVirtualizingCollectionView(Database.Emlaei());
             EmlaeiList.Filter = EmlaeiFilterResult;
 
 
@@ -194,15 +194,6 @@ namespace Vajehdan
                 txtSearch.SelectionStart = txtSearch.Text.Length;
                 txtSearch.SelectionLength = 0;
             }
-        }
-        
-        private async Task ShowMessage(string message)
-        {
-            AutoClosemessage.Text = message;
-            AutoCloseMessageContainer.Visibility = Visibility.Visible;
-            await Task.Delay(2000);
-            AutoCloseMessageContainer.Visibility = Visibility.Collapsed;
-
         }
 
         private async void Word_OnMouseRightButtonUp(object sender, MouseButtonEventArgs e)
