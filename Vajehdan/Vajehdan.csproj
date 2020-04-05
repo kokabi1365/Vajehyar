@@ -151,6 +151,9 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Telerik.Windows.Data, Version=2020.1.218.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL" />
+    <Reference Include="Toast, Version=1.0.0.1, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\AndroidToast.1.0.0.2\lib\Toast.dll</HintPath>
+    </Reference>
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />

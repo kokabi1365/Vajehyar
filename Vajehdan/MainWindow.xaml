@@ -8,6 +8,7 @@
     xmlns:telerik="clr-namespace:Telerik;assembly=Telerik.Windows.Controls"
     xmlns:sf="http://schemas.syncfusion.com/wpf" 
     xmlns:tb="http://www.hardcodet.net/taskbar"
+    xmlns:toast="clr-namespace:Toast;assembly=Toast"
     xmlns:controls="http://schemas.telerik.com/2008/xaml/presentation"
     xmlns:wt="clr-namespace:WPFWaterMarkTextBox;assembly=WPFWaterMarkTextBox"
     Title="واژه‌دان"
@@ -25,65 +26,65 @@
     <Window.CommandBindings>
         <CommandBinding Command="{x:Static SystemCommands.RestoreWindowCommand}" Executed="NotifyIconClickCommand"/>
     </Window.CommandBindings>
-    <Grid Margin="20">
-        <Grid.Effect>
-            <DropShadowEffect Direction="360" ShadowDepth="0" BlurRadius="25" Color="#FFBBBBBB" Opacity=".6"/>
-        </Grid.Effect>
-        <tb:TaskbarIcon x:Name="NotifyIcon" IconSource="Resources/Vajehdan.ico"  LeftClickCommand="SystemCommands.RestoreWindowCommand">
-            <tb:TaskbarIcon.ContextMenu>
-                <ContextMenu
+    <Grid>
+        <Grid Margin="20">
+            <Grid.Effect>
+                <DropShadowEffect Direction="360" ShadowDepth="0" BlurRadius="25" Color="#FFBBBBBB" Opacity=".6"/>
+            </Grid.Effect>
+            <tb:TaskbarIcon x:Name="NotifyIcon" IconSource="Resources/Vajehdan.ico"  LeftClickCommand="SystemCommands.RestoreWindowCommand">
+                <tb:TaskbarIcon.ContextMenu>
+                    <ContextMenu
                     FlowDirection="RightToLeft"
                     FontFamily="{StaticResource vazir}"
                     FontSize="12"
                     FontWeight="Light"
                     Placement="MousePoint">
 
-                    <MenuItem
+                        <MenuItem
                         Name="ItemSetting"
                         Height="24"
                         Margin="3,8,0,0"
                         Click="Menu_RunCommand"
                         Header="تنظیمات">
-                        <MenuItem.Icon>
-                            <Image Source="Resources/Settings-24.png" />
-                        </MenuItem.Icon>
-                    </MenuItem>
+                            <MenuItem.Icon>
+                                <Image Source="Resources/Settings-24.png" />
+                            </MenuItem.Icon>
+                        </MenuItem>
 
-                    <MenuItem
+                        <MenuItem
                         Name="ItemAbout"
                         Height="24"
                         Margin="3"
                         Click="Menu_RunCommand"
                         Header="دربارۀ برنامه">
-                        <MenuItem.Icon>
-                            <Image Source="Resources/About-24.png" />
-                        </MenuItem.Icon>
-                    </MenuItem>
+                            <MenuItem.Icon>
+                                <Image Source="Resources/About-24.png" />
+                            </MenuItem.Icon>
+                        </MenuItem>
 
-                    <MenuItem
+                        <MenuItem
                         Name="ItemExit"
                         Height="24"
                         Margin="3,0,0,8"
                         Click="Menu_RunCommand"
                         Header="خروج">
-                        <MenuItem.Icon>
-                            <Image Source="Resources/Exit-30.png" />
-                        </MenuItem.Icon>
-                    </MenuItem>
+                            <MenuItem.Icon>
+                                <Image Source="Resources/Exit-30.png" />
+                            </MenuItem.Icon>
+                        </MenuItem>
 
-                </ContextMenu>
-            </tb:TaskbarIcon.ContextMenu>
-        </tb:TaskbarIcon>
+                    </ContextMenu>
+                </tb:TaskbarIcon.ContextMenu>
+            </tb:TaskbarIcon>
+            <Border Background="AliceBlue" BorderBrush="DarkGray" BorderThickness="1">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
 
-        <Border Background="AliceBlue" BorderBrush="DarkGray" BorderThickness="1">
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="Auto"/>
-                </Grid.RowDefinitions>
-
-                <sf:SfTextBoxExt
+                    <sf:SfTextBoxExt
                     x:Name="txtSearch"
                     Grid.Row="0"
                     TextWrapping="NoWrap"
@@ -103,61 +104,21 @@
                     KeyUp="TxtSearch_OnKeyUp"
                     PreviewKeyDown="TxtSearch_OnPreviewKeyDown"
                     PreviewMouseLeftButtonUp="TxtSearch_OnPreviewMouseLeftButtonUp"/>
-                <Grid Grid.Row="1" >
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                    </Grid.ColumnDefinitions>
-
-                    <DataGrid Grid.Column="0" Name="Datagrid_Motaradef" HorizontalScrollBarVisibility="Disabled" IsReadOnly="True" AutoGenerateColumns="False" ItemsSource="{Binding MotaradefMotazadList}">
-                        <DataGrid.Style>
-                            <Style TargetType="DataGrid">
-                                <Style.Triggers>
-                                    <DataTrigger Binding="{Binding Items.Count, RelativeSource={RelativeSource Self}}" Value="0">
-                                        <Setter Property="Visibility" Value="Collapsed" />
-                                    </DataTrigger>
-                                </Style.Triggers>
-                            </Style>
-                        </DataGrid.Style>
-                        <DataGrid.HorizontalGridLinesBrush>
-                            <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
-                                <LinearGradientBrush.RelativeTransform>
-                                    <TransformGroup>
-                                        <ScaleTransform CenterY="0.5" CenterX="0.5"/>
-                                        <SkewTransform CenterY="0.5" CenterX="0.5"/>
-                                        <RotateTransform Angle="90" CenterY="0.5" CenterX="0.5"/>
-                                        <TranslateTransform/>
-                                    </TransformGroup>
-                                </LinearGradientBrush.RelativeTransform>
-                                <GradientStop Color="#FFE2E2E2" Offset="1"/>
-                                <GradientStop Color="White" Offset="0"/>
-                            </LinearGradientBrush>
-                        </DataGrid.HorizontalGridLinesBrush>
-                        <DataGrid.CellStyle>
-                            <Style TargetType="{x:Type DataGridCell}">
-                                <Setter Property="Foreground" Value="Black" />
-                                <Style.Triggers>
-                                    <Trigger Property="IsSelected" Value="True">
-                                        <Setter Property="Background" Value="{x:Null}" />
-                                        <Setter Property="BorderBrush" Value="{x:Null}" />
-                                    </Trigger>
-                                </Style.Triggers>
-                            </Style>
-                        </DataGrid.CellStyle>
-                        <DataGrid.Columns>
-                            <DataGridTemplateColumn Width="*" Header="مترادف">
-                                <DataGridTemplateColumn.CellTemplate>
-                                    <DataTemplate>
-                                        <ItemsControl ItemsSource="{Binding}">
-                                            <ItemsControl.ItemsPanel>
-                                                <ItemsPanelTemplate>
-                                                    <WrapPanel Orientation="Horizontal" Margin="5"/>
-                                                </ItemsPanelTemplate>
-                                            </ItemsControl.ItemsPanel>
-                                            <ItemsControl.ItemTemplate>
-                                                <DataTemplate>
-                                                    <Button
+                    <DockPanel Grid.Row="1" >
+                        <DataGrid DockPanel.Dock="Right" Name="Datagrid_Motaradef" Style="{StaticResource DataGridStyle}" ItemsSource="{Binding MotaradefMotazadList}">
+                            <DataGrid.Columns>
+                                <DataGridTemplateColumn Header="مترادف">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <ItemsControl ItemsSource="{Binding}">
+                                                <ItemsControl.ItemsPanel>
+                                                    <ItemsPanelTemplate>
+                                                        <WrapPanel Orientation="Horizontal" Margin="5"/>
+                                                    </ItemsPanelTemplate>
+                                                </ItemsControl.ItemsPanel>
+                                                <ItemsControl.ItemTemplate>
+                                                    <DataTemplate>
+                                                        <Button
                                                         UseLayoutRounding="True"
                                                         SnapsToDevicePixels="True"
                                                         Click="Word_OnClick"
@@ -166,52 +127,29 @@
                                                         Style="{StaticResource WordStyle}"
                                                         MouseRightButtonUp="Word_OnMouseRightButtonUp"
                                                     />
-                                                </DataTemplate>
-                                            </ItemsControl.ItemTemplate>
-                                        </ItemsControl>
+                                                    </DataTemplate>
+                                                </ItemsControl.ItemTemplate>
+                                            </ItemsControl>
 
-                                    </DataTemplate>
-                                </DataGridTemplateColumn.CellTemplate>
-                            </DataGridTemplateColumn>
-                        </DataGrid.Columns>
-                    </DataGrid>
-                    <DataGrid Grid.Column="1" Name="Datagrid_Teyfi" EnableRowVirtualization="True" EnableColumnVirtualization="True" HorizontalScrollBarVisibility="Disabled" IsReadOnly="True" AutoGenerateColumns="False" ItemsSource="{Binding TeyfiList}">
-                        <DataGrid.Style>
-                            <Style TargetType="DataGrid">
-                                <Style.Triggers>
-                                    <DataTrigger Binding="{Binding Items.Count, RelativeSource={RelativeSource Self}}" Value="0">
-                                        <Setter Property="Visibility" Value="Collapsed" />
-                                    </DataTrigger>
-                                </Style.Triggers>
-                            </Style>
-                        </DataGrid.Style>
-                        <DataGrid.HorizontalGridLinesBrush>
-                            <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
-                                <LinearGradientBrush.RelativeTransform>
-                                    <TransformGroup>
-                                        <ScaleTransform CenterY="0.5" CenterX="0.5"/>
-                                        <SkewTransform CenterY="0.5" CenterX="0.5"/>
-                                        <RotateTransform Angle="90" CenterY="0.5" CenterX="0.5"/>
-                                        <TranslateTransform/>
-                                    </TransformGroup>
-                                </LinearGradientBrush.RelativeTransform>
-                                <GradientStop Color="#FFE2E2E2" Offset="1"/>
-                                <GradientStop Color="White" Offset="0"/>
-                            </LinearGradientBrush>
-                        </DataGrid.HorizontalGridLinesBrush>
-                        <DataGrid.Columns>
-                            <DataGridTemplateColumn Width="*" Header="طیفی">
-                                <DataGridTemplateColumn.CellTemplate>
-                                    <DataTemplate>
-                                        <ItemsControl ItemsSource="{Binding}">
-                                            <ItemsControl.ItemsPanel>
-                                                <ItemsPanelTemplate>
-                                                    <WrapPanel Orientation="Horizontal" Margin="5"/>
-                                                </ItemsPanelTemplate>
-                                            </ItemsControl.ItemsPanel>
-                                            <ItemsControl.ItemTemplate>
-                                                <DataTemplate>
-                                                    <Button
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                        <DataGrid DockPanel.Dock="Right" Name="Datagrid_Teyfi" Style="{StaticResource DataGridStyle}" ItemsSource="{Binding TeyfiList}">
+                            <DataGrid.Columns>
+                                <DataGridTemplateColumn Width="*" Header="طیفی">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <ItemsControl ItemsSource="{Binding}">
+                                                <ItemsControl.ItemsPanel>
+                                                    <ItemsPanelTemplate>
+                                                        <WrapPanel Orientation="Horizontal" Margin="5"/>
+                                                    </ItemsPanelTemplate>
+                                                </ItemsControl.ItemsPanel>
+                                                <ItemsControl.ItemTemplate>
+                                                    <DataTemplate>
+                                                        <Button
                                                         UseLayoutRounding="True"
                                                         SnapsToDevicePixels="True"
                                                         Click="Word_OnClick"
@@ -220,45 +158,22 @@
                                                         Style="{StaticResource WordStyle}"
                                                         MouseRightButtonUp="Word_OnMouseRightButtonUp"
                                                     />
-                                                </DataTemplate>
-                                            </ItemsControl.ItemTemplate>
-                                        </ItemsControl>
+                                                    </DataTemplate>
+                                                </ItemsControl.ItemTemplate>
+                                            </ItemsControl>
 
-                                    </DataTemplate>
-                                </DataGridTemplateColumn.CellTemplate>
-                            </DataGridTemplateColumn>
-                        </DataGrid.Columns>
-                    </DataGrid>
-                    <DataGrid Grid.Column="2" Name="Datagrid_Emlaei" HorizontalScrollBarVisibility="Disabled" IsReadOnly="True" AutoGenerateColumns="False" ItemsSource="{Binding EmlaeiList}">
-                        <DataGrid.Style>
-                            <Style TargetType="DataGrid">
-                                <Style.Triggers>
-                                    <DataTrigger Binding="{Binding Items.Count, RelativeSource={RelativeSource Self}}" Value="0">
-                                        <Setter Property="Visibility" Value="Collapsed" />
-                                    </DataTrigger>
-                                </Style.Triggers>
-                            </Style>
-                        </DataGrid.Style>
-                        <DataGrid.HorizontalGridLinesBrush>
-                            <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
-                                <LinearGradientBrush.RelativeTransform>
-                                    <TransformGroup>
-                                        <ScaleTransform CenterY="0.5" CenterX="0.5"/>
-                                        <SkewTransform CenterY="0.5" CenterX="0.5"/>
-                                        <RotateTransform Angle="90" CenterY="0.5" CenterX="0.5"/>
-                                        <TranslateTransform/>
-                                    </TransformGroup>
-                                </LinearGradientBrush.RelativeTransform>
-                                <GradientStop Color="#FFE2E2E2" Offset="1"/>
-                                <GradientStop Color="White" Offset="0"/>
-                            </LinearGradientBrush>
-                        </DataGrid.HorizontalGridLinesBrush>
-                        <DataGrid.Columns>
-                            <DataGridTemplateColumn Width="*" Header="املایی">
-                                <DataGridTemplateColumn.CellTemplate>
-                                    <DataTemplate>
-                                        
-                                                    <Button
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                        <DataGrid DockPanel.Dock="Right" Name="Datagrid_Emlaei" Style="{StaticResource DataGridStyle}" ItemsSource="{Binding EmlaeiList}">
+                            <DataGrid.Columns>
+                                <DataGridTemplateColumn Width="*" Header="املایی">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+
+                                            <Button
                                                         UseLayoutRounding="True"
                                                         SnapsToDevicePixels="True"
                                                         Click="Word_OnClick"
@@ -268,13 +183,13 @@
                                                         MouseRightButtonUp="Word_OnMouseRightButtonUp"
                                                     />
 
-                                    </DataTemplate>
-                                </DataGridTemplateColumn.CellTemplate>
-                            </DataGridTemplateColumn>
-                        </DataGrid.Columns>
-                    </DataGrid>
-                </Grid>
-                <Border
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </DockPanel>
+                    <Border
                     Grid.Row="2"
                     Name="AutoCloseMessageContainer"
                     Margin="0,10,0,0"
@@ -283,14 +198,17 @@
                     VerticalAlignment="Center"
                     Background="LightGoldenrodYellow"
                     Visibility="Collapsed">
-                    <TextBlock
+                        <TextBlock
                         Name="AutoClosemessage"
                         TextAlignment="Center" />
-                </Border>
+                    </Border>
 
-            </Grid>
+                </Grid>
 
-        </Border>
+            </Border>
+        </Grid>
+        <toast:Toast x:Name="myToast"  Message="کپی شد" Duration="0:0:0:2"/>
     </Grid>
+   
 
 </Window>

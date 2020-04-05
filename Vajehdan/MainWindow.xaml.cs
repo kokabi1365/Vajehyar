@@ -209,8 +209,11 @@ namespace Vajehdan
         {
             string word = (sender as Button).Content.ToString();
             Clipboard.SetText(word);
-            string message = $".واژۀ «{word}» کپی شد";
-            await ShowMessage(message);
+            //string message = $".واژۀ «{word}» کپی شد";
+            //await ShowMessage(message);
+      
+            myToast.Show();
+            
         }
 
         private void Word_OnClick(object sender, RoutedEventArgs e)
