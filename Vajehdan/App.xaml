@@ -888,6 +888,7 @@
             <Setter Property="HideEmptyGridViewDefinition" Value="True"/>
             <Setter Property="EnableDataVirtualization" Value="True"/>
             <Setter Property="AutoGenerateColumns" Value="False"/>
+            <Setter Property="RowHeight" Value="24"/>
         </Style>
 
         <DropShadowEffect x:Key="ShadowEffect" Direction="360" ShadowDepth="0" BlurRadius="25" Color="#FFBBBBBB" Opacity=".6"/>

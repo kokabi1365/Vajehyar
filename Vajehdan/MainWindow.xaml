@@ -27,8 +27,8 @@
         <CommandBinding Command="{x:Static SystemCommands.RestoreWindowCommand}" Executed="NotifyIconClickCommand"/>
     </Window.CommandBindings>
     <Grid Margin="20" Effect="{StaticResource ShadowEffect}">
-        <Border BorderBrush="LightSkyBlue" BorderThickness="1">
-            <StackPanel>
+
+        <StackPanel Background="AliceBlue">
                 <sf:SfTextBoxExt
                     x:Name="txtSearch"
                     Style="{StaticResource TextBoxStyle}"
@@ -38,7 +38,7 @@
                     PreviewKeyDown="TxtSearch_OnPreviewKeyDown"
                     PreviewMouseLeftButtonUp="TxtSearch_OnPreviewMouseLeftButtonUp"/>
                 <StackPanel Orientation="Horizontal">
-                    <sf:SfDataGrid Name="Datagrid_Motaradef" Style="{StaticResource DataGridStyle}" ItemsSource="{Binding MotaradefMotazadList}">
+                    <sf:SfDataGrid QueryRowHeight="Datagrid_OnQueryRowHeight" Name="Datagrid_Motaradef" Style="{StaticResource DataGridStyle}" ItemsSource="{Binding MotaradefMotazadList}">
                         <sf:SfDataGrid.Columns>
                             <sf:GridTemplateColumn HeaderText="مترادف">
                                 <sf:GridTemplateColumn.CellTemplate>
@@ -69,7 +69,7 @@
                             </sf:GridTemplateColumn>
                         </sf:SfDataGrid.Columns>
                     </sf:SfDataGrid>
-                    <sf:SfDataGrid Name="Datagrid_Teyfi" Style="{StaticResource DataGridStyle}" ItemsSource="{Binding TeyfiList}">
+                    <sf:SfDataGrid Name="Datagrid_Teyfi" QueryRowHeight="Datagrid_OnQueryRowHeight" Style="{StaticResource DataGridStyle}" ItemsSource="{Binding TeyfiList}">
                         <sf:SfDataGrid.Columns>
                             <sf:GridTemplateColumn HeaderText="طیفی">
                                 <sf:GridTemplateColumn.CellTemplate>
@@ -100,7 +100,7 @@
                             </sf:GridTemplateColumn>
                         </sf:SfDataGrid.Columns>
                     </sf:SfDataGrid>
-                    <sf:SfDataGrid Name="Datagrid_Emlaei" Style="{StaticResource DataGridStyle}" ItemsSource="{Binding EmlaeiList}">
+                    <sf:SfDataGrid Name="Datagrid_Emlaei" QueryRowHeight="Datagrid_OnQueryRowHeight" Style="{StaticResource DataGridStyle}" ItemsSource="{Binding EmlaeiList}">
                         <sf:SfDataGrid.Columns>
                             <sf:GridTemplateColumn HeaderText="املایی">
                                 <sf:GridTemplateColumn.CellTemplate>
@@ -123,7 +123,6 @@
                     </sf:SfDataGrid>
                 </StackPanel>
             </StackPanel>
-        </Border>
         
         <toast:Toast x:Name="myToast" VerticalAlignment="Center" Margin="0"  DurationToast="Short" Message="کپی شد"/>
         <tb:TaskbarIcon x:Name="NotifyIcon" IconSource="Resources/Vajehdan.ico"  LeftClickCommand="SystemCommands.RestoreWindowCommand">

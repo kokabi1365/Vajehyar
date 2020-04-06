@@ -23,6 +23,7 @@ using Vajehdan.Properties;
 using Application = System.Windows.Application;
 using Button = System.Windows.Controls.Button;
 using Clipboard = System.Windows.Clipboard;
+using DataGrid = System.Windows.Controls.DataGrid;
 using KeyEventArgs = System.Windows.Input.KeyEventArgs;
 
 
@@ -298,6 +299,19 @@ namespace Vajehdan
             ShowMainWindow();
         }
 
+        GridRowSizingOptions gridRowResizingOptions = new GridRowSizingOptions();
+        double autoHeight;
+        private void Datagrid_OnQueryRowHeight(object sender, QueryRowHeightEventArgs e)
+        {
+            if ((sender as SfDataGrid).GridColumnSizer.GetAutoRowHeight(e.RowIndex, gridRowResizingOptions, out autoHeight))
+            {
+                if (autoHeight > 24)
+                {
+                    e.Height = autoHeight;
+                    e.Handled = true;
+                }
+            }
+        }
     }
 
 }
