@@ -861,11 +861,6 @@
         </Style>
 
         <Style x:Key="DataGridStyle" TargetType="sf:SfDataGrid">
-            <Style.Triggers>
-                <DataTrigger Binding="{Binding Items.Count, RelativeSource={RelativeSource Self}}" Value="0">
-                    <Setter Property="Visibility" Value="Collapsed" />
-                </DataTrigger>
-            </Style.Triggers>
             <Setter Property="BorderBrush">
                 <Setter.Value>
                     <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
@@ -883,12 +878,11 @@
                 </Setter.Value>
             </Setter>
             <Setter Property="ColumnSizer" Value="Star"/>
-            <Setter Property="ScrollMode" Value="Async"/>
             <Setter Property="IsReadOnly" Value="True"/>
-            <Setter Property="HideEmptyGridViewDefinition" Value="True"/>
             <Setter Property="EnableDataVirtualization" Value="True"/>
             <Setter Property="AutoGenerateColumns" Value="False"/>
             <Setter Property="RowHeight" Value="24"/>
+            <Setter Property="ScrollMode" Value="Async"/>
         </Style>
 
         <DropShadowEffect x:Key="ShadowEffect" Direction="360" ShadowDepth="0" BlurRadius="25" Color="#FFBBBBBB" Opacity=".6"/>

@@ -25,6 +25,7 @@ using Button = System.Windows.Controls.Button;
 using Clipboard = System.Windows.Clipboard;
 using DataGrid = System.Windows.Controls.DataGrid;
 using KeyEventArgs = System.Windows.Input.KeyEventArgs;
+using MessageBox = System.Windows.Forms.MessageBox;
 
 
 namespace Vajehdan
@@ -72,6 +73,7 @@ namespace Vajehdan
             }
         }
 
+
         private void FilterCollection()
         {
             _motaradefMotazadList?.Refresh();
@@ -81,14 +83,15 @@ namespace Vajehdan
 
         public MainWindow()
         {
-            
+
 
             InitializeComponent();
             MotaradefMotazadList = new GridVirtualizingCollectionView(Database.Motaradef());
             MotaradefMotazadList.Filter = FilterResult;
+            MotaradefMotazadList.CollectionChanged += MotaradefMotazadList_CollectionChanged;
             //var motaradefCollectionView = MotaradefMotazadList as ListCollectionView;
             //motaradefCollectionView.CustomSort = new CustomSorter(this);
-            
+
             TeyfiList = new GridVirtualizingCollectionView(Database.Teyfi());
             TeyfiList.Filter = FilterResult;
             //var teyfiCollectionView = TeyfiList as ListCollectionView;
@@ -100,7 +103,7 @@ namespace Vajehdan
 
             var globalMouseHook = Hook.GlobalEvents();
             globalMouseHook.MouseDown += GlobalMouseHook_MouseDown;
-            
+
             _keyboardHook = new KeyboardHook();
             _keyboardHook.SetHook();
             _keyboardHook.OnKeyDownEvent += (o, arg) =>
@@ -141,7 +144,26 @@ namespace Vajehdan
 #endif
         }
 
-        
+        private void MotaradefMotazadList_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
+        {
+
+            Dispatcher.BeginInvoke(
+                new Action(() =>
+                {
+                    if (MotaradefMotazadList.Count == 0 && TeyfiList.Count==0 && EmlaeiList.Count==0)
+                    {
+                        ResultDatagrid.Visibility = Visibility.Collapsed;
+                        return;
+                    }
+
+                    ResultDatagrid.Visibility = Visibility.Visible;
+
+                    var gridLength = new GridLength(1, GridUnitType.Star);
+                    MotaradefColumn.Width = MotaradefMotazadList.Count == 0 ? new GridLength(0) : gridLength;
+                    TeyfiColumn.Width = TeyfiList.Count == 0 ? new GridLength(0) : gridLength;
+                    EmlaeiColumn.Width = EmlaeiList.Count == 0 ? new GridLength(0) : gridLength;
+                }));
+        }
 
         private async void CheckUpdate()
         {
@@ -157,7 +179,7 @@ namespace Vajehdan
             if (string.IsNullOrEmpty(filterString))
                 return false;
 
-            var words = string.Join("،",obj as string[]);
+            var words = string.Join("،", obj as string[]);
             return words.Contains(filterString);
 
         }
@@ -171,7 +193,7 @@ namespace Vajehdan
                 return false;
 
             var words = obj as string;
-            
+
             return words.RemoveDiacritics().Contains(filterString);
         }
 
@@ -203,9 +225,9 @@ namespace Vajehdan
             Clipboard.SetText(word);
             //string message = $".واژۀ «{word}» کپی شد";
             //await ShowMessage(message);
-      
+
             myToast.Show();
-            
+
         }
 
         private void Word_OnClick(object sender, RoutedEventArgs e)
@@ -233,9 +255,9 @@ namespace Vajehdan
 
         private async void TxtSearch_OnTextChanged(object sender, TextChangedEventArgs e)
         {
-            if (txtSearch.Text.Length==1)
+            if (txtSearch.Text.Length == 1)
                 return;
-            
+
             if (await txtSearch.IsIdle())
             {
                 FilterString = txtSearch.Text;
@@ -312,6 +334,8 @@ namespace Vajehdan
                 }
             }
         }
+
+
     }
 
 }
