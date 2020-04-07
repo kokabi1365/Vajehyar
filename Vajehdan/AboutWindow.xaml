@@ -97,26 +97,7 @@
             <StackPanel
                 Margin="0,15,0,0"
                 HorizontalAlignment="Center"
-                Orientation="Horizontal">
-                <Image
-                    x:Name="VirgoolIcon"
-                    Margin="0,-2,0,0"
-                    VerticalAlignment="Center"
-                    Cursor="Hand"
-                    MouseLeftButtonDown="VirgoolIcon_OnMouseLeftButtonDown"
-                    Source="Resources/Virgool-16.png"
-                    Style="{StaticResource ImageStyle}"
-                    ToolTip="صفحۀ شخصی من در ویرگول" />
-                <Image
-                    x:Name="GithubIcon"
-                    Margin="10,0,10,0"
-                    VerticalAlignment="Center"
-                    Cursor="Hand"
-                    MouseLeftButtonDown="GithubIcon_OnMouseLeftButtonDown"
-                    Source="Resources/Github-16.png"
-                    Style="{StaticResource ImageStyle}"
-                    ToolTip="سورس پروژه در گیت‌هاب" />
-            </StackPanel>
+                Orientation="Horizontal"/>
         </StackPanel>
 
     </Border>
