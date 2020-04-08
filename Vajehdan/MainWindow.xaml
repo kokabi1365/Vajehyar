@@ -38,14 +38,14 @@
                     PreviewMouseLeftButtonUp="TxtSearch_OnPreviewMouseLeftButtonUp"/>
             <Grid MaxHeight="400" x:Name="ResultDatagrid">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition x:Name="MotaradefColumn" Width="0"/>
-                    <ColumnDefinition x:Name="TeyfiColumn" Width="*"/>
-                    <ColumnDefinition x:Name="EmlaeiColumn" Width="*"/>
+                    <ColumnDefinition x:Name="MotaradefColumn" Width="3*"/>
+                    <ColumnDefinition x:Name="TeyfiColumn" Width="3*"/>
+                    <ColumnDefinition x:Name="EmlaeiColumn" Width="2*"/>
                 </Grid.ColumnDefinitions>
 
                 <sf:SfDataGrid Grid.Column="0" QueryRowHeight="Datagrid_OnQueryRowHeight" Name="Datagrid_Motaradef" Style="{StaticResource DataGridStyle}" ItemsSource="{Binding MotaradefMotazadList}">
                     <sf:SfDataGrid.Columns>
-                        <sf:GridTemplateColumn HeaderText="مترادف">
+                        <sf:GridTemplateColumn HeaderText="مترادف" HorizontalHeaderContentAlignment="Left">
                             <sf:GridTemplateColumn.CellTemplate>
                                 <DataTemplate>
                                     <ItemsControl ItemsSource="{Binding}">
@@ -76,7 +76,7 @@
                 </sf:SfDataGrid>
                 <sf:SfDataGrid Name="Datagrid_Teyfi" QueryRowHeight="Datagrid_OnQueryRowHeight" Grid.Column="1" Style="{StaticResource DataGridStyle}" ItemsSource="{Binding TeyfiList}">
                     <sf:SfDataGrid.Columns>
-                        <sf:GridTemplateColumn HeaderText="طیفی">
+                        <sf:GridTemplateColumn HeaderText="طیفی" HorizontalHeaderContentAlignment="Left">
                             <sf:GridTemplateColumn.CellTemplate>
                                 <DataTemplate>
                                     <ItemsControl ItemsSource="{Binding}">
@@ -107,7 +107,7 @@
                 </sf:SfDataGrid>
                 <sf:SfDataGrid Name="Datagrid_Emlaei" QueryRowHeight="Datagrid_OnQueryRowHeight" Grid.Column="2" Style="{StaticResource DataGridStyle}" ItemsSource="{Binding EmlaeiList}">
                     <sf:SfDataGrid.Columns>
-                        <sf:GridTemplateColumn HeaderText="املایی">
+                        <sf:GridTemplateColumn HeaderText="املایی" HorizontalHeaderContentAlignment="Left">
                             <sf:GridTemplateColumn.CellTemplate>
                                 <DataTemplate>
 

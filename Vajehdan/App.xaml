@@ -883,6 +883,7 @@
             <Setter Property="AutoGenerateColumns" Value="False"/>
             <Setter Property="RowHeight" Value="24"/>
             <Setter Property="ScrollMode" Value="Async"/>
+            <Setter Property="IsTabStop" Value="False"/>
         </Style>
 
         <DropShadowEffect x:Key="ShadowEffect" Direction="360" ShadowDepth="0" BlurRadius="25" Color="#FFBBBBBB" Opacity=".6"/>

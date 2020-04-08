@@ -158,10 +158,10 @@ namespace Vajehdan
 
                     ResultDatagrid.Visibility = Visibility.Visible;
 
-                    var gridLength = new GridLength(1, GridUnitType.Star);
-                    MotaradefColumn.Width = MotaradefMotazadList.Count == 0 ? new GridLength(0) : gridLength;
-                    TeyfiColumn.Width = TeyfiList.Count == 0 ? new GridLength(0) : gridLength;
-                    EmlaeiColumn.Width = EmlaeiList.Count == 0 ? new GridLength(0) : gridLength;
+                   
+                    MotaradefColumn.Width = MotaradefMotazadList.Count == 0 ? new GridLength(0) : new GridLength(3, GridUnitType.Star);
+                    TeyfiColumn.Width = TeyfiList.Count == 0 ? new GridLength(0) : new GridLength(3, GridUnitType.Star);
+                    EmlaeiColumn.Width = EmlaeiList.Count == 0 ? new GridLength(0) : new GridLength(2, GridUnitType.Star);
                 }));
         }
 
