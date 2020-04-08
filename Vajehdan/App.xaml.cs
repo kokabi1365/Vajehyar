@@ -32,8 +32,10 @@ namespace Vajehdan
           
         }
 
-        
-
-        
+        protected override void OnExit(ExitEventArgs e)
+        {
+            base.OnExit(e);
+            Process.GetCurrentProcess().Kill();
+        }
     }
 }
