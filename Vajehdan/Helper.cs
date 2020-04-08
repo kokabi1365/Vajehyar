@@ -88,11 +88,9 @@ namespace Vajehdan
             return $"{major}.{minor}.{patch}";
         }
 
-        public static async Task<bool> GetIdle(this TextBox txb, int whatMillisecond)
+        public static String GetPlainString(this string s)
         {
-            string txt = txb.Text;
-            await Task.Delay(whatMillisecond);
-            return txt == txb.Text;
+            return s.Trim().RemoveDiacritics().Replace("ي", "ی").Replace("ك", "ک");
         }
 
         public static String RemoveDiacritics(this String s)

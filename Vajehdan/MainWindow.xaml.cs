@@ -175,7 +175,7 @@ namespace Vajehdan
 
         public bool FilterResult(object obj)
         {
-            string filterString = txtSearch.Text.Trim();
+            string filterString = txtSearch.Text.GetPlainString();
             if (string.IsNullOrEmpty(filterString))
                 return false;
 
