@@ -175,7 +175,7 @@ namespace Vajehdan
 
         public bool FilterResult(object obj)
         {
-            string filterString = txtSearch.Text;
+            string filterString = txtSearch.Text.Trim();
             if (string.IsNullOrEmpty(filterString))
                 return false;
 
@@ -334,7 +334,6 @@ namespace Vajehdan
                 }
             }
         }
-
 
     }
 
