@@ -32,8 +32,8 @@
                     x:Name="txtSearch"
                     Style="{StaticResource TextBoxStyle}"
                     LostFocus="TxtSearch_OnLostFocus"
-                    TextChanged="TxtSearch_OnTextChanged"
                     KeyUp="TxtSearch_OnKeyUp"
+                    Text="{Binding FilterString, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged, Delay=200}"
                     PreviewKeyDown="TxtSearch_OnPreviewKeyDown"
                     PreviewMouseLeftButtonUp="TxtSearch_OnPreviewMouseLeftButtonUp"/>
             <Grid MaxHeight="400" x:Name="ResultDatagrid">
@@ -110,16 +110,26 @@
                         <sf:GridTemplateColumn HeaderText="املایی" HorizontalHeaderContentAlignment="Left">
                             <sf:GridTemplateColumn.CellTemplate>
                                 <DataTemplate>
-
-                                    <Button
-                                        UseLayoutRounding="True"
-                                        SnapsToDevicePixels="True"
-                                        Click="Word_OnClick"
-                                        HorizontalAlignment="Center"
-                                        Content="{Binding .}"
-                                        FocusManager.FocusedElement="{Binding ElementName=txtSearch}"
-                                        Style="{StaticResource WordStyle}"
-                                        MouseRightButtonUp="Word_OnMouseRightButtonUp"/>
+                                    <ItemsControl ItemsSource="{Binding}">
+                                        <ItemsControl.ItemsPanel>
+                                            <ItemsPanelTemplate>
+                                                <WrapPanel Orientation="Horizontal" Margin="5"/>
+                                            </ItemsPanelTemplate>
+                                        </ItemsControl.ItemsPanel>
+                                        <ItemsControl.ItemTemplate>
+                                            <DataTemplate>
+                                                <Button
+                                                        UseLayoutRounding="True"
+                                                        SnapsToDevicePixels="True"
+                                                        Click="Word_OnClick"
+                                                        FocusManager.FocusedElement="{Binding ElementName=txtSearch}"
+                                                        Content="{Binding .}"
+                                                        Style="{StaticResource WordStyle}"
+                                                        MouseRightButtonUp="Word_OnMouseRightButtonUp"
+                                                    />
+                                            </DataTemplate>
+                                        </ItemsControl.ItemTemplate>
+                                    </ItemsControl>
 
                                 </DataTemplate>
                             </sf:GridTemplateColumn.CellTemplate>

@@ -67,7 +67,10 @@ namespace Vajehdan
             get => _filterString;
             set
             {
-                _filterString = value;
+                if (value.Length<2)
+                    return;
+                
+                _filterString = value.ToPlainText();
                 NotifyPropertyChanged("FilterString");
                 FilterCollection();
             }
@@ -86,19 +89,19 @@ namespace Vajehdan
 
 
             InitializeComponent();
-            MotaradefMotazadList = new GridVirtualizingCollectionView(Database.Motaradef());
+            MotaradefMotazadList = new GridVirtualizingCollectionView(Database.GetWords(DatabaseType.Motaradef));
             MotaradefMotazadList.Filter = FilterResult;
             MotaradefMotazadList.CollectionChanged += MotaradefMotazadList_CollectionChanged;
             //var motaradefCollectionView = MotaradefMotazadList as ListCollectionView;
             //motaradefCollectionView.CustomSort = new CustomSorter(this);
 
-            TeyfiList = new GridVirtualizingCollectionView(Database.Teyfi());
+            TeyfiList = new GridVirtualizingCollectionView(Database.GetWords(DatabaseType.Teyfi));
             TeyfiList.Filter = FilterResult;
             //var teyfiCollectionView = TeyfiList as ListCollectionView;
             //teyfiCollectionView.CustomSort = new CustomSorter(this);
 
-            EmlaeiList = new GridVirtualizingCollectionView(Database.Emlaei());
-            EmlaeiList.Filter = EmlaeiFilterResult;
+            EmlaeiList = new GridVirtualizingCollectionView(Database.GetWords(DatabaseType.Emlaei));
+            EmlaeiList.Filter = FilterResult;
 
 
             var globalMouseHook = Hook.GlobalEvents();
@@ -175,27 +178,14 @@ namespace Vajehdan
 
         public bool FilterResult(object obj)
         {
-            string filterString = txtSearch.Text.GetPlainString();
+            string filterString = txtSearch.Text.ToPlainText();
             if (string.IsNullOrEmpty(filterString))
                 return false;
 
             var words = string.Join("،", obj as string[]);
             return words.Contains(filterString);
-
         }
 
-
-
-        private bool EmlaeiFilterResult(object obj)
-        {
-            string filterString = txtSearch.Text;
-            if (string.IsNullOrEmpty(filterString))
-                return false;
-
-            var words = obj as string;
-
-            return words.RemoveDiacritics().Contains(filterString);
-        }
 
         public event PropertyChangedEventHandler PropertyChanged;
         private void NotifyPropertyChanged(string property)
@@ -205,6 +195,11 @@ namespace Vajehdan
 
         private void TxtSearch_OnPreviewKeyDown(object sender, KeyEventArgs e)
         {
+            if (String.IsNullOrWhiteSpace(txtSearch.Text) && e.Key==Key.Space)
+            {
+                e.Handled = true;
+                txtSearch.Clear();
+            }
             bool shift = (Keyboard.Modifiers & ModifierKeys.Shift) == ModifierKeys.Shift;
             bool ctrl = (Keyboard.Modifiers & ModifierKeys.Control) == ModifierKeys.Control;
             bool space = Keyboard.IsKeyDown(Key.Space);
@@ -219,15 +214,11 @@ namespace Vajehdan
             }
         }
 
-        private async void Word_OnMouseRightButtonUp(object sender, MouseButtonEventArgs e)
+        private void Word_OnMouseRightButtonUp(object sender, MouseButtonEventArgs e)
         {
             string word = (sender as Button).Content.ToString();
             Clipboard.SetText(word);
-            //string message = $".واژۀ «{word}» کپی شد";
-            //await ShowMessage(message);
-
             myToast.Show();
-
         }
 
         private void Word_OnClick(object sender, RoutedEventArgs e)
@@ -251,17 +242,6 @@ namespace Vajehdan
             {
                 Keyboard.Focus(txtSearch);
             }));
-        }
-
-        private async void TxtSearch_OnTextChanged(object sender, TextChangedEventArgs e)
-        {
-            if (txtSearch.Text.Length == 1)
-                return;
-
-            if (await txtSearch.IsIdle())
-            {
-                FilterString = txtSearch.Text;
-            }
         }
 
         private void TxtSearch_OnKeyUp(object sender, KeyEventArgs e)
@@ -335,6 +315,7 @@ namespace Vajehdan
             }
         }
 
+      
     }
 
 }

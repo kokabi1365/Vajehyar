@@ -88,7 +88,7 @@ namespace Vajehdan
             return $"{major}.{minor}.{patch}";
         }
 
-        public static String GetPlainString(this string s)
+        public static String ToPlainText(this string s)
         {
             return s.Trim().RemoveDiacritics().Replace("ي", "ی").Replace("ك", "ک");
         }
