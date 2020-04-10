@@ -31,6 +31,7 @@
             <sf:SfTextBoxExt
                     x:Name="txtSearch"
                     Style="{StaticResource TextBoxStyle}"
+                    AutoCompleteSource="{Binding Words}"
                     LostFocus="TxtSearch_OnLostFocus"
                     KeyUp="TxtSearch_OnKeyUp"
                     Text="{Binding FilterString, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged, Delay=200}"

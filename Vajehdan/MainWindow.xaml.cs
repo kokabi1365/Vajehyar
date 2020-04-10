@@ -13,6 +13,7 @@ using System.Windows.Input;
 using System.Windows.Threading;
 using BFF.DataVirtualizingCollection;
 using Gma.System.MouseKeyHook;
+using Syncfusion.Data;
 using Syncfusion.UI.Xaml.Grid;
 using Syncfusion.UI.Xaml.Grid.Helpers;
 using Syncfusion.UI.Xaml.ScrollAxis;
@@ -37,6 +38,16 @@ namespace Vajehdan
     {
         private readonly int _triggerThreshold = 500;
         private int _lastCtrlTick;
+
+        public List<string> Words
+        {
+            get => _words;
+            set
+            {
+                _words = value;
+                NotifyPropertyChanged("Words");
+            }
+        }
 
         private GridVirtualizingCollectionView _motaradefMotazadList;
 
@@ -94,7 +105,7 @@ namespace Vajehdan
             MotaradefMotazadList.CollectionChanged += MotaradefMotazadList_CollectionChanged;
             //var motaradefCollectionView = MotaradefMotazadList as ListCollectionView;
             //motaradefCollectionView.CustomSort = new CustomSorter(this);
-
+            
             TeyfiList = new GridVirtualizingCollectionView(Database.GetWords(DatabaseType.Teyfi));
             TeyfiList.Filter = FilterResult;
             //var teyfiCollectionView = TeyfiList as ListCollectionView;
@@ -102,6 +113,8 @@ namespace Vajehdan
 
             EmlaeiList = new GridVirtualizingCollectionView(Database.GetWords(DatabaseType.Emlaei));
             EmlaeiList.Filter = FilterResult;
+
+            Words = Database.GetAllWords();
 
 
             var globalMouseHook = Hook.GlobalEvents();
@@ -303,6 +316,8 @@ namespace Vajehdan
 
         GridRowSizingOptions gridRowResizingOptions = new GridRowSizingOptions();
         double autoHeight;
+        private List<string> _words;
+
         private void Datagrid_OnQueryRowHeight(object sender, QueryRowHeightEventArgs e)
         {
             if ((sender as SfDataGrid).GridColumnSizer.GetAutoRowHeight(e.RowIndex, gridRowResizingOptions, out autoHeight))
@@ -315,7 +330,8 @@ namespace Vajehdan
             }
         }
 
-      
+
+       
     }
 
 }

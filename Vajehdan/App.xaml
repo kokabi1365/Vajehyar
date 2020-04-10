@@ -892,7 +892,7 @@
             <Setter Property="Watermark" Value="جستجو"/>
             <Setter Property="Height" Value="50"/>
             <Setter Property="SuggestionMode" Value="Contains"/>
-            <Setter Property="AutoCompleteMode" Value="SuggestAppend"/>
+            <Setter Property="AutoCompleteMode" Value="Suggest"/>
             <Setter Property="Padding" Value="10,0,0,0"/>
             <Setter Property="VerticalAlignment" Value="Center"/>
             <Setter Property="FontSize" Value="20"/>

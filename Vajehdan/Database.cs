@@ -29,8 +29,32 @@ namespace Vajehdan
             }
             
             var words = new List<string[]>();
-            lines.ForEach(l => words.Add(l.Split('،')));
+            foreach (var l in lines)
+            {
+                string[] ws = l.Split('،');
+                ws.ForEach(s => s.Trim());
+                words.Add(ws);
+
+            } 
+                
             return words.ToArray();
+        }
+
+        public static List<string> GetAllWords()
+        {
+            List<string> words = new List<string>();
+            
+            var lines = Properties.Resources.Motaradef_Motazad.Split('\n')
+                .Concat(Properties.Resources.Teyfi.Split('\n'))
+                .Concat(Properties.Resources.Emlaei.Split('\n'));
+
+            foreach (string line in lines)
+            {
+                words.AddRange(line.Split('،'));
+            }
+
+            return words.Select(s => s.Trim()).Distinct()
+                .ToList();
         }
 
     }
