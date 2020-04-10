@@ -78,7 +78,7 @@ namespace Vajehdan
             get => _filterString;
             set
             {
-                if (value.Length<2)
+                if (value.Length < 2 || string.IsNullOrWhiteSpace(value))
                     return;
                 
                 _filterString = value.ToPlainText();
@@ -103,13 +103,9 @@ namespace Vajehdan
             MotaradefMotazadList = new GridVirtualizingCollectionView(Database.GetWords(DatabaseType.Motaradef));
             MotaradefMotazadList.Filter = FilterResult;
             MotaradefMotazadList.CollectionChanged += MotaradefMotazadList_CollectionChanged;
-            //var motaradefCollectionView = MotaradefMotazadList as ListCollectionView;
-            //motaradefCollectionView.CustomSort = new CustomSorter(this);
-            
+
             TeyfiList = new GridVirtualizingCollectionView(Database.GetWords(DatabaseType.Teyfi));
             TeyfiList.Filter = FilterResult;
-            //var teyfiCollectionView = TeyfiList as ListCollectionView;
-            //teyfiCollectionView.CustomSort = new CustomSorter(this);
 
             EmlaeiList = new GridVirtualizingCollectionView(Database.GetWords(DatabaseType.Emlaei));
             EmlaeiList.Filter = FilterResult;
@@ -191,12 +187,10 @@ namespace Vajehdan
 
         public bool FilterResult(object obj)
         {
-            string filterString = txtSearch.Text.ToPlainText();
-            if (string.IsNullOrEmpty(filterString))
+            if (FilterString==null)
                 return false;
 
-            var words = string.Join("،", obj as string[]);
-            return words.Contains(filterString);
+            return ((string[]) obj).Any(s => s.Contains(FilterString));
         }
 
 
