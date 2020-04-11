@@ -14,79 +14,6 @@
         <FontFamily x:Key="vazir">pack://application:,,,/Resources/#vazir</FontFamily>
         <local:DefaultFontConverter x:Key="DefaultFontConverter" />
 
-        <Style x:Key="CounterStyle" TargetType="Border">
-            <Setter Property="Width" Value="40"/>
-            <Setter Property="Height" Value="20"/>
-            <Setter Property="Background" Value="White"/>
-            <Setter Property="BorderBrush" Value="DeepSkyBlue"/>
-            <Setter Property="BorderThickness" Value="1"/>
-            <Setter Property="CornerRadius" Value="10"/>
-        </Style>
-
-        <Style x:Key="FocusTextBox" TargetType="StackPanel">
-           <Style.Triggers>
-                <DataTrigger Binding="{Binding ElementName=txtSearch, Path=IsVisible}" Value="True">
-                    <Setter Property="FocusManager.FocusedElement" Value="{Binding ElementName=txtSearch}"/>
-                </DataTrigger>
-           </Style.Triggers>
-        </Style>
-
-        <Style x:Key="TabControlStyle" TargetType="{x:Type TabControl}">
-            <Setter Property="Padding" Value="10,5,10,5" />
-            <Setter Property="Margin" Value="3.5" />
-            <Setter Property="Background" Value="AliceBlue" />
-        </Style>
-        <!--  Tab item styling  -->
-        <Style x:Key="TabItemStyle" TargetType="{x:Type TabItem}">
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="{x:Type TabItem}">
-                        <Grid>
-                            <Border
-                                Name="Border"
-                                MinWidth="120"
-                                Margin="5,0,0,0"
-                                Background="AliceBlue"
-                                BorderBrush="DodgerBlue"
-                                BorderThickness="1,1,1,0"
-                                CornerRadius="5,5,0,0">
-                                <ContentPresenter
-                                    x:Name="ContentSite"
-                                    Margin="10,2,10,2"
-                                    HorizontalAlignment="Center"
-                                    VerticalAlignment="Center"
-                                    Content="{TemplateBinding Header}" />
-                            </Border>
-                        </Grid>
-                        <ControlTemplate.Triggers>
-                            <Trigger Property="IsMouseOver" Value="True">
-                                <Setter TargetName="Border" Property="Background" Value="LightBlue" />
-                                <Setter Property="HeaderTemplate">
-                                    <Setter.Value>
-                                        <DataTemplate>
-                                            <TextBlock FontWeight="Bold" Text="{Binding}" />
-                                        </DataTemplate>
-                                    </Setter.Value>
-                                </Setter>
-                            </Trigger>
-                            <Trigger Property="IsSelected" Value="True">
-                                <Setter TargetName="Border" Property="Background" Value="LightSkyBlue" />
-                                <Setter Property="HeaderTemplate">
-                                    <Setter.Value>
-                                        <DataTemplate>
-                                            <TextBlock FontWeight="Bold" Text="{Binding}" />
-                                        </DataTemplate>
-                                    </Setter.Value>
-                                </Setter>
-                            </Trigger>
-                        </ControlTemplate.Triggers>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
-
-
-        <!--#region Styles-->
         <Style x:Key="WindowTitleStyle" TargetType="TextBlock">
             <Setter Property="FontSize" Value="13" />
             <Setter Property="FontWeight" Value="Bold" />
@@ -102,57 +29,7 @@
             <Setter Property="ShowInTaskbar" Value="False" />
             <Setter Property="Language" Value="fa-IR" />
         </Style>
-
-        <Style x:Key="{x:Type ToolTip}" TargetType="ToolTip">
-            <Setter Property="OverridesDefaultStyle" Value="true" />
-            <Setter Property="HasDropShadow" Value="True" />
-            <Setter Property="FontFamily" Value="Tahoma" />
-            <Setter Property="FontWeight" Value="Normal" />
-            <Setter Property="FontSize" Value="12" />
-            <Setter Property="MaxWidth" Value="400" />
-
-            <Setter Property="ContentTemplate">
-                <Setter.Value>
-                    <DataTemplate>
-                        <ContentPresenter Content="{TemplateBinding Content}">
-                            <ContentPresenter.Resources>
-                                <Style TargetType="{x:Type TextBlock}">
-                                    <Setter Property="TextWrapping" Value="Wrap" />
-                                </Style>
-                            </ContentPresenter.Resources>
-                        </ContentPresenter>
-                    </DataTemplate>
-                </Setter.Value>
-            </Setter>
-
-            <Setter Property="Foreground" Value="Black" />
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="ToolTip">
-                        <Border
-                            Name="Border"
-                            Width="{TemplateBinding Width}"
-                            Height="{TemplateBinding Height}"
-                            Padding="5,3,5,3"
-                            Background="#FFFFFFF5"
-                            BorderBrush="#FF4B4B4B"
-                            BorderThickness="1"
-                            CornerRadius="5">
-                            <ContentPresenter
-                                Margin="2"
-                                HorizontalAlignment="Left"
-                                VerticalAlignment="Top" />
-                        </Border>
-                        <ControlTemplate.Triggers>
-                            <Trigger Property="HasDropShadow" Value="true">
-                                <Setter TargetName="Border" Property="CornerRadius" Value="5" />
-                                <Setter TargetName="Border" Property="SnapsToDevicePixels" Value="true" />
-                            </Trigger>
-                        </ControlTemplate.Triggers>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
+        
 
         <Style x:Key="ButtonStyle1" TargetType="Button">
             <Setter Property="Margin" Value="11" />
