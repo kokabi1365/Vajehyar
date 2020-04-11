@@ -37,27 +37,35 @@
                     Text="{Binding FilterString, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged, Delay=200}"
                     PreviewKeyDown="TxtSearch_OnPreviewKeyDown"
                     PreviewMouseLeftButtonUp="TxtSearch_OnPreviewMouseLeftButtonUp"/>
-            <Grid MaxHeight="400" x:Name="ResultDatagrid">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition x:Name="MotaradefColumn" Width="3*"/>
-                    <ColumnDefinition x:Name="TeyfiColumn" Width="3*"/>
-                    <ColumnDefinition x:Name="EmlaeiColumn" Width="2*"/>
-                </Grid.ColumnDefinitions>
-
-                <sf:SfDataGrid Grid.Column="0" QueryRowHeight="Datagrid_OnQueryRowHeight" Name="Datagrid_Motaradef" Style="{StaticResource DataGridStyle}" ItemsSource="{Binding MotaradefMotazadList}">
-                    <sf:SfDataGrid.Columns>
-                        <sf:GridTemplateColumn HeaderText="مترادف" HorizontalHeaderContentAlignment="Left">
-                            <sf:GridTemplateColumn.CellTemplate>
-                                <DataTemplate>
-                                    <ItemsControl ItemsSource="{Binding}">
-                                        <ItemsControl.ItemsPanel>
-                                            <ItemsPanelTemplate>
-                                                <WrapPanel Orientation="Horizontal" Margin="5"/>
-                                            </ItemsPanelTemplate>
-                                        </ItemsControl.ItemsPanel>
-                                        <ItemsControl.ItemTemplate>
-                                            <DataTemplate>
-                                                <Button
+            <StackPanel Name="ResultPanel">
+                <CheckBox 
+                    Style="{StaticResource SliderCheckBox}"
+                    Checked="PartSearch_OnChecked"
+                    Unchecked="PartSearch_OnChecked"
+                    x:Name="PartSearch" 
+                    FocusManager.FocusedElement="{Binding ElementName=txtSearch}"
+                    Content="جستجوی بخشی از کلمه" 
+                    Margin="10,10,0,10"/>
+                <Grid MaxHeight="400">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition x:Name="MotaradefColumn" Width="3*"/>
+                        <ColumnDefinition x:Name="TeyfiColumn" Width="3*"/>
+                        <ColumnDefinition x:Name="EmlaeiColumn" Width="2*"/>
+                    </Grid.ColumnDefinitions>
+                    <sf:SfDataGrid Grid.Column="0" QueryRowHeight="Datagrid_OnQueryRowHeight" Name="Datagrid_Motaradef" Style="{StaticResource DataGridStyle}" ItemsSource="{Binding MotaradefMotazadList}">
+                        <sf:SfDataGrid.Columns>
+                            <sf:GridTemplateColumn HeaderText="مترادف" HorizontalHeaderContentAlignment="Left" AllowSorting="False">
+                                <sf:GridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <ItemsControl ItemsSource="{Binding}">
+                                            <ItemsControl.ItemsPanel>
+                                                <ItemsPanelTemplate>
+                                                    <WrapPanel Orientation="Horizontal" Margin="5"/>
+                                                </ItemsPanelTemplate>
+                                            </ItemsControl.ItemsPanel>
+                                            <ItemsControl.ItemTemplate>
+                                                <DataTemplate>
+                                                    <Button
                                                         UseLayoutRounding="True"
                                                         SnapsToDevicePixels="True"
                                                         Click="Word_OnClick"
@@ -66,29 +74,29 @@
                                                         Style="{StaticResource WordStyle}"
                                                         MouseRightButtonUp="Word_OnMouseRightButtonUp"
                                                     />
-                                            </DataTemplate>
-                                        </ItemsControl.ItemTemplate>
-                                    </ItemsControl>
+                                                </DataTemplate>
+                                            </ItemsControl.ItemTemplate>
+                                        </ItemsControl>
 
-                                </DataTemplate>
-                            </sf:GridTemplateColumn.CellTemplate>
-                        </sf:GridTemplateColumn>
-                    </sf:SfDataGrid.Columns>
-                </sf:SfDataGrid>
-                <sf:SfDataGrid Name="Datagrid_Teyfi" QueryRowHeight="Datagrid_OnQueryRowHeight" Grid.Column="1" Style="{StaticResource DataGridStyle}" ItemsSource="{Binding TeyfiList}">
-                    <sf:SfDataGrid.Columns>
-                        <sf:GridTemplateColumn HeaderText="طیفی" HorizontalHeaderContentAlignment="Left">
-                            <sf:GridTemplateColumn.CellTemplate>
-                                <DataTemplate>
-                                    <ItemsControl ItemsSource="{Binding}">
-                                        <ItemsControl.ItemsPanel>
-                                            <ItemsPanelTemplate>
-                                                <WrapPanel Orientation="Horizontal" Margin="5"/>
-                                            </ItemsPanelTemplate>
-                                        </ItemsControl.ItemsPanel>
-                                        <ItemsControl.ItemTemplate>
-                                            <DataTemplate>
-                                                <Button
+                                    </DataTemplate>
+                                </sf:GridTemplateColumn.CellTemplate>
+                            </sf:GridTemplateColumn>
+                        </sf:SfDataGrid.Columns>
+                    </sf:SfDataGrid>
+                    <sf:SfDataGrid Name="Datagrid_Teyfi" QueryRowHeight="Datagrid_OnQueryRowHeight" Grid.Column="1" Style="{StaticResource DataGridStyle}" ItemsSource="{Binding TeyfiList}">
+                        <sf:SfDataGrid.Columns>
+                            <sf:GridTemplateColumn HeaderText="طیفی" HorizontalHeaderContentAlignment="Left" AllowSorting="False">
+                                <sf:GridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <ItemsControl ItemsSource="{Binding}">
+                                            <ItemsControl.ItemsPanel>
+                                                <ItemsPanelTemplate>
+                                                    <WrapPanel Orientation="Horizontal" Margin="5"/>
+                                                </ItemsPanelTemplate>
+                                            </ItemsControl.ItemsPanel>
+                                            <ItemsControl.ItemTemplate>
+                                                <DataTemplate>
+                                                    <Button
                                                         UseLayoutRounding="True"
                                                         SnapsToDevicePixels="True"
                                                         Click="Word_OnClick"
@@ -97,29 +105,29 @@
                                                         Style="{StaticResource WordStyle}"
                                                         MouseRightButtonUp="Word_OnMouseRightButtonUp"
                                                     />
-                                            </DataTemplate>
-                                        </ItemsControl.ItemTemplate>
-                                    </ItemsControl>
+                                                </DataTemplate>
+                                            </ItemsControl.ItemTemplate>
+                                        </ItemsControl>
 
-                                </DataTemplate>
-                            </sf:GridTemplateColumn.CellTemplate>
-                        </sf:GridTemplateColumn>
-                    </sf:SfDataGrid.Columns>
-                </sf:SfDataGrid>
-                <sf:SfDataGrid Name="Datagrid_Emlaei" QueryRowHeight="Datagrid_OnQueryRowHeight" Grid.Column="2" Style="{StaticResource DataGridStyle}" ItemsSource="{Binding EmlaeiList}">
-                    <sf:SfDataGrid.Columns>
-                        <sf:GridTemplateColumn HeaderText="املایی" HorizontalHeaderContentAlignment="Left">
-                            <sf:GridTemplateColumn.CellTemplate>
-                                <DataTemplate>
-                                    <ItemsControl ItemsSource="{Binding}">
-                                        <ItemsControl.ItemsPanel>
-                                            <ItemsPanelTemplate>
-                                                <WrapPanel Orientation="Horizontal" Margin="5"/>
-                                            </ItemsPanelTemplate>
-                                        </ItemsControl.ItemsPanel>
-                                        <ItemsControl.ItemTemplate>
-                                            <DataTemplate>
-                                                <Button
+                                    </DataTemplate>
+                                </sf:GridTemplateColumn.CellTemplate>
+                            </sf:GridTemplateColumn>
+                        </sf:SfDataGrid.Columns>
+                    </sf:SfDataGrid>
+                    <sf:SfDataGrid Name="Datagrid_Emlaei" QueryRowHeight="Datagrid_OnQueryRowHeight" Grid.Column="2" Style="{StaticResource DataGridStyle}" ItemsSource="{Binding EmlaeiList}">
+                        <sf:SfDataGrid.Columns>
+                            <sf:GridTemplateColumn HeaderText="املایی" HorizontalHeaderContentAlignment="Left" AllowSorting="False">
+                                <sf:GridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <ItemsControl ItemsSource="{Binding}">
+                                            <ItemsControl.ItemsPanel>
+                                                <ItemsPanelTemplate>
+                                                    <WrapPanel Orientation="Horizontal" Margin="5"/>
+                                                </ItemsPanelTemplate>
+                                            </ItemsControl.ItemsPanel>
+                                            <ItemsControl.ItemTemplate>
+                                                <DataTemplate>
+                                                    <Button
                                                         UseLayoutRounding="True"
                                                         SnapsToDevicePixels="True"
                                                         Click="Word_OnClick"
@@ -128,19 +136,17 @@
                                                         Style="{StaticResource WordStyle}"
                                                         MouseRightButtonUp="Word_OnMouseRightButtonUp"
                                                     />
-                                            </DataTemplate>
-                                        </ItemsControl.ItemTemplate>
-                                    </ItemsControl>
+                                                </DataTemplate>
+                                            </ItemsControl.ItemTemplate>
+                                        </ItemsControl>
 
-                                </DataTemplate>
-                            </sf:GridTemplateColumn.CellTemplate>
-                        </sf:GridTemplateColumn>
-                    </sf:SfDataGrid.Columns>
-                </sf:SfDataGrid>
-            </Grid>
-
-
-
+                                    </DataTemplate>
+                                </sf:GridTemplateColumn.CellTemplate>
+                            </sf:GridTemplateColumn>
+                        </sf:SfDataGrid.Columns>
+                    </sf:SfDataGrid>
+                </Grid>
+            </StackPanel>
         </StackPanel>
 
         <toast:Toast x:Name="myToast" VerticalAlignment="Center" Margin="0"  DurationToast="Short" Message="کپی شد"/>

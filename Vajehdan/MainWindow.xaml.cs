@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Threading;
@@ -24,6 +25,7 @@ using Vajehdan.Properties;
 using Application = System.Windows.Application;
 using Button = System.Windows.Controls.Button;
 using Clipboard = System.Windows.Clipboard;
+using Control = System.Windows.Controls.Control;
 using DataGrid = System.Windows.Controls.DataGrid;
 using KeyEventArgs = System.Windows.Input.KeyEventArgs;
 using MessageBox = System.Windows.Forms.MessageBox;
@@ -39,7 +41,8 @@ namespace Vajehdan
         private readonly int _triggerThreshold = 500;
         private int _lastCtrlTick;
 
-        public List<string> Words
+        private ObservableCollection<string> _words;
+        public ObservableCollection<string> Words
         {
             get => _words;
             set
@@ -110,7 +113,7 @@ namespace Vajehdan
             EmlaeiList = new GridVirtualizingCollectionView(Database.GetWords(DatabaseType.Emlaei));
             EmlaeiList.Filter = FilterResult;
 
-            Words = Database.GetAllWords();
+            Words = new ObservableCollection<string>(Database.GetAllWords());
 
 
             var globalMouseHook = Hook.GlobalEvents();
@@ -164,11 +167,11 @@ namespace Vajehdan
                 {
                     if (MotaradefMotazadList.Count == 0 && TeyfiList.Count==0 && EmlaeiList.Count==0)
                     {
-                        ResultDatagrid.Visibility = Visibility.Collapsed;
+                        ResultPanel.Visibility = Visibility.Collapsed;
                         return;
                     }
 
-                    ResultDatagrid.Visibility = Visibility.Visible;
+                    ResultPanel.Visibility = Visibility.Visible;
 
                    
                     MotaradefColumn.Width = MotaradefMotazadList.Count == 0 ? new GridLength(0) : new GridLength(3, GridUnitType.Star);
@@ -190,7 +193,12 @@ namespace Vajehdan
             if (FilterString==null)
                 return false;
 
-            return ((string[]) obj).Any(s => s.Contains(FilterString));
+            if ((bool) PartSearch.IsChecked)
+            {
+                return ((string[])obj).Any(s => s.Contains(FilterString));
+            }
+
+            return ((string[]) obj).Any(s => s == FilterString);
         }
 
 
@@ -245,6 +253,10 @@ namespace Vajehdan
 
         private void TxtSearch_OnLostFocus(object sender, RoutedEventArgs e)
         {
+            if (txtSearch.IsKeyboardFocusWithin)
+            {
+               return;
+            }
             Dispatcher?.BeginInvoke((ThreadStart)(() =>
             {
                 Keyboard.Focus(txtSearch);
@@ -293,6 +305,10 @@ namespace Vajehdan
 
         private void GlobalMouseHook_MouseDown(object sender, System.Windows.Forms.MouseEventArgs e)
         {
+            if (txtSearch.IsSuggestionOpen)
+                return;
+            
+
             if (!Settings.Default.MinimizeWhenClickOutside)
                 return;
 
@@ -310,7 +326,7 @@ namespace Vajehdan
 
         GridRowSizingOptions gridRowResizingOptions = new GridRowSizingOptions();
         double autoHeight;
-        private List<string> _words;
+        
 
         private void Datagrid_OnQueryRowHeight(object sender, QueryRowHeightEventArgs e)
         {
@@ -325,7 +341,10 @@ namespace Vajehdan
         }
 
 
-       
+        private void PartSearch_OnChecked(object sender, RoutedEventArgs e)
+        {
+            FilterCollection();
+        }
     }
 
 }

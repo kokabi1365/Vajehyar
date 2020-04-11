@@ -896,6 +896,9 @@
             <Setter Property="Padding" Value="10,0,0,0"/>
             <Setter Property="VerticalAlignment" Value="Center"/>
             <Setter Property="FontSize" Value="20"/>
+            <Setter Property="SuggestionBoxPlacement" Value="Top"/>
+            <Setter Property="TextHighlightMode" Value="MultipleOccurrence"/>
+            <Setter Property="MinimumPrefixCharacters" Value="2"/>
         </Style>
 
     </Application.Resources>
