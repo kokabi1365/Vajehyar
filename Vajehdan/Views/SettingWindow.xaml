@@ -9,7 +9,7 @@
     Closing="SettingWindow_OnClosing"
     Title="SettingsWindow"
     Width="491"
-    Height="350"
+    Height="280"
     FontFamily="{StaticResource vazir}"
     Left="{Binding Source={x:Static properties:Settings.Default}, Path=SettingLeftPos, Mode=TwoWay}"
     MouseDown="SettingWindow_OnMouseDown"
@@ -73,16 +73,6 @@
                     IsChecked="{Binding Source={x:Static properties:Settings.Default}, Path=OpenByDoubleAlt, Mode=TwoWay}"/>
                 <Label Content="‌نمایش پنجره با دوبار زدن Alt"/>
             </StackPanel>
-
-            <Button
-                Name="ResetButton"
-                Width="140"
-                Height="30"
-                Cursor="Hand"
-                Margin="0,60,0,0"
-                Click="ResetButton_OnClick"
-                Content="تنظیمات پیش‌فرض"
-                Style="{StaticResource ButtonStyle2}" />
 
         </StackPanel>
 

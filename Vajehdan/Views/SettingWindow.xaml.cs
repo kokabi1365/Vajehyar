@@ -30,13 +30,6 @@ namespace Vajehdan.Views
             }
         }
 
-        private void ResetButton_OnClick(object sender, RoutedEventArgs e)
-        {
-            Settings.Default.OpenByDoubleAlt = true;
-            Settings.Default.MinimizeWhenClickOutside = false;
-            Settings.Default.StartByWindows = false;
-        }
-
         private void SettingWindow_OnClosing(object sender, CancelEventArgs e)
         {
             SaveSettings();
