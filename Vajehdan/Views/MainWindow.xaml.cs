@@ -239,12 +239,9 @@ namespace Vajehdan.Views
 
         private void TxtSearch_OnLostFocus(object sender, RoutedEventArgs e)
         {
-            if (txtSearch.IsKeyboardFocusWithin)
-            {
-               return;
-            }
             Dispatcher?.BeginInvoke((ThreadStart)(() =>
             {
+                txtSearch.Focus();
                 Keyboard.Focus(txtSearch);
             }));
         }
