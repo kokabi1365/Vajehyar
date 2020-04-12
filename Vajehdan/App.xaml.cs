@@ -2,6 +2,7 @@
 using System.Diagnostics;
 using System.IO;
 using System.Windows;
+using Vajehdan.Views;
 
 namespace Vajehdan
 {
@@ -29,7 +30,7 @@ namespace Vajehdan
                 Environment.Exit(-1);
             };
 #endif
-          
+
         }
 
         protected override void OnExit(ExitEventArgs e)

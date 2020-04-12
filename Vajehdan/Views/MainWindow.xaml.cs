@@ -88,6 +88,7 @@ namespace Vajehdan.Views
 
 
             InitializeComponent();
+            
             MotaradefMotazadList = new GridVirtualizingCollectionView(Database.GetWords(DatabaseType.Motaradef));
             MotaradefMotazadList.Filter = FilterResult;
             MotaradefMotazadList.CollectionChanged += MotaradefMotazadList_CollectionChanged;
@@ -100,7 +101,6 @@ namespace Vajehdan.Views
 
             Words = new ObservableCollection<string>(Database.GetAllWords());
 
-
             var globalMouseHook = Hook.GlobalEvents();
             globalMouseHook.MouseDown += GlobalMouseHook_MouseDown;
 
@@ -108,8 +108,6 @@ namespace Vajehdan.Views
             _keyboardHook.SetHook();
             _keyboardHook.OnKeyDownEvent += (o, arg) =>
             {
-                //if (Windows.OfType<SettingWindow>().Any()) return;
-
                 if (arg.KeyData == Keys.Escape)
                 {
                     HideMainWindow();
@@ -136,13 +134,16 @@ namespace Vajehdan.Views
             HideMainWindow();
 
 
-
-
 #if (!DEBUG)
             CheckUpdate();
 
 #endif
         }
+
+        
+
+
+      
 
         private void MotaradefMotazadList_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
         {
@@ -253,6 +254,8 @@ namespace Vajehdan.Views
             if (e.Key == Key.Enter)
             {
                 FilterString = txtSearch.Text;
+                txtSearch.IsSuggestionOpen = false;
+
             }
         }
 
@@ -279,6 +282,7 @@ namespace Vajehdan.Views
             WindowState = WindowState.Normal;
             Show();
             txtSearch.Focus();
+            Keyboard.Focus(txtSearch);
             txtSearch.SelectAll();
         }
 
@@ -287,7 +291,7 @@ namespace Vajehdan.Views
             Hide();
             WindowState = WindowState.Minimized;
         }
-
+       
         private void GlobalMouseHook_MouseDown(object sender, System.Windows.Forms.MouseEventArgs e)
         {
             if (txtSearch.IsSuggestionOpen)
@@ -301,6 +305,8 @@ namespace Vajehdan.Views
             {
                 HideMainWindow();
             }
+
+            Keyboard.Focus(txtSearch);
         }
 
 
