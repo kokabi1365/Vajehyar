@@ -8,6 +8,7 @@ using System.Windows.Forms;
 using System.Windows.Input;
 using Gma.System.MouseKeyHook;
 using Syncfusion.UI.Xaml.Grid;
+using Syncfusion.Windows.Controls.Input;
 using Vajehdan.Properties;
 using Application = System.Windows.Application;
 using Button = System.Windows.Controls.Button;
@@ -239,6 +240,9 @@ namespace Vajehdan.Views
 
         private void TxtSearch_OnLostFocus(object sender, RoutedEventArgs e)
         {
+            if (sender is SfTextBoxExt)
+                return;
+            
             Dispatcher?.BeginInvoke((ThreadStart)(() =>
             {
                 txtSearch.Focus();

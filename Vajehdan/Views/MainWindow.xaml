@@ -28,6 +28,7 @@
             <sf:SfTextBoxExt
                     x:Name="txtSearch"
                     Style="{StaticResource TextBoxStyle}"
+                    FocusManager.FocusedElement="{Binding ElementName=txtSearch}"
                     AutoCompleteSource="{Binding Words}"
                     LostFocus="TxtSearch_OnLostFocus"
                     KeyUp="TxtSearch_OnKeyUp"
