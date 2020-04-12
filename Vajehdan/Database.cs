@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Globalization;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Text.RegularExpressions;
-using Octokit;
 using Syncfusion.Data.Extensions;
 
 namespace Vajehdan
@@ -18,7 +13,7 @@ namespace Vajehdan
             switch (type)
             {
                 case DatabaseType.Motaradef:
-                    lines= Properties.Resources.Motaradef_Motazad.Split('\n');
+                    lines= Properties.Resources.Motaradef.Split('\n');
                     break;
                 case DatabaseType.Teyfi:
                     lines = Properties.Resources.Teyfi.Split('\n');
@@ -44,7 +39,7 @@ namespace Vajehdan
         {
             List<string> words = new List<string>();
             
-            var lines = Properties.Resources.Motaradef_Motazad.Split('\n')
+            var lines = Properties.Resources.Motaradef.Split('\n')
                 .Concat(Properties.Resources.Teyfi.Split('\n'))
                 .Concat(Properties.Resources.Emlaei.Split('\n'));
 

@@ -119,22 +119,9 @@ namespace Vajehdan.Properties {
         ///آبادی،آبادانی،عمارت،عمران،ده،دهات،دهکده،روستا،شهر،واحه،ولایت
         ///آبان [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string Motaradef_Motazad {
+        internal static string Motaradef {
             get {
-                return ResourceManager.GetString("Motaradef_Motazad", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to بیدار،ناخفته،ساهر،آگاه،متنبه،متوجه،هشیار،هوشیار،متیقظ،عارف،واقف،خفته،غافل
-        ///شب‌بیداری،احیا،تهجد،سهر،شب‌پیمایی،شب‌زنده‌داری،مساهرت
-        ///انتباه،آگاهی،بیداری،نبل،توجه،دقت،غفلت
-        ///بیدار‌کردن،ازخواب‌برخیزاندن،خواباندن،آگاه‌کردن،متنبه‌ساختن،هشیار‌ساختن
-        ///بیداری،سمر،یقظت،یقظه،آگاهی،انتباه،هوشیاری،رستاخیز،نهضت،غفلت.
-        /// </summary>
-        internal static string Sample {
-            get {
-                return ResourceManager.GetString("Sample", resourceCulture);
+                return ResourceManager.GetString("Motaradef", resourceCulture);
             }
         }
         

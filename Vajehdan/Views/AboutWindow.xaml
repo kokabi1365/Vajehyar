@@ -1,0 +1,122 @@
+﻿<Window
+    x:Class="Vajehdan.Views.AboutWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:properties="clr-namespace:Vajehdan.Properties"
+    Title="About"
+    Width="446.445"
+    Height="485.102"
+    DataContext="{Binding RelativeSource={RelativeSource Self}}"
+    FontFamily="{StaticResource vazir}"
+    Left="{Binding Source={x:Static properties:Settings.Default}, Path=AboutLeftPos, Mode=TwoWay}"
+    MouseDown="Window_MouseDown"
+    Style="{StaticResource WindowStyle}"
+    Top="{Binding Source={x:Static properties:Settings.Default}, Path=AboutTopPos, Mode=TwoWay}"
+    mc:Ignorable="d">
+
+    <Border Style="{StaticResource BorderStyle}">
+
+        <StackPanel>
+
+            <Button
+                Width="25"
+                Height="25"
+                Margin="3"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Center"
+                Click="Button_Click"
+                Content="x"
+                Style="{StaticResource ButtonStyle1}" />
+
+            <StackPanel>
+
+                <StackPanel
+                    Margin="0,15,23,0"
+                    HorizontalAlignment="Right"
+                    FlowDirection="RightToLeft"
+                    Orientation="Horizontal">
+
+                    <Image
+                        Margin="3"
+                        Source="../Resources/Images/Vajehdan.ico" />
+
+                    <StackPanel Margin="5,0,0,0">
+
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock
+                                VerticalAlignment="Top"
+                                FontFamily="{StaticResource vazir}"
+                                FontSize="14"
+                                FontWeight="Bold"
+                                ><Run Text="واژه"/><Run Text="‌"/><Run FlowDirection="RightToLeft" Text="دان"/></TextBlock>
+                            <TextBlock VerticalAlignment="Center">
+                                <Hyperlink
+                                    x:Name="Version"
+                                    NavigateUri="{Binding Source={x:Static properties:Settings.Default}, Path=UpdateUrl}"
+                                    RequestNavigate="Version_OnRequestNavigate"
+                                    TextDecorations="{x:Null}">
+                                    <Run Text=" " />
+                                    <Run
+                                        FontSize="13"
+                                        FontWeight="Bold"
+                                        Text="{Binding Path=CurrentVersion}" />
+                                </Hyperlink>
+                            </TextBlock>
+                        </StackPanel>
+
+
+
+                        <TextBlock
+                            Margin="0,2,0,0"
+                            FontFamily="{StaticResource vazir}"
+                            FontSize="12"
+                            Text="راهنمای واژه‌گزینی کلمات فارسی " />
+
+                    </StackPanel>
+                </StackPanel>
+
+                <TextBlock
+                    Width="374"
+                    Margin="16,10,26,0"
+                    HorizontalAlignment="Center"
+                    FlowDirection="RightToLeft"
+                    LineHeight="19"
+                    TextWrapping="Wrap"><Run FontWeight="Bold" FontSize="14" Text="واژه‌"/><Run FontWeight="Bold" FontSize="14" Text="دان"/><Run FontSize="14" Text="، برنا"/><Run FontSize="14" Text="مه‌ای"/><Run FontSize="14" Text=" "/><Run FontWeight="Bold" FontSize="14" Text="رایگان و متن‌باز"/><Run FontWeight="Bold" FontSize="14" Text="، "/><Run FontSize="14" Text="برای "/><Run FontSize="14" Text="یافتن "/><Run FontSize="14" Text="مترادف و متضاد"/><Run FontSize="14" Text=" کلمات"/><Run FontSize="14" Text=" فارسی"/><Run FontSize="14" Text=" و آشنایی با املای صحیح "/><Run FontSize="14" Text="واژگان است"/><Run FontSize="14" Text="."/><LineBreak/><Run FontWeight="Bold" FontSize="14"/><LineBreak/><Run FontWeight="Bold" Text="منابع:"/><LineBreak/><Run Text="1- فرهنگ جامع واژگان مترادف و متضاد فارسی، فرج‌الله خداپرستی "/><LineBreak/><Run Text="2- فرهنگ طیفی زبان فارسی، جمشید فراروی"/><LineBreak/><Run Text="3- فرهنگ املایی خط فارسی، علی‌اشرف صادقی و زهرا زندی مقدم"/><LineBreak/><LineBreak/><Run Text="سید ایوب کوکبی"/></TextBlock>
+                <TextBlock Text="kokabi1365@gmail.com" HorizontalAlignment="Right" Margin="0,0,25,0"/>
+                <TextBlock
+                    Width="374"
+                    Margin="16,20,26,0"
+                    HorizontalAlignment="Center"
+                    FlowDirection="RightToLeft"
+                    LineHeight="19"
+                    Text="برای ساخت، بهبود و رفع اشکالات این برنامه، زمان زیادی صرف شده است. با حمایت مالی خود، از سازنده حمایت کنید."
+                    TextWrapping="Wrap"/>
+            </StackPanel>
+            <Button
+                Width="170"
+                Height="35"
+                Margin="0,25,0,0"
+                Cursor="Hand"
+                Background="LightGreen"
+                Click="ButtonBase_OnClick"
+                FontSize="11.5"
+                Style="{StaticResource ButtonStyle2}" >
+                <Button.Content>
+                    <DockPanel HorizontalAlignment="Center">
+                        <Image Source="../Resources/Images/donate.png" DockPanel.Dock="Right"/>
+                        <Label Content="حمایت از برنامه" VerticalAlignment="Center"/>
+                    </DockPanel>
+                   
+                </Button.Content>
+            </Button>
+            <StackPanel
+                Margin="0,15,0,0"
+                HorizontalAlignment="Center"
+                Orientation="Horizontal"/>
+        </StackPanel>
+
+    </Border>
+
+</Window>
