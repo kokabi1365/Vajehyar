@@ -6,24 +6,18 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:properties="clr-namespace:Vajehdan.Properties"
     xmlns:scm="clr-namespace:System.ComponentModel;assembly=WindowsBase"
+    xmlns:toggle="clr-namespace:ToggleSwitch;assembly=ToggleSwitch"
+    xmlns:sf="http://schemas.syncfusion.com/wpf" 
     Closing="SettingWindow_OnClosing"
     Title="SettingsWindow"
     Width="491"
-    Height="515"
+    Height="350"
     FontFamily="{StaticResource vazir}"
     Left="{Binding Source={x:Static properties:Settings.Default}, Path=SettingLeftPos, Mode=TwoWay}"
     MouseDown="SettingWindow_OnMouseDown"
     Style="{StaticResource WindowStyle}"
     Top="{Binding Source={x:Static properties:Settings.Default}, Path=SettingTopPos, Mode=TwoWay}"
     mc:Ignorable="d">
-
-    <Window.Resources>
-        <CollectionViewSource x:Key="SortedFontsCollection" Source="{Binding Source={x:Static Fonts.SystemFontFamilies}}">
-            <CollectionViewSource.SortDescriptions>
-                <scm:SortDescription PropertyName="Source" />
-            </CollectionViewSource.SortDescriptions>
-        </CollectionViewSource>
-    </Window.Resources>
 
     <Border Style="{StaticResource BorderStyle}">
 
@@ -40,110 +34,54 @@
 
             <TextBlock Style="{StaticResource WindowTitleStyle}" Text="تنظیمات برنامه" />
 
-            <CheckBox
-                Name="StartupCheckBox"
-                Margin="0,25,15,0"
-                Content="اجرای برنامه در شروع ویندوز"
-                FlowDirection="RightToLeft"
-                IsChecked="{Binding Source={x:Static properties:Settings.Default}, Path=StartByWindows, Mode=TwoWay}"
-                Style="{StaticResource SliderCheckBox}" />
+            <StackPanel Orientation="Horizontal" FlowDirection="RightToLeft" HorizontalAlignment="Right" Margin="0,25,15,0">
+                <toggle:HorizontalToggleSwitch
+                    Name="StartupCheckBox"
+                    FontFamily="{StaticResource vazir}"
+                    FontWeight="Normal"
+                    Width="100"
+                    FontSize="12"
+                    CheckedContent="روشن"
+                    UncheckedContent="خاموش"
+                    FlowDirection="RightToLeft"
+                    IsChecked="{Binding Source={x:Static properties:Settings.Default}, Path=StartByWindows, Mode=TwoWay}"/>
+                <Label Content="شروع برنامه با ویندوز"/>
+            </StackPanel>
 
-            <CheckBox
-                Name="MinimizeWhenClickOutside"
-                Margin="0,5,15,0"
-                Content="‌پنهان شدن برنامه هنگام کلیک در خارج از پنجرۀ جستجو"
-                FlowDirection="RightToLeft"
-                IsChecked="{Binding Source={x:Static properties:Settings.Default}, Path=MinimizeWhenClickOutside, Mode=TwoWay}"
-                Style="{StaticResource SliderCheckBox}" />
+            <StackPanel Orientation="Horizontal" FlowDirection="RightToLeft" HorizontalAlignment="Right" Margin="0,10,15,0">
+                <toggle:HorizontalToggleSwitch
+                    Name="MinimizeWhenClickOutside"
+                    FontFamily="{StaticResource vazir}"
+                    FontWeight="Normal"
+                    Width="100"
+                    FontSize="12"
+                    CheckedContent="روشن"
+                    UncheckedContent="خاموش"
+                    FlowDirection="RightToLeft"
+                    IsChecked="{Binding Source={x:Static properties:Settings.Default}, Path=MinimizeWhenClickOutside, Mode=TwoWay}"/>
+                <Label Content="پنهان شدن برنامه هنگام کلیک در خارج از پنجرۀ جستجو"/>
+            </StackPanel>
 
-            <CheckBox
-                Name="OpenByDoubleAlt"
-                Margin="0,5,15,0"
-                Content="‌نمایش پنجره با دوبار زدن Alt"
-                FlowDirection="RightToLeft"
-                IsChecked="{Binding Source={x:Static properties:Settings.Default}, Path=OpenByDoubleAlt, Mode=TwoWay}"
-                Style="{StaticResource SliderCheckBox}" />
-
-            <StackPanel
-                Margin="0,10,19,0"
-                FlowDirection="RightToLeft"
-                Orientation="Horizontal" />
-            <StackPanel Margin="0,20,0,0" HorizontalAlignment="Center">
-
-                <GroupBox
-                    Width="350"
-                    Padding="10"
-                    FlowDirection="RightToLeft">
-                    <GroupBox.Header>
-                        <TextBlock FontWeight="Bold" Text="فونت " />
-                    </GroupBox.Header>
-                    <GroupItem>
-                        <StackPanel Orientation="Horizontal">
-                            <ComboBox
-                                x:Name="Fonts"
-                                Width="150"
-                                Height="23"
-                                Margin="0,12,0,0"
-                                Padding="10,0"
-                                FlowDirection="LeftToRight"
-                                FontFamily="calibri thin"
-                                FontSize="12"
-                                FontWeight="Thin"
-                                Foreground="DimGray"
-                                IsSynchronizedWithCurrentItem="True"
-                                IsTextSearchCaseSensitive="False"
-                                IsTextSearchEnabled="True"
-                                SelectedItem="{Binding Source={x:Static properties:Settings.Default}, Path=Font, Mode=TwoWay}"
-                                Style="{StaticResource ComboBoxFlatStyle}"
-                                Text="{Binding Source={x:Static properties:Settings.Default}, Path=Font, Mode=OneWay}">
-                                <ComboBox.ItemsSource>
-                                    <CompositeCollection>
-                                        <ComboBoxItem
-                                            Content="فونت پیش‌فرض"
-                                            FlowDirection="RightToLeft"
-                                            FontFamily="{StaticResource vazir}"
-                                            FontSize="11"
-                                            FontWeight="Bold"
-                                            Foreground="Black" />
-                                        <CollectionContainer Collection="{Binding Source={StaticResource SortedFontsCollection}}" />
-                                    </CompositeCollection>
-                                </ComboBox.ItemsSource>
-                            </ComboBox>
-                            <StackPanel>
-                                <TextBlock
-                                    Margin="15,0,0,-8"
-                                    Text="{Binding ElementName=FontSize, Path=Value}"
-                                    TextAlignment="Center" />
-                                <Slider
-                                    x:Name="FontSize"
-                                    Width="165"
-                                    Height="23"
-                                    Margin="10,0,0,0"
-                                    FlowDirection="LeftToRight"
-                                    FontSize="12"
-                                    Foreground="DimGray"
-                                    Maximum="20"
-                                    Minimum="10"
-                                    Style="{StaticResource Horizontal_Slider}"
-                                    Value="{Binding Source={x:Static properties:Settings.Default}, Path=FontSize, Mode=TwoWay}" />
-
-                            </StackPanel>
-
-                        </StackPanel>
-                    </GroupItem>
-                </GroupBox>
-
-
-
-
-
+            <StackPanel Orientation="Horizontal" FlowDirection="RightToLeft" HorizontalAlignment="Right" Margin="0,10,15,0">
+                <toggle:HorizontalToggleSwitch
+                    Name="OpenByDoubleAlt"
+                    FontFamily="{StaticResource vazir}"
+                    FontWeight="Normal"
+                    Width="100"
+                    FontSize="12"
+                    CheckedContent="روشن"
+                    UncheckedContent="خاموش"
+                    FlowDirection="RightToLeft"
+                    IsChecked="{Binding Source={x:Static properties:Settings.Default}, Path=OpenByDoubleAlt, Mode=TwoWay}"/>
+                <Label Content="‌نمایش پنجره با دوبار زدن Alt"/>
             </StackPanel>
 
             <Button
                 Name="ResetButton"
                 Width="140"
                 Height="30"
-                Margin="0,18,0,0"
+                Cursor="Hand"
+                Margin="0,60,0,0"
                 Click="ResetButton_OnClick"
                 Content="تنظیمات پیش‌فرض"
                 Style="{StaticResource ButtonStyle2}" />

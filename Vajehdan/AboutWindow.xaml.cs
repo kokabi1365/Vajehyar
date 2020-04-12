@@ -81,17 +81,5 @@ namespace Vajehdan
             //app.HideMainWindow();
         }
 
-        private void GithubIcon_OnMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            Process.Start(Settings.Default.GithubUrl);
-            e.Handled = true; 
-        }
-
-        private void VirgoolIcon_OnMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            Process.Start(Settings.Default.VirgoolUrl);
-            e.Handled = true;
-        }
-       
     }
 }

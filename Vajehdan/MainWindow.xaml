@@ -8,11 +8,11 @@
     xmlns:sf="http://schemas.syncfusion.com/wpf" 
     xmlns:tb="http://www.hardcodet.net/taskbar"
     xmlns:toast="clr-namespace:Toast;assembly=Toast"
+    xmlns:toggleSwitch="clr-namespace:ToggleSwitch;assembly=ToggleSwitch"
     Title="واژه‌دان"
+    FontFamily="{StaticResource vazir}"
     Width="1000"
     DataContext="{Binding RelativeSource={RelativeSource Self}}"
-    FontFamily="{Binding Source={x:Static properties:Settings.Default}, Path=Font, TargetNullValue={StaticResource vazir}, Converter={StaticResource DefaultFontConverter}, Mode=OneWay}"
-    FontSize="{Binding Source={x:Static properties:Settings.Default}, Path=FontSize, Mode=OneWay}"
     SizeToContent="Height"
     FlowDirection="RightToLeft"
     Style="{StaticResource WindowStyle}"
@@ -35,14 +35,22 @@
                     PreviewKeyDown="TxtSearch_OnPreviewKeyDown"
                     PreviewMouseLeftButtonUp="TxtSearch_OnPreviewMouseLeftButtonUp"/>
             <StackPanel Name="ResultPanel">
-                <CheckBox 
-                    Style="{StaticResource SliderCheckBox}"
-                    Checked="PartSearch_OnChecked"
-                    Unchecked="PartSearch_OnChecked"
-                    x:Name="PartSearch" 
-                    FocusManager.FocusedElement="{Binding ElementName=txtSearch}"
-                    Content="جستجوی بخشی از کلمه" 
-                    Margin="10,10,0,10"/>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="10,10,0,10">
+                    <toggleSwitch:HorizontalToggleSwitch
+                        Name="PartSearch"
+                        FontFamily="{StaticResource vazir}"
+                        FontWeight="Normal"
+                        Width="100"
+                        FontSize="12"
+                        CheckedContent="روشن"
+                        UncheckedContent="خاموش"
+                        Checked="PartSearch_OnChecked"
+                        Unchecked="PartSearch_OnChecked"
+                        FlowDirection="RightToLeft"
+                        FocusManager.FocusedElement="{Binding ElementName=txtSearch}"/>
+                    <Label Content="جستجوی بخشی از کلمه" FontFamily="{StaticResource vazir}" FontSize="13"/>
+                </StackPanel>
+
                 <Grid MaxHeight="400">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition x:Name="MotaradefColumn" Width="3*"/>

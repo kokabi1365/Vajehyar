@@ -33,9 +33,7 @@ namespace Vajehdan
 
         private void ResetButton_OnClick(object sender, RoutedEventArgs e)
         {
-            Fonts.SelectedIndex = 0;
             Settings.Default.OpenByDoubleAlt = true;
-            Settings.Default.FontSize = 13;
             Settings.Default.MinimizeWhenClickOutside = false;
             Settings.Default.StartByWindows = false;
         }

@@ -98,14 +98,15 @@
                 Width="170"
                 Height="35"
                 Margin="0,25,0,0"
+                Cursor="Hand"
                 Background="LightGreen"
                 Click="ButtonBase_OnClick"
                 FontSize="11.5"
                 Style="{StaticResource ButtonStyle2}" >
                 <Button.Content>
-                    <DockPanel>
-                        <Image Source="Resources/donate.png" DockPanel.Dock="Right" Margin="0,0,-3,0"/>
-                        <Label Content="حمایت از برنامه" VerticalAlignment="Center"></Label>
+                    <DockPanel HorizontalAlignment="Center">
+                        <Image Source="Resources/donate.png" DockPanel.Dock="Right"/>
+                        <Label Content="حمایت از برنامه" VerticalAlignment="Center"/>
                     </DockPanel>
                    
                 </Button.Content>

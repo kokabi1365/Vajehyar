@@ -34,7 +34,7 @@ namespace Vajehdan.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
         public bool StartByWindows {
             get {
                 return ((bool)(this["StartByWindows"]));
@@ -140,48 +140,6 @@ namespace Vajehdan.Properties {
             }
         }
         
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("https://github.com/kokabi1365/Vajehdan")]
-        public string GithubUrl {
-            get {
-                return ((string)(this["GithubUrl"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("https://virgool.io/@kokabi")]
-        public string VirgoolUrl {
-            get {
-                return ((string)(this["VirgoolUrl"]));
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string Font {
-            get {
-                return ((string)(this["Font"]));
-            }
-            set {
-                this["Font"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("13")]
-        public byte FontSize {
-            get {
-                return ((byte)(this["FontSize"]));
-            }
-            set {
-                this["FontSize"] = value;
-            }
-        }
-        
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("True")]
@@ -191,15 +149,6 @@ namespace Vajehdan.Properties {
             }
             set {
                 this["MinimizeWhenClickOutside"] = value;
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("https://twitter.com/kokabi65")]
-        public string TwitterID {
-            get {
-                return ((string)(this["TwitterID"]));
             }
         }
         

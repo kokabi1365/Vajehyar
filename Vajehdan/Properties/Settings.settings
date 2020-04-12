@@ -6,7 +6,7 @@
       <Value Profile="(Default)">--autoStart</Value>
     </Setting>
     <Setting Name="StartByWindows" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">False</Value>
+      <Value Profile="(Default)">True</Value>
     </Setting>
     <Setting Name="SettingLeftPos" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">0</Value>
@@ -35,23 +35,8 @@
     <Setting Name="Donate" Type="System.String" Scope="Application">
       <Value Profile="(Default)">https://idpay.ir/kokabi</Value>
     </Setting>
-    <Setting Name="GithubUrl" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">https://github.com/kokabi1365/Vajehdan</Value>
-    </Setting>
-    <Setting Name="VirgoolUrl" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">https://virgool.io/@kokabi</Value>
-    </Setting>
-    <Setting Name="Font" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
-    </Setting>
-    <Setting Name="FontSize" Type="System.Byte" Scope="User">
-      <Value Profile="(Default)">13</Value>
-    </Setting>
     <Setting Name="MinimizeWhenClickOutside" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
-    </Setting>
-    <Setting Name="TwitterID" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">https://twitter.com/kokabi65</Value>
     </Setting>
     <Setting Name="PartSearch" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
