@@ -45,23 +45,15 @@
                     <StackPanel Margin="5,0,0,0">
 
                         <StackPanel Orientation="Horizontal">
-                            <TextBlock
-                                VerticalAlignment="Top"
-                                FontFamily="{StaticResource vazir}"
-                                FontSize="14"
-                                FontWeight="Bold"
-                                ><Run Text="واژه"/><Run Text="‌"/><Run FlowDirection="RightToLeft" Text="دان"/></TextBlock>
-                            <TextBlock VerticalAlignment="Center">
+                            <TextBlock>
                                 <Hyperlink
                                     x:Name="Version"
+                                    FontSize="18"
+                                    FontWeight="Bold"
                                     NavigateUri="{Binding Source={x:Static properties:Settings.Default}, Path=UpdateUrl}"
                                     RequestNavigate="Version_OnRequestNavigate"
                                     TextDecorations="{x:Null}">
-                                    <Run Text=" " />
-                                    <Run
-                                        FontSize="13"
-                                        FontWeight="Bold"
-                                        Text="{Binding Path=CurrentVersion}" />
+                                    <Run Text="{Binding CurrentVersion}"/>
                                 </Hyperlink>
                             </TextBlock>
                         </StackPanel>
@@ -98,7 +90,7 @@
                 Height="35"
                 Margin="0,25,0,0"
                 Cursor="Hand"
-                Background="LightGreen"
+                Background="DeepSkyBlue"
                 Click="ButtonBase_OnClick"
                 FontSize="11.5"
                 Style="{StaticResource ButtonStyle2}" >

@@ -54,6 +54,13 @@ namespace Vajehdan
             int major = ver.Major;
             int minor = ver.Minor;
             int patch = ver.Build;
+
+            if (major!=0 && minor!=0 && patch == 0)
+                return $"واژه‌دان {major}.{minor}";
+
+            if (major!=0 && minor==0 && patch==0)
+                return $"واژه‌دان {major}";
+            
             return $"{major}.{minor}.{patch}";
         }
 
