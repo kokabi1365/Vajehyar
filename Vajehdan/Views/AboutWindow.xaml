@@ -97,7 +97,7 @@
                 <Button.Content>
                     <DockPanel HorizontalAlignment="Center">
                         <Image Source="../Resources/Images/donate.png" DockPanel.Dock="Right"/>
-                        <Label Content="حمایت از سازنده" VerticalAlignment="Center"/>
+                        <Label Content="حمایت مالی از سازنده" VerticalAlignment="Center"/>
                     </DockPanel>
                    
                 </Button.Content>
