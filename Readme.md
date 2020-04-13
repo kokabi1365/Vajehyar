@@ -17,12 +17,13 @@ Vajehdan designed to be fast and lightweight and It uses two popular dictionarie
 
 1. **A Comprehensive Dictionary of Persian Synonyms & Antonyms****, written by farajollah khodaparasti with more than 135000 thousand words;
 2. [**The Thesaurus of Persian Words**](https://fa.wikipedia.org/wiki/%D9%81%D8%B1%D9%87%D9%86%DA%AF_%D8%B7%DB%8C%D9%81%DB%8C)**, written by Jamshyd Fararooy with around 45,000 words.
+3. **Persian spelling dictionary**, written by Ali ashraf sadeghi and Zahra zandi moghadam
 
 ## Installation & Usage
 
 This application is portable and tries to remain so. For launching app just press **Alt+Shift+V** from anywhere in windows and press **Esc** to minimize app to tray. You can change this shortcut from settings.
 
-**Please note that on Windows lower than Windows 10 you have to install [.net 4.6 or above](https://www.microsoft.com/en-us/download/details.aspx?id=53344).**
+**Please note that on Windows lower than Windows 10 you have to install [.net 4.6.1 or above](https://www.microsoft.com/en-us/download/details.aspx?id=53344).**
 
 
 ## Contributing
