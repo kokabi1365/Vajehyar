@@ -33,7 +33,7 @@
                     AutoCompleteSource="{Binding Words}"
                     LostFocus="TxtSearch_OnLostFocus"
                     KeyUp="TxtSearch_OnKeyUp"
-                    Text="{Binding FilterString, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged, Delay=200}"
+                    Text="{Binding FilterString, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}"
                     PreviewKeyDown="TxtSearch_OnPreviewKeyDown"
                     PreviewMouseLeftButtonUp="TxtSearch_OnPreviewMouseLeftButtonUp"/>
             <StackPanel Name="ResultPanel">

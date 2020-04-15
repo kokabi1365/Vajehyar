@@ -140,7 +140,7 @@ namespace Vajehdan.Views
 
             _keyboardHook.KeyPressed += (o, arg) =>
             {
-                if (Settings.Default.OpenByCtrlSpace)
+                if (Settings.Default.OpenByHotKey)
                     ShowMainWindow();
             };
 
