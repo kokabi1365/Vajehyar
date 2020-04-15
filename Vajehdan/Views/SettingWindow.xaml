@@ -71,7 +71,7 @@
                     UncheckedContent="خاموش"
                     FlowDirection="RightToLeft"
                     IsChecked="{Binding Source={x:Static properties:Settings.Default}, Path=OpenByDoubleAlt, Mode=TwoWay}"/>
-                <Label Content="‌نمایش پنجره با دوبار زدن Alt"/>
+                <Label Content="‌نمایش پنجرۀ جستجو با کلیدهای Ctrl + Space"/>
             </StackPanel>
 
         </StackPanel>

@@ -104,35 +104,16 @@ namespace Vajehdan.Views
 
             var globalMouseHook = Hook.GlobalEvents();
             globalMouseHook.MouseDown += GlobalMouseHook_MouseDown;
+            HideMainWindow();
 
             _keyboardHook = new KeyboardHook();
-            _keyboardHook.SetHook();
-            _keyboardHook.OnKeyDownEvent += (o, arg) =>
+            _keyboardHook.RegisterHotKey(ModifierKeys.Control,Keys.Space);
+
+            _keyboardHook.KeyPressed += (o, arg) =>
             {
-                if (arg.KeyData == Keys.Escape)
-                {
-                    HideMainWindow();
-                    return;
-                }
-
-                if (!Settings.Default.OpenByDoubleAlt)
-                    return;
-
-                if (arg.Modifiers != Keys.Alt)
-                    return;
-
-                int thisCtrlTick = Environment.TickCount;
-                int elapsed = thisCtrlTick - _lastCtrlTick;
-
-                if (elapsed <= _triggerThreshold)
-                {
+                if (Settings.Default.OpenByCtrlSpace)
                     ShowMainWindow();
-                }
-
-                _lastCtrlTick = thisCtrlTick;
             };
-
-            HideMainWindow();
 
 
 #if (!DEBUG)
@@ -197,13 +178,17 @@ namespace Vajehdan.Views
 
         private void TxtSearch_OnPreviewKeyDown(object sender, KeyEventArgs e)
         {
+            if (e.Key==Key.Escape)
+                HideMainWindow();
+
             if (String.IsNullOrWhiteSpace(txtSearch.Text) && e.Key==Key.Space)
             {
                 e.Handled = true;
                 txtSearch.Clear();
             }
-            bool shift = (Keyboard.Modifiers & ModifierKeys.Shift) == ModifierKeys.Shift;
-            bool ctrl = (Keyboard.Modifiers & ModifierKeys.Control) == ModifierKeys.Control;
+
+            bool shift = (System.Windows.Input.Keyboard.Modifiers & System.Windows.Input.ModifierKeys.Shift) == System.Windows.Input.ModifierKeys.Shift;
+            bool ctrl = (System.Windows.Input.Keyboard.Modifiers & System.Windows.Input.ModifierKeys.Control) == System.Windows.Input.ModifierKeys.Control;
             bool space = Keyboard.IsKeyDown(Key.Space);
             bool two = Keyboard.IsKeyDown(Key.D2);
 
@@ -291,6 +276,7 @@ namespace Vajehdan.Views
         {
             Hide();
             WindowState = WindowState.Minimized;
+            txtSearch.IsSuggestionOpen = false;
         }
        
         private void GlobalMouseHook_MouseDown(object sender, System.Windows.Forms.MouseEventArgs e)

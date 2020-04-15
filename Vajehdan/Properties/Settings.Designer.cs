@@ -167,12 +167,12 @@ namespace Vajehdan.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("True")]
-        public bool OpenByDoubleAlt {
+        public bool OpenByCtrlSpace {
             get {
-                return ((bool)(this["OpenByDoubleAlt"]));
+                return ((bool)(this["OpenByCtrlSpace"]));
             }
             set {
-                this["OpenByDoubleAlt"] = value;
+                this["OpenByCtrlSpace"] = value;
             }
         }
     }

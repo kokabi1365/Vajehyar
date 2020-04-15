@@ -8,218 +8,143 @@ namespace Vajehdan
 {
     public class KeyboardHook
     {
-        private int hHook;
-        private Win32Api.HookProc KeyboardHookDelegate;
+        // Registers a hot key with Windows.
+        [DllImport("user32.dll")]
+        private static extern bool RegisterHotKey(IntPtr hWnd, int id, uint fsModifiers, uint vk);
+        // Unregisters the hot key with Windows.
+        [DllImport("user32.dll")]
+        private static extern bool UnregisterHotKey(IntPtr hWnd, int id);
+        /// <summary>
+        /// Represents the window that is used internally to get the messages.
+        /// </summary>
+        private class Window : NativeWindow, IDisposable
+        {
+            private static int WM_HOTKEY = 0x0312;
 
-        public event KeyEventHandler OnKeyDownEvent;
+            public Window()
+            {
+                // create the handle for the window.
+                this.CreateHandle(new CreateParams());
+            }
 
-        public event KeyEventHandler OnKeyUpEvent;
+            /// <summary>
+            /// Overridden to get the notifications.
+            /// </summary>
+            /// <param name="m"></param>
+            protected override void WndProc(ref Message m)
+            {
+                base.WndProc(ref m);
 
-        public event KeyPressEventHandler OnKeyPressEvent;
+                // check if we got a hot key pressed.
+                if (m.Msg == WM_HOTKEY)
+                {
+                    // get the keys.
+                    Keys key = (Keys)(((int)m.LParam >> 16) & 0xFFFF);
+                    ModifierKeys modifier = (ModifierKeys)((int)m.LParam & 0xFFFF);
+
+                    // invoke the event to notify the parent.
+                    if (KeyPressed != null)
+                        KeyPressed(this, new KeyPressedEventArgs(modifier, key));
+                }
+            }
+
+            public event EventHandler<KeyPressedEventArgs> KeyPressed;
+
+            #region IDisposable Members
+
+            public void Dispose()
+            {
+                this.DestroyHandle();
+            }
+
+            #endregion
+        }
+
+        private Window _window = new Window();
+        private int _currentId;
 
         public KeyboardHook()
         {
-        }
-
-        public void SetHook()
-
-        {
-            KeyboardHookDelegate = KeyboardHookProc;
-
-            Process cProcess = Process.GetCurrentProcess();
-
-            ProcessModule cModule = cProcess.MainModule;
-
-            IntPtr mh = Win32Api.GetModuleHandle(cModule?.ModuleName);
-
-            hHook = Win32Api.SetWindowsHookEx(Win32Api.WH_KEYBOARD_LL, KeyboardHookDelegate, mh, 0);
-        }
-
-        public void UnHook()
-
-        {
-            Win32Api.UnhookWindowsHookEx(hHook);
-        }
-
-        private readonly List<Keys> _preKeysList = new List<Keys>();
-
-        private int KeyboardHookProc(int nCode, int wParam, IntPtr lParam)
-
-        {
-            if ((nCode >= 0) && (OnKeyDownEvent != null || OnKeyUpEvent != null || OnKeyPressEvent != null))
-
+            // register the event of the inner native window.
+            _window.KeyPressed += delegate (object sender, KeyPressedEventArgs args)
             {
-                Win32Api.KeyboardHookStruct KeyDataFromHook =
-                    (Win32Api.KeyboardHookStruct)Marshal.PtrToStructure(lParam, typeof(Win32Api.KeyboardHookStruct));
+                if (KeyPressed != null)
+                    KeyPressed(this, args);
+            };
+        }
 
-                Keys keyData = (Keys)KeyDataFromHook.vkCode;
+        /// <summary>
+        /// Registers a hot key in the system.
+        /// </summary>
+        /// <param name="modifier">The modifiers that are associated with the hot key.</param>
+        /// <param name="key">The key itself that is associated with the hot key.</param>
+        public void RegisterHotKey(ModifierKeys modifier, Keys key)
+        {
+            // increment the counter.
+            _currentId = _currentId + 1;
 
+            // register the hot key.
+            if (!RegisterHotKey(_window.Handle, _currentId, (uint)modifier, (uint)key))
+                throw new InvalidOperationException("Couldn’t register the hot key.");
+        }
 
-                if ((OnKeyDownEvent != null || OnKeyPressEvent != null) &&
-                    (wParam == Win32Api.WM_KEYDOWN || wParam == Win32Api.WM_SYSKEYDOWN))
+        /// <summary>
+        /// A hot key has been pressed.
+        /// </summary>
+        public event EventHandler<KeyPressedEventArgs> KeyPressed;
 
-                {
-                    if (IsCtrlAltShiftKeys(keyData) && _preKeysList.IndexOf(keyData) == -1)
+        #region IDisposable Members
 
-                    {
-                        _preKeysList.Add(keyData);
-                    }
-                }
-
-
-                if (OnKeyDownEvent != null && (wParam == Win32Api.WM_KEYDOWN || wParam == Win32Api.WM_SYSKEYDOWN))
-
-                {
-                    KeyEventArgs e = new KeyEventArgs(GetDownKeys(keyData));
-
-
-                    OnKeyDownEvent?.Invoke(this, e);
-                }
-
-
-                if (OnKeyPressEvent != null && wParam == Win32Api.WM_KEYDOWN)
-
-                {
-                    byte[] keyState = new byte[256];
-
-                    Win32Api.GetKeyboardState(keyState);
-
-                    byte[] inBuffer = new byte[2];
-
-                    if (Win32Api.ToAscii(KeyDataFromHook.vkCode, KeyDataFromHook.scanCode, keyState, inBuffer,
-                            KeyDataFromHook.flags) == 1)
-
-                    {
-                        KeyPressEventArgs e = new KeyPressEventArgs((char)inBuffer[0]);
-
-                        OnKeyPressEvent(this, e);
-                    }
-                }
-
-
-                if ((OnKeyDownEvent != null || OnKeyPressEvent != null) &&
-                    (wParam == Win32Api.WM_KEYUP || wParam == Win32Api.WM_SYSKEYUP))
-
-                {
-                    if (IsCtrlAltShiftKeys(keyData))
-
-                    {
-                        for (int i = _preKeysList.Count - 1; i >= 0; i--)
-
-                        {
-                            if (_preKeysList[i] == keyData)
-                            {
-                                _preKeysList.RemoveAt(i);
-                            }
-                        }
-                    }
-                }
-
-
-                if (OnKeyUpEvent != null && (wParam == Win32Api.WM_KEYUP || wParam == Win32Api.WM_SYSKEYUP))
-
-                {
-                    KeyEventArgs e = new KeyEventArgs(GetDownKeys(keyData));
-
-                    OnKeyUpEvent?.Invoke(this, e);
-                }
+        public void Dispose()
+        {
+            // unregister all the registered hot keys.
+            for (int i = _currentId; i > 0; i--)
+            {
+                UnregisterHotKey(_window.Handle, i);
             }
 
-            return Win32Api.CallNextHookEx(hHook, nCode, wParam, lParam);
+            // dispose the inner native window.
+            _window.Dispose();
         }
 
+        #endregion
+    }
 
-        private Keys GetDownKeys(Keys key)
+    /// <summary>
+    /// Event Args for the event that is fired after the hot key has been pressed.
+    /// </summary>
+    public class KeyPressedEventArgs : EventArgs
+    {
+        private ModifierKeys _modifier;
+        private Keys _key;
 
+        internal KeyPressedEventArgs(ModifierKeys modifier, Keys key)
         {
-            Keys rtnKey = Keys.None;
-
-            foreach (Keys i in _preKeysList)
-
-            {
-                if (i == Keys.LControlKey || i == Keys.RControlKey)
-                {
-                    rtnKey = rtnKey | Keys.Control;
-                }
-
-                if (i == Keys.LMenu || i == Keys.RMenu)
-                {
-                    rtnKey = rtnKey | Keys.Alt;
-                }
-
-                if (i == Keys.LShiftKey || i == Keys.RShiftKey)
-                {
-                    rtnKey = rtnKey | Keys.Shift;
-                }
-            }
-
-            return rtnKey | key;
+            _modifier = modifier;
+            _key = key;
         }
 
-        private bool IsCtrlAltShiftKeys(Keys key)
-
+        public ModifierKeys Modifier
         {
-            if (key == Keys.LControlKey || key == Keys.RControlKey || key == Keys.LMenu || key == Keys.RMenu ||
-                key == Keys.LShiftKey || key == Keys.RShiftKey)
-            {
-                return true;
-            }
+            get { return _modifier; }
+        }
 
-            return false;
+        public Keys Key
+        {
+            get { return _key; }
         }
     }
 
-    internal class Win32Api
+    /// <summary>
+    /// The enumeration of possible modifiers.
+    /// </summary>
+    [Flags]
+    public enum ModifierKeys : uint
     {
-        public const int WM_KEYDOWN = 0x100;
-
-        public const int WM_KEYUP = 0x101;
-
-        public const int WM_SYSKEYDOWN = 0x104;
-
-        public const int WM_SYSKEYUP = 0x105;
-
-        public const int WH_KEYBOARD_LL = 13;
-
-
-        [StructLayout(LayoutKind.Sequential)]
-        public class KeyboardHookStruct
-
-        {
-            public int vkCode;
-
-            public int scanCode;
-
-            public int flags;
-
-            public int time;
-
-            public int dwExtraInfo;
-        }
-
-
-        public delegate int HookProc(int nCode, int wParam, IntPtr lParam);
-
-
-        [DllImport("user32.dll", CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
-        public static extern int SetWindowsHookEx(int idHook, HookProc lpfn, IntPtr hInstance, int threadId);
-
-
-        [DllImport("user32.dll", CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
-        public static extern bool UnhookWindowsHookEx(int idHook);
-
-
-        [DllImport("user32.dll", CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
-        public static extern int CallNextHookEx(int idHook, int nCode, int wParam, IntPtr lParam);
-
-        [DllImport("user32")]
-        public static extern int ToAscii(int uVirtKey, int uScanCode, byte[] lpbKeyState, byte[] lpwTransKey,
-            int fuState);
-
-        [DllImport("user32")]
-        public static extern int GetKeyboardState(byte[] pbKeyState);
-
-        [DllImport("kernel32.dll", CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
-        public static extern IntPtr GetModuleHandle(string lpModuleName);
+        Alt = 1,
+        Control = 2,
+        Shift = 4,
+        Win = 8
     }
 }
+
