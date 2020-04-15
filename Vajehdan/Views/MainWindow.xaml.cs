@@ -14,6 +14,7 @@ using Application = System.Windows.Application;
 using Button = System.Windows.Controls.Button;
 using Clipboard = System.Windows.Clipboard;
 using KeyEventArgs = System.Windows.Input.KeyEventArgs;
+using MouseEventArgs = System.Windows.Input.MouseEventArgs;
 
 
 namespace Vajehdan.Views
@@ -325,6 +326,14 @@ namespace Vajehdan.Views
         private void PartSearch_OnChecked(object sender, RoutedEventArgs e)
         {
             FilterCollection();
+        }
+
+        private void MainWindow_OnMouseMove(object sender, MouseEventArgs e)
+        {
+            if (e.LeftButton == MouseButtonState.Pressed)
+            {
+                DragMove();
+            }
         }
     }
 

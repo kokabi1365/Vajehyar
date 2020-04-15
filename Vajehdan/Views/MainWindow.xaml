@@ -12,6 +12,7 @@
     Title="واژه‌دان"
     FontFamily="{StaticResource vazir}"
     Width="1000"
+    MouseMove="MainWindow_OnMouseMove"
     DataContext="{Binding RelativeSource={RelativeSource Self}}"
     SizeToContent="Height"
     FlowDirection="RightToLeft"
