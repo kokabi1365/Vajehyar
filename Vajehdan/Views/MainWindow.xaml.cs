@@ -282,8 +282,8 @@ namespace Vajehdan.Views
         {
             WindowState = WindowState.Normal;
             Show();
+            Activate();
             txtSearch.Focus();
-            Keyboard.Focus(txtSearch);
             txtSearch.SelectAll();
         }
 
