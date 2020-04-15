@@ -89,7 +89,7 @@ namespace Vajehdan.Views
 
 
             InitializeComponent();
-            
+
             MotaradefMotazadList = new GridVirtualizingCollectionView(Database.GetWords(DatabaseType.Motaradef));
             MotaradefMotazadList.Filter = FilterResult;
             MotaradefMotazadList.CollectionChanged += MotaradefMotazadList_CollectionChanged;
@@ -103,7 +103,35 @@ namespace Vajehdan.Views
             Words = new ObservableCollection<string>(Database.GetAllWords());
 
             var globalMouseHook = Hook.GlobalEvents();
-            globalMouseHook.MouseDown += GlobalMouseHook_MouseDown;
+            
+            globalMouseHook.MouseDown += (o, e) =>
+            {
+                if (txtSearch.IsSuggestionOpen)
+                    return;
+
+
+                if (!Settings.Default.MinimizeWhenClickOutside)
+                    return;
+
+                if (e.X < Left || e.X > Left + Width || e.Y < Top || e.Y > Top + Height)
+                {
+                    HideMainWindow();
+                }
+
+                Keyboard.Focus(txtSearch);
+            };
+
+            globalMouseHook.KeyDown += (o, e) =>
+            {
+                if (e.KeyCode==Keys.Escape)
+                {
+                    if (txtSearch.IsSuggestionOpen)
+                        txtSearch.IsSuggestionOpen = false;
+                    else
+                        HideMainWindow();
+                }
+            };
+
             HideMainWindow();
 
             _keyboardHook = new KeyboardHook();
@@ -121,12 +149,6 @@ namespace Vajehdan.Views
 
 #endif
         }
-
-        
-
-
-      
-
         private void MotaradefMotazadList_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
         {
 
@@ -178,8 +200,6 @@ namespace Vajehdan.Views
 
         private void TxtSearch_OnPreviewKeyDown(object sender, KeyEventArgs e)
         {
-            if (e.Key==Key.Escape)
-                HideMainWindow();
 
             if (String.IsNullOrWhiteSpace(txtSearch.Text) && e.Key==Key.Space)
             {
@@ -276,25 +296,8 @@ namespace Vajehdan.Views
         {
             Hide();
             WindowState = WindowState.Minimized;
-            txtSearch.IsSuggestionOpen = false;
         }
-       
-        private void GlobalMouseHook_MouseDown(object sender, System.Windows.Forms.MouseEventArgs e)
-        {
-            if (txtSearch.IsSuggestionOpen)
-                return;
-            
 
-            if (!Settings.Default.MinimizeWhenClickOutside)
-                return;
-
-            if (e.X < Left || e.X > Left + Width || e.Y < Top || e.Y > Top + Height)
-            {
-                HideMainWindow();
-            }
-
-            Keyboard.Focus(txtSearch);
-        }
 
 
         private void NotifyIconClickCommand(object sender, ExecutedRoutedEventArgs e)
