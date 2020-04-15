@@ -319,7 +319,6 @@
         <Setter Property="VerticalAlignment" Value="Center"/>
         <Setter Property="SuggestionBoxPlacement" Value="Top"/>
         <Setter Property="TextHighlightMode" Value="MultipleOccurrence"/>
-        <Setter Property="MinimumPrefixCharacters" Value="2"/>
         <Setter Property="InputLanguageManager.InputLanguage" Value="fa-IR"/>
     </Style>
 
