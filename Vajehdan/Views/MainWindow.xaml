@@ -10,9 +10,9 @@
     xmlns:toggleSwitch="clr-namespace:ToggleSwitch;assembly=ToggleSwitch"
     xmlns:vajehdan="clr-namespace:Vajehdan"
     Title="واژه‌دان"
+    Name="SearchWindow"
     FontFamily="{StaticResource vazir}"
     Width="1000"
-    MouseMove="MainWindow_OnMouseMove"
     DataContext="{Binding RelativeSource={RelativeSource Self}}"
     SizeToContent="Height"
     FlowDirection="RightToLeft"
@@ -28,6 +28,7 @@
         <StackPanel Background="AliceBlue">
             <sf:SfTextBoxExt
                     x:Name="txtSearch"
+                    MouseMove="TxtSearch_OnMouseMove"
                     Style="{StaticResource TextBoxStyle}"
                     FocusManager.FocusedElement="{Binding ElementName=txtSearch}"
                     AutoCompleteSource="{Binding Words}"

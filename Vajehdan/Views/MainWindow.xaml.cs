@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Threading;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Forms;
 using System.Windows.Input;
 using Gma.System.MouseKeyHook;
@@ -330,6 +331,13 @@ namespace Vajehdan.Views
         }
 
         private void MainWindow_OnMouseMove(object sender, MouseEventArgs e)
+        {
+
+            
+            
+        }
+
+        private void TxtSearch_OnMouseMove(object sender, MouseEventArgs e)
         {
             if (e.LeftButton == MouseButtonState.Pressed)
             {
