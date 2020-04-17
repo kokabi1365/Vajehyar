@@ -27,8 +27,6 @@ namespace Vajehdan.Views
     /// </summary>
     public partial class MainWindow : INotifyPropertyChanged
     {
-        private readonly int _triggerThreshold = 500;
-        private int _lastCtrlTick;
         private IKeyboardMouseEvents _globalHook;
 
         private ObservableCollection<string> _words;
@@ -111,9 +109,6 @@ namespace Vajehdan.Views
 
             _globalHook.MouseDown += (o, e) =>
             {
-                if (txtSearch.IsSuggestionOpen)
-                    return;
-
                 if (!Settings.Default.MinimizeWhenClickOutside)
                     return;
 
@@ -328,13 +323,6 @@ namespace Vajehdan.Views
         private void PartSearch_OnChecked(object sender, RoutedEventArgs e)
         {
             FilterCollection();
-        }
-
-        private void MainWindow_OnMouseMove(object sender, MouseEventArgs e)
-        {
-
-            
-            
         }
 
         private void TxtSearch_OnMouseMove(object sender, MouseEventArgs e)

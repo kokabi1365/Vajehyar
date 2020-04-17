@@ -317,7 +317,7 @@
         <Setter Property="AutoCompleteMode" Value="Suggest"/>
         <Setter Property="Padding" Value="10,0,0,0"/>
         <Setter Property="VerticalAlignment" Value="Center"/>
-        <Setter Property="SuggestionBoxPlacement" Value="Top"/>
+        <Setter Property="SuggestionBoxPlacement" Value="Bottom"/>
         <Setter Property="TextHighlightMode" Value="MultipleOccurrence"/>
         <Setter Property="InputLanguageManager.InputLanguage" Value="fa-IR"/>
     </Style>
