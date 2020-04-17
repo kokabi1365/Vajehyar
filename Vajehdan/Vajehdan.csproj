@@ -132,7 +132,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="KeyboardHook.cs" />
     <Compile Include="Database.cs" />
     <Compile Include="Helper.cs" />
     <Compile Include="Views\AboutWindow.xaml.cs">

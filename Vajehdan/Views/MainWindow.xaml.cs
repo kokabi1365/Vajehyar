@@ -180,9 +180,6 @@ namespace Vajehdan.Views
             await Helper.CheckUpdate();
         }
 
-        private KeyboardHook _keyboardHook;
-
-
         public bool FilterResult(object obj)
         {
             if (FilterString==null)
