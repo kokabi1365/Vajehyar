@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
@@ -14,6 +15,7 @@ using Application = System.Windows.Application;
 using Button = System.Windows.Controls.Button;
 using Clipboard = System.Windows.Clipboard;
 using KeyEventArgs = System.Windows.Input.KeyEventArgs;
+using MessageBox = System.Windows.Forms.MessageBox;
 using MouseEventArgs = System.Windows.Input.MouseEventArgs;
 
 
@@ -26,6 +28,7 @@ namespace Vajehdan.Views
     {
         private readonly int _triggerThreshold = 500;
         private int _lastCtrlTick;
+        private IKeyboardMouseEvents _globalHook;
 
         private ObservableCollection<string> _words;
         public ObservableCollection<string> Words
@@ -88,8 +91,8 @@ namespace Vajehdan.Views
         public MainWindow()
         {
 
-
             InitializeComponent();
+            
 
             MotaradefMotazadList = new GridVirtualizingCollectionView(Database.GetWords(DatabaseType.Motaradef));
             MotaradefMotazadList.Filter = FilterResult;
@@ -103,13 +106,12 @@ namespace Vajehdan.Views
 
             Words = new ObservableCollection<string>(Database.GetAllWords());
 
-            var globalMouseHook = Hook.GlobalEvents();
-            
-            globalMouseHook.MouseDown += (o, e) =>
+            _globalHook = Hook.GlobalEvents();
+
+            _globalHook.MouseDown += (o, e) =>
             {
                 if (txtSearch.IsSuggestionOpen)
                     return;
-
 
                 if (!Settings.Default.MinimizeWhenClickOutside)
                     return;
@@ -119,30 +121,31 @@ namespace Vajehdan.Views
                     HideMainWindow();
                 }
 
-                Keyboard.Focus(txtSearch);
-            };
-
-            globalMouseHook.KeyDown += (o, e) =>
-            {
-                if (e.KeyCode==Keys.Escape)
-                {
-                    if (txtSearch.IsSuggestionOpen)
-                        txtSearch.IsSuggestionOpen = false;
-                    else
-                        HideMainWindow();
-                }
             };
 
             HideMainWindow();
 
-            _keyboardHook = new KeyboardHook();
-            _keyboardHook.RegisterHotKey(ModifierKeys.Control,Keys.Space);
-
-            _keyboardHook.KeyPressed += (o, arg) =>
+            _globalHook.OnCombination(new Dictionary<Combination, Action>()
             {
-                if (Settings.Default.OpenByHotKey)
-                    ShowMainWindow();
-            };
+                {Combination.FromString("Control+Space"), () =>
+                {
+                    if (Settings.Default.OpenByHotKey)
+                    {
+                        ShowMainWindow();
+                    }
+                }},
+                {
+                    Combination.FromString("Escape"), () =>
+                    {
+
+                        if (txtSearch.IsSuggestionOpen)
+                            txtSearch.IsSuggestionOpen = false;
+                        else
+                            HideMainWindow();
+
+                    }
+                }
+            });
 
 
 #if (!DEBUG)
@@ -150,6 +153,7 @@ namespace Vajehdan.Views
 
 #endif
         }
+
         private void MotaradefMotazadList_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
         {
 
