@@ -104,7 +104,23 @@ namespace Vajehdan.Views
             EmlaeiList.Filter = FilterResult;
 
             Words = new ObservableCollection<string>(Database.GetAllWords());
+            
+            HideMainWindow();
+            SetupHook();
+            
 
+            #if (!DEBUG)
+            CheckUpdate();
+            #endif
+        }
+
+        private async void CheckUpdate()
+        {
+            await Helper.CheckUpdate();
+        }
+
+        private void SetupHook()
+        {
             _globalHook = Hook.GlobalEvents();
 
             _globalHook.MouseDown += (o, e) =>
@@ -119,8 +135,6 @@ namespace Vajehdan.Views
 
             };
 
-            HideMainWindow();
-
             _globalHook.OnCombination(new Dictionary<Combination, Action>()
             {
                 {Combination.FromString("Control+Space"), () =>
@@ -133,21 +147,13 @@ namespace Vajehdan.Views
                 {
                     Combination.FromString("Escape"), () =>
                     {
-
                         if (txtSearch.IsSuggestionOpen)
                             txtSearch.IsSuggestionOpen = false;
                         else
                             HideMainWindow();
-
                     }
                 }
             });
-
-
-#if (!DEBUG)
-            CheckUpdate();
-
-#endif
         }
 
         private void MotaradefMotazadList_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
@@ -171,11 +177,6 @@ namespace Vajehdan.Views
                 }));
         }
 
-        private async void CheckUpdate()
-        {
-            await Helper.CheckUpdate();
-        }
-
         public bool FilterResult(object obj)
         {
             if (FilterString==null)
@@ -188,7 +189,6 @@ namespace Vajehdan.Views
 
             return ((string[]) obj).Any(s => s == FilterString);
         }
-
 
         public event PropertyChangedEventHandler PropertyChanged;
         private void NotifyPropertyChanged(string property)
@@ -295,8 +295,6 @@ namespace Vajehdan.Views
             Hide();
             WindowState = WindowState.Minimized;
         }
-
-
 
         private void NotifyIconClickCommand(object sender, ExecutedRoutedEventArgs e)
         {
