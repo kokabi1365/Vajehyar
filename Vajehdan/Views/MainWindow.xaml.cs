@@ -72,7 +72,7 @@ namespace Vajehdan.Views
                 if (value.Length < 2 || string.IsNullOrWhiteSpace(value))
                     _filterString = null;
                 else
-                    _filterString = value.ToPlainText();
+                    _filterString = value;
                 
                 NotifyPropertyChanged("FilterString");
                 FilterCollection();
@@ -182,7 +182,7 @@ namespace Vajehdan.Views
             if (FilterString==null)
                 return false;
 
-            if ((bool) PartSearch.IsChecked)
+            if (PartSearch.IsChecked)
             {
                 return ((string[])obj).Any(s => s.Contains(FilterString));
             }
