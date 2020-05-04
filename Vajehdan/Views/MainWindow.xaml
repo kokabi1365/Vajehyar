@@ -26,7 +26,8 @@
     <Grid Margin="20" Effect="{StaticResource ShadowEffect}">
 
         <StackPanel Background="AliceBlue">
-            <sf:SfTextBoxExt
+            <Grid>
+                <sf:SfTextBoxExt
                     x:Name="txtSearch"
                     MouseMove="TxtSearch_OnMouseMove"
                     Style="{StaticResource TextBoxStyle}"
@@ -37,13 +38,13 @@
                     Text="{Binding FilterString, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}"
                     PreviewKeyDown="TxtSearch_OnPreviewKeyDown"
                     PreviewMouseLeftButtonUp="TxtSearch_OnPreviewMouseLeftButtonUp"/>
-            <StackPanel Name="ResultPanel">
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="10,10,0,10">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="10,10,20,10">
                     <toggleSwitch:HorizontalToggleSwitch
                         Name="PartSearch"
                         FontFamily="{StaticResource vazir}"
                         FontWeight="Normal"
                         Width="100"
+                        Cursor="Hand"
                         FontSize="12"
                         CheckedContent="روشن"
                         UncheckedContent="خاموش"
@@ -53,7 +54,8 @@
                         FocusManager.FocusedElement="{Binding ElementName=txtSearch}"/>
                     <Label Content="جستجوی بخشی از کلمه" FontFamily="{StaticResource vazir}" FontSize="13"/>
                 </StackPanel>
-
+            </Grid>
+            <StackPanel Name="ResultPanel">
                 <Grid MaxHeight="400">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition x:Name="MotaradefColumn" Width="3*"/>
