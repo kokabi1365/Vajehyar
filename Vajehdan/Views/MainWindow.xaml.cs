@@ -223,6 +223,7 @@ namespace Vajehdan.Views
         {
             string word = (sender as Button).Content.ToString();
             Clipboard.SetText(word);
+            myToast.Message = word + " " + "کپی شد.";
             myToast.Show();
         }
 
