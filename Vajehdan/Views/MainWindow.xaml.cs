@@ -234,14 +234,6 @@ namespace Vajehdan.Views
             txtSearch.SelectAll();
         }
 
-        private void TxtSearch_OnPreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
-        {
-            if (txtSearch.SelectedText.Length == 0)
-            {
-                txtSearch.SelectAll();
-            }
-        }
-
         private void TxtSearch_OnLostFocus(object sender, RoutedEventArgs e)
         {
             if (sender is SfTextBoxExt)
