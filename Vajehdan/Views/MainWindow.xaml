@@ -36,8 +36,7 @@
                     LostFocus="TxtSearch_OnLostFocus"
                     KeyUp="TxtSearch_OnKeyUp"
                     Text="{Binding FilterString, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}"
-                    PreviewKeyDown="TxtSearch_OnPreviewKeyDown"
-                    PreviewMouseLeftButtonUp="TxtSearch_OnPreviewMouseLeftButtonUp"/>
+                    PreviewKeyDown="TxtSearch_OnPreviewKeyDown"/>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="10,10,20,10">
                     <toggleSwitch:HorizontalToggleSwitch
                         Name="PartSearch"
