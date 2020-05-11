@@ -16,8 +16,15 @@
 <body style="font-family: Vazir;">    
     <div class="container text-center"><img src="assets/img/Logo.png" style="width: 128px;height: 128px;margin: 20px;">
         <h1 style="font-weight: 600;">واژه‌دان</h1>
-        <h2 style="font-weight: 200;">راهنمای واژه‌گزینیِ زبان فارسی</h2>
-        <p class="text-right" style="font-weight: 300;max-width: 600px;text-align: center;margin: auto;">با جستجوی سریع کلمات مترادف و کلماتی که به نحوی با هم ارتباط معنایی دارند، نوشته‌های خود را زیباتر کنید.</p><img class="img-fluid" src="assets/img/Usage.gif" style="max-width: 85%;">
+        <div id="typed-strings" dir="rtl">
+            <p>چه منظرۀ زیبایی</p>
+            <p>چه منظرۀ بکری</p>
+            <p>چه چشم‌انداز قشنگی</p>
+            <p>چه صحنۀ زیبایی</p>
+          </div>
+          <span id="typed"></span>
+          <p></p>
+        <img class="img-fluid" src="assets/img/Usage.gif" style="max-width: 85%;">
         <p class="text-right" id="Download" href="#" style="color: rgb(0,0,0);max-width: 600px;margin: auto;">واژه‌دان نیازی به نصب ندارد. برای اجرای برنامه روی نسخه‌های قبل از ویندوز 10 باید&nbsp;<a href="https://www.microsoft.com/en-us/download/details.aspx?id=49981">Net Framework 4.6.1.</a>&nbsp;را نصب کنید.</p><a href="https://github.com/kokabi1365/Vajehdan/releases/download/4.2.0/Vajehdan.exe"><button class="btn btn-primary" type="button" style="margin-top: 20px;width: 200px;height: 50px;">دانلود برنامه</button></a></div>
     <div
         style="margin-top: 30px;">
@@ -26,11 +33,11 @@
             <div class="row" style="margin-top: 30px;">
                 <div class="col-md-4"><img src="assets/img/icons8_source_code.svg" style="width: 200px;display: block;margin: auto;">
                     <h3 class="text-center" style="font-size: 22px;">رایگان و متن‌باز</h3>
-                    <p class="text-right" style="font-weight: 100;">واژه‌دان رایگان و متن‌باز منتشر شده تا دیگران هم به اندازۀ دغدغه‌‌شان برای ارتقاء شیوۀ نگارش فارسی، در بهبود و توسعۀ آن سهیم باشند.</p>
+                    <p class="text-right" style="font-weight: 100;">واژه‌دان رایگان و متن‌باز است؛ هر کسی می‌تواند در توسعه و بهبود آن سهیم باشد.</p>
                 </div>
                 <div class="col-md-4"><img src="assets/img/icons8_search_property.svg" style="width: 200px;display: block;margin: auto;">
                     <h3 class="text-center" style="font-size: 22px;">جستجوی سریع</h3>
-                    <p class="text-right" style="font-weight: 100;">جستجو در این برنامه بسیار سریع است. در لحظه که می‌نویسید نتایج هم نشان داده می‌شود.</p>
+                    <p class="text-right" style="font-weight: 100;">نتایج جستجو را همزمان با نوشتن می‌بینید.</p>
                 </div>
                 <div class="col-md-4"><img src="assets/img/icons8_Cloud_Cross.svg" style="width: 200px;display: block;margin: auto;">
                     <h3 class="text-center" style="font-size: 22px;">عدم نیاز به اینترنت</h3>
@@ -49,20 +56,29 @@
                             <li>حل مشکل ویرایش نشدن متن جستجو</li>
                             <li>بهبود سرعت جستجو</li>
                             <li>تغییرات جزئی در واسط کاربری</li>
-                        </ul><a href="https://github.com/kokabi1365/Vajehdan/releases" style="float: right;">تغییرات نسخ پیشین</a></div>
+                        </ul><a href="https://github.com/kokabi1365/Vajehdan/releases" style="float: right; margin-top: 20px;">تغییرات نسخه‌های قبل</a></div>
                 </div>
             </div>
         </div><a class="btn btn-light action-button" role="button" href="https://idpay.ir/kokabi" style="display: block;margin: auto;width: 200px;background-color: rgb(52,239,21);margin-top: 50px;">حمایت مالی از سازنده</a>
-        <div class="footer-basic" style="margin-top: 30px;">
+        <div class="footer-basic">
             <footer><img src="assets/img/v.jpg" style="display: block;margin: auto;">
-                <p class="text-center" style="font-size: 13px;font-weight: 200;margin-top: 10px;">طراحی و توسعه با&nbsp;❤️ توسط سید ایوب کوکبی</p>
-                <p class="text-center" style="font-size: 13px;font-weight: 200;font-family: calibri;margin-top: -10px;">kokabi1365@gmail.com</p>
-                <div class="social" style="margin-top: -5px;"><a href="https://telegram.me/kokabi1365"><i class="fab fa-telegram-plane"></i></a><a href="https://github.com/kokabi1365/Vajehdan"><i class="icon ion-social-github"></i></a></div>
+                <p class="text-center" style="font-size: 13px;font-weight: 200;margin-top: 5px;">طراحی و توسعه با&nbsp;❤️ سید ایوب کوکبی</p>
+                <p class="text-center" style="font-size: 13px;font-weight: 200;font-family: calibri;margin-top: -20px;">kokabi1365@gmail.com</p>
+                <div class="social" style="margin-top: -15px;"><a href="https://telegram.me/kokabi1365"><i class="fab fa-telegram-plane"></i></a><a href="https://github.com/kokabi1365/Vajehdan"><i class="icon ion-social-github"></i></a></div>
             </footer>
-        </div>
+        </div>        
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
+        <script>
+            var typed = new Typed('#typed', {
+              stringsElement: '#typed-strings',
+              typeSpeed: 80,
+              backSpeed: 50,              
+              smartBackspace: true,
+              loop: true
+            });
+          </script>       
 </body>
 
 </html>
