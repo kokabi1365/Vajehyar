@@ -1,4 +1,4 @@
-# Vajehdan
+# واژه‌دان
 
 ![GitHub All Releases](https://img.shields.io/github/downloads/kokabi1365/Vajehdan/total.svg)
 ![GitHub release](https://img.shields.io/github/release/kokabi1365/Vajehdan.svg)
