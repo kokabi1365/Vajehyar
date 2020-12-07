@@ -10,7 +10,7 @@
 
 <br>
 <br>
-<a href="https://kokabi1365.github.io/Vajehdan/" style="display:block; margin:0 auto"><b>دانلود برنامه</b></a>
+<a href="https://kokabi1365.github.io/Vajehdan/"><b>دانلود برنامه</b></a>
 <br>
 <br>
 داستان ساخت  برنامه:
