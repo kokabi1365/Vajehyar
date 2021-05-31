@@ -64,7 +64,7 @@ function formatNumber(x) {
 }
 
 $(function () {
-  $.getJSON("donators.json").done(function (donators) {
+  $.getJSON("Vajehdan/donators.json").done(function (donators) {
     donators.sort(function (a, b) {
       return b.date.localeCompare(a.date);
     });
