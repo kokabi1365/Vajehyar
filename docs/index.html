@@ -340,8 +340,7 @@ function formatNumber(x) {
   return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, "٬");
 }
 
-$(function () {
-  console.log("test");
+$(function () {  
   $.getJSON("donators.json").done(function (donators) {
     donators.sort(function (a, b) {
       return b.date.localeCompare(a.date);
