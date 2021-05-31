@@ -64,7 +64,7 @@ function formatNumber(x) {
 }
 
 $(function () {
-  $.getJSON("https://github.com/kokabi1365/Vajehdan/blob/master/docs/scripts/donators.json").done(function (donators) {
+  $.getJSON("/donators.json").done(function (donators) {
     donators.sort(function (a, b) {
       return b.date.localeCompare(a.date);
     });
