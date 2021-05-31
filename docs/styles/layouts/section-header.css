@@ -1,0 +1,62 @@
+.section-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.section-header__vajehdan {
+  font-style: normal;
+  font-weight: 300;
+}
+
+.section-header__logo {
+  width: 6rem;  
+}
+
+.section-header__title {
+  margin-top: 3rem;  
+}
+
+.section-header__subtitle {
+  margin-top: 1rem;
+}
+
+.section-header__description {
+  max-width: 55rem;
+  margin-top: 1.2rem;
+}
+
+.section-header__btn {
+  margin-top: 2rem;
+}
+
+.section-header__platform {
+  display: block;
+  font-weight: 100;
+  font-size: 0.8rem;
+}
+
+.section-header__badge {
+  margin-top: 1rem;
+}
+
+.section-header__screenshot {
+  margin-top: 1rem;
+  max-width: 100%;
+}
+
+@media only screen and (max-width: 900px) {
+  .section-header__logo {
+    width: 4rem;
+  }
+
+  .section-header__subtitle {
+    margin-top: 0.2rem;
+  }
+}
+
+@media only screen and (max-width: 420px) {
+  .section-header__btn {
+    max-width: 100%;
+  }
+}

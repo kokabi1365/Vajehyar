@@ -1,0 +1,478 @@
+﻿<Window
+    x:Class="Vajehdan.Views.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:app="clr-namespace:Vajehdan"
+    xmlns:behaviors="clr-namespace:WPFTextBoxAutoComplete;assembly=WPFTextBoxAutoComplete"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:tb="http://www.hardcodet.net/taskbar"
+    Title="واژه‌دان"
+    Width="1000"
+    Height="570"
+    AllowsTransparency="True"
+    Background="Transparent"
+    Closing="MainWindow_OnClosing"
+    DataContext="{Binding RelativeSource={RelativeSource Self}}"
+    FlowDirection="RightToLeft"
+    FocusManager.FocusedElement="{Binding ElementName=SearchTextBox}"
+    FontFamily="{StaticResource VazirUi}"
+    Icon="{StaticResource logo}"
+    KeyDown="MainWindow_OnKeyDown"
+    Loaded="MainWindow_OnLoaded"
+    MouseDown="MainWindow_OnMouseDown"
+    ShowActivated="True"
+    UseLayoutRounding="True"
+    WindowStyle="None"
+    mc:Ignorable="d">
+    <Window.CommandBindings>
+        <CommandBinding x:Name="NotifyIconCommandBinding" Command="{x:Static SystemCommands.RestoreWindowCommand}" />
+    </Window.CommandBindings>
+    <Window.Resources>
+        <Style x:Key="SearchBoxStyle" TargetType="TextBox">
+            <Setter Property="Height" Value="36" />
+            <Setter Property="VerticalContentAlignment" Value="Center" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="FontSize" Value="16" />
+            <Setter Property="BorderBrush">
+                <Setter.Value>
+                    <LinearGradientBrush StartPoint="1,0" EndPoint="0,1">
+                        <GradientStop Offset="1" Color="Black" />
+                        <GradientStop Offset="0" Color="White" />
+                    </LinearGradientBrush>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="TextBox">
+                        <Border
+                            x:Name="border"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="5"
+                            SnapsToDevicePixels="True">
+                            <Grid>
+                                <ScrollViewer
+                                    x:Name="PART_ContentHost"
+                                    Focusable="false"
+                                    HorizontalScrollBarVisibility="Hidden"
+                                    VerticalScrollBarVisibility="Hidden" />
+                                <TextBlock
+                                    x:Name="hint"
+                                    Margin="45,0,0,0"
+                                    HorizontalAlignment="Left"
+                                    VerticalAlignment="Center"
+                                    FontSize="16"
+                                    FontWeight="Thin"
+                                    Foreground="DarkGray"
+                                    IsHitTestVisible="False"
+                                    Text="جستجو ..."
+                                    Visibility="Collapsed" />
+                            </Grid>
+
+                        </Border>
+
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsKeyboardFocused" Value="False">
+                                <Setter TargetName="border" Property="Opacity" Value=".3" />
+                                <Setter TargetName="hint" Property="Opacity" Value=".7" />
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter TargetName="border" Property="Background" Value="LightGray" />
+                            </Trigger>
+                            <MultiTrigger>
+                                <MultiTrigger.Conditions>
+                                    <Condition Property="Text" Value="" />
+                                </MultiTrigger.Conditions>
+                                <Setter TargetName="hint" Property="Visibility" Value="Visible" />
+                            </MultiTrigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+
+
+    <Border>
+
+        <Border x:Name="MainBorder" Style="{StaticResource MainBorderStyle}">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+
+                <StackPanel Orientation="Horizontal">
+                    <Button
+                        x:Name="CloseButton"
+                        Width="25"
+                        Height="25"
+                        Margin="-30,-35,0,0"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        Click="CloseButton_OnClick"
+                        Content="_"
+                        DockPanel.Dock="Left"
+                        FontSize="17"
+                        IsCancel="True"
+                        Style="{StaticResource CircularButtonStyle}"
+                        ToolTip="با کلیدِ ESC نیز می‌توانید پنجره را ببندید." />
+                    <Button
+                        x:Name="PinButton"
+                        Margin="0,-40,0,0"
+                        Click="PinButton_OnClick"
+                        Content="📌"
+                        DockPanel.Dock="Right"
+                        FontSize="12"
+                        Style="{StaticResource CircularButtonStyle}"
+                        ToolTip="نمایش بالایِ همهٔ پنجره‌ها" />
+                    <Button
+                        x:Name="NewWindowButton"
+                        Margin="12,-40,0,0"
+                        Click="NewWindowButton_OnClick"
+                        Content="⧉"
+                        DockPanel.Dock="Right"
+                        FontSize="15"
+                        Style="{StaticResource CircularButtonStyle}"
+                        ToolTip="باز کردنِ یک پنجرهٔ جدیدِ جستجو" />
+
+                </StackPanel>
+
+
+                <Grid Grid.Row="1" Grid.Column="0">
+                    <TextBox
+                        x:Name="SearchTextBox"
+                        Padding="45,0,0,0"
+                        behaviors:AutoCompleteBehavior.AutoCompleteItemsSource="{Binding AutoCompleteList}"
+                        KeyDown="SearchTextBox_OnKeyDown"
+                        PreviewKeyDown="SearchTextBox_OnPreviewKeyDown"
+                        Style="{StaticResource SearchBoxStyle}"
+                        TextChanged="SearchTextBox_OnTextChanged"
+                        UndoLimit="10000" />
+                    <StackPanel Orientation="Horizontal">
+                        <Button
+                            x:Name="PreviousButton"
+                            Margin="10,-10,0,-10"
+                            VerticalAlignment="Center"
+                            Click="BackwardButton_OnClick"
+                            Content="🢒"
+                            FontSize="40"
+                            Style="{StaticResource CircularButtonStyle}"
+                            ToolTip="کلمهٔ قبلی" />
+                        <Button
+                            x:Name="NextButton"
+                            Margin="10,-10,0,-10"
+                            VerticalAlignment="Center"
+                            Click="ForwardButton_OnClick"
+                            Content="🢐"
+                            FontSize="40"
+                            Style="{StaticResource CircularButtonStyle}"
+                            ToolTip="کلمهٔ بعدی" />
+                    </StackPanel>
+                    <TextBlock
+                        x:Name="LoadingTextBlock"
+                        Margin="0,0,10,0"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Center"
+                        d:Text="جستجو در طیفی ...">
+                        <TextBlock.Style>
+                            <Style TargetType="{x:Type TextBlock}">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding ElementName=SearchTextBox, Path=IsEnabled}" Value="False">
+                                        <DataTrigger.EnterActions>
+                                            <BeginStoryboard x:Name="MyStoryBoard" Storyboard="{StaticResource LoadingAnimationStoryBoard}" />
+                                        </DataTrigger.EnterActions>
+                                        <DataTrigger.ExitActions>
+                                            <StopStoryboard BeginStoryboardName="MyStoryBoard" />
+                                            <BeginStoryboard>
+                                                <Storyboard TargetProperty="Opacity">
+                                                    <DoubleAnimation To="0" Duration="0:0:0:.4" />
+                                                </Storyboard>
+                                            </BeginStoryboard>
+                                        </DataTrigger.ExitActions>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBlock.Style>
+                    </TextBlock>
+                </Grid>
+
+
+
+                <Button
+                    x:Name="FavoriteButton"
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    Margin="15,0,0,0"
+                    Click="FavoriteButton_OnClick"
+                    Style="{StaticResource CircularButtonStyle}"
+                    ToolTip="فهرستِ کلماتِ ذخیره شده">
+                    <Button.Content>
+                        <Image Source="{StaticResource FavoritesIcon}" />
+                    </Button.Content>
+                </Button>
+
+
+                <StackPanel
+                    Grid.Row="2"
+                    Grid.Column="0"
+                    Grid.ColumnSpan="2"
+                    Margin="3,15,0,0"
+                    d:Visibility="Visible"
+                    Orientation="Horizontal">
+                    <StackPanel.Style>
+                        <Style TargetType="{x:Type StackPanel}">
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding ElementName=CorrectForms, Path=Items.Count}" Value="0">
+                                    <Setter Property="Visibility" Value="Collapsed" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </StackPanel.Style>
+                    <TextBlock
+                        x:Name="EmlaeiLabel"
+                        FontWeight="Light"
+                        Text="پیشنهادِ فرهنگِ املایی: "
+                        ToolTip="مصوّبِ فرهنگستانِ زبان و ادبِ فارسی" />
+                    <ItemsControl
+                        x:Name="CorrectForms"
+                        Margin="-2,-11,0,0"
+                        ItemsSource="{Binding OtherFormsCollection, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <WrapPanel Margin="5" Orientation="Horizontal" />
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <Button
+                                    Margin="0"
+                                    Click="OtherFormsButton_OnClick"
+                                    Content="{Binding .}"
+                                    Style="{StaticResource RegularButtonStyle}" />
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+
+                </StackPanel>
+
+                <Grid
+                    Grid.Row="3"
+                    Grid.Column="0"
+                    Grid.ColumnSpan="2">
+                    <Image
+                        Source="{StaticResource NothingFoundIcon}"
+                        Stretch="None"
+                        Visibility="{Binding ElementName=TabControl, Path=Items.Count, Converter={StaticResource CountToVisibilityConverter}}" />
+                    <TabControl
+                        x:Name="TabControl"
+                        Margin="0,20"
+                        ItemsSource="{Binding ResultCollection, UpdateSourceTrigger=PropertyChanged, IsAsync=True}">
+                        <TabControl.Style>
+                            <Style TargetType="{x:Type TabControl}">
+                                <Setter Property="Padding" Value="10,5,10,5" />
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="TabControl">
+                                            <Grid>
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="Auto" />
+                                                    <RowDefinition Height="*" />
+                                                </Grid.RowDefinitions>
+                                                <ScrollViewer HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Disabled">
+                                                    <TabPanel IsItemsHost="true" />
+                                                </ScrollViewer>
+                                                <Border Grid.Row="1" Padding="5">
+                                                    <ContentPresenter ContentSource="SelectedContent" />
+                                                </Border>
+                                                <Rectangle
+                                                    Grid.Row="0"
+                                                    Height="1"
+                                                    VerticalAlignment="Bottom"
+                                                    Fill="WhiteSmoke" />
+                                            </Grid>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                                <Style.Triggers>
+                                    <Trigger Property="HasItems" Value="False">
+                                        <Setter Property="Visibility" Value="Collapsed" />
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TabControl.Style>
+                        <TabControl.ItemContainerStyle>
+                            <Style TargetType="{x:Type TabItem}">
+                                <Setter Property="Header" Value="{Binding DicName}" />
+                                <Setter Property="ToolTip" Value="{Binding DicDescription}" />
+                                <Setter Property="FocusVisualStyle" Value="{x:Null}" />
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="{x:Type TabItem}">
+                                            <Border
+                                                Name="Border"
+                                                Height="40"
+                                                MinWidth="120"
+                                                Margin="5,0,0,0"
+                                                Padding="10,0,10,0"
+                                                Background="AliceBlue"
+                                                CornerRadius="5,5,0,0">
+                                                <Grid>
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="*" />
+                                                        <ColumnDefinition Width="Auto" />
+                                                    </Grid.ColumnDefinitions>
+                                                    <Label
+                                                        HorizontalAlignment="Center"
+                                                        VerticalAlignment="Center"
+                                                        Content="{Binding DicName}"
+                                                        FontSize="16" />
+                                                    <Border
+                                                        Grid.Column="1"
+                                                        Height="20"
+                                                        MinWidth="40"
+                                                        Margin="0,0,5,0"
+                                                        HorizontalAlignment="Center"
+                                                        VerticalAlignment="Center"
+                                                        Background="White"
+                                                        CornerRadius="10">
+                                                        <TextBlock
+                                                            Margin="0,2,0,0"
+                                                            HorizontalAlignment="Center"
+                                                            VerticalAlignment="Center"
+                                                            FontSize="12"
+                                                            FontWeight="Light"
+                                                            Text="{Binding ResultDoc.Blocks.Count, FallbackValue=0}"
+                                                            TextAlignment="Center" />
+                                                    </Border>
+                                                </Grid>
+                                            </Border>
+
+                                            <ControlTemplate.Triggers>
+                                                <Trigger Property="IsMouseOver" Value="True">
+                                                    <Setter TargetName="Border" Property="Background" Value="LightBlue" />
+                                                </Trigger>
+                                                <Trigger Property="IsSelected" Value="True">
+                                                    <Setter TargetName="Border" Property="Background" Value="#03ABDB" />
+                                                </Trigger>
+                                                <DataTrigger Binding="{Binding ResultDoc.Blocks.Count}" Value="0">
+                                                    <Setter TargetName="Border" Property="Visibility" Value="Collapsed" />
+                                                </DataTrigger>
+                                            </ControlTemplate.Triggers>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                            </Style>
+                        </TabControl.ItemContainerStyle>
+                        <TabControl.ContentTemplate>
+                            <DataTemplate>
+                                <FlowDocumentReader
+                                    x:Name="FlowDocumentReader"
+                                    Document="{Binding ResultDoc, IsAsync=True}"
+                                    IsInactiveSelectionHighlightEnabled="True"
+                                    IsTabStop="False"
+                                    MouseRightButtonUp="FlowDocumentReader_OnMouseRightButtonUp"
+                                    Visibility="{Binding ResultDoc.Blocks.Count, Converter={StaticResource ZeroToVisibilityConverter}}" />
+                            </DataTemplate>
+                        </TabControl.ContentTemplate>
+                    </TabControl>
+                </Grid>
+
+                <Button
+                    x:Name="UpdatedButton"
+                    Grid.Row="4"
+                    Grid.Column="0"
+                    Grid.ColumnSpan="2"
+                    Margin="0,15,0,-32"
+                    HorizontalAlignment="Center"
+                    d:Visibility="Visible"
+                    Click="UpdatedButton_OnClick"
+                    Content="دریافتِ نسخهٔ جدید"
+                    Style="{StaticResource RegularButtonStyle}"
+                    Visibility="{app:SettingBinding HasNewVersion,
+                                                    Converter={StaticResource BoolToVisibilityConverter}}" />
+
+                <tb:TaskbarIcon
+                    x:Name="NotifyIcon"
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    Panel.ZIndex="-10"
+                    d:Visibility="Hidden"
+                    Focusable="False"
+                    IconSource="/Vajehdan;component/Resources/logo.ico"
+                    LeftClickCommand="SystemCommands.RestoreWindowCommand"
+                    NoLeftClickDelay="True"
+                    ToolTipText="واژه‌دان - دستیارِ واژه‌گزینیِ فارسی">
+                    <tb:TaskbarIcon.ContextMenu>
+                        <ContextMenu
+                            Background="White"
+                            FlowDirection="RightToLeft"
+                            FontFamily="{StaticResource VazirUi}"
+                            FontSize="14"
+                            Placement="MousePoint"
+                            Style="{StaticResource ContextMenuStyle}"
+                            UseLayoutRounding="True">
+
+                            <MenuItem
+                                Name="ItemDisableHotkey"
+                                Click="Menu_RunCommand"
+                                Header="از کار انداختنِ کلیدِ میانبر"
+                                IsChecked="{app:SettingBinding OpenByHotKey,
+                                                               Converter={StaticResource BooleanToReverseConverter}}">
+                                <MenuItem.Icon>
+                                    <Image Source="{StaticResource HotkeyIcon}" />
+                                </MenuItem.Icon>
+                            </MenuItem>
+
+                            <MenuItem
+                                Name="ItemSetting"
+                                Click="Menu_RunCommand"
+                                Header="تنظیمات">
+                                <MenuItem.Icon>
+                                    <Image Source="{StaticResource SettingIcon}" />
+                                </MenuItem.Icon>
+                            </MenuItem>
+
+                            <MenuItem
+                                Name="ItemAbout"
+                                Click="Menu_RunCommand"
+                                Header="درباره">
+                                <MenuItem.Icon>
+                                    <Image Source="{StaticResource InfoIcon}" />
+                                </MenuItem.Icon>
+                            </MenuItem>
+
+                            <MenuItem
+                                Name="ItemExit"
+                                Click="Menu_RunCommand"
+                                Header="خروج">
+                                <MenuItem.Icon>
+                                    <Image Source="{StaticResource ShutdownIcon}" />
+                                </MenuItem.Icon>
+                                <MenuItem.Style>
+                                    <Style BasedOn="{StaticResource {x:Type MenuItem}}" TargetType="MenuItem">
+                                        <Style.Triggers>
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter Property="Foreground" Value="Red" />
+                                            </Trigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </MenuItem.Style>
+                            </MenuItem>
+
+                        </ContextMenu>
+                    </tb:TaskbarIcon.ContextMenu>
+                </tb:TaskbarIcon>
+            </Grid>
+        </Border>
+    </Border>
+</Window>

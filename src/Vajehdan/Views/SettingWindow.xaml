@@ -1,0 +1,62 @@
+﻿<Window
+    x:Class="Vajehdan.Views.SettingWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:app="clr-namespace:Vajehdan"
+    xmlns:controls="clr-namespace:Vajehdan.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="تنظیمات"
+    Width="500"
+    Height="306"
+    d:Background="White"
+    Closing="SettingWindow_OnClosing"
+    Style="{StaticResource WindowStyle}"
+    mc:Ignorable="d">
+
+    <DockPanel Margin="35">
+        <controls:CheckBoxControl
+            x:Name="StartByWindowsCheckBox"
+            DockPanel.Dock="Top"
+            FontSize="16"
+            IsChecked="{app:SettingBinding StartByWindows}"
+            Text="‌شروعِ برنامه با ویندوز" />
+
+        <controls:CheckBoxControl
+            x:Name="HotkeyCheckBox"
+            Margin="0,10,0,0"
+            DockPanel.Dock="Top"
+            FontSize="16"
+            IsChecked="{app:SettingBinding OpenByHotKey}"
+            Text="‌نمایشِ پنجره با دوبار کلیدِ Alt" />
+
+        <controls:CheckBoxControl
+            x:Name="ClearHistoryCheckBox"
+            Margin="0,10,0,0"
+            DockPanel.Dock="Top"
+            FontSize="16"
+            IsChecked="{app:SettingBinding ClearHistoryOnClose}"
+            Text="پاکسازیِ تاریخچهٔ جستجوها هنگامِ خروج از برنامه" />
+
+        <controls:CheckBoxControl
+            x:Name="RefreshResultCheckBox"
+            Margin="0,10,0,0"
+            DockPanel.Dock="Top"
+            FontSize="16"
+            IsChecked="{app:SettingBinding RefreshResult}"
+            Text="نوسازیِ نتایج"
+            ToolTip="واژه‌دان هم در عنوانِ مدخل جستجو می‌کند و هم در شرحِ آن. ترتیبِ نمایش نتایج بدین صورت است که: ۱. ابتدا به سیاقِ فرهنگ‌هایِ رایجِ چاپی، مدخل‌هایی نمایش داده می‌شود که عنوانشان دقیقاً برابرِ واژهٔ جستجوشده است. ۲. سپس مدخل‌هایی که واژه در بخشی از عنوانِ آن یافت می‌شود. ۳. و درنهایت مدخل‌هایی که واژهٔ ما در بخشی از شرحِ آن یافت می‌شود. با فعال‌کردنِ این گزینه، هربار که جستجو می‌کنید، ترتیبِ نمایشِ نتایجِ شمارهٔ ۳ به‌هم می‌ریزد تا تمامِ مدخل‌ها شانسِ دیده‌شدن داشته باشند."
+            ToolTipService.ShowDuration="100000" />
+
+        <Button
+            x:Name="ResetButton"
+            Width="190"
+            Margin="0,30,0,0"
+            VerticalAlignment="Bottom"
+            Click="ResetButton_OnClick"
+            Content="بازگردانیِ تنظیماتِ پیش‌فرض"
+            DockPanel.Dock="Bottom"
+            Style="{StaticResource RegularButtonStyle}"
+            Visibility="Collapsed" />
+    </DockPanel>
+</Window>

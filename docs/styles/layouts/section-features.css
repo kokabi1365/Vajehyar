@@ -1,0 +1,28 @@
+.section-features {
+  max-width: 72rem;
+  margin-right: auto;
+  margin-left: auto;
+  font-size: 1.2rem;
+  font-weight: 200;
+}
+
+.section-features__feature-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+@media only screen and (max-width: 900px) {
+  .section-features {
+    font-size: 1.1rem;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .section-features {
+    font-size: 1rem;
+  }
+}
+
+.section-features__item {
+  line-height: 2;
+}

@@ -1,0 +1,14 @@
+.btn {
+  background-color: var(--primary-color);
+  padding: 0.6rem 4rem;
+  border-radius: 0.3rem;
+  text-decoration: none;
+  color: black;
+  font-size: 1.3rem;
+  font-weight: 300;
+  text-align: center;
+}
+
+.btn:active {
+  transform: translateY(2px);
+}

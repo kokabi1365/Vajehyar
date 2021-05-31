@@ -1,0 +1,15 @@
+/* Order matters */
+@import "base/normalize.css";
+@import "base/variables.css";
+@import "base/fonts.css";
+@import "base/global.css";
+
+@import "components/btn.css";
+@import "components/feature.css";
+@import "components/donator.css";
+
+@import "layouts/section-header.css";
+@import "layouts/section-story.css";
+@import "layouts/section-features.css";
+@import "layouts/section-donation.css";
+@import "layouts/section-footer.css";

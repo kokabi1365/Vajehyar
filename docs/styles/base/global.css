@@ -1,0 +1,84 @@
+body {
+  font-family: "vazir";
+  max-width: 80vw;
+  margin: 4rem auto;
+}
+
+section {
+  margin-top: 10rem;
+}
+
+p {
+  font-size: 1.3rem;
+  line-height: 2;
+  font-weight: 200;
+}
+
+h1,
+h2 {
+  font-weight: 300;
+}
+
+a {
+  text-decoration: none;
+  font-weight: 200;
+}
+
+@media only screen and (max-width: 1024px) {
+  body {
+    max-width: 70vw;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  body {
+    max-width: 80vw;
+  }
+}
+
+@media only screen and (max-width: 1190px) {
+  section {
+    margin-top: 6rem;
+  }
+}
+
+@media only screen and (max-width: 650px) {
+  section {
+    margin-top: 3rem;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  p {
+    font-size: 1.2rem;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  h2 {
+    font-size: 1.2rem;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  p {
+    font-size: 1rem;
+  }
+
+  h1 {
+    font-size: 1.3rem;
+    text-align: center;
+  }
+
+  h2 {
+    font-size: 1.1rem;
+    text-align: center;
+  }
+
+  h3 {
+    font-size: 1rem;
+    text-align: center;
+  }
+}

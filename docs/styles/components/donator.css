@@ -1,0 +1,54 @@
+.donator {
+  display: inline-block;
+  list-style: none;
+}
+
+.donator__photo {
+  border-radius: 50%;
+  border: 2px solid #fff;
+  width: 80px;
+  height: 80px;
+  box-shadow: 0 2px 2px #000;
+  margin: 0 auto;
+  display: block;
+}
+
+.donator__name {
+  line-height: initial;
+  font-size: 1rem;
+  color: #000;
+  text-align: center;
+  margin-top: 0.8rem;
+  margin-bottom: 0;
+}
+
+.donator__job {
+  display: block;
+  text-align: center;
+  font-weight: 100;
+  font-size: 1rem;
+}
+
+@media only screen and (max-width: 1024px) {
+  .donator__photo {
+    width: 70px;
+    height: 70px;
+  }
+
+  .donator__name,
+  .donator__job {
+    font-size: 0.9rem;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .donator__photo {
+    width: 60px;
+    height: 60px;
+  }
+
+  .donator__name,
+  .donator__job {
+    font-size: 0.8rem;
+  }
+}

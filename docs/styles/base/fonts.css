@@ -1,0 +1,17 @@
+@font-face {
+  font-family: "vazir";
+  src: url("../../assets/fonts/Vazir-Thin-UI.woff2") format("woff2");
+  font-weight: 100;
+}
+
+@font-face {
+  font-family: "vazir";
+  src: url("../../assets/fonts/Vazir-Regular-UI.woff2") format("woff2");
+  font-weight: 200;
+}
+
+@font-face {
+  font-family: "vazir";
+  src: url("../../assets/fonts/Vazir-Bold-UI.woff2") format("woff2");
+  font-weight: 300;
+}

@@ -1,0 +1,34 @@
+.section-story {
+  display: flex;
+  flex-direction: row-reverse;
+  margin-right: auto;
+  margin-left: auto;
+  flex-wrap: wrap;
+  max-width: 70rem;
+}
+
+.section-story__img {
+  width: 14rem;
+  margin: 2rem auto;
+}
+
+.section-story__description {
+  margin-top: 1.5rem;
+  max-width: 50rem;
+}
+
+@media only screen and (max-width: 900px) {
+  .section-story__img {
+    width: 10rem;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .section-story__img {
+    width: 8rem;
+  }
+
+  .section-story__title {
+    text-align: center;
+  }
+}

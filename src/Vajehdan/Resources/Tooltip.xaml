@@ -1,0 +1,64 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:system="clr-namespace:System;assembly=System.Runtime">
+ 
+
+    <Style TargetType="ToolTip">
+        <Setter Property="OverridesDefaultStyle" Value="true" />
+        <Setter Property="HasDropShadow" Value="True" />
+        <Setter Property="FontFamily" Value="{StaticResource VazirUi}" />
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="Foreground" Value="Black" />
+        <Setter Property="FontWeight" Value="Light" />
+        <Setter Property="FlowDirection" Value="LeftToRight" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate xmlns:mwt="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Aero" TargetType="ToolTip">
+                    <mwt:SystemDropShadowChrome
+                        Name="Shdw"
+                        CornerRadius="2,2,2,2"
+                        SnapsToDevicePixels="True"
+                        Color="#00FFFFFF">
+                        <Border
+                            MaxWidth="500"
+                            Padding="10,10,10,0"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Background="White"
+                            CornerRadius="4">
+                            <ContentPresenter>
+                                <ContentPresenter.Resources>
+                                    <Style TargetType="{x:Type TextBlock}">
+                                        <Setter Property="TextWrapping" Value="Wrap" />
+                                        <Setter Property="TextAlignment" Value="Left" />
+                                        <Setter Property="LineHeight" Value="30" />
+                                        <Setter Property="FlowDirection" Value="RightToLeft" />
+                                    </Style>
+                                </ContentPresenter.Resources>
+                            </ContentPresenter>
+                        </Border>
+                    </mwt:SystemDropShadowChrome>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="ToolTipService.HasDropShadow">
+                            <Setter TargetName="Shdw" Property="FrameworkElement.Margin">
+                                <Setter.Value>
+                                    <Thickness>15</Thickness>
+                                </Setter.Value>
+                            </Setter>
+                            <Setter TargetName="Shdw" Property="mwt:SystemDropShadowChrome.Color">
+                                <Setter.Value>
+                                    <Color>Gray</Color>
+                                </Setter.Value>
+                            </Setter>
+                            <Trigger.Value>
+                                <system:Boolean>True</system:Boolean>
+                            </Trigger.Value>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+</ResourceDictionary>

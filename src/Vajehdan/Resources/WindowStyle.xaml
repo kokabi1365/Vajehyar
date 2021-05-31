@@ -1,0 +1,90 @@
+﻿<ResourceDictionary
+    x:Class="Vajehdan.WindowStyle"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <Style x:Key="WindowStyle" TargetType="{x:Type Window}">
+        <Setter Property="WindowStyle" Value="None" />
+        <Setter Property="FontFamily" Value="{StaticResource VazirUi}" />
+        <Setter Property="ResizeMode" Value="NoResize" />
+        <Setter Property="AllowsTransparency" Value="True" />
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="ShowInTaskbar" Value="True" />
+        <Setter Property="UseLayoutRounding" Value="True" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Window">
+                    <Border
+                        Margin="10"
+                        Padding="0"
+                        BorderBrush="#FF1E97DC"
+                        BorderThickness="2"
+                        CornerRadius="10"
+                        Loaded="FrameworkElement_OnLoaded">
+                        <Border.Effect>
+                            <DropShadowEffect
+                                BlurRadius="20"
+                                Direction="360"
+                                Opacity="0.2" />
+                        </Border.Effect>
+                        <Border.Background>
+                            <LinearGradientBrush StartPoint="0.432,-0.662" EndPoint="0.44,1.109">
+                                <GradientStop Offset="0" Color="AliceBlue" />
+                                <GradientStop Offset="1" Color="White" />
+                            </LinearGradientBrush>
+                        </Border.Background>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Grid
+                                Grid.Row="0"
+                                VerticalAlignment="Top"
+                                Panel.ZIndex="1">
+                                <Button
+                                    Width="25"
+                                    Height="25"
+                                    HorizontalAlignment="Right"
+                                    Panel.ZIndex="1"
+                                    Click="CloseButton_OnClick"
+                                    Content="×"
+                                    FontSize="18"
+                                    IsCancel="True"
+                                    Style="{StaticResource CircularButtonStyle}" />
+
+                                <TextBlock
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    Panel.ZIndex="1"
+                                    FlowDirection="RightToLeft"
+                                    FontFamily="{StaticResource VazirUi}"
+                                    FontSize="14"
+                                    FontWeight="Light"
+                                    Text="{TemplateBinding Title}" />
+                                <Border
+                                    BorderBrush="LightGray"
+                                    BorderThickness="0,0,0,1"
+                                    CornerRadius="10,10,0,0"
+                                    MouseDown="TitleBar_OnMouseDown">
+                                    <Border.Background>
+                                        <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                                            <GradientStop Offset="0.165" Color="AliceBlue" />
+                                            <GradientStop Offset="0.791" Color="White" />
+                                        </LinearGradientBrush>
+                                    </Border.Background>
+                                </Border>
+                            </Grid>
+
+                            <AdornerDecorator Grid.Row="1">
+                                <ContentPresenter />
+                            </AdornerDecorator>
+
+                        </Grid>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+</ResourceDictionary>

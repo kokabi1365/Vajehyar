@@ -1,0 +1,36 @@
+.feature {
+  display: flex;
+  max-width: 80rem;
+  align-items: center;
+  margin-right: auto;
+  margin-left: auto;
+  align-items: flex-start;
+}
+
+.feature--reverse {
+  flex-direction: row-reverse;
+}
+
+.feature__shot {
+  max-width: 100%;
+  margin-left: 5rem;
+}
+
+.feature__description {
+  max-width: 40rem;
+  margin-top: 5rem;
+}
+
+@media only screen and (max-width: 1190px) {
+  .feature {
+    flex-direction: column;
+  }
+
+  .feature__shot {
+    margin-left: 0;
+  }
+
+  .feature__description {
+    margin-top: 2rem;
+  }
+}

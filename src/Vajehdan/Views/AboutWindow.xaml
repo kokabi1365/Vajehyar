@@ -1,0 +1,79 @@
+﻿<Window
+    x:Class="Vajehdan.Views.AboutWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:app="clr-namespace:Vajehdan"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Width="446"
+    Height="290"
+    d:Background="White"
+    DataContext="{Binding RelativeSource={RelativeSource Self}}"
+    Style="{StaticResource WindowStyle}"
+    mc:Ignorable="d">
+
+    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+        <Image
+            Height="48"
+            Margin="0,-15,0,5"
+            HorizontalAlignment="Center"
+            Source="{StaticResource logo}" />
+        <TextBlock FontSize="20" TextAlignment="Center">
+            <Hyperlink
+                NavigateUri="{app:SettingBinding Website,
+                                                 Mode=OneWay}"
+                RequestNavigate="Hyperlink_RequestNavigate"
+                TextDecorations="{x:Null}">
+                واژه‌دان
+            </Hyperlink>
+        </TextBlock>
+        <TextBlock
+            Margin="0,10,0,2"
+            Text="دستیارِ واژه‌گزینیِ فارسی"
+            TextAlignment="Center" />
+        <TextBlock
+            x:Name="VersionTextBlock"
+            d:Text="نسخهٔ 4.2"
+            TextAlignment="Center" />
+
+        <Button
+            x:Name="UpdateButton"
+            HorizontalAlignment="Center"
+            d:Visibility="Visible"
+            Click="UpdateButton_OnClick"
+            Content="دریافتِ نسخهٔ جدید"
+            FlowDirection="RightToLeft"
+            FontFamily="{StaticResource VazirUi}"
+            Style="{StaticResource RegularButtonStyle}"
+            Visibility="{app:SettingBinding HasNewVersion,
+                                            Converter={StaticResource BoolToVisibilityConverter},
+                                            Mode=OneWay}" />
+
+        <TextBlock Margin="0,10,0,0" TextAlignment="Center">
+            <Hyperlink
+                NavigateUri="{app:SettingBinding Donation,
+                                                 Mode=OneWay}"
+                RequestNavigate="Hyperlink_RequestNavigate"
+                TextDecorations="{x:Null}">
+                حمایت از سازنده
+            </Hyperlink>
+        </TextBlock>
+
+
+        <StackPanel.Triggers>
+            <EventTrigger RoutedEvent="StackPanel.Loaded">
+                <BeginStoryboard>
+                    <Storyboard>
+                        <DoubleAnimation
+                            SpeedRatio="3"
+                            Storyboard.TargetProperty="Opacity"
+                            From="0"
+                            To="1"
+                            Duration="0:0:2" />
+                    </Storyboard>
+                </BeginStoryboard>
+            </EventTrigger>
+        </StackPanel.Triggers>
+    </StackPanel>
+
+</Window>

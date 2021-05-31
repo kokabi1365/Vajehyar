@@ -1,0 +1,31 @@
+ __   __            (_)           _          _                   
+ \ \ / /  __ _      | |    ___   | |_     __| |   __ _    _ _    
+  \ V /  / _` |    _/ |   / -_)  | ' \   / _` |  / _` |  | ' \   
+  _\_/_  \__,_|   |__/_   \___|  |_||_|  \__,_|  \__,_|  |_||_|  
+
+/* TEAM */
+Created by: Sayyid Ayub Kokabi.
+Email: kokabi1365@gmail.com.
+Telegram: @kokabi1365. 
+Website: https://virgool.io/@kokabi.
+Location: Quchan, Iran.
+
+/* APP */
+OS: Windows 10 X64.
+Languages and framework: C#, WPF.
+IDE and extensions: Visual Studio, Resharper.
+Tools: Adobe Photoshop, Adobe Illustrator, Adobe XD, Git, Github, Bitbucket, Inno Setup.
+Libraries: 
+- Hardcodet NotifyIcon      | https://github.com/hardcodet/wpf-notifyicon.
+- octokit.net               | https://github.com/octokit/octokit.net.
+- Global Hot Key            | https://github.com/kyrylomyr/GlobalHotKey.
+- WPFTextBoxAutoComplete    | https://github.com/Nimgoble/WPFTextBoxAutoComplete.
+- Ben.Demystifier           | https://github.com/benaadams/Ben.Demystifier.
+
+/* SITE */
+Tools: VSCode, Chrome, Photoshop, Illustrator, Adobe XD, ScreenToGif, Git, Github.
+Languages/components/standards/metodologies: HTML5, CSS3, JavaScript, jQuery, BEM.
+Fonts: Vazir (https://rastikerdar.github.io/vazir-font/).
+
+/* THANKS */
+Thanks to everyone who helped me in any way.

@@ -1,0 +1,54 @@
+.section-footer {
+  max-width: 50rem;
+  margin-top: 10rem;
+  margin-right: auto;
+  margin-left: auto;
+  font-weight: 100;
+}
+
+.section-footer__developer,
+.section-footer__email {
+  display: block;
+  margin-top: 0.6rem;
+}
+
+.section-footer__info {
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+.section-footer__github {
+  display: block;
+  font-size: 0.8rem;
+  margin-top: 0.2rem;
+}
+
+.section-footer__github-logo {
+  width: 1.3rem;
+  margin-bottom: -0.4rem;
+}
+
+@media only screen and (max-width: 900px) {
+  .section-footer {
+    margin-top: 4rem;
+  }
+
+  .section-footer__donation {
+    max-width: 7rem;
+    font-size: 1rem;
+  }
+}
+
+@media only screen and (max-width: 390px) {
+  .section-footer__donation {
+    padding: 0.6rem 2rem;
+  }
+
+  .section-footer__donation,
+  .section-footer__thanks,
+  .section-footer__developer,
+  .section-footer__email,
+  .section-footer__github {
+    font-size: 0.9rem;
+  }
+}

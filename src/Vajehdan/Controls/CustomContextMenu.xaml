@@ -1,0 +1,53 @@
+﻿<ContextMenu
+    x:Class="Vajehdan.Controls.CustomContextMenu"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    FontFamily="{StaticResource VazirUi}"
+    FontSize="15"
+    FontWeight="Thin"
+    Placement="AbsolutePoint"
+    Style="{StaticResource ContextMenuStyle}"
+    mc:Ignorable="d">
+    <MenuItem
+        x:Name="FindItem"
+        Click="MenuItem_OnClick"
+        Header="جستجو">
+        <MenuItem.Icon>
+            <Image Source="{StaticResource SearchIcon}" />
+        </MenuItem.Icon>
+    </MenuItem>
+    <MenuItem
+        x:Name="FindItemInNewWindow"
+        Click="MenuItem_OnClick"
+        Header="جستجو در پنجرهٔ جدید">
+        <MenuItem.Icon>
+            <Image Source="{StaticResource SearchInNewWindow}" />
+        </MenuItem.Icon>
+    </MenuItem>
+    <MenuItem
+        x:Name="CopyItem"
+        Click="MenuItem_OnClick"
+        Header="کپی">
+        <MenuItem.Icon>
+            <Image Source="{StaticResource CopyIcon}" />
+        </MenuItem.Icon>
+    </MenuItem>
+    <MenuItem
+        x:Name="SearchItem"
+        Click="MenuItem_OnClick"
+        Header="جستجو در گوگل">
+        <MenuItem.Icon>
+            <Image Source="{StaticResource GoogleIcon}" />
+        </MenuItem.Icon>
+    </MenuItem>
+    <MenuItem
+        x:Name="FavoriteItem"
+        Click="MenuItem_OnClick"
+        Header="ذخیره">
+        <MenuItem.Icon>
+            <Image Source="{StaticResource FavoritesIcon}" />
+        </MenuItem.Icon>
+    </MenuItem>
+</ContextMenu>

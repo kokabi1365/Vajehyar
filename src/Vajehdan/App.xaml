@@ -1,0 +1,46 @@
+﻿<Application
+    x:Class="Vajehdan.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:converters="clr-namespace:Vajehdan.Converters"
+    Exit="App_OnExit"
+    StartupUri="Views/MainWindow.xaml">
+
+    <Application.Resources>
+        <ResourceDictionary>
+
+            <ResourceDictionary.MergedDictionaries>
+
+                <ResourceDictionary>
+                    <WindowStartupLocation x:Key="Wsl">CenterScreen</WindowStartupLocation>
+                    <FontFamily x:Key="VazirUi">pack://application:,,,/Resources/Fonts/#Vazir FD-UI</FontFamily>
+
+                    <converters:CountToVisibilityConverter x:Key="CountToVisibilityConverter" />
+                    <converters:ZeroToVisibilityConverter x:Key="ZeroToVisibilityConverter" />
+                    <BooleanToVisibilityConverter x:Key="BoolToVisibilityConverter" />
+                    <converters:BooleanToReverseConverter x:Key="BooleanToReverseConverter" />
+                    <converters:DicToEntriesCountConverter x:Key="DicToEntriesCountConverter" />
+
+                    <Storyboard x:Key="LoadingAnimationStoryBoard" TargetProperty="Opacity">
+                        <DoubleAnimation
+                            AutoReverse="True"
+                            RepeatBehavior="Forever"
+                            From="1"
+                            To="0"
+                            Duration="0:0:0:.4" />
+                    </Storyboard>
+                </ResourceDictionary>
+
+                <ResourceDictionary Source="Resources/Icons.xaml" />
+                <ResourceDictionary Source="Resources/Borders.xaml" />
+                <ResourceDictionary Source="Resources/Buttons.xaml" />
+                <ResourceDictionary Source="Resources/Menus.xaml" />
+                <ResourceDictionary Source="Resources/Scrollbar.xaml" />
+                <ResourceDictionary Source="Resources/Tooltip.xaml" />
+                <ResourceDictionary Source="Resources/WindowStyle.xaml" />
+                <ResourceDictionary Source="Resources/FlowDocument.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+
+    </Application.Resources>
+</Application>

@@ -1,0 +1,101 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup Label="Build">
+    <TargetFramework>net5.0-windows</TargetFramework>
+    <OutputType>WinExe</OutputType>
+    <TargetCulture>fa-IR</TargetCulture>
+    <ProductName>واژه یار</ProductName>
+    <PublisherName>سید ایوب کوکبی</PublisherName>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <UseWindowsForms>true</UseWindowsForms>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <AppendRuntimeIdentifierToOutputPath>false</AppendRuntimeIdentifierToOutputPath>
+    <ProduceReferenceAssembly>false</ProduceReferenceAssembly>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <ApplicationIcon>Resources\logo.ico</ApplicationIcon>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <OutputPath>..\..\artifacts\debug\</OutputPath>
+    <BaseIntermediateOutputPath>..\..\artifacts\obj\debug\</BaseIntermediateOutputPath>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <OutputPath>..\..\artifacts\release\</OutputPath>
+    <BaseIntermediateOutputPath>..\..\artifacts\obj\release\</BaseIntermediateOutputPath>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="obj\**" />
+    <EmbeddedResource Remove="obj\**" />
+    <None Remove="obj\**" />
+    <Page Remove="obj\**" />
+  </ItemGroup>
+
+  <ItemGroup Label="Package References">
+    <PackageReference Include="Ben.Demystifier" Version="0.3.0" />
+    <PackageReference Include="GlobalHotKeyCore" Version="1.2.0" />
+    <PackageReference Include="Hardcodet.NotifyIcon.Wpf.NetCore" Version="1.0.18" />
+    <PackageReference Include="Octokit" Version="0.50.0" />
+    <PackageReference Include="WPFTextBoxAutoComplete" Version="1.0.5" />
+  </ItemGroup>
+
+  <ItemGroup Label="Resources">
+    <Resource Include="Resources\Fonts\Vazir-Black-FD-UI.ttf" />
+    <Resource Include="Resources\Fonts\Vazir-Bold-FD-UI.ttf" />
+    <Resource Include="Resources\Fonts\Vazir-Light-FD-UI.ttf" />
+    <Resource Include="Resources\Fonts\Vazir-Medium-FD-UI.ttf" />
+    <Resource Include="Resources\Fonts\Vazir-Regular-FD-UI.ttf" />
+    <Resource Include="Resources\Fonts\Vazir-Thin-FD-UI.ttf" />
+    <Resource Include="Resources\logo.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Resources\WindowStyle.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Resources\Fonts\Vazir-Black-FD-UI.ttf" />
+    <None Remove="Resources\Fonts\Vazir-Bold-FD-UI.ttf" />
+    <None Remove="Resources\Fonts\Vazir-Light-FD-UI.ttf" />
+    <None Remove="Resources\Fonts\Vazir-Medium-FD-UI.ttf" />
+    <None Remove="Resources\Fonts\Vazir-Regular-FD-UI.ttf" />
+    <None Remove="Resources\Fonts\Vazir-Thin-FD-UI.ttf" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Properties\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Properties\Settings.Designer.cs">
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Properties\Settings.settings">
+      <Generator>PublicSettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+
+
+
+</Project>
