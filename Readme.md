@@ -4,6 +4,7 @@
   
 ![](https://img.shields.io/github/downloads/kokabi1365/vajehdan/total)
 ![](https://img.shields.io/github/v/release/kokabi1365/vajehdan)
+![](https://img.shields.io/github/license/kokabi1365/vajehdan)
   
 </div>
   
