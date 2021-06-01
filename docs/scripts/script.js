@@ -1,4 +1,4 @@
-     //This code inspired by https://github.com/rastikerdar/vazir-font/blob/gh-pages/index.html
+//This code inspired by https://github.com/rastikerdar/vazir-font/blob/gh-pages/index.html
 function loadDonators(donators) {
   $.getJSON(
     "https://api.github.com/repos/kokabi1365/vajehdan",
@@ -35,10 +35,14 @@ function loadDonators(donators) {
     if (donator.website)
       li += `<a href="${donator.website}" rel="nofollow" target="_blank" title="${donator.date}">`;
 
-    li += `<img class="donator__photo" src="${donator.photo}" alt="${donator.name}">
+    li += `<img class="donator__photo" src="${donator.photo}" alt="${donator.name}" title=${donator.date}>
     <p class="donator__name">${donator.name}</p>`;
 
     if (donator.job) li += `<span class="donator__job">${donator.job}</span>`;
+
+    li += `<span class="donator__amount">${toPersianNumber(
+      formatNumber(donator.amount)
+    )} تومان</span>`;
 
     if (donator.website) li += "</a>";
 
@@ -63,7 +67,7 @@ function formatNumber(x) {
   return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, "٬");
 }
 
-$(function () {  
+$(function () {
   $.getJSON("scripts/donators.json").done(function (donators) {
     donators.sort(function (a, b) {
       return b.date.localeCompare(a.date);

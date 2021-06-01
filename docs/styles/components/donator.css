@@ -29,6 +29,14 @@
   font-size: 1rem;
 }
 
+.donator__amount{
+  display: block;
+  text-align: center;
+  font-weight: 100;
+  font-size: .8rem;
+  margin-top: .5rem;
+}
+
 @media only screen and (max-width: 1024px) {
   .donator__photo {
     width: 70px;
