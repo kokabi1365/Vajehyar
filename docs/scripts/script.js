@@ -1,13 +1,12 @@
 //This code inspired by https://github.com/rastikerdar/vazir-font/blob/gh-pages/index.html
 function loadDonators(donators) {
-  $.getJSON(
-    "https://api.github.com/repos/kokabi1365/vajehdan",
-    function (repo) {
-      $(".section-donation__project-life-span").html(
-        toPersianNumber(yearsSince(repo.created_at))
-      );
-    }
-  );
+  $.getJSON("https://api.github.com/repos/kokabi1365/vajehdan").done(function (
+    repo
+  ) {
+    $(".section-donation__project-life-span").html(
+      toPersianNumber(yearsSince(repo.created_at))
+    );
+  });
 
   $(".section-donation__counter").html(toPersianNumber(donators.length));
 
@@ -68,6 +67,14 @@ function formatNumber(x) {
 }
 
 $(function () {
+  $.getJSON("https://api.github.com/repos/kokabi1365/vajehdan/releases").done(
+    function (releases) {
+      var lastRelease = releases[0];
+      var downloadURL = lastRelease.assets[0].browser_download_url;
+      $(".section-header__btn").attr("href", downloadURL);
+    }
+  );
+
   $.getJSON("scripts/donators.json").done(function (donators) {
     donators.sort(function (a, b) {
       return b.date.localeCompare(a.date);
