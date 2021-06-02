@@ -10,11 +10,11 @@
 }
 
 .section-header__logo {
-  width: 6rem;  
+  width: 6rem;
 }
 
 .section-header__title {
-  margin-top: 3rem;  
+  margin-top: 3rem;
 }
 
 .section-header__subtitle {
@@ -28,6 +28,7 @@
 
 .section-header__btn {
   margin-top: 2rem;
+  margin-bottom: 1rem;
 }
 
 .section-header__platform {
