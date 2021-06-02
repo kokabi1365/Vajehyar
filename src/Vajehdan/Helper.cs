@@ -95,7 +95,6 @@ namespace Vajehdan
                 .Replace("ك", "ک")
                 .Replace("ي", "ی")
                 .Replace("ؤ", "و")
-                .Replace("آ", "ا")
                 .Replace("أ", "ا")
                 .Replace("إ", "ا");
         }
