@@ -1,15 +1,15 @@
 [
   {
     "date": "1400/03/28",
-        "name": "پدرام",
+    "name": "پدرام",
     "job": "",
     "website": "",
     "photo": "",
     "amount": 35000
-  },  
+  },
   {
     "date": "1400/03/14",
-        "name": "م ر",
+    "name": "م ر",
     "job": "",
     "website": "",
     "photo": "",
@@ -17,8 +17,8 @@
   },
   {
     "date": "1400/03/11",
-        "name": "محمود آراسته‌نسب",
-        "job": "گرافیست",
+    "name": "محمود آراسته‌نسب",
+    "job": "گرافیست",
     "website": "https://igds.ir/asarProfile1746",
     "photo": "https://aptopclub.com/images/uploads/100_160015183877457.jpg",
     "amount": 25000
